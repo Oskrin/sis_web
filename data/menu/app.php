@@ -13,7 +13,7 @@ function banner(){
 	print'
 	<header class="main-header">
         <!-- Logo -->
-        <a href="index2.html" class="logo"><b>Admin</b>LTE</a>
+        <a href="index.php" class="logo"><b>SISWEB</b></a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
@@ -28,6 +28,7 @@ function banner(){
                   <i class="fa fa-envelope-o"></i>
                   <span class="label label-success">4</span>
                 </a>
+
                 <ul class="dropdown-menu">
                   <li class="header">You have 4 messages</li>
                   <li>
@@ -45,6 +46,7 @@ function banner(){
                           <p>Why not buy a new awesome theme?</p>
                         </a>
                       </li><!-- end message -->
+                      
                       <li>
                         <a href="#">
                           <div class="pull-left">
