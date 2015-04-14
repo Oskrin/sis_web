@@ -1,722 +1,424 @@
 <?php 
 // pie de pagina
 function footer(){
-	print' <footer class="footer-content">
-                    2014 - 2015 &copy; Blankon Admin. Created by <a href="http://djavaui.com/" target="_blank">Djava UI</a>, Yogyakarta ID
-                    <span class="pull-right">0.01 GB(0%) of 15 GB used</span>
-                </footer><!-- /.footer-content -->';
+	print' <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> 2.0
+        </div>
+        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+      </footer>';
 }
 // banner o cabecera
 function banner(){
 	print'
-	<header id="header">
-        <!-- Start header left -->
-        <div class="header-left">
-            <!-- Start offcanvas left: This menu will take position at the top of template header (mobile only). Make sure that only #header have the `position: relative`, or it may cause unwanted behavior -->
-            <div class="navbar-minimize-mobile left">
-                <i class="fa fa-bars"></i>
-            </div>
-            <!--/ End offcanvas left -->
-
-            <!-- Start navbar header -->
-            <div class="navbar-header">
-
-                <!-- Start brand -->
-                <a class="navbar-brand" href="dashboard.html">
-                    <img class="logo" src="../../dist/global/img/logo/logo-white.png" alt="brand logo"/>
-                </a><!-- /.navbar-brand -->
-                <!--/ End brand -->
-
-            </div><!-- /.navbar-header -->
-            <!--/ End navbar header -->
-
-            <!-- Start offcanvas right: This menu will take position at the top of template header (mobile only). Make sure that only #header have the `position: relative`, or it may cause unwanted behavior -->
-            <div class="navbar-minimize-mobile right">
-                <i class="fa fa-cog"></i>
-            </div>
-            <!--/ End offcanvas right -->
-
-            <div class="clearfix"></div>
-        </div><!-- /.header-left -->
-        <!--/ End header left -->
-
-        <!-- Start header right -->
-        <div class="header-right">
-            <!-- Start navbar toolbar -->
-            <div class="navbar navbar-toolbar">
-
-                <!-- Start left navigation -->
-                <ul class="nav navbar-nav navbar-left">
-
-                    <!-- Start sidebar shrink -->
-                    <li class="navbar-minimize">
-                        <a href="javascript:void(0);" title="Minimize sidebar">
-                            <i class="fa fa-bars"></i>
+	<header class="main-header">
+        <!-- Logo -->
+        <a href="index2.html" class="logo"><b>Admin</b>LTE</a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- Messages: style can be found in dropdown.less-->
+              <li class="dropdown messages-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-envelope-o"></i>
+                  <span class="label label-success">4</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 4 messages</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li><!-- start message -->
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
+                          </div>
+                          <h4>
+                            Support Team
+                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                          </h4>
+                          <p>Why not buy a new awesome theme?</p>
                         </a>
-                    </li>
-                    <!--/ End sidebar shrink -->
-
-                    <!-- Start form search -->
-                    <li class="navbar-search">
-                        <!-- Just view on mobile screen-->
-                        <a href="#" class="trigger-search"><i class="fa fa-search"></i></a>
-                        <form class="navbar-form">
-                            <div class="form-group has-feedback">
-                                <input type="text" class="form-control typeahead rounded" placeholder="Search for people, places and things">
-                                <button type="submit" class="btn btn-theme fa fa-search form-control-feedback rounded"></button>
-                            </div>
-                        </form>
-                    </li>
-                    <!--/ End form search -->
-
-                </ul><!-- /.nav navbar-nav navbar-left -->
-                <!--/ End left navigation -->
-
-                <!-- Start right navigation -->
-                <ul class="nav navbar-nav navbar-right"><!-- /.nav navbar-nav navbar-right -->
-
-                <!-- Start messages -->
-                <li class="dropdown navbar-message">
-
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope-o"></i><span class="count label label-danger rounded">7</span></a>
-
-                    <!-- Start dropdown menu -->
-                    <div class="dropdown-menu animated flipInX">
-                        <div class="dropdown-header">
-                            <span class="title">Messages <strong>(7)</strong></span>
-                            <span class="option text-right"><a href="#">+ New message</a></span>
-                        </div>
-                        <div class="dropdown-body">
-
-                            <!-- Start message search -->
-                            <form class="form-horizontal" action="#">
-                                <div class="form-group has-feedback has-feedback-sm m-5">
-                                    <input type="text" class="form-control input-sm" placeholder="Search message...">
-                                    <button type="submit" class="btn btn-theme fa fa-search form-control-feedback"></button>
-                                </div>
-                            </form>
-                            <!--/ End message search -->
-
-                            <!-- Start message list -->
-                            <div class="media-list niceScroll">
-
-                                <a href="page-messages.html" class="media">
-                                    <div class="pull-left"><img src="../../dist/global/img/avatar/50/2.png" class="media-object img-circle" alt="John Kribo"/></div>
-                                    <div class="media-body">
-                                        <span class="media-heading">John Kribo</span>
-                                        <span class="media-text">I was impressed how fast the content is loaded. Congratulations. nice design.</span>
-                                        <!-- Start meta icon -->
-                                        <span class="media-meta"><i class="fa fa-reply"></i></span>
-                                        <span class="media-meta"><i class="fa fa-paperclip"></i></span>
-                                        <span class="media-meta pull-right">13 minutes</span>
-                                        <!--/ End meta icon -->
-                                    </div><!-- /.media-body -->
-                                </a><!-- /.media -->
-
-                                <a href="page-messages.html" class="media">
-                                    <div class="pull-left"><img src="../../dist/global/img/avatar/50/3.png" class="media-object img-circle" alt="Jennifer Poiyem"/></div>
-                                    <div class="media-body">
-                                        <span class="media-heading">Jennifer Poiyem</span>
-                                        <span class="media-text">It’s Simple, Clean & Nice .. Good work Dear .. GLWS</span>
-                                        <!-- Start meta icon -->
-                                        <span class="media-meta pull-right">17 hours</span>
-                                        <!--/ End meta icon -->
-                                    </div><!-- /.media-body -->
-                                </a><!-- /.media -->
-
-                                <a href="page-messages.html" class="media">
-                                    <div class="pull-left"><img src="../../dist/global/img/avatar/50/4.png" class="media-object img-circle" alt="Clara Wati"/></div>
-                                    <div class="media-body">
-                                        <span class="media-heading">Clara Wati</span>
-                                        <span class="media-text">Great work! Do you have any plans to add loading indicators for AJAX calls that might take longer than normal?</span>
-                                        <!-- Start meta icon -->
-                                        <span class="media-meta pull-right">1 days</span>
-                                        <!--/ End meta icon -->
-                                    </div><!-- /.media-body -->
-                                </a><!-- /.media -->
-
-                                <a href="page-messages.html" class="media">
-                                    <div class="pull-left"><img src="../../dist/global/img/avatar/50/5.png" class="media-object img-circle" alt="Toni Mriang"/></div>
-                                    <div class="media-body">
-                                        <span class="media-heading">Toni Mriang</span>
-                                        <span class="media-text">I am very interested in the theme and I’m thinking about buying it.</span>
-                                        <!-- Start meta icon -->
-                                        <span class="media-meta"><i class="fa fa-paperclip"></i></span>
-                                        <span class="media-meta pull-right">2 days</span>
-                                        <!--/ End meta icon -->
-                                    </div><!-- /.media-body -->
-                                </a><!-- /.media -->
-
-                                <a href="page-messages.html" class="media">
-                                    <div class="pull-left"><img src="../../dist/global/img/avatar/50/6.png" class="media-object img-circle" alt="Bella negoro"/></div>
-                                    <div class="media-body">
-                                        <span class="media-heading">Bella negoro</span>
-                                        <span class="media-text">Great work! Good luck!</span>
-                                        <!-- Start meta icon -->
-                                        <span class="media-meta"><i class="fa fa-paperclip"></i></span>
-                                        <span class="media-meta"><i class="fa fa-user"></i></span>
-                                        <span class="media-meta pull-right">1 week</span>
-                                        <!--/ End meta icon -->
-                                    </div><!-- /.media-body -->
-                                </a><!-- /.media -->
-
-                                <a href="page-messages.html" class="media">
-                                    <div class="pull-left"><img src="../../dist/global/img/avatar/50/7.png" class="media-object img-circle" alt="Kim Mbako"/></div>
-                                    <div class="media-body">
-                                        <span class="media-heading">Kim Mbako</span>
-                                        <span class="media-text">Hi! First of all, thank you for the very nice theme for creating awesome web applications :)</span>
-                                        <!-- Start meta icon -->
-                                        <span class="media-meta"><i class="fa fa-paperclip"></i></span>
-                                        <span class="media-meta pull-right">1 week</span>
-                                        <!--/ End meta icon -->
-                                    </div><!-- /.media-body -->
-                                </a><!-- /.media -->
-
-                                <a href="page-messages.html" class="media">
-                                    <div class="pull-left"><img src="../../dist/global/img/avatar/50/8.png" class="media-object img-circle" alt="Pack Suparman"/></div>
-                                    <div class="media-body">
-                                        <span class="media-heading">Pack Suparman</span>
-                                        <span class="media-text">Apik temen kie jan template, nyong gep tuku jal..</span>
-                                        <!-- Start meta icon -->
-                                        <span class="media-meta pull-right">1 week</span>
-                                        <!--/ End meta icon -->
-                                    </div><!-- /.media-body -->
-                                </a><!-- /.media -->
-
-                                <!-- Start message indicator -->
-                                <a href="#" class="media indicator inline">
-                                    <span class="spinner">Load more messages...</span>
-                                </a>
-                                <!--/ End message indicator -->
-
-                            </div>
-                            <!--/ End message list -->
-
-                        </div>
-                        <div class="dropdown-footer">
-                            <a href="page-messages.html">See All</a>
-                        </div>
-                    </div>
-                    <!--/ End dropdown menu -->
-
-                </li><!-- /.dropdown navbar-message -->
-                <!--/ End messages -->
-
-                <!-- Start notifications -->
-                <li class="dropdown navbar-notification">
-
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o"></i><span class="count label label-danger rounded">6</span></a>
-
-                    <!-- Start dropdown menu -->
-                    <div class="dropdown-menu animated flipInX">
-                        <div class="dropdown-header">
-                            <span class="title">Notifications <strong>(10)</strong></span>
-                            <span class="option text-right"><a href="#"><i class="fa fa-cog"></i> Setting</a></span>
-                        </div>
-                        <div class="dropdown-body niceScroll">
-
-                            <!-- Start notification list -->
-                            <div class="media-list small">
-
-                                <a href="#" class="media">
-                                    <div class="media-object pull-left"><i class="fa fa-share-alt fg-info"></i></div>
-                                    <div class="media-body">
-                                        <span class="media-text"><strong>Dolanan Remi : </strong><strong>Chris Job,</strong><strong>Denny Puk</strong> and <strong>Joko Fernandes</strong> sent you <strong>5 free energy boosts and other request</strong></span>
-                                        <!-- Start meta icon -->
-                                        <span class="media-meta">3 minutes</span>
-                                        <!--/ End meta icon -->
-                                    </div><!-- /.media-body -->
-                                </a><!-- /.media -->
-
-                                <a href="#" class="media">
-                                    <div class="media-object pull-left"><i class="fa fa-cogs fg-success"></i></div>
-                                    <div class="media-body">
-                                        <span class="media-text">Your sistem is updated</span>
-                                        <!-- Start meta icon -->
-                                        <span class="media-meta">5 minutes</span>
-                                        <!--/ End meta icon -->
-                                    </div><!-- /.media-body -->
-                                </a><!-- /.media -->
-
-                                <a href="#" class="media">
-                                    <div class="media-object pull-left"><i class="fa fa-ban fg-danger"></i></div>
-                                    <div class="media-body">
-                                        <span class="media-text">3 Member is BANNED</span>
-                                        <!-- Start meta icon -->
-                                        <span class="media-meta">5 minutes</span>
-                                        <!--/ End meta icon -->
-                                    </div><!-- /.media-body -->
-                                </a><!-- /.media -->
-
-                                <a href="#" class="media">
-                                    <div class="media-object pull-left"><img class="img-circle" src="../../dist/global/img/avatar/50/10.png" alt=""/></div>
-                                    <div class="media-body">
-                                        <span class="media-text">daddy pushed to project Blankon version 1.0.0</span>
-                                        <!-- Start meta icon -->
-                                        <span class="media-meta">45 minutes</span>
-                                        <!--/ End meta icon -->
-                                    </div><!-- /.media-body -->
-                                </a><!-- /.media -->
-
-                                <a href="#" class="media">
-                                    <div class="media-object pull-left"><i class="fa fa-user fg-info"></i></div>
-                                    <div class="media-body">
-                                        <span class="media-text">Change your user profile</span>
-                                        <!-- Start meta icon -->
-                                        <span class="media-meta">1 days</span>
-                                        <!--/ End meta icon -->
-                                    </div><!-- /.media-body -->
-                                </a><!-- /.media -->
-
-                                <a href="#" class="media">
-                                    <div class="media-object pull-left"><i class="fa fa-book fg-info"></i></div>
-                                    <div class="media-body">
-                                        <span class="media-text">Added new article</span>
-                                        <!-- Start meta icon -->
-                                        <span class="media-meta">1 days</span>
-                                        <!--/ End meta icon -->
-                                    </div><!-- /.media-body -->
-                                </a><!-- /.media -->
-
-                                <!-- Start notification indicator -->
-                                <a href="#" class="media indicator inline">
-                                    <span class="spinner">Load more notifications...</span>
-                                </a>
-                                <!--/ End notification indicator -->
-
-                            </div>
-                            <!--/ End notification list -->
-
-                        </div>
-                        <div class="dropdown-footer">
-                            <a href="#">See All</a>
-                        </div>
-                    </div>
-                    <!--/ End dropdown menu -->
-
-                </li><!-- /.dropdown navbar-notification -->
-                <!--/ End notifications -->
-
-                <!-- Start profile -->
-                <li class="dropdown navbar-profile">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <span class="meta">
-                            <span class="avatar"><img src="../../dist/global/img/avatar/35/1.png" class="img-circle" alt="admin"></span>
-                            <span class="text hidden-xs hidden-sm text-muted">Tol Lee</span>
-                            <span class="caret"></span>
-                        </span>
-                    </a>
-                    <!-- Start dropdown menu -->
-                    <ul class="dropdown-menu animated flipInX">
-                        <li class="dropdown-header">Account</li>
-                        <li><a href="page-profile.html"><i class="fa fa-user"></i>View profile</a></li>
-                        <li><a href="mail-inbox.html"><i class="fa fa-envelope-square"></i>Inbox <span class="label label-info pull-right">30</span></a></li>
-                        <li><a href="#"><i class="fa fa-share-square"></i>Invite a friend</a></li>
-                        <li class="dropdown-header">Product</li>
-                        <li><a href="#"><i class="fa fa-upload"></i>Upload</a></li>
-                        <li><a href="#"><i class="fa fa-dollar"></i>Earning</a></li>
-                        <li><a href="#"><i class="fa fa-download"></i>Withdrawals</a></li>
-                        <li class="divider"></li>
-                        <li><a href="page-signin.html"><i class="fa fa-sign-out"></i>Logout</a></li>
+                      </li><!-- end message -->
+                      <li>
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
+                          </div>
+                          <h4>
+                            AdminLTE Design Team
+                            <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                          </h4>
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="../../dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
+                          </div>
+                          <h4>
+                            Developers
+                            <small><i class="fa fa-clock-o"></i> Today</small>
+                          </h4>
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
+                          </div>
+                          <h4>
+                            Sales Department
+                            <small><i class="fa fa-clock-o"></i> Yesterday</small>
+                          </h4>
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="../../dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
+                          </div>
+                          <h4>
+                            Reviewers
+                            <small><i class="fa fa-clock-o"></i> 2 days</small>
+                          </h4>
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li>
                     </ul>
-                    <!--/ End dropdown menu -->
-                </li><!-- /.dropdown navbar-profile -->
-                <!--/ End profile -->
-
-                <!-- Start settings -->
-                <li class="navbar-setting pull-right">
-                    <a href="javascript:void(0);"><i class="fa fa-cog fa-spin"></i></a>
-                </li><!-- /.navbar-setting pull-right -->
-                <!--/ End settings -->
-
+                  </li>
+                  <li class="footer"><a href="#">See All Messages</a></li>
                 </ul>
-                <!--/ End right navigation -->
+              </li>
+              <!-- Notifications: style can be found in dropdown.less -->
+              <li class="dropdown notifications-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-bell-o"></i>
+                  <span class="label label-warning">10</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 10 notifications</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-users text-red"></i> 5 new members joined
+                        </a>
+                      </li>
 
-            </div><!-- /.navbar-toolbar -->
-            <!--/ End navbar toolbar -->
-        </div><!-- /.header-right -->
-        <!--/ End header left -->
-
-    </header> 
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-shopping-cart text-green"></i> 25 sales made
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-user text-red"></i> You changed your username
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="footer"><a href="#">View all</a></li>
+                </ul>
+              </li>
+              <!-- Tasks: style can be found in dropdown.less -->
+              <li class="dropdown tasks-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-flag-o"></i>
+                  <span class="label label-danger">9</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 9 tasks</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <h3>
+                            Design some buttons
+                            <small class="pull-right">20%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">20% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li><!-- end task item -->
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <h3>
+                            Create a nice theme
+                            <small class="pull-right">40%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">40% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li><!-- end task item -->
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <h3>
+                            Some task I need to do
+                            <small class="pull-right">60%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">60% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li><!-- end task item -->
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <h3>
+                            Make beautiful transitions
+                            <small class="pull-right">80%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">80% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li><!-- end task item -->
+                    </ul>
+                  </li>
+                  <li class="footer">
+                    <a href="#">View all tasks</a>
+                  </li>
+                </ul>
+              </li>
+              <!-- User Account: style can be found in dropdown.less -->
+              <li class="dropdown user user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
+                  <span class="hidden-xs">Alexander Pierce</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- User image -->
+                  <li class="user-header">
+                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                    <p>
+                      Alexander Pierce - Web Developer
+                      <small>Member since Nov. 2012</small>
+                    </p>
+                  </li>
+                  <!-- Menu Body -->
+                  <li class="user-body">
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Followers</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Sales</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Friends</a>
+                    </div>
+                  </li>
+                  <!-- Menu Footer-->
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-default btn-flat">Profile</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
 ';
 }
 // menu principal lateral
 function menu_lateral(){
 print'
-<aside id="sidebar-left" class="sidebar-circle">
-
-        <!-- Start left navigation - profile shortcut -->
-        <div class="sidebar-content">
-            <div class="media">
-                <a class="pull-left has-notif avatar" href="page-profile.html">
-                    <img src="../../dist/global/img/avatar/50/1.png" alt="admin">
-                    <i class="online"></i>
-                </a>
-                <div class="media-body">
-                    <h4 class="media-heading">Hello, <span>Lee</span></h4>
-                    <small>Web Designer</small>
-                </div>
+<aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- Sidebar user panel -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
             </div>
-        </div><!-- /.sidebar-content -->
-        <!--/ End left navigation -  profile shortcut -->
+            <div class="pull-left info">
+              <p>Alexander Pierce</p>
 
-        <!-- Start left navigation - menu -->
-        <ul class="sidebar-menu">
-
-            <!-- Start navigation - dashboard -->
-            <li class="active">
-                <a href="dashboard.html">
-                    <span class="icon"><i class="fa fa-home"></i></span>
-                    <span class="text">Dashboard</span>
-                    <span class="selected"></span>
-                </a>
+              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+          </div>
+          <!-- search form -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+              <input type="text" name="q" class="form-control" placeholder="Search..."/>
+              <span class="input-group-btn">
+                <button type=submit name=search id=search-btn class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form>
+          <!-- /.search form -->
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+            <li class="header">MAIN NAVIGATION</li>
+            <li class="active treeview">
+              <a href="#">
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+                <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+              </ul>
             </li>
-            <!--/ End navigation - dashboard -->
-
-            <!-- Start navigation - frontend themes -->
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-files-o"></i>
+                <span>Layout Options</span>
+                <span class="label label-primary pull-right">4</span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
+                <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
+                <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
+                <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+              </ul>
+            </li>
             <li>
-                <a href="frontend-themes.html">
-                    <span class="icon"><i class="fa fa-leaf"></i></span>
-                    <span class="text">Frontend themes</span>
-                </a>
+              <a href="pages/widgets.html">
+                <i class="fa fa-th"></i> <span>Widgets</span> <small class="label pull-right bg-green">new</small>
+              </a>
             </li>
-            <!--/ End navigation - frontend themes -->
-
-            <!-- Start navigation - blankon versions -->
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-pie-chart"></i>
+                <span>Charts</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
+                <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
+                <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-laptop"></i>
+                <span>UI Elements</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
+                <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
+                <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
+                <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
+                <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
+                <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-edit"></i> <span>Forms</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
+                <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
+                <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-table"></i> <span>Tables</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
+                <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+              </ul>
+            </li>
             <li>
-                <a href="blankon-versions.html">
-                    <span class="icon"><i class="fa fa-dropbox"></i></span>
-                    <span class="text">Blankon Versions</span>
-                </a>
+              <a href="pages/calendar.html">
+                <i class="fa fa-calendar"></i> <span>Calendar</span>
+                <small class="label pull-right bg-red">3</small>
+              </a>
             </li>
-            <!--/ End navigation - blankon versions -->
-
-            <!-- Start category apps -->
-            <li class="sidebar-category">
-                <span>APPS</span>
-                <span class="pull-right"><i class="fa fa-trophy"></i></span>
+            <li>
+              <a href="pages/mailbox/mailbox.html">
+                <i class="fa fa-envelope"></i> <span>Mailbox</span>
+                <small class="label pull-right bg-yellow">12</small>
+              </a>
             </li>
-            <!--/ End category apps -->
-
-            <!-- Start navigation - blog -->
-            <li class="submenu">
-                <a href="javascript:void(0);">
-                    <span class="icon"><i class="fa fa-globe"></i></span>
-                    <span class="text">Blog</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul>
-                    <li><a href="blog-grid.html">Grid</a></li>
-                    <li><a href="blog-list.html">List</a></li>
-                    <li><a href="blog-single.html">Single</a></li>
-                </ul>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-folder"></i> <span>Examples</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
+                <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
+                <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
+                <li><a href="pages/examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
+                <li><a href="pages/examples/404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
+                <li><a href="pages/examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
+                <li><a href="pages/examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
+              </ul>
             </li>
-            <!--/ End navigation - blog -->
-
-            <!-- Start navigation - mail -->
-            <li class="submenu">
-                <a href="javascript:void(0);">
-                    <span class="icon"><i class="fa fa-envelope"></i></span>
-                    <span class="text">Mail</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul>
-                    <li><a href="mail-inbox.html">Inbox</a></li>
-                    <li><a href="mail-compose.html">Compose mail</a></li>
-                    <li><a href="mail-view.html">View mail</a></li>
-                </ul>
-            </li>
-            <!--/ End navigation - mail -->
-
-            <!-- Start navigation - pages -->
-            <li class="submenu">
-                <a href="javascript:void(0);">
-                    <span class="icon"><i class="fa fa-file-o"></i></span>
-                    <span class="text">Pages</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul>
-                    <li><a href="page-gallery.html">Gallery <span class="label label-danger pull-right">New</span></a></li>
-                    <li><a href="page-calendar.html">Calendar</a></li>
-                    <li><a href="page-invoice.html">Invoice</a></li>
-                    <li><a href="page-messages.html">Messages</a></li>
-                    <li><a href="page-timeline.html">Timeline</a></li>
-                    <li><a href="page-profile.html">Profile</a></li>
-                    <li class="submenu">
-                        <a href="javascript:void(0);">Search<span class="arrow"></span></a>
-                        <ul>
-                            <li><a href="page-search-course.html">Courses</a></li>
-                        </ul>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-share"></i> <span>Multilevel</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+                <li>
+                  <a href="#"><i class="fa fa-circle-o"></i> Level One <i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
+                    <li>
+                      <a href="#"><i class="fa fa-circle-o"></i> Level Two <i class="fa fa-angle-left pull-right"></i></a>
+                      <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                      </ul>
                     </li>
-                    <li class="submenu">
-                        <a href="javascript:void(0);">Error <span class="arrow"></span></a>
-                        <ul>
-                            <li><a href="page-error-403.html">Error 403</a></li>
-                            <li><a href="page-error-403-type-2.html">Error 403 Type 2</a></li>
-                            <li><a href="page-error-404.html">Error 404</a></li>
-                            <li><a href="page-error-404-type-2.html">Error 404 Type 2</a></li>
-                            <li><a href="page-error-500.html">Error 500</a></li>
-                            <li><a href="page-error-500-type-2.html">Error 500 Type 2</a></li>
-                        </ul>
-                    </li>
-                    <li class="submenu">
-                        <a href="javascript:void(0);">Account <span class="arrow"></span></a>
-                        <ul>
-                            <li><a href="page-signin.html">Sign In</a></li>
-                            <li><a href="page-signup.html">Sign Up</a></li>
-                            <li><a href="page-lost-password.html">Lost password</a></li>
-                            <li><a href="page-lock-screen.html">Lock Screen</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                  </ul>
+                </li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+              </ul>
             </li>
-            <!--/ End navigation - pages -->
+            <li><a href="documentation/index.html"><i class="fa fa-book"></i> Documentation</a></li>
+            <li class="header">LABELS</li>
+            <li><a href="#"><i class="fa fa-circle-o text-danger"></i> Important</a></li>
+            <li><a href="#"><i class="fa fa-circle-o text-warning"></i> Warning</a></li>
+            <li><a href="#"><i class="fa fa-circle-o text-info"></i> Information</a></li>
+          </ul>
+        </section>
+        <!-- /.sidebar -->
+      </aside>
 
-            <!-- Start category ui kit-->
-            <li class="sidebar-category">
-                <span>UI KIT</span>
-                <span class="pull-right"><i class="fa fa-magic"></i></span>
-            </li>
-            <!--/ End category ui kit-->
-
-            <!-- Start navigation - forms -->
-            <li class="submenu">
-                <a href="javascript:void(0);">
-                    <span class="icon"><i class="fa fa-list-alt"></i></span>
-                    <span class="text">Forms</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul>
-                    <li><a href="form-element.html">Element</a></li>
-                    <li><a href="form-advanced.html">Advanced</a></li>
-                    <li><a href="form-layout.html">Layout</a></li>
-                    <li><a href="form-validation.html">Validation</a></li>
-                    <li><a href="form-wizard.html">Wizard</a></li>
-                    <li><a href="form-wysiwyg.html">Text Editor</a></li>
-                    <li><a href="form-xeditable.html">X-Editable</a></li>
-                </ul>
-            </li>
-            <!--/ End navigation - forms -->
-
-            <!-- Start navigation - tables -->
-            <li class="submenu">
-                <a href="javascript:void(0);">
-                    <span class="icon"><i class="fa fa-table"></i></span>
-                    <span class="text">Tables</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul>
-                    <li><a href="table-default.html">Default</a></li>
-                    <li><a href="table-color.html">Color</a></li>
-                    <li><a href="table-datatable.html">Datatable</a></li>
-                </ul>
-            </li>
-            <!--/ End navigation - tables -->
-
-            <!-- Start navigation - maps -->
-            <li class="submenu">
-                <a href="javascript:void(0);">
-                    <span class="icon"><i class="fa fa-map-marker"></i></span>
-                    <span class="text">Maps</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul>
-                    <li><a href="maps-google.html">Google</a></li>
-                    <li><a href="maps-vector.html">Vector</a></li>
-                </ul>
-            </li>
-            <!--/ End navigation - maps -->
-
-            <!-- Start navigation - charts -->
-            <li class="submenu">
-                <a href="javascript:void(0);">
-                    <span class="icon"><i class="fa fa-signal"></i></span>
-                    <span class="text">Charts</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul>
-                    <li><a href="chart-flot.html">Flot</a></li>
-                    <li><a href="chart-morris.html">Morris</a></li>
-                    <li><a href="chart-chartjs.html">Chartjs</a></li>
-                    <li><a href="chart-c3js.html">C3js</a></li>
-                </ul>
-            </li>
-            <!--/ End navigation - charts -->
-
-            <!-- Start category development -->
-            <li class="sidebar-category">
-                <span>DEVELOP</span>
-                <span class="pull-right"><i class="fa fa-code"></i></span>
-            </li>
-            <!--/ End category development -->
-
-            <!-- Start development - components -->
-            <li class="submenu">
-                <a href="javascript:void(0);">
-                    <span class="icon"><i class="fa fa-cube"></i></span>
-                    <span class="text">Components</span>
-                    <span class="plus"></span>
-                </a>
-                <ul>
-                    <li><a href="component-grid-system.html">Grid System</a></li>
-                    <li><a href="component-buttons.html">Buttons</a></li>
-                    <li><a href="component-typography.html">Typography</a></li>
-                    <li><a href="component-panel.html">Panels</a></li>
-                    <li><a href="component-alerts.html">Alerts</a></li>
-                    <li><a href="component-modals.html">Modals</a></li>
-                    <li><a href="component-tabsaccordion.html">Tabs & Accordion</a></li>
-                    <li><a href="component-sliders.html">Sliders</a></li>
-                    <li class="submenu">
-                        <a href="javascript:void(0);">
-                            <span class="text">Icons</span>
-                            <span class="count label label-danger">6</span>
-                            <span class="arrow"></span>
-                        </a>
-                        <ul>
-                            <li><a href="component-glyphicons.html">Glyphicons</a></li>
-                            <li><a href="component-glyphicons-pro.html">Glyphicons PRO</a></li>
-                            <li><a href="component-font-awesome.html">Font Awesome</a></li>
-                            <li><a href="component-weather-icons.html">Weather Icons</a></li>
-                            <li><a href="component-map-icons.html">Map Icons</a></li>
-                            <li><a href="component-simple-line-icons.html">Simple Line Icons</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="component-other.html">Other</a></li>
-                </ul>
-            </li>
-            <!--/ End development - components -->
-
-            <!-- Start development - layouts -->
-            <li class="submenu">
-                <a href="javascript:void(0);">
-                    <span class="icon"><i class="fa fa-columns"></i></span>
-                    <span class="text">Layouts</span>
-                    <span class="plus"></span>
-                </a>
-                <ul>
-                    <li><a href="layout-blank.html">Blank Page</a></li>
-                    <li><a href="layout-boxed.html">Boxed Page</a></li>
-                    <li><a href="layout-header-fixed.html">Header Fixed Page</a></li>
-                    <li><a href="layout-sidebar-fixed.html">Sidebar Fixed Page</a></li>
-                    <li><a href="layout-sidebar-minimize.html">Sidebar Minimize Page</a></li>
-                    <li><a href="layout-sidebar-default.html">Sidebar Default Page</a></li>
-                    <li><a href="layout-sidebar-box.html">Sidebar Box Page</a></li>
-                    <li><a href="layout-sidebar-rounded.html">Sidebar Rounded Page</a></li>
-                    <li><a href="layout-sidebar-circle.html">Sidebar Circle Page</a></li>
-                    <li><a href="layout-footer-fixed.html">Footer Fixed Page</a></li>
-                </ul>
-            </li>
-            <!--/ End development - layouts -->
-
-            <!-- Start development - sub menu -->
-            <li class="submenu">
-                <a href="javascript:void(0);">
-                    <span class="icon"><i class="fa fa-align-left"></i></span>
-                    <span class="text">Sub Menu</span>
-                    <span class="plus"></span>
-                </a>
-                <ul>
-                    <li class="submenu">
-                        <a href="javascript:void(0);">
-                            <span class="text">Level 1</span>
-                            <span class="arrow"></span>
-                        </a>
-                        <ul>
-                            <li>
-                                <a href="javascript:void(0);">Level 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <!--/ End development - sub menu -->
-
-            <!-- Start category widget -->
-            <li class="sidebar-category">
-                <span>WIDGET</span>
-                <span class="pull-right"><i class="fa fa-cubes"></i></span>
-            </li>
-            <!--/ End category widget -->
-
-            <!-- Start widget - overview -->
-            <li>
-                <a href="widget-overview.html">
-                    <span class="icon"><i class="fa fa-desktop"></i></span>
-                    <span class="text">Overview</span>
-                    <span class="label label-primary pull-right rounded">10</span>
-                </a>
-            </li>
-            <!--/ End widget - overview -->
-
-            <!-- Start widget - social -->
-            <li>
-                <a href="widget-social.html">
-                    <span class="icon"><i class="fa fa-group"></i></span>
-                    <span class="text">Social</span>
-                    <span class="label label-success pull-right rounded">28</span>
-                </a>
-            </li>
-            <!--/ End widget - social -->
-
-            <!-- Start widget - blog -->
-            <li>
-                <a href="widget-blog.html">
-                    <span class="icon"><i class="fa fa-pencil"></i></span>
-                    <span class="text">Blog</span>
-                    <span class="label label-info pull-right rounded">15</span>
-                </a>
-            </li>
-            <!--/ End widget - blog -->
-
-            <!-- Start widget - weather -->
-            <li>
-                <a href="widget-weather.html">
-                    <span class="icon"><i class="fa fa-sun-o"></i></span>
-                    <span class="text">Weather</span>
-                    <span class="label label-warning pull-right rounded">6</span>
-                </a>
-            </li>
-            <!--/ End widget - weather -->
-
-            <!-- Start widget - misc -->
-            <li>
-                <a href="widget-misc.html">
-                    <span class="icon"><i class="fa fa-puzzle-piece"></i></span>
-                    <span class="text">Misc</span>
-                    <span class="label label-danger pull-right rounded">9</span>
-                </a>
-            </li>
-            <!--/ End widget - misc -->
-
-            <!-- Start category documentation -->
-            <li class="sidebar-category">
-                <span><span class="hidden-sidebar-minimize">BLANKON</span> CORE</span>
-                <span class="pull-right"><i class="fa fa-coffee"></i></span>
-            </li>
-            <!--/ End category documentation -->
-
-            <!-- Start documentation - api documentation -->
-            <li>
-                <a href="http://128.199.167.219/blankon-fullpack-admin-theme/1.0.5/documentation/admin/html/live-preview-documentation.html" target="_blank">
-                    <span class="icon"><i class="fa fa-book"></i></span>
-                    <span class="text">API Documentation</span>
-                </a>
-            </li>
-            <!--/ End documentation - api documentation -->
-
-        </ul><!-- /.sidebar-menu -->
-        <!--/ End left navigation - menu -->
-
-        <!-- Start left navigation - footer -->
-        <div class="sidebar-footer hidden-xs hidden-sm hidden-md">
-            <a id="setting" class="pull-left" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" data-title="Setting"><i class="fa fa-cog"></i></a>
-            <a id="fullscreen" class="pull-left" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" data-title="Fullscreen"><i class="fa fa-desktop"></i></a>
-            <a id="lock-screen" data-url="page-signin.html" class="pull-left" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" data-title="Lock Screen"><i class="fa fa-lock"></i></a>
-            <a id="logout" data-url="page-lock-screen.html" class="pull-left" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" data-title="Logout"><i class="fa fa-power-off"></i></a>
-        </div><!-- /.sidebar-footer -->
-        <!--/ End left navigation - footer -->
-
-    </aside>
 	';
 }
 ?>
