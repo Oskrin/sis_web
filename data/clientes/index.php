@@ -16,6 +16,9 @@
     <link href="../../plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
     <link href="../../plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
     <link href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../dist/css/alertify.core.css" rel="stylesheet" />
+    <link href="../../dist/css/alertify.default.css" id="toggleCSS" rel="stylesheet" />
+    
   </head>
   <body class="skin-blue">
     <div class="wrapper">
@@ -28,12 +31,11 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Responsable:
-            <small>Oscar Troya</small>
+            Registro Clientes
           </h1>
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> Ingresos</a></li>
+            <li class="active">Clientes</li>
           </ol>
         </section>
 
@@ -41,96 +43,184 @@
         <section class="content">
           <div class="row">
             <div class="col-md-12">
-              <!-- general form elements -->
+              <div class="box box-success">
+                <div class="box-body">
+                  <div class="row">
+                      <form role="form">
+                        <div class="col-mx-12">                    
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>Tipo Documento: <font color="red">*</font></label>
+                              <select class="form-control" name="tipo_docu" id="tipo_docu">
+                                <option value="Cedula">Cedula</option>
+                                <option value="Ruc">Ruc</option>
+                                <option value="Pasaporte">Pasaporte</option>
+                              </select>
+                            </div>
 
+                            <div class="form-group">
+                              <label>Nombres Completos: <font color="red">*</font></label>
+                              <input type="text" name="nombres_cli"  id="nombres_cli" placeholder="Nombres y Apellidos" class="form-control" />
+                            </div>
 
-              <div class="box box-primary">
-                <div class="box-header">
-                  <h3 class="box-title">Quick Example</h3>
-                </div><!-- /.box-header -->
-                 <form role="form">
-                <div class="col-md-6">
-                  <div class="box-body">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputFile">File input</label>
-                      <input type="file" id="exampleInputFile">
-                      <p class="help-block">Example block-level help text here.</p>
-                    </div>
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox"> Check me out
-                      </label>
-                    </div>
-                  </div><!-- /.box-body -->
+                            <div class="form-group">
+                              <label>Teléfono:</label>
+                              <div class="input-group">
+                                <div class="input-group-addon">
+                                  <i class="fa fa-phone"></i>
+                                </div>
+                                <input type="text" name="nro_telefono" id="nro_telefono" class="form-control" data-inputmask='"mask": "(999) 999-999"' data-mask/>
+                              </div>
+                            </div>
 
-                </div>
+                            <div class="form-group">
+                              <label>País: <font color="red">*</font></label>
+                              <input type="text" name="pais_cli" id="pais_cli" placeholder="Ingrese un pais" class="form-control" />
+                            </div>
 
-                <div class="col-md-6">
-                  <div class="box-body">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputFile">File input</label>
-                      <input type="file" id="exampleInputFile">
-                      <p class="help-block">Example block-level help text here.</p>
-                    </div>
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox"> Check me out
-                      </label>
-                    </div>
-                  </div><!-- /.box-body -->
+                            <div class="form-group">
+                              <label>Dirección: <font color="red">*</font></label>
+                              <input type="text" name="direccion_cli" id="direccion_cli" placeholder="Dirección cliente" class="form-control" />
+                            </div>
 
-                </div>
+                            <div class="form-group">
+                              <label>Comentarios:</label>
+                              <textarea class="form-control" name="notas_cli" id="notas_cli" rows="3"></textarea>
+                            </div>
+                          </div>
 
-                <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>RUC/CI: <font color="red">*</font></label>
+                              <input type="text" name="ruc_ci"  id="ruc_ci" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                              <label>Celular:</label>
+                              <div class="input-group">
+                                <div class="input-group-addon">
+                                  <i class="fa fa-mobile"></i>
+                                </div>
+                                <input type="text" name="nro_celular" id="nro_celular" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask/>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label>Ciudad: <font color="red">*</font></label>
+                              <input type="text" name="ciudad_cli" id="ciudad_cli" class="form-control"/>
+                            </div>
+
+                            <div class="form-group">
+                              <label>E-mail: </label>
+                              <input type="text" name="email" id="email" placeholder="xxxx@example.com" class="form-control"/>
+                            </div>
+
+                            <div class="form-group">
+                              <label>Tipo:</label>
+                              <select class="form-control" name="tipo_cli" id="tipo_cli">
+                                <option value="N" selected>Persona Natural</option>
+                                <option value="J">Persona Jurídica</option>     
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
                   </div>
-                </form>
 
-             
+                  <div class="row">
+                    <div class="col-mx-12">
+                      <p>
+                        <button class="btn bg-olive margin" id='btnGuardar'><i class="fa fa-save"></i> Guardar</button>
+                        <button class="btn bg-olive margin" id='btnModificar'><i class="fa fa-edit"></i> Modificar</button>
+                        <button class="btn bg-olive margin" id='btnEliminar'><i class="fa fa-remove"></i> Eliminar</button>
+                        <button class="btn bg-olive margin" id='btnBuscar'><i class="fa fa-search"></i> Buscar</button>
+                        <button class="btn bg-olive margin" id='btnNuevo'><i class="fa fa-pencil"></i> Nuevo</button>
+                      </p> 
+                    </div>                    
+                  </div>
+                </div><!-- /.box-body -->
               </div><!-- /.box -->
-            </div><!--/.col (left) -->
-          </div>
+          </div><!--/.col (left) -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php footer(); ?>
     </div><!-- ./wrapper -->
 
     <script src="../../plugins/jQuery/jQuery-2.1.3.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js" type="text/javascript"></script>
-    <script>
-      $.widget.bridge('uibutton', $.ui.button);
-    </script>
-    <script src="../../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>    
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="../../plugins/morris/morris.min.js" type="text/javascript"></script>
-    <script src="../../plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
-    <script src="../../plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
-    <script src="../../plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
-    <script src="../../plugins/knob/jquery.knob.js" type="text/javascript"></script>
+    <script src="../../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
+    <script src="../../plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
+    <script src="../../plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
     <script src="../../plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
-    <script src="../../plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
-    <script src="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
-    <script src="../../plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+    <script src="../../plugins/colorpicker/bootstrap-colorpicker.min.js" type="text/javascript"></script>
+    <script src="../../plugins/timepicker/bootstrap-timepicker.min.js" type="text/javascript"></script>
     <script src="../../plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="../../plugins/iCheck/icheck.min.js" type="text/javascript"></script>
     <script src='../../plugins/fastclick/fastclick.min.js'></script>
+    <script src="clientes.js" type="text/javascript"></script>
     <script src="../../dist/js/app.min.js" type="text/javascript"></script>
-    <script src="../../dist/js/pages/dashboard.js" type="text/javascript"></script>
-    <script src="../../dist/js/demo.js.." type="text/javascript"></script>
+    <script src="../../dist/js/demo.js" type="text/javascript"></script>
+    <script src="../../dist/js/validCampoFranz.js" type="text/javascript" ></script>
+    <script src="../../dist/js/alertify.min.js" type="text/javascript"></script>
   </body>
+
+  <script type="text/javascript">
+      $(function () {
+        //Datemask dd/mm/yyyy
+        $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+        //Datemask2 mm/dd/yyyy
+        $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
+        //Money Euro
+        $("[data-mask]").inputmask();
+
+        //Date range picker
+        $('#reservation').daterangepicker();
+        //Date range picker with time picker
+        $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+        //Date range as a button
+        $('#daterange-btn').daterangepicker(
+          {
+            ranges: {
+              'Today': [moment(), moment()],
+              'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],
+              'Last 7 Days': [moment().subtract('days', 6), moment()],
+              'Last 30 Days': [moment().subtract('days', 29), moment()],
+              'This Month': [moment().startOf('month'), moment().endOf('month')],
+              'Last Month': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
+            },
+            startDate: moment().subtract('days', 29),
+            endDate: moment()
+          },
+        function (start, end) {
+          $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        }
+        );
+
+        //iCheck for checkbox and radio inputs
+        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+          checkboxClass: 'icheckbox_minimal-blue',
+          radioClass: 'iradio_minimal-blue'
+        });
+        //Red color scheme for iCheck
+        $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+          checkboxClass: 'icheckbox_minimal-red',
+          radioClass: 'iradio_minimal-red'
+        });
+        //Flat red color scheme for iCheck
+        $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+          checkboxClass: 'icheckbox_flat-green',
+          radioClass: 'iradio_flat-green'
+        });
+
+        //Colorpicker
+        $(".my-colorpicker1").colorpicker();
+        //color picker with addon
+        $(".my-colorpicker2").colorpicker();
+
+        //Timepicker
+        $(".timepicker").timepicker({
+          showInputs: false
+        });
+      });
+    </script>
 </html>
