@@ -18,6 +18,8 @@
     <link href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
     <link href="../../dist/css/alertify.core.css" rel="stylesheet" />
     <link href="../../dist/css/alertify.default.css" id="toggleCSS" rel="stylesheet" />
+    <link href="../../dist/css/jquery-ui-1.10.4.custom.css" rel="stylesheet" type="text/css"/>            
+    <link href="../../dist/css/ui.jqgrid.css" rel="stylesheet" type="text/css"/> 
     
   </head>
   <body class="skin-blue">
@@ -46,7 +48,7 @@
               <div class="box box-success">
                 <div class="box-body">
                   <div class="row">
-                      <form role="form">
+                      <form id="clientes_form" name="clientes_form" method="post">
                         <div class="col-mx-12">                    
                           <div class="col-md-6">
                             <div class="form-group">
@@ -56,6 +58,7 @@
                                 <option value="Ruc">Ruc</option>
                                 <option value="Pasaporte">Pasaporte</option>
                               </select>
+                              <input type="hidden" name="id_cliente"  id="id_cliente" readonly class="form-control">
                             </div>
 
                             <div class="form-group">
@@ -116,10 +119,15 @@
                             </div>
 
                             <div class="form-group">
+                              <label>Cupo de Crédito: </label>
+                              <input type="text" name="cupo_credito" id="cupo_credito" placeholder="$" class="form-control"/>
+                            </div>
+
+                            <div class="form-group">
                               <label>Tipo:</label>
                               <select class="form-control" name="tipo_cli" id="tipo_cli">
-                                <option value="N" selected>Persona Natural</option>
-                                <option value="J">Persona Jurídica</option>     
+                                <option value="Persona Natural" selected>Persona Natural</option>
+                                <option value="Persona Jurídica">Persona Jurídica</option>     
                               </select>
                             </div>
                           </div>
@@ -136,7 +144,13 @@
                         <button class="btn bg-olive margin" id='btnBuscar'><i class="fa fa-search"></i> Buscar</button>
                         <button class="btn bg-olive margin" id='btnNuevo'><i class="fa fa-pencil"></i> Nuevo</button>
                       </p> 
-                    </div>                    
+                    </div> 
+
+                    <div id="clientes" title="Búsqueda de Clientes" class="">
+                      <table id="list"><tr><td></td></tr></table>
+                      <div id="pager"></div>
+                    </div>
+                   
                   </div>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
@@ -162,6 +176,9 @@
     <script src="../../dist/js/demo.js" type="text/javascript"></script>
     <script src="../../dist/js/validCampoFranz.js" type="text/javascript" ></script>
     <script src="../../dist/js/alertify.min.js" type="text/javascript"></script>
+    <script src="../../dist/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
+    <script src="../../dist/js/jquery.jqGrid.src.js" type="text/javascript"></script>
+    <script src="../../dist/js/grid.locale-es.js" type="text/javascript"></script>
   </body>
 
   <script type="text/javascript">

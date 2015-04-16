@@ -2,7 +2,7 @@
 // pie de pagina
 function footer(){
 	print' <footer class="main-footer">
-        <strong>Copyright &copy; 2015 <a href="">P&S System</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2015 <a href="">P&S System</a>.</strong> Todos los derechos reservados.
       </footer>';
 }
 // banner o cabecera

@@ -526,88 +526,88 @@ function inicio() {
     $("#btnNuevo").on("click", nuevo_cliente);
     $("#btnCuenta").on("click", abrirCuenta);
 
-    // $("#clientes").dialog(dialogo);
-    // $("#cuentas").dialog(dialogo_cuenta);
-    // $("#clave_permiso").dialog(dialogo3);
-    // $("#seguro").dialog(dialogo4);
+    $("#clientes").dialog(dialogo);
+    $("#cuentas").dialog(dialogo_cuenta);
+    $("#clave_permiso").dialog(dialogo3);
+    $("#seguro").dialog(dialogo4);
 
-    // jQuery("#list").jqGrid({
-    //     url: 'datos_clientes.php',
-    //     datatype: 'xml',
-    //     colNames: ['Codigo', 'Tipo Documento', 'Identificacion', 'Nombres', 'Tipo Cliente', 'Fijo', 'Movil', 'Pais', 'Ciudad', 'Direccion', 'Correo', 'Credito', 'Nota'],
-    //     colModel: [
-    //         {name: 'id_cliente', index: 'id_cliente', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
-    //         {name: 'tipo_docu', index: 'tipo_docu', editable: true, align: 'center', width: '120', search: false, frozen: true, formoptions: {elmsuffix: " (*)"}, editrules: {required: true}},
-    //         {name: 'ruc_ci', index: 'ruc_ci', editable: true, align: 'center', width: '120', search: true, frozen: true, formoptions: {elmsuffix: " (*)"}, editrules: {required: true}},
-    //         {name: 'nombres_cli', index: 'nombres_cli', editable: true, align: 'center', width: '120', search: true, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
-    //         {name: 'tipo_cli', index: 'tipo_cli', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
-    //         {name: 'nro_telefono', index: 'nro_telefono', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
-    //         {name: 'nro_celular', index: 'nro_celular', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
-    //         {name: 'pais_cli', index: 'pais_cli', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
-    //         {name: 'ciudad_cli', index: 'ciudad_cli', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
-    //         {name: 'direccion_cli', index: 'direccion_cli', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
-    //         {name: 'email', index: 'email', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
-    //         {name: 'cupo_credito', index: 'cupo_credito', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
-    //         {name: 'notas_cli', index: 'notas_cli', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}}
-    //     ],
-    //     rowNum: 10,
-    //     width: 830,
-    //     height: 200,
-    //     rowList: [10, 20, 30],
-    //     pager: jQuery('#pager'),
-    //     sortname: 'id_cliente',
-    //     shrinkToFit: false,
-    //     sortorder: 'asc',
-    //     caption: 'Lista de Clientes',        
-    //     viewrecords: true,
-    //     ondblClickRow: function(){
-    //      var id = jQuery("#list").jqGrid('getGridParam', 'selrow');
-    //      jQuery('#list').jqGrid('restoreRow', id);   
-    //      jQuery("#list").jqGrid('GridToForm', id, "#clientes_form");
-    //      $("#btnGuardar").attr("disabled", true);
-    //      $("#clientes").dialog("close");    
-    //     }
-    // }).jqGrid('navGrid', '#pager',
-    //         {
-    //             add: false,
-    //             edit: false,
-    //             del: false,
-    //             refresh: true,
-    //             search: true,
-    //             view: true
-    //         },
-    // {
-    //     recreateForm: true, closeAfterEdit: true, checkOnUpdate: true, reloadAfterSubmit: true, closeOnEscape: true
-    // },
-    // {
-    //     reloadAfterSubmit: true, closeAfterAdd: true, checkOnUpdate: true, closeOnEscape: true,
-    //     bottominfo: "Todos los campos son obligatorios son obligatorios"
-    // },
-    // {
-    //     width: 300, closeOnEscape: true
-    // },
-    // {
-    //     closeOnEscape: true,        
-    //     multipleSearch: false, overlay: false
-    // },
-    // {
-    // },
-    //     {
-    //         closeOnEscape: true
-    //     }
-    // );    
-    // jQuery("#list").jqGrid('navButtonAdd', '#pager', {caption: "Añadir",
-    //     onClickButton: function() {
-    //         var id = jQuery("#list").jqGrid('getGridParam', 'selrow');
-    //         jQuery('#list').jqGrid('restoreRow', id);
-    //         if (id) {
-    //             jQuery("#list").jqGrid('GridToForm', id, "#clientes_form");
-    //             $("#btnGuardar").attr("disabled", true);
-    //             $("#clientes").dialog("close");
-    //         } else {
-    //             alertify.alert("Seleccione un fila");
-    //         }
-    //     }
-    // });
+    jQuery("#list").jqGrid({
+        url: 'datos_clientes.php',
+        datatype: 'xml',
+        colNames: ['Codigo', 'Tipo Documento', 'Identificacion', 'Nombres', 'Tipo Cliente', 'Fijo', 'Movil', 'Pais', 'Ciudad', 'Direccion', 'Correo', 'Credito', 'Nota'],
+        colModel: [
+            {name: 'id_cliente', index: 'id_cliente', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
+            {name: 'tipo_docu', index: 'tipo_docu', editable: true, align: 'center', width: '120', search: false, frozen: true, formoptions: {elmsuffix: " (*)"}, editrules: {required: true}},
+            {name: 'ruc_ci', index: 'ruc_ci', editable: true, align: 'center', width: '120', search: true, frozen: true, formoptions: {elmsuffix: " (*)"}, editrules: {required: true}},
+            {name: 'nombres_cli', index: 'nombres_cli', editable: true, align: 'center', width: '120', search: true, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
+            {name: 'tipo_cli', index: 'tipo_cli', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
+            {name: 'nro_telefono', index: 'nro_telefono', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
+            {name: 'nro_celular', index: 'nro_celular', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
+            {name: 'pais_cli', index: 'pais_cli', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
+            {name: 'ciudad_cli', index: 'ciudad_cli', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
+            {name: 'direccion_cli', index: 'direccion_cli', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
+            {name: 'email', index: 'email', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
+            {name: 'cupo_credito', index: 'cupo_credito', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
+            {name: 'notas_cli', index: 'notas_cli', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}}
+        ],
+        rowNum: 10,
+        width: 830,
+        height: 200,
+        rowList: [10, 20, 30],
+        pager: jQuery('#pager'),
+        sortname: 'id_cliente',
+        shrinkToFit: false,
+        sortorder: 'asc',
+        caption: 'Lista de Clientes',        
+        viewrecords: true,
+        ondblClickRow: function(){
+         var id = jQuery("#list").jqGrid('getGridParam', 'selrow');
+         jQuery('#list').jqGrid('restoreRow', id);   
+         jQuery("#list").jqGrid('GridToForm', id, "#clientes_form");
+         $("#btnGuardar").attr("disabled", true);
+         $("#clientes").dialog("close");    
+        }
+    }).jqGrid('navGrid', '#pager',
+            {
+                add: false,
+                edit: false,
+                del: false,
+                refresh: true,
+                search: true,
+                view: true
+            },
+    {
+        recreateForm: true, closeAfterEdit: true, checkOnUpdate: true, reloadAfterSubmit: true, closeOnEscape: true
+    },
+    {
+        reloadAfterSubmit: true, closeAfterAdd: true, checkOnUpdate: true, closeOnEscape: true,
+        bottominfo: "Todos los campos son obligatorios son obligatorios"
+    },
+    {
+        width: 300, closeOnEscape: true
+    },
+    {
+        closeOnEscape: true,        
+        multipleSearch: false, overlay: false
+    },
+    {
+    },
+        {
+            closeOnEscape: true
+        }
+    );    
+    jQuery("#list").jqGrid('navButtonAdd', '#pager', {caption: "Añadir",
+        onClickButton: function() {
+            var id = jQuery("#list").jqGrid('getGridParam', 'selrow');
+            jQuery('#list').jqGrid('restoreRow', id);
+            if (id) {
+                jQuery("#list").jqGrid('GridToForm', id, "#clientes_form");
+                $("#btnGuardar").attr("disabled", true);
+                $("#clientes").dialog("close");
+            } else {
+                alertify.alert("Seleccione un fila");
+            }
+        }
+    });
 }
 
