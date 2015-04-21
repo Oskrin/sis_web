@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>CLIENTES</title>
+    <title>PROVEEDORES</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -29,11 +29,11 @@
       <div class="content-wrapper">
         <section class="content-header">
           <h1>
-            Registro Clientes
+            Registro Proveedores
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Ingresos</a></li>
-            <li class="active">Clientes</li>
+            <li class="active">Proveedores</li>
           </ol>
         </section>
 
@@ -44,7 +44,7 @@
               <div class="box box-primary">
                 <div class="box-body">
                   <div class="row">
-                      <form id="clientes_form" name="clientes_form" method="post">
+                      <form id="proveedores_form" name="proveedores_form" method="post">
                         <div class="col-mx-12">                    
                           <div class="col-md-6">
                             <div class="form-group">
@@ -54,12 +54,17 @@
                                 <option value="Ruc">Ruc</option>
                                 <option value="Pasaporte">Pasaporte</option>
                               </select>
-                              <input type="hidden" name="id_cliente"  id="id_cliente" readonly class="form-control">
+                              <input type="hidden" name="id_proveedor"  id="id_proveedor" readonly class="form-control">
                             </div>
 
                             <div class="form-group">
-                              <label>Nombres Completos: <font color="red">*</font></label>
-                              <input type="text" name="nombres_cli"  id="nombres_cli" placeholder="Nombres y Apellidos" class="form-control" />
+                              <label>Empresa: <font color="red">*</font></label>
+                              <input name="empresa_pro"  id="empresa_pro" placeholder="Nombre de la Empresa" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                              <label>Visitador:</label>
+                              <input name="visitador" id="visitador" placeholder="Empleado Empresa" class="form-control" />
                             </div>
 
                             <div class="form-group">
@@ -73,18 +78,39 @@
                             </div>
 
                             <div class="form-group">
-                              <label>País: <font color="red">*</font></label>
-                              <input type="text" name="pais_cli" id="pais_cli" placeholder="Ingrese un pais" class="form-control" />
+                              <label>E-mail:</label>
+                              <div class="input-group">
+                                <div class="input-group-addon">
+                                  <i class="fa fa-envelope"></i>
+                                </div>
+                                <input type="text" name="correo" id="correo" placeholder="Email" class="form-control"/>
+                              </div>
                             </div>
 
                             <div class="form-group">
-                              <label>Dirección: <font color="red">*</font></label>
-                              <input type="text" name="direccion_cli" id="direccion_cli" placeholder="Dirección cliente" class="form-control" />
+                              <label>País: <font color="red">*</font></label>
+                              <input type="text" name="pais_pro" id="pais_pro" placeholder="Ingrese un país" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                              <label>Forma de Pago:</label>
+                              <select class="form-control" name="forma_pago" id="forma_pago">
+                                <option value="Contado" selected>Contado</option>
+                                <option value="Credito">Credito</option>     
+                              </select>
+                            </div>
+
+                            <div class="form-group">
+                              <label>Proveedor Principal: <font color="red">*</font></label>
+                              <select class="form-control" name="principal_pro" id="principal_pro">
+                                <option value="Si" selected>Si</option>
+                                <option value="No">No</option>     
+                              </select>
                             </div>
 
                             <div class="form-group">
                               <label>Comentarios:</label>
-                              <textarea class="form-control" name="notas_cli" id="notas_cli" rows="3"></textarea>
+                              <textarea class="form-control" name="observaciones_pro" id="observaciones_pro" rows="3"></textarea>
                             </div>
                           </div>
 
@@ -92,6 +118,16 @@
                             <div class="form-group">
                               <label>RUC/CI: <font color="red">*</font></label>
                               <input type="text" name="ruc_ci"  id="ruc_ci" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                              <label>Representante Legal:</label>
+                              <input type="text" name="representante_legal" id="representante_legal" placeholder="Representante Legal" class="form-control"/>
+                            </div>
+
+                            <div class="form-group">
+                              <label>Dirección: <font color="red">*</font></label>
+                              <input type="text" name="direccion_pro" id="direccion_pro" placeholder="Dirección" class="form-control" />
                             </div>
 
                             <div class="form-group">
@@ -105,22 +141,17 @@
                             </div>
 
                             <div class="form-group">
+                              <label>Fax:</label>
+                              <input type="text" name="fax" id="fax" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
                               <label>Ciudad: <font color="red">*</font></label>
-                              <input type="text" name="ciudad_cli" id="ciudad_cli" class="form-control"/>
+                              <input type="text" name="ciudad_pro" id="ciudad_pro" class="form-control"/>
                             </div>
 
                             <div class="form-group">
-                              <label>E-mail:</label>
-                              <div class="input-group">
-                                <div class="input-group-addon">
-                                  <i class="fa fa-envelope"></i>
-                                </div>
-                                <input type="text" name="email" id="email" placeholder="Email" class="form-control"/>
-                              </div>
-                            </div>
-
-                            <div class="form-group">
-                              <label>Cupo de Crédito: <font color="red">*</font></label>
+                              <label>Cupo de Crédito:</label>
                               <div class="input-group">
                                 <div class="input-group-addon">
                                   <i class="fa fa-money"></i>
@@ -131,7 +162,7 @@
 
                             <div class="form-group">
                               <label>Tipo:</label>
-                              <select class="form-control" name="tipo_cli" id="tipo_cli">
+                              <select class="form-control" name="tipo_pro" id="tipo_pro">
                                 <option value="Persona Natural" selected>Persona Natural</option>
                                 <option value="Persona Jurídica">Persona Jurídica</option>     
                               </select>
@@ -152,11 +183,35 @@
                       </p> 
                     </div> 
 
-                    <div id="clientes" title="Búsqueda de Clientes" class="">
-                      <table id="list"><tr><td></td></tr></table>
-                      <div id="pager"></div>
+                    <div id="proveedores" title="Búsqueda de Proveedores" class="">
+                        <table id="list"><tr><td></td></tr></table>
+                        <div id="pager"></div>
                     </div>
-                   
+
+                    <div id="cuentas" title="Búsqueda Plan de Cuentas" class="">
+                        <table id="list2"><tr><td></td></tr></table>
+                        <div id="pager2"></div>
+                    </div>
+
+                    <div id="clave_permiso" title="PERMISOS">
+                        <table border="0" >
+                            <tr>
+                                <td><label>Ingese la clave de seguridad</label></td> 
+                                <td><input type="password" name="clave" id="clave" class="campo"></td>
+                            </tr>  
+                        </table>
+                        <div class="form-actions" align="center">
+                            <button class="btn btn-primary" id='btnAcceder'><i class="icon-ok"></i> Acceder</button>
+                            <button class="btn btn-primary" id='btnCancelar'><i class="icon-remove-sign"></i> Cancelar</button>
+                        </div>
+                    </div> 
+
+                    <div id="seguro">
+                        <label>Esta seguro de eliminar al cliente</label>  
+                        <br />
+                        <button class="btn btn-primary" id='btnAceptar'><i class="icon-ok"></i> Aceptar</button>
+                        <button class="btn btn-primary" id='btnSalir'><i class="icon-remove-sign"></i> Cancelar</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -178,7 +233,7 @@
     <script src="../../plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <script src="../../plugins/iCheck/icheck.min.js" type="text/javascript"></script>
     <script src='../../plugins/fastclick/fastclick.min.js'></script>
-    <script src="clientes.js" type="text/javascript"></script>
+    <script src="proveedores.js" type="text/javascript"></script>
     <script src="../../dist/js/app.min.js" type="text/javascript"></script>
     <script src="../../dist/js/validCampoFranz.js" type="text/javascript" ></script>
     <script src="../../dist/js/alertify.min.js" type="text/javascript"></script>

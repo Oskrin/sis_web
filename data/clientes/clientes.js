@@ -105,10 +105,10 @@ function guardar_cliente() {
                                     $("#ciudad_cli").focus();
                                     alertify.error("Ingrese una ciudad");
                                 } else {
-                                    if ($("#cupo_credito").val() === "") {
-                                        $("#cupo_credito").focus();
-                                        alertify.error("Ingrese cantidad del crédito");
-                                    }else{
+                                    // if ($("#cupo_credito").val() === "") {
+                                    //     $("#cupo_credito").focus();
+                                    //     alertify.error("Ingrese cantidad del crédito");
+                                    // }else{
                                         $.ajax({
                                             type: "POST",
                                             url: "guardar_clientes.php",
@@ -124,7 +124,7 @@ function guardar_cliente() {
                                                 }
                                             }
                                         });
-                                    }
+                                    // }
                                 }
                             }
                         }
@@ -173,10 +173,10 @@ function modificar_cliente() {
                                         $("#ciudad_cli").focus();
                                         alertify.error("Ingrese una ciudad");
                                     } else {
-                                        if ($("#cupo_credito").val() === "") {
-                                            $("#cupo_credito").focus();
-                                            alertify.error("Ingrese cantidad del crédito");
-                                        }else{
+                                        // if ($("#cupo_credito").val() === "") {
+                                        //     $("#cupo_credito").focus();
+                                        //     alertify.error("Ingrese cantidad del crédito");
+                                        // }else{
                                             $.ajax({
                                                 type: "POST",
                                                 url: "modificar_clientes.php",
@@ -192,7 +192,7 @@ function modificar_cliente() {
                                                     }
                                                 }
                                             });  
-                                        }
+                                        // }
                                     }
                                 }
                             }
@@ -306,6 +306,7 @@ function punto(e){
 }
 
 function inicio() {
+    $("[data-mask]").inputmask();
     alertify.set({ delay: 1000 });    
     $("#ruc_ci").focus();
     $("#ruc_ci").attr("maxlength", "10");
