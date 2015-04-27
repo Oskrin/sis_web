@@ -36,7 +36,7 @@ if ($search == 'false') {
         $campo = 'articulo';
     }
     if ($_GET['searchOper'] == 'eq') {
-        $SQL = "select * from productos P, bodegas B where P.id_bodega = B.id_bodega and P.estado = 'Activo'| and  $campo = '$_GET[searchString]' ORDER BY $sidx $sord offset $start limit $limit";
+        $SQL = "select * from productos P, bodegas B where P.id_bodega = B.id_bodega and P.estado = 'Activo' and  $campo = '$_GET[searchString]' ORDER BY $sidx $sord offset $start limit $limit";
     }
     if ($_GET['searchOper'] == 'ne') {
         $SQL = "select * from productos P, bodegas B where P.id_bodega = B.id_bodega and P.estado = 'Activo' and $campo != '$_GET[searchString]' ORDER BY $sidx $sord offset $start limit $limit";

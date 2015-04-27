@@ -1,4 +1,8 @@
 <?php 
+
+if (empty($_SESSION['id'])) {
+    header('Location: ../');
+}
 // pie de pagina
 function footer(){
 	print' <footer class="main-footer">
@@ -6,7 +10,7 @@ function footer(){
       </footer>';
 }
 // banner o cabecera
-function banner(){
+function banner_1(){
 	print'
 	<header class="main-header">
         <!-- Logo -->
@@ -23,24 +27,24 @@ function banner(){
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <span class="hidden-xs">Alexander Pierce</span>
+                  <span class="hidden-xs">' . $_SESSION['nombres'] . '</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
                     <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
-                      Alexander Pierce
+                      ' . $_SESSION['nombres'] . '
                     </p>
                   </li>
                                 
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="#" class="btn btn-default btn-flat">Ajustes</a>
+                      <a href="../configuracion" class="btn btn-default btn-flat">Ajustes</a>
                     </div>
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Salir</a>
+                      <a href="../" class="btn btn-default btn-flat">Salir</a>
                     </div>
                   </li>
                 </ul>
@@ -52,7 +56,7 @@ function banner(){
 ';
 }
 // menu principal lateral
-function menu_lateral(){
+function menu_lateral_1(){
 print'
 <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
@@ -60,23 +64,23 @@ print'
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="active treeview">
-              <a href="#">
+              <a href="">
                 <i class="fa fa-share"></i> <span>Parámetros</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i>Empresa</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i>Privilegios</a></li>
+                <li><a href=""><i class="fa fa-circle-o"></i>Empresa</a></li>
+                <li><a href=""><i class="fa fa-circle-o"></i>Privilegios</a></li>
                   <li>
-                  <a href="#"><i class="fa fa-circle-o"></i>Tablas<i class="fa fa-angle-left pull-right"></i></a>
+                  <a href=""><i class="fa fa-circle-o"></i>Tablas<i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
                     <li>
                       <a href="#"><i class="fa fa-circle-o"></i>Facturación<i class="fa fa-angle-left pull-right"></i></a>
                       <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i>Impuestos Ventas/Compras</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i>Retención en Impuesto</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i>Retención en Fuente</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i>Segundo Impuesto Ventas/Compras</a></li>
+                        <li><a href=""><i class="fa fa-circle-o"></i>Impuestos Ventas/Compras</a></li>
+                        <li><a href=""><i class="fa fa-circle-o"></i>Retención en Impuesto</a></li>
+                        <li><a href=""><i class="fa fa-circle-o"></i>Retención en Fuente</a></li>
+                        <li><a href=""><i class="fa fa-circle-o"></i>Segundo Impuesto Ventas/Compras</a></li>
                       </ul>
                     </li>
                     <li>
@@ -110,25 +114,61 @@ print'
                 <li><a href="../proveedores"><i class="fa fa-circle-o"></i> Proveedores</a></li>
                 <li><a href="../clientes"><i class="fa fa-circle-o"></i> Clientes</a></li>
                 <li><a href="../productos"><i class="fa fa-circle-o"></i> Productos</a></li>
-
               </ul>
             </li>
             <li class="treeview">
-              <a href="#">
-                <i class="fa fa-files-o"></i>
-                <span>Layout Options</span>
-                <span class="label label-primary pull-right">4</span>
+              <a href="">
+                <i class="fa fa-files-o"></i> <span>Procesos</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-                <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-                <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-                <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+                <li><a href="../inventario"><i class="fa fa-circle-o"></i>Inventario</a></li>
+                <li><a href="../proformas"><i class="fa fa-circle-o"></i> Proforma</a></li>
+                <li>
+                  <a href=""><i class="fa fa-circle-o"></i>Compras<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="../factura_compra"><i class="fa fa-circle-o"></i>Productos Bodega</a></li>
+                    <li><a href="../devolucion_compra"><i class="fa fa-circle-o"></i>Devolución Compra</a></li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href=""><i class="fa fa-circle-o"></i>Ventas<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="../factura_venta"><i class="fa fa-circle-o"></i>Ventas facturación</a></li>
+                    <li><a href="../notas_credito"><i class="fa fa-circle-o"></i>Notas de crédito</a></li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href=""><i class="fa fa-circle-o"></i>Cartera<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="../cuentas_cobrar"><i class="fa fa-circle-o"></i>Cuentas por cobrar</a></li>
+                    <li><a href="../cuentas_pagar"><i class="fa fa-circle-o"></i>Cuentas por pagar</a></li>
+                    <li>
+                      <a href=""><i class="fa fa-circle-o"></i>Externas<i class="fa fa-angle-left pull-right"></i></a>
+                      <ul class="treeview-menu">
+                        <li><a href="../cxc_externa"><i class="fa fa-circle-o"></i>Cuentas por cobrar</a></li>
+                        <li><a href="../cxp_externa"><i class="fa fa-circle-o"></i>Cuentas por pagar</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href=""><i class="fa fa-circle-o"></i>Transferencias<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="../ingresos"><i class="fa fa-circle-o"></i>Ingresos</a></li>
+                    <li><a href="../egresos"><i class="fa fa-circle-o"></i>Egresos</a></li>
+                  </ul>
+                </li>
+
+                <li><a href="../registro_gastos"><i class="fa fa-circle-o"></i>Registro Gastos</a></li>
+                <li><a href="../gastos"><i class="fa fa-circle-o"></i>Gastos Internos</a></li>
               </ul>
             </li>
             <li>
               <a href="pages/widgets.html">
-                <i class="fa fa-th"></i> <span>Widgets</span> <small class="label pull-right bg-green">new</small>
+                <i class="fa fa-th"></i> <span>Widgets</span> <small class="label pull-right bg-green">Gastos Internos</small>
               </a>
             </li>
             <li class="treeview">

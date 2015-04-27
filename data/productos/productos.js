@@ -470,19 +470,19 @@ function enter2(e) {
     return true;
 }
 
-function porcenta(){
-    var resta = parseFloat($("#precio_minorista").val() - $("#precio_compra").val());
-    var entero = resta * 100;
-    var val = Math.round(entero / parseFloat($("#precio_compra").val()));
-   $("#utilidad_minorista").val(val); 
-}
+// function porcenta(){
+//     var resta = parseFloat($("#precio_minorista").val() - $("#precio_compra").val());
+//     var entero = resta * 100;
+//     var val = Math.round(entero / parseFloat($("#precio_compra").val()));
+//    $("#utilidad_minorista").val(val); 
+// }
 
-function porcenta2(){
-    var resta = parseFloat($("#precio_mayorista").val() - $("#precio_compra").val());
-    var entero = resta * 100;
-    var val = Math.round(entero / parseFloat($("#precio_compra").val()));
-    $("#utilidad_mayorista").val(val);    
-}
+// function porcenta2(){
+//     var resta = parseFloat($("#precio_mayorista").val() - $("#precio_compra").val());
+//     var entero = resta * 100;
+//     var val = Math.round(entero / parseFloat($("#precio_compra").val()));
+//     $("#utilidad_mayorista").val(val);    
+// }
 
 function inicio() {
     $('input').iCheck({
@@ -519,7 +519,7 @@ function inicio() {
     $("#cod_prod").keyup(function() {
         $.ajax({
             type: "POST",
-            url: "../procesos/comparar_codigo.php",
+            url: "comparar_codigo.php",
             data: "codigo=" + $("#cod_prod").val(),
             success: function(data) {
                 var val = data;
@@ -628,39 +628,39 @@ function inicio() {
         dateFormat: 'yy-mm-dd'
     }).datepicker('setDate', 'today');
     
-    $("#utilidad_minorista").keyup(function() {
-        if($("#precio_compra").val() === ""){
-            alertify.error("Error... Ingrese precio compra", function (){
-                $("#precio_compra").focus();   
-                $("#utilidad_minorista").val(""); 
-            });
-        }else{
-            if ($("#utilidad_minorista").val() === "") {
-                $("#precio_minorista").val("");
-            }else {
-                var precio_minorista = ((parseFloat($("#precio_compra").val()) * parseFloat($("#utilidad_minorista").val())) / 100) + parseFloat($("#precio_compra").val());
-                var entero = precio_minorista.toFixed(2);
-                $("#precio_minorista").val(entero);
-            }
-        }
-    });    
+    // $("#utilidad_minorista").keyup(function() {
+    //     if($("#precio_compra").val() === ""){
+    //         alertify.error("Error... Ingrese precio compra", function (){
+    //             $("#precio_compra").focus();   
+    //             $("#utilidad_minorista").val(""); 
+    //         });
+    //     }else{
+    //         if ($("#utilidad_minorista").val() === "") {
+    //             $("#precio_minorista").val("");
+    //         }else {
+    //             var precio_minorista = ((parseFloat($("#precio_compra").val()) * parseFloat($("#utilidad_minorista").val())) / 100) + parseFloat($("#precio_compra").val());
+    //             var entero = precio_minorista.toFixed(2);
+    //             $("#precio_minorista").val(entero);
+    //         }
+    //     }
+    // });    
 
-    $("#utilidad_mayorista").keyup(function() {
-        if($("#precio_compra").val() === ""){
-            alertify.error("Error... Ingrese precio compra", function (){
-                $("#precio_compra").focus();   
-                $("#utilidad_mayorista").val(""); 
-            });
-        }else{
-            if ($("#utilidad_mayorista").val() === "") {
-                $("#precio_mayorista").val("");
-            } else {
-                var precio_mayorista = ((parseFloat($("#precio_compra").val()) * parseFloat($("#utilidad_mayorista").val())) / 100) + parseFloat($("#precio_compra").val());
-                var entero2 = precio_mayorista.toFixed(2);
-                $("#precio_mayorista").val(entero2);
-            }
-        }
-    });
+    // $("#utilidad_mayorista").keyup(function() {
+    //     if($("#precio_compra").val() === ""){
+    //         alertify.error("Error... Ingrese precio compra", function (){
+    //             $("#precio_compra").focus();   
+    //             $("#utilidad_mayorista").val(""); 
+    //         });
+    //     }else{
+    //         if ($("#utilidad_mayorista").val() === "") {
+    //             $("#precio_mayorista").val("");
+    //         } else {
+    //             var precio_mayorista = ((parseFloat($("#precio_compra").val()) * parseFloat($("#utilidad_mayorista").val())) / 100) + parseFloat($("#precio_compra").val());
+    //             var entero2 = precio_mayorista.toFixed(2);
+    //             $("#precio_mayorista").val(entero2);
+    //         }
+    //     }
+    // });
 
     $("#precio_minorista").keyup(function() {
         if($("#precio_compra").val() === ""){
@@ -732,7 +732,7 @@ function inicio() {
          var id = jQuery("#list").jqGrid('getGridParam', 'selrow');
          jQuery('#list').jqGrid('restoreRow', id);   
          var ret = jQuery("#list").jqGrid('getRowData', id);
-         $("#foto").attr("src", "../fotos_productos/"+ ret.imagen);
+         $("#foto").attr("src", "fotos_productos/"+ ret.imagen);
          jQuery("#list").jqGrid('GridToForm', id, "#productos_form");
          $("#btnGuardar").attr("disabled", true);
          document.getElementById("cod_prod").readOnly = true;

@@ -1,4 +1,7 @@
-<?php include('../menu/app.php'); ?>
+<?php 
+session_start();
+include('../menu/app.php'); 
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -24,8 +27,8 @@
   </head>
   <body class="skin-blue">
     <div class="wrapper">
-      <?php banner(); ?>
-      <?php menu_lateral(); ?>
+      <?php banner_1(); ?>
+      <?php menu_lateral_1(); ?>
       <div class="content-wrapper">
         <section class="content-header">
           <h1>
@@ -33,7 +36,7 @@
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Ingresos</a></li>
-            <li class="active">Clientes</li>
+            <li class="active">Usuarios</li>
           </ol>
         </section>
 
