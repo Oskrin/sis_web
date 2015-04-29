@@ -228,6 +228,7 @@ function guardar_inventario() {
     var tam = jQuery("#list").jqGrid("getRowData");
     
     if (tam.length === 0) {
+        $("#codigo_barras").focus();
         alertify.error("Error... Ingrese productos en el inventario");
     } else {
         var v1 = new Array();
@@ -443,6 +444,7 @@ function reset () {
 }
 
 function inicio() {
+    jQuery('#platform-details').html('<code>' + navigator.userAgent + '</code>');
     alertify.set({ delay: 1000 });
     //Timepicker
     $(".timepicker").timepicker({
@@ -485,6 +487,8 @@ function inicio() {
     });
     
     $("#btnGuardar").on("click", guardar_inventario);
+    $(document).bind('keydown', 'F7', guardar_inventario);
+    $('input').bind('keydown', 'F7', guardar_inventario);
     $("#btnNuevo").on("click", nuevo);
     $("#btnAtras").on("click", flecha_atras);
     $("#btnAdelante").on("click", flecha_siguiente);

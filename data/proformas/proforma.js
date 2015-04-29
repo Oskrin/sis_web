@@ -344,7 +344,7 @@ function guardar_proforma() {
     var tam = jQuery("#list").jqGrid("getRowData");
     if ($("#id_cliente").val() === "") {
         $("#ruc_ci").focus();
-        alertify.alert("Ingrese un cliente");
+        alertify.error("Ingrese un cliente");
     } else {
         if ($("#tipo_precio").val() === "") {
             $("#tipo_precio").focus();
@@ -678,6 +678,8 @@ function inicio() {
     });
 
     $("#btnGuardar").on("click", guardar_proforma);
+    // $(document).bind('keydown', 'F7', guardar_proforma);
+    // $('input').unbind('keydown', 'F7', guardar_proforma);
     $("#btnNuevo").on("click", limpiar_proforma);
     $("#btnAtras").on("click", flecha_atras);
     $("#btnAdelante").on("click", flecha_siguiente);

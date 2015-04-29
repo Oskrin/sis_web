@@ -217,6 +217,7 @@ $cont1 = 0;
     <script src="../../dist/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
     <script src="../../dist/js/jquery.jqGrid.src.js" type="text/javascript"></script>
     <script src="../../dist/js/grid.locale-es.js" type="text/javascript"></script>
+    <script src="../../dist/js/jquery.hotkeys.js" type="text/javascript"></script>
     <script src="inventario.js" type="text/javascript"></script>
   </body>
 </html>
