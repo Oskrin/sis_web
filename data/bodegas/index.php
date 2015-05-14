@@ -47,10 +47,10 @@ include('../menu/app.php');
               <div class="box box-primary">
                 <div class="box-body">
                     <div class="tabbable" id="centro">
-                        <fieldset>
+                        <!-- <fieldset> -->
                             <table id="list"></table>
                             <div id="pager"></div>   
-                        </fieldset>   
+                        <!-- </fieldset>    -->
                     </div>
                 </div>
               </div>
@@ -72,12 +72,12 @@ include('../menu/app.php');
     <script src="../../plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <script src="../../plugins/iCheck/icheck.min.js" type="text/javascript"></script>
     <script src='../../plugins/fastclick/fastclick.min.js'></script>
-    <script src="bodegas.js" type="text/javascript"></script>
     <script src="../../dist/js/app.min.js" type="text/javascript"></script>
     <script src="../../dist/js/validCampoFranz.js" type="text/javascript" ></script>
     <script src="../../dist/js/alertify.min.js" type="text/javascript"></script>
     <script src="../../dist/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
     <script src="../../dist/js/jquery.jqGrid.src.js" type="text/javascript"></script>
     <script src="../../dist/js/grid.locale-es.js" type="text/javascript"></script>
+    <script src="bodegas.js" type="text/javascript"></script>
   </body>
 </html>

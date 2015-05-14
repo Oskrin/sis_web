@@ -413,23 +413,18 @@ function comprobar3() {
             $("#ruc_ci").focus();
             alertify.error("Indique una empresa");
         } else {
-            if ($("#tipo_comprobante").val() === "") {
-                $("#tipo_comprobante").focus();
-                alertify.error("Seleccione tipo comprobante");
+            if ($("#serie1").val() === "") {
+                $("#serie1").focus();
             } else {
-                if ($("#serie1").val() === "") {
-                    $("#serie1").focus();
+                if ($("#serie2").val() === "") {
+                    $("#serie2").focus();
                 } else {
-                    if ($("#serie2").val() === "") {
-                        $("#serie2").focus();
+                    if ($("#serie3").val() === "") {
+                        $("#serie3").focus();
                     } else {
-                        if ($("#serie3").val() === "") {
-                            $("#serie3").focus();
-                        } else {
-                            var a = autocompletar($("#serie3").val());
-                            $("#serie3").val(a + "" + $("#serie3").val());
-                            $("#autorizacion").focus();
-                        }
+                        var a = autocompletar($("#serie3").val());
+                        $("#serie3").val(a + "" + $("#serie3").val());
+                        $("#autorizacion").focus();
                     }
                 }
             }
@@ -438,12 +433,10 @@ function comprobar3() {
 }
 
 function comprobar4() {
-    if ($("#autorizacion").val() === "") {
-        $("#autorizacion").focus();
-        alertify.error("Ingrese la autorización");
-    } else {
-        $("#codigo_barras").focus();
-    }
+    if ($("#tipo_comprobante").val() === "") {
+        $("#tipo_comprobante").focus();
+        alertify.error("Seleccione un Comprobante");
+    } 
 }
 
 function agregar() {
@@ -558,88 +551,92 @@ function guardar_factura() {
             $("#ruc_ci").focus();
             alertify.error("Indique una empresa");
         } else {
-            if ($("#tipo_comprobante").val() === "") {
-                $("#tipo_comprobante").focus();
-                alertify.error("Seleccione tipo comprobante");
+            if ($("#serie1").val() === "") {
+                $("#serie1").focus();
+                // alertify.error("Ingrese la serie");
             } else {
-                if ($("#serie1").val() === "") {
-                    alertify.error("Ingrese la serie");
-                    $("#serie1").focus();
+                if ($("#serie2").val() === "") {
+                    $("#serie2").focus();
+                    // alertify.error("Ingrese la serie");
                 } else {
-                    if ($("#serie2").val() === "") {
+                    if ($("#serie3").val() === "") {
+                        $("#serie3").focus();
                         alertify.error("Ingrese la serie");
-                        $("#serie2").focus();
                     } else {
-                        if ($("#serie3").val() === "") {
-                            alertify.error("Ingrese la serie");
-                            $("#serie3").focus();
-                        } else {
-                            var num_fac = $("#serie1").val() + "-" + $("#serie2").val() + "-" + $("#serie3").val();
-                            $.ajax({
-                                type: "POST",
-                                url: "comparar_num_compra.php",
-                                data: "num_fac=" + num_fac + "&id_proveedor=" + $("#id_proveedor").val(),
-                                success: function(data) {
-                                    var val = data;
-                                    if (val == 1) {
-                                        $("#serie3").val("");
-                                        $("#serie3").focus();
-                                        alertify.alert("Error... El número de factura ya existe");
+                        var num_fac = $("#serie1").val() + "-" + $("#serie2").val() + "-" + $("#serie3").val();
+                        $.ajax({
+                            type: "POST",
+                            url: "comparar_num_compra.php",
+                            data: "num_fac=" + num_fac + "&id_proveedor=" + $("#id_proveedor").val(),
+                            success: function(data) {
+                                var val = data;
+                                if (val == 1) {
+                                    $("#serie3").val("");
+                                    $("#serie3").focus();
+                                    alertify.alert("Error... El número de factura ya existe");
+                                }else{
+                                    var a = autocompletar($("#serie3").val());
+                                    $("#serie3").val(a + "" + $("#serie3").val());
+                                    if ($("#autorizacion").val() === "") {
+                                        $("#autorizacion").focus();
+                                        alertify.error("Ingrese la autorización");
                                     }else{
-                                        if ($("#autorizacion").val() === "") {
-                                            $("#autorizacion").focus();
-                                            alertify.error("Ingrese la autorización");
-                                        }else{
-                                            if (tam.length === 0) {
-                                                alertify.error("Error... Llene productos a la factura");
-                                            } else {
-                                                var v1 = new Array();
-                                                var v2 = new Array();
-                                                var v3 = new Array();
-                                                var v4 = new Array();
-                                                var v5 = new Array();
-                                                var string_v1 = "";
-                                                var string_v2 = "";
-                                                var string_v3 = "";
-                                                var string_v4 = "";
-                                                var string_v5 = "";
-                                                var fil = jQuery("#list").jqGrid("getRowData");
-                                                for (var i = 0; i < fil.length; i++) {
-                                                    var datos = fil[i];
-                                                    v1[i] = datos['cod_producto'];
-                                                    v2[i] = datos['cantidad'];
-                                                    v3[i] = datos['precio_u'];
-                                                    v4[i] = datos['descuento'];
-                                                    v5[i] = datos['precio_t'];
-                                                }
-                                                for (i = 0; i < fil.length; i++) {
-                                                    string_v1 = string_v1 + "|" + v1[i];
-                                                    string_v2 = string_v2 + "|" + v2[i];
-                                                    string_v3 = string_v3 + "|" + v3[i];
-                                                    string_v4 = string_v4 + "|" + v4[i];
-                                                    string_v5 = string_v5 + "|" + v5[i];
-                                                }
-                                                var seriee = ($("#serie1").val() + "-" + $("#serie2").val() + "-" + $("#serie3").val());
-                                                $.ajax({
-                                                    type: "POST",
-                                                    url: "guardar_factura_compra.php",
-                                                    data: "id_proveedor=" + $("#id_proveedor").val() + "&comprobante=" + $("#comprobante").val() + "&fecha_actual=" + $("#fecha_actual").val() + "&hora_actual=" + $("#hora_actual").val() + "&fecha_registro=" + $("#fecha_registro").val() + "&fecha_emision=" + $("#fecha_emision").val() + "&fecha_caducidad=" + $("#fecha_caducidad").val() + "&tipo_comprobante=" + $("#tipo_comprobante").val() + "&serie=" + seriee + "&autorizacion=" + $("#autorizacion").val() + "&cancelacion=" + $("#cancelacion").val() + "&formas=" + $("#formas").val() + "&tarifa0=" + $("#total_p").val() + "&tarifa12=" + $("#total_p2").val() + "&iva=" + $("#iva").val() + "&desc=" + $("#desc").val() + "&tot=" + $("#tot").val() + "&campo1=" + string_v1 + "&campo2=" + string_v2 + "&campo3=" + string_v3 + "&campo4=" + string_v4 + "&campo5=" + string_v5,
-                                                    success: function(data) {
-                                                       var  val = data;
-                                                        if (val == 1) {
-                                                            alertify.alert("Factura Guardada correctamente", function(){
-                                                            window.open("../../reportes/factura_compra.php?hoja=A4&id="+$("#comprobante").val(),'_blank');    
-                                                            location.reload();
-                                                            });
-                                                        }
-                                                    }
-                                                });
+                                        var a = autocompletar($("#serie3").val());
+                                        $("#serie3").val(a + "" + $("#serie3").val());
+                                        if ($("#tipo_comprobante").val() === "") {
+                                            $("#tipo_comprobante").focus();
+                                            alertify.error("Seleccione tipo comprobante");
+                                        } else {
+                                        if (tam.length === 0) {
+                                            alertify.error("Error... Llene productos a la factura");
+                                        } else {
+                                            var v1 = new Array();
+                                            var v2 = new Array();
+                                            var v3 = new Array();
+                                            var v4 = new Array();
+                                            var v5 = new Array();
+                                            var string_v1 = "";
+                                            var string_v2 = "";
+                                            var string_v3 = "";
+                                            var string_v4 = "";
+                                            var string_v5 = "";
+                                            var fil = jQuery("#list").jqGrid("getRowData");
+                                            for (var i = 0; i < fil.length; i++) {
+                                                var datos = fil[i];
+                                                v1[i] = datos['cod_producto'];
+                                                v2[i] = datos['cantidad'];
+                                                v3[i] = datos['precio_u'];
+                                                v4[i] = datos['descuento'];
+                                                v5[i] = datos['precio_t'];
                                             }
+                                            for (i = 0; i < fil.length; i++) {
+                                                string_v1 = string_v1 + "|" + v1[i];
+                                                string_v2 = string_v2 + "|" + v2[i];
+                                                string_v3 = string_v3 + "|" + v3[i];
+                                                string_v4 = string_v4 + "|" + v4[i];
+                                                string_v5 = string_v5 + "|" + v5[i];
+                                            }
+                                            var seriee = ($("#serie1").val() + "-" + $("#serie2").val() + "-" + $("#serie3").val());
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "guardar_factura_compra.php",
+                                                data: "id_proveedor=" + $("#id_proveedor").val() + "&comprobante=" + $("#comprobante").val() + "&fecha_actual=" + $("#fecha_actual").val() + "&hora_actual=" + $("#hora_actual").val() + "&fecha_registro=" + $("#fecha_registro").val() + "&fecha_emision=" + $("#fecha_emision").val() + "&fecha_caducidad=" + $("#fecha_caducidad").val() + "&tipo_comprobante=" + $("#tipo_comprobante").val() + "&serie=" + seriee + "&autorizacion=" + $("#autorizacion").val() + "&cancelacion=" + $("#cancelacion").val() + "&formas=" + $("#formas").val() + "&tarifa0=" + $("#total_p").val() + "&tarifa12=" + $("#total_p2").val() + "&iva=" + $("#iva").val() + "&desc=" + $("#desc").val() + "&tot=" + $("#tot").val() + "&campo1=" + string_v1 + "&campo2=" + string_v2 + "&campo3=" + string_v3 + "&campo4=" + string_v4 + "&campo5=" + string_v5,
+                                                success: function(data) {
+                                                   var  val = data;
+                                                    if (val == 1) {
+                                                        alertify.alert("Factura Guardada correctamente", function(){
+                                                        window.open("../../reportes/factura_compra.php?hoja=A4&id="+$("#comprobante").val(),'_blank');    
+                                                        location.reload();
+                                                        });
+                                                    }
+                                                }
+                                            });
                                         }
-                                    }
+                                     }
+                                  }
                                 }
-                            });
-                        }
+                            }
+                        });
                     }
                 }
             }
@@ -668,6 +665,7 @@ $.ajax({
                 $("#serie3").attr("disabled", "disabled");
                 $("#autorizacion").attr("disabled", "disabled");
 
+                $("#codigo_barras").attr("disabled", "disabled");
                 $("#codigo").attr("disabled", "disabled");
                 $("#producto").attr("disabled", "disabled");
                 $("#cantidad").attr("disabled", "disabled");
@@ -767,6 +765,7 @@ $.ajax({
             $("#serie3").attr("disabled", "disabled");
             $("#autorizacion").attr("disabled", "disabled");
 
+            $("#codigo_barras").attr("disabled", "disabled");
             $("#codigo").attr("disabled", "disabled");
             $("#producto").attr("disabled", "disabled");
             $("#cantidad").attr("disabled", "disabled");
@@ -1280,7 +1279,7 @@ function inicio() {
             {name: 'iva', index: 'iva', align: 'center', width: 100, hidden: true}
         ],
         rowNum: 30,
-        width: 810,
+        // width: 810,
         height: 300,
         sortable: true,
         rowList: [10, 20, 30],
@@ -1573,6 +1572,7 @@ function inicio() {
             $("#serie3").attr("disabled", "disabled");
             $("#autorizacion").attr("disabled", "disabled");
 
+            $("#codigo_barras").attr("disabled", "disabled");
             $("#codigo").attr("disabled", "disabled");
             $("#producto").attr("disabled", "disabled");
             $("#cantidad").attr("disabled", "disabled");
@@ -1687,6 +1687,7 @@ function inicio() {
             $("#serie3").attr("disabled", "disabled");
             $("#autorizacion").attr("disabled", "disabled");
 
+            $("#codigo_barras").attr("disabled", "disabled");
             $("#codigo").attr("disabled", "disabled");
             $("#producto").attr("disabled", "disabled");
             $("#cantidad").attr("disabled", "disabled");
@@ -1756,6 +1757,9 @@ function inicio() {
         }
     }
   });
+jQuery(window).bind('resize', function () {
+    jQuery("#list").setGridWidth(jQuery('#grid_container').width(), true);
+}).trigger('resize');
 }
 
 

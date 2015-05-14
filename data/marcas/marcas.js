@@ -6,7 +6,7 @@ window.open('../../ayudas/ayuda.pdf');
 
 function inicio() {
     $(window).bind('resize', function() {
-        jQuery("#list").setGridWidth($('#centro').width() - 10);
+        jQuery("#list").setGridWidth($('#centro').width());
     }).trigger('resize');
     jQuery("#list").jqGrid({
         url: 'xmlMarcas.php',
@@ -60,7 +60,7 @@ function inicio() {
     {
         closeOnEscape: true
     });
-    jQuery("#list").setGridWidth($('#centro').width() - 10);
+    jQuery("#list").setGridWidth($('#centro').width());
 }
 function Defecto(e) {
     e.preventDefault();

@@ -46,7 +46,7 @@ $cont1 = 0;
             Registro Inventario
           </h1>
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Ingresos</a></li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> Procesos</a></li>
             <li class="active">Inventario</li>
           </ol>
         </section>

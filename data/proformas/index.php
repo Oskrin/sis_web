@@ -6,7 +6,7 @@ conectarse();
 error_reporting(0);
 
 $cont1 = 0;
-    $consulta = pg_query("select * from proforma order by id_proforma asc");
+    $consulta = pg_query("select max(id_proforma) from proforma");
     while ($row = pg_fetch_row($consulta)) {
         $cont1 = $row[0];
     }
@@ -46,7 +46,7 @@ $cont1 = 0;
             PROFORMA
           </h1>
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Ingresos</a></li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> Procesos</a></li>
             <li class="active">Proformas</li>
           </ol>
         </section>
@@ -63,16 +63,16 @@ $cont1 = 0;
                         <div class="row">
                             <div class="col-mx-12">
                               <div class="col-md-3">
-                                    <div class="form-group">
-                                      <label>Fecha Actual:</label>
-                                      <div class="input-group">
-                                        <input type="text" name="fecha_actual"  id="fecha_actual" readonly class="form-control timepicker"/>
-                                        <input type="hidden" name="comprobante"  id="comprobante" readonly class="form-control" value="<?php echo $cont1 ?>"/>
-                                        <div class="input-group-addon">
-                                          <i class="fa fa-calendar"></i>
-                                        </div>
-                                      </div><!-- /.input group -->
-                                    </div><!-- /.form group -->
+                                <div class="form-group">
+                                  <label>Fecha Actual:</label>
+                                  <div class="input-group">
+                                    <input type="text" name="fecha_actual"  id="fecha_actual" readonly class="form-control timepicker"/>
+                                    <input type="hidden" name="comprobante"  id="comprobante" readonly class="form-control" value="<?php echo $cont1 ?>"/>
+                                    <div class="input-group-addon">
+                                      <i class="fa fa-calendar"></i>
+                                    </div>
+                                  </div><!-- /.input group -->
+                                </div><!-- /.form group -->
                               </div>
 
                               <div class="col-md-3">
@@ -98,7 +98,7 @@ $cont1 = 0;
                               </div>
                             </div>
                         </div>
-                        <BR />
+                        <br />
                         <div class="row">
                           <div class="col-md-12">   
                             <div class="col-md-6">
@@ -145,31 +145,30 @@ $cont1 = 0;
                         </div>
                         <hr />
                         <h3 class="box-title">Detalle Proforma</h3>
-
                         <div class="row">
                          <div class="col-mx-12">
-                            <div class="col-md-3 ">
+                            <div class="col-md-2">
                               <div class="form-group">
                                 <label>CÓDIGO BARRAS</label>
                                 <input type="text" name="codigo_barras"  id="codigo_barras" placeholder="Buscar..." class="form-control" />
                               </div>  
                             </div>
 
-                            <div class="col-md-3 no-padding">
+                            <div class="col-md-3">
                               <div class="form-group">
                                 <label>CÓDIGO</label>
                                 <input type="text" name="codigo"  id="codigo" placeholder="Buscar..." class="form-control" />
                               </div>  
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                               <div class="form-group">
                                 <label>PRODUCTO</label>
                                 <input type="text" name="producto"  id="producto" placeholder="Buscar..." class="form-control" />
                               </div>  
                             </div>
 
-                            <div class="col-md-1 ">
+                            <div class="col-md-1">
                               <div class="form-group">
                                 <label>CANTIDAD</label>
                                 <input type="text" name="cantidad"  id="cantidad" class="form-control" />
@@ -178,7 +177,7 @@ $cont1 = 0;
 
                             <div class="col-md-1">
                               <div class="form-group">
-                                <label>VENTA</label>
+                                <label>PRECIO</label>
                                 <input type="text" name="p_venta"  id="p_venta" readonly class="form-control" />
                               </div> 
                             </div>
@@ -194,18 +193,27 @@ $cont1 = 0;
                          </div>
                         </div>
 
-                        <div class="row">
-                         <div class="col-md-12">
+                        <!-- <div class="row"> -->
+                         <div class="col-mx-12">
                             <div id="grid_container">
                                 <table id="list"></table>
                                 <!--<div id="pager"></div>-->   
                             </div>
                          </div>   
-                        </div>
+                        <!-- </div> -->
 
                         <div class="row">
-                         <div class="col-md-12">
-                            <div class="col-md-9"></div>
+                         <div class="col-mx-12">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="col-md-3" >Observaciones:</label>
+                                <div class="form-group col-md-9 no-padding">                                
+                                  <textarea class="form-control" name="observaciones" id="observaciones" rows="3"></textarea>
+                                </div> 
+                              </div> 
+                            </div>
+
+                            <div class="col-md-3"></div>
                             <!-- <div class="col-md-2"></div> -->
                             <div class="col-md-3">
                               <div class="form-group">

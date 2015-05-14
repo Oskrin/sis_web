@@ -47,10 +47,10 @@ include('../menu/app.php');
               <div class="box box-primary">
                 <div class="box-body">
                     <div class="tabbable" id="centro">
-                        <fieldset>
-                            <table id="list"></table>
-                            <div id="pager"></div>   
-                        </fieldset>   
+                        <!-- <fieldset> -->
+                      <table id="list"></table>
+                      <div id="pager"></div>   
+                        <!-- </fieldset>    -->
                     </div>
                 </div>
               </div>

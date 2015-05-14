@@ -75,7 +75,7 @@ print'
                   <a href=""><i class="fa fa-circle-o"></i>Tablas<i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
                     <li>
-                      <a href="#"><i class="fa fa-circle-o"></i>Facturación<i class="fa fa-angle-left pull-right"></i></a>
+                      <a href=""><i class="fa fa-circle-o"></i>Facturación<i class="fa fa-angle-left pull-right"></i></a>
                       <ul class="treeview-menu">
                         <li><a href=""><i class="fa fa-circle-o"></i>Impuestos Ventas/Compras</a></li>
                         <li><a href=""><i class="fa fa-circle-o"></i>Retención en Impuesto</a></li>
@@ -93,7 +93,7 @@ print'
                       </ul>
                     </li>
                     <li>
-                      <a href="#"><i class="fa fa-circle-o"></i>Importar<i class="fa fa-angle-left pull-right"></i></a>
+                      <a href=""><i class="fa fa-circle-o"></i>Importar<i class="fa fa-angle-left pull-right"></i></a>
                       <ul class="treeview-menu">
                         <li><a href="#"><i class="fa fa-circle-o"></i>Cargar Productos</a></li>
                         <li><a href="#"><i class="fa fa-circle-o"></i>Cargar Plan Cuentas</a></li>

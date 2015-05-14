@@ -46,7 +46,7 @@ $cont1++;
             FACTURA COMPRA
           </h1>
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Ingresos</a></li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> Procesos</a></li>
             <li class="active">Factura Compra</li>
           </ol>
         </section>
@@ -61,44 +61,44 @@ $cont1++;
                     <div class="col-mx-12">
                       <form id="clientes_form" name="clientes_form" method="post">
                         <div class="row">
-                            <div class="col-mx-12">
-                              <div class="col-md-3">
-                                    <div class="form-group">
-                                      <label>Fecha Actual:</label>
-                                      <div class="input-group">
-                                        <input type="text" name="fecha_actual"  id="fecha_actual" readonly class="form-control timepicker"/>
-                                        <input type="hidden" name="comprobante"  id="comprobante" readonly class="form-control" value="<?php echo $cont1 ?>"/>
-                                        <div class="input-group-addon">
-                                          <i class="fa fa-calendar"></i>
-                                        </div>
-                                      </div><!-- /.input group -->
-                                    </div><!-- /.form group -->
-                              </div>
-
-                              <div class="col-md-3">
-                                <div class="bootstrap-timepicker">
-                                    <div class="form-group">
-                                      <label>Hora Actual:</label>
-                                      <div class="input-group">
-                                        <input type="text" name="hora_actual"  id="hora_actual" readonly  class="form-control timepicker"/>
-                                        <div class="input-group-addon">
-                                          <i class="fa fa-clock-o"></i>
-                                        </div>
-                                      </div><!-- /.input group -->
-                                    </div><!-- /.form group -->
-                                  </div>  
-                              </div>
-
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Digitad@r:</label>
-                                  <input type="text" name="digitador"  id="digitador" readonly value="<?php echo $_SESSION['nombres'] ?>" class="form-control" />
-                                  <input type="hidden" name="comprobante2"  id="comprobante2" readonly class="form-control">
-                                </div>  
-                              </div>
+                          <div class="col-mx-12">
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label>Fecha Actual:</label>
+                                <div class="input-group">
+                                  <input type="text" name="fecha_actual"  id="fecha_actual" readonly class="form-control timepicker"/>
+                                  <input type="hidden" name="comprobante"  id="comprobante" readonly class="form-control" value="<?php echo $cont1 ?>"/>
+                                  <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                  </div>
+                                </div><!-- /.input group -->
+                              </div><!-- /.form group -->
                             </div>
+
+                            <div class="col-md-3">
+                              <div class="bootstrap-timepicker">
+                                  <div class="form-group">
+                                    <label>Hora Actual:</label>
+                                    <div class="input-group">
+                                      <input type="text" name="hora_actual"  id="hora_actual" readonly  class="form-control timepicker"/>
+                                      <div class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                      </div>
+                                    </div><!-- /.input group -->
+                                  </div><!-- /.form group -->
+                                </div>  
+                            </div>
+
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label>Digitad@r:</label>
+                                <input type="text" name="digitador"  id="digitador" readonly value="<?php echo $_SESSION['nombres'] ?>" class="form-control" />
+                                <input type="hidden" name="comprobante2"  id="comprobante2" readonly class="form-control">
+                              </div>  
+                            </div>
+                          </div>
                         </div>
-                        <BR />
+                        <br />
                         <div class="row">
                           <div class="col-md-12">
                             <div class="col-md-4">
@@ -132,7 +132,6 @@ $cont1++;
                                 </div>  
                               </div>  
                             </div>
-
 
                             <div class="col-md-4">
                               <div class="form-group">
@@ -226,7 +225,7 @@ $cont1++;
                               <div class="form-group">
                                 <label class="col-md-5" >Tipo de comprobante: <font color="red">*</font></label>
                                 <div class="form-group col-md-7 no-padding">                                
-                                  <select class="form-control" name="tipo_compro" id="tipo_compro">
+                                  <select class="form-control" name="tipo_comprobante" id="tipo_comprobante">
                                     <option value="">........Seleccione........</option>
                                     <?php
                                     $consulta = pg_query("select * from tipo_comprobante ");
@@ -235,44 +234,38 @@ $cont1++;
                                     }
                                     ?>
                                   </select>
-                                  <input type="hidden" name="id_proveedor"  id="id_proveedor" required class="form-control" />
                                 </div> 
                               </div>
                             </div>
                           </div> 
-
-
                         </div>
-
-
-
                         <hr />
-                        <h3 class="box-title">Detalle Proforma</h3>
+                        <h3 class="box-title">Detalle Factura</h3>
 
                         <div class="row">
                          <div class="col-mx-12">
-                            <div class="col-md-3 ">
+                            <div class="col-md-2">
                               <div class="form-group">
                                 <label>CÓDIGO BARRAS</label>
                                 <input type="text" name="codigo_barras"  id="codigo_barras" placeholder="Buscar..." class="form-control" />
                               </div>  
                             </div>
 
-                            <div class="col-md-3 no-padding">
+                            <div class="col-md-3">
                               <div class="form-group">
                                 <label>CÓDIGO</label>
                                 <input type="text" name="codigo"  id="codigo" placeholder="Buscar..." class="form-control" />
                               </div>  
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                               <div class="form-group">
                                 <label>PRODUCTO</label>
                                 <input type="text" name="producto"  id="producto" placeholder="Buscar..." class="form-control" />
                               </div>  
                             </div>
 
-                            <div class="col-md-1 ">
+                            <div class="col-md-1">
                               <div class="form-group">
                                 <label>CANTIDAD</label>
                                 <input type="text" name="cantidad"  id="cantidad" class="form-control" />
@@ -281,7 +274,7 @@ $cont1++;
 
                             <div class="col-md-1">
                               <div class="form-group">
-                                <label>VENTA</label>
+                                <label>PRECIO</label>
                                 <input type="text" name="precio"  id="precio" class="form-control" />
                               </div> 
                             </div>
@@ -303,18 +296,20 @@ $cont1++;
                          </div>
                         </div>
 
-                        <div class="row">
-                         <div class="col-md-12">
+                        <!-- <div class="row"> -->
+                         <div class="col-mx-12">
                             <div id="grid_container">
                                 <table id="list"></table>
                                 <!--<div id="pager"></div>-->   
                             </div>
                          </div>   
-                        </div>
+                        <!-- </div> -->
 
                         <div class="row">
-                         <div class="col-md-12">
-                            <div class="col-md-9"></div>
+                         <div class="col-mx-12">
+                            <div class="col-md-9">
+                              
+                            </div>
                             <!-- <div class="col-md-2"></div> -->
                             <div class="col-md-3">
                               <div class="form-group">
@@ -395,10 +390,28 @@ $cont1++;
                         <button class="btn bg-olive margin" id='btnAdelante'>Adelante <i class="fa fa-forward"></i></button>
                       </p> 
                     </div>
-                    <div id="buscar_proformas" title="BUSCAR PROFORMAS">
-                        <table id="list2"><tr><td></td></tr></table>
-                        <div id="pager2"></div>
+                    <div id="buscar_facturas_compras" title="BUSCAR FACTURAS COMPRAS">
+                        <table id="list3"><tr><td></td></tr></table>
+                        <div id="pager3"></div>
                     </div>  
+
+                    <div id="series" title="AGREGAR SERIES">
+                        <table cellpadding="2" border="0" style="margin-left: 10px">
+                            <tr>
+                                <td><label>Series: <font color="red">*</font></label></td>
+                                <td><input type="text" name="serie" id="serie" class="campo" /></td>
+                                <td><button class="btn btn-primary" id='btnAgregar' style="margin-top: -10px"><i class="icon-list"></i> Agregar</button></td>
+                            </tr>
+                        </table>
+                        <hr style="color: #0056b2;" /> 
+                        <div align="center">
+                            <table id="list2"><tr><td></td></tr></table>
+                            <div class="form-actions">
+                                <button class="btn btn-primary" id='btnGuardarSeries'><i class="icon-save"></i> Guardar</button>
+                                <button class="btn btn-primary" id='btnCancelarSeries'><i class="icon-remove-sign"></i> Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
                   </div>
                 </div>
               </div>

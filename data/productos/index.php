@@ -56,7 +56,6 @@ include('../menu/app.php');
                       <div class="tab-content">
                         <div class="tab-pane active" id="tab_1">                        
                             <div class="col-mx-12"> 
-
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Código Producto: <font color="red">*</font></label>

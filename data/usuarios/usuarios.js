@@ -13,9 +13,11 @@ return patron.test(te);
 }
 
 function inicio() {
+
     $(window).bind('resize', function() {
-        jQuery("#list").setGridWidth($('#centro').width() - 10);
+        jQuery("#list").setGridWidth($('#centro'));
     }).trigger('resize');
+    
     jQuery("#list").jqGrid({
         url: 'xmlUsuario.php',
         datatype: 'xml',
@@ -77,7 +79,7 @@ function inicio() {
     {
         closeOnEscape: true
     });
-    jQuery("#list").setGridWidth($('#centro').width() - 10);
+    // jQuery("#list").setGridWidth($('#centro').width() - 10);
 }
 
 function Defecto(e) {

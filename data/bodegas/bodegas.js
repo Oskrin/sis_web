@@ -14,8 +14,10 @@ return patron.test(te);
 
 function inicio() {
     $(window).bind('resize', function() {
-        jQuery("#list").setGridWidth($('#centro').width() - 10);
+        jQuery("#list").setGridWidth($('#centro'));
     }).trigger('resize');
+
+
     jQuery("#list").jqGrid({
         url: 'xmlBodega.php',
         datatype: 'xml',
@@ -70,7 +72,7 @@ function inicio() {
     {
         closeOnEscape: true
     });
-    jQuery("#list").setGridWidth($('#centro').width() - 10);
+    jQuery("#list").setGridWidth($('#centro').width());
 }
 function Defecto(e) {
     e.preventDefault();
