@@ -16,7 +16,7 @@ $cont1 = 0;
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>PROFORMAS</title>
+    <title>CUENTAS COBRAR</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -43,11 +43,11 @@ $cont1 = 0;
       <div class="content-wrapper">
         <section class="content-header">
           <h1>
-            PROFORMA
+            CUENTAS COBRAR
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Procesos</a></li>
-            <li class="active">Proformas</li>
+            <li class="active">Cuentas Cobrar</li>
           </ol>
         </section>
 
@@ -111,172 +111,121 @@ $cont1 = 0;
                               </div> 
 
                               <div class="form-group">
-                                <label class="col-md-4" >Saldo Disponible:</label>
+                                <label class="col-md-4" >Forma de pago:<font color="red">*</font></label>
                                 <div class="form-group col-md-8 no-padding">
-                                  <div class="input-group">
-                                    <div class="input-group-addon">
-                                      <i class="glyphicon glyphicon-usd"></i>
-                                    </div>
-                                    <input type="text" name="saldo" id="saldo" value="0.00" readonly class="form-control"/>
-                                  </div>                                
+                                  <select class="form-control" name="forma_pago" id="forma_pago">
+                                    <option value="0">........SELECCIONE........</option>
+                                      <option value="EFECTIVO">EFECTIVO</option>
+                                      <option value="CHEQUE">CHEQUE</option>
+                                      <option value="TARGETA">TARGETA</option>     
+                                  </select>                                
                                 </div> 
                               </div> 
                             </div>
 
                             <div class="col-md-6">
                               <div class="form-group">
-                                <label class="col-md-3" >Nombres:</label>
+                                <label class="col-md-3" >Nombres:<font color="red">*</font></label>
                                 <div class="form-group col-md-9 no-padding">                                
                                   <input type="text" name="nombres_completos"  id="nombres_completos" required placeholder="Buscar....." class="form-control" />
                                 </div> 
                               </div> 
 
                               <div class="form-group">
-                                <label class="col-md-3" >Tipo de Precio:</label>
+                                <label class="col-md-3" >Pago:<font color="red">*</font></label>
                                 <div class="form-group col-md-9 no-padding">                                
-                                  <select class="form-control" name="tipo_precio" id="tipo_precio">
-                                    <option value="MINORISTA" selected>MINORISTA</option>
-                                    <option value="MAYORISTA">MAYORISTA</option>     
+                                  <select class="form-control" name="tipo_pago" id="tipo_pago">
+                                         
                                   </select>
+                                  <input type="hidden" name="saldo"  id="saldo" required class="form-control" />
                                 </div> 
                               </div> 
                             </div>
                           </div>  
                         </div>
                         <hr />
-                        <h3 class="box-title">Detalle Proforma</h3>
-                        <div class="row">
-                         <div class="col-mx-12">
-                            <div class="col-md-2">
-                              <div class="form-group">
-                                <label>CÓDIGO BARRAS</label>
-                                <input type="text" name="codigo_barras"  id="codigo_barras" placeholder="Buscar..." class="form-control" />
-                              </div>  
-                            </div>
+                        <div class="nav-tabs-custom">
+                          <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab_1" data-toggle="tab">Pagos</a></li>
+                            <li><a href="#tab_2" data-toggle="tab">Fechas Pago</a></li>
+                          </ul>
 
-                            <div class="col-md-3">
-                              <div class="form-group">
-                                <label>CÓDIGO</label>
-                                <input type="text" name="codigo"  id="codigo" placeholder="Buscar..." class="form-control" />
-                              </div>  
-                            </div>
+                          <div class="tab-content">
+                            <div class="tab-pane active" id="tab_1">
+                              <div class="row">
+                               <div class="col-mx-12">
+                                  <div class="col-md-2">
+                                    <div class="form-group">
+                                      <label>Nro de factura a pagar:</label>
+                                      <input type="text" name="num_factura"  id="num_factura" readonly class="form-control" />
+                                    </div>  
+                                  </div>
 
-                            <div class="col-md-4">
-                              <div class="form-group">
-                                <label>PRODUCTO</label>
-                                <input type="text" name="producto"  id="producto" placeholder="Buscar..." class="form-control" />
-                              </div>  
-                            </div>
+                                  <div class="col-md-2">
+                                    <div class="form-group">
+                                      <label>Tipo Factura:</label>
+                                      <input type="text" name="tipo_factura"  id="tipo_factura" readonly class="form-control" />
+                                    </div>  
+                                  </div>
 
-                            <div class="col-md-1">
-                              <div class="form-group">
-                                <label>CANTIDAD</label>
-                                <input type="text" name="cantidad"  id="cantidad" class="form-control" />
+                                  <div class="col-md-2">
+                                    <div class="form-group">
+                                      <label>Fecha de Factura:</label>
+                                      <input type="text" name="fecha_factura"  id="fecha_factura" readonly class="form-control" />
+                                    </div>  
+                                  </div>
+
+                                  <div class="col-md-2">
+                                    <div class="form-group">
+                                      <label>Total CxC:</label>
+                                      <input type="text" name="totalcxc"  id="totalcxc" readonly class="form-control" />
+                                    </div>
+                                  </div>
+
+                                  <div class="col-md-2">
+                                    <div class="form-group">
+                                      <label>Valor Pagado:</label>
+                                      <input type="text" name="valor_pagado"  id="valor_pagado" class="form-control" />
+                                    </div> 
+                                  </div>
+
+                                  <div class="col-md-2">
+                                    <div class="form-group">
+                                      <label>Saldo:</label>
+                                      <input type="text" name="saldo2"  id="saldo2" readonly class="form-control" />
+                                      <input type="hidden" name="ids"  id="ids" readonly class="form-control" />
+                                    </div>  
+                                  </div>
+                               </div>
                               </div>
-                            </div>
 
-                            <div class="col-md-1">
-                              <div class="form-group">
-                                <label>PRECIO</label>
-                                <input type="text" name="p_venta"  id="p_venta" readonly class="form-control" />
-                              </div> 
-                            </div>
+                              <div class="col-mx-12">
+                                <div id="grid_container">
+                                    <table id="list"></table>
+                                    <!--<div id="pager"></div>-->   
+                                </div>
+                             </div>
+                            </div> 
 
-                            <div class="col-md-1">
-                              <div class="form-group">
-                                <label>DESC.</label>
-                                <input type="number" name="descuento"  id="descuento"  min="1" class="form-control" />
-                                <input type="hidden" name="cod_producto"  id="cod_producto" readonly class="form-control" />
-                                <input type="hidden" name="iva_producto"  id="iva_producto" readonly class="form-control" />
+                            <div class="tab-pane" id="tab_2">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <table id="tablaNuevo" style="display: none; vertical-align: top; width: 250px; margin-left: 20px;" class="table table-striped table-bordered"  >
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 280px">Fecha Pagos</th>
+                                            <th style="width: 200px">Monto</th>
+                                            <th style="width: 200px">Saldo</th>
+                                        </tr>   
+                                    </thead>
+                                    <tbody>
+                                        <tr></tr>
+                                    </tbody>
+                                </table>
+                                </div>
                               </div>  
                             </div> 
-                         </div>
-                        </div>
-
-                        <!-- <div class="row"> -->
-                         <div class="col-mx-12">
-                            <div id="grid_container">
-                                <table id="list"></table>
-                                <!--<div id="pager"></div>-->   
-                            </div>
-                         </div>   
-                        <!-- </div> -->
-
-                        <div class="row">
-                         <div class="col-mx-12">
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label class="col-md-3" >Observaciones:</label>
-                                <div class="form-group col-md-9 no-padding">                                
-                                  <textarea class="form-control" name="observaciones" id="observaciones" rows="3"></textarea>
-                                </div> 
-                              </div> 
-                            </div>
-
-                            <div class="col-md-3"></div>
-                            <!-- <div class="col-md-2"></div> -->
-                            <div class="col-md-3">
-                              <div class="form-group">
-                                <label class="col-md-5" >Tarifa 0:</label>
-                                <div class="form-group col-md-7 no-padding">
-                                  <div class="input-group">
-                                    <div class="input-group-addon">
-                                      <i class="glyphicon glyphicon-usd"></i>
-                                    </div>
-                                    <input type="text" name="total_p" id="total_p" value="0.00" readonly class="form-control"/>
-                                  </div>                                
-                                </div> 
-                              </div>
-
-                              <div class="form-group">
-                                <label class="col-md-5" >Tarifa 12:</label>
-                                <div class="form-group col-md-7 no-padding">
-                                  <div class="input-group">
-                                    <div class="input-group-addon">
-                                      <i class="glyphicon glyphicon-usd"></i>
-                                    </div>
-                                    <input type="text" name="total_p2" id="total_p2" value="0.00" readonly class="form-control"/>
-                                  </div>                                
-                                </div> 
-                              </div>
-
-                              <div class="form-group">
-                                <label class="col-md-5" >12 %Iva:</label>
-                                <div class="form-group col-md-7 no-padding">
-                                  <div class="input-group">
-                                    <div class="input-group-addon">
-                                      <i class="glyphicon glyphicon-usd"></i>
-                                    </div>
-                                    <input type="text" name="iva" id="iva" value="0.00" readonly class="form-control"/>
-                                  </div>                                
-                                </div> 
-                              </div>
-
-                              <div class="form-group">
-                                <label class="col-md-5" >Descuento:</label>
-                                <div class="form-group col-md-7 no-padding">
-                                  <div class="input-group">
-                                    <div class="input-group-addon">
-                                      <i class="glyphicon glyphicon-usd"></i>
-                                    </div>
-                                    <input type="text" name="desc" id="desc" value="0.00" readonly class="form-control"/>
-                                  </div>                                
-                                </div> 
-                              </div> 
-
-                              <div class="form-group">
-                                <label class="col-md-5" >Total:</label>
-                                <div class="form-group col-md-7 no-padding">
-                                  <div class="input-group">
-                                    <div class="input-group-addon">
-                                      <i class="glyphicon glyphicon-usd"></i>
-                                    </div>
-                                    <input type="text" name="tot" id="tot" value="0.00" readonly class="form-control"/>
-                                  </div>                                
-                                </div> 
-                              </div>
-                            </div>
-                         </div>   
+                          </div>
                         </div>
                       </form>
                     </div>
@@ -285,6 +234,7 @@ $cont1 = 0;
                   <div class="row">
                     <div class="col-md-12">
                       <p>
+                        <button class="btn bg-olive margin" id='btnfacturas'><i class="fa fa-new"></i> Buscar Facturas</button>
                         <button class="btn bg-olive margin" id='btnGuardar'><i class="fa fa-save"></i> Guardar</button>
                         <button class="btn bg-olive margin" id='btnModificar'><i class="fa fa-edit"></i> Modificar</button>
                         <button class="btn bg-olive margin" id='btnBuscar'><i class="fa fa-search"></i> Buscar</button>
@@ -294,11 +244,20 @@ $cont1 = 0;
                         <button class="btn bg-olive margin" id='btnAdelante'>Adelante <i class="fa fa-forward"></i></button>
                       </p> 
                     </div>
-                    <div id="buscar_proformas" title="BUSCAR PROFORMAS">
-                        <table id="list2"><tr><td></td></tr></table>
-                        <div id="pager2"></div>
-                    </div>  
                   </div>
+
+                  <div id="buscar_facturas" title="BUSCAR FACTURAS">
+                      <fieldset>
+                          <table id="list2"><tr><td></td></tr></table>
+                          <div id="pager2"></div>
+                      </fieldset>
+                  </div> 
+                  <div id="buscar_cuentas_cobrar" title="BUSCAR CUENTAS POR COBRAR">
+                      <fieldset>
+                          <table id="list3"><tr><td></td></tr></table>
+                          <div id="pager3"></div>
+                      </fieldset>
+                  </div> 
                 </div>
               </div>
             </div>
@@ -325,6 +284,6 @@ $cont1 = 0;
     <script src="../../dist/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
     <script src="../../dist/js/jquery.jqGrid.src.js" type="text/javascript"></script>
     <script src="../../dist/js/grid.locale-es.js" type="text/javascript"></script>
-    <script src="proforma.js" type="text/javascript"></script>
+    <script src="cuentasxcobrar.js" type="text/javascript"></script>
   </body>
 </html>

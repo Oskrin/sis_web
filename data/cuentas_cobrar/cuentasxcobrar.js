@@ -7,13 +7,6 @@ function openPDF(){
 window.open('../../ayudas/ayuda.pdf');
 }
 
-$(function() {
-    $('#main-menu').smartmenus({
-        subMenusSubOffsetX: 1,
-        subMenusSubOffsetY: -8
-    });
-});
-
 var dialogo =
 {
     autoOpen: false,
@@ -21,7 +14,7 @@ var dialogo =
     width: 530,
     height: 320,
     modal: true,
-    position: "top",
+    // position: "top",
     show: "explode",
     hide: "blind",
     Cancelar: function() {
@@ -223,13 +216,12 @@ function guardar_pagos(){
                             success: function(data) {
                                 var val = data;
                                 if (val == 1) {
-                                    if($("#tipo_pago").val()=="EXTERNA")
-                                    {
+                                    alertify.alert("Pago Guardado correctamente", function(){location.reload();});
+                                    if($("#tipo_pago").val()=="EXTERNA") {
                                         window.open("../../reportes/reporte_cxc.php?tipo_pago="+$("#tipo_pago").val()+"&id="+v2[0]+"&comprobante="+$("#comprobante").val(),'_blank');
                                     }else{
                                         window.open("../../reportes/reporte_cxc.php?tipo_pago="+$("#tipo_pago").val()+"&id="+v2[0]+"&comprobante="+$("#comprobante").val()+"&temp2="+v6[0]+"&temp3="+v7[0],'_blank');
                                     }    
-                                    alertify.alert("Pago Guardado correctamente", function(){location.reload();});
                                 }
                             }
                         });
@@ -412,7 +404,6 @@ return true;
 }
 
 function inicio() {
-jQuery().UItoTop({ easingType: 'easeOutQuart' });
     //////////////para hora///////////
     show();
     ///////////////////
@@ -554,7 +545,7 @@ jQuery().UItoTop({ easingType: 'easeOutQuart' });
     ///////////calendarios/////
     $('#fecha_actual').datepicker({
         dateFormat: 'yy-mm-dd'
-    });
+    }).datepicker('setDate', 'today');
 
     ///////////tabla local/////////////   
         var can;
@@ -889,4 +880,8 @@ jQuery("#list2").jqGrid('navButtonAdd', '#pager2', {caption: "Añadir",
         }
     }
 });  
+
+jQuery(window).bind('resize', function () {
+    jQuery("#list").setGridWidth(jQuery('#grid_container').width(), true);
+}).trigger('resize');
 }

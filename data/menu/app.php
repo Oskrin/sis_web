@@ -70,11 +70,11 @@ print'
               </a>
               <ul class="treeview-menu">
                 <li><a href=""><i class="fa fa-circle-o"></i>Empresa</a></li>
-                <li><a href=""><i class="fa fa-circle-o"></i>Privilegios</a></li>
+                <!--<li><a href=""><i class="fa fa-circle-o"></i>Privilegios</a></li>-->
                   <li>
                   <a href=""><i class="fa fa-circle-o"></i>Tablas<i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
-                    <li>
+                    <!--<li>
                       <a href=""><i class="fa fa-circle-o"></i>Facturación<i class="fa fa-angle-left pull-right"></i></a>
                       <ul class="treeview-menu">
                         <li><a href=""><i class="fa fa-circle-o"></i>Impuestos Ventas/Compras</a></li>
@@ -82,7 +82,7 @@ print'
                         <li><a href=""><i class="fa fa-circle-o"></i>Retención en Fuente</a></li>
                         <li><a href=""><i class="fa fa-circle-o"></i>Segundo Impuesto Ventas/Compras</a></li>
                       </ul>
-                    </li>
+                    </li>-->
                     <li>
                       <a href=""><i class="fa fa-circle-o"></i>Inventario<i class="fa fa-angle-left pull-right"></i></a>
                       <ul class="treeview-menu">
@@ -96,12 +96,12 @@ print'
                       <a href=""><i class="fa fa-circle-o"></i>Importar<i class="fa fa-angle-left pull-right"></i></a>
                       <ul class="treeview-menu">
                         <li><a href="#"><i class="fa fa-circle-o"></i>Cargar Productos</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i>Cargar Plan Cuentas</a></li>
+                        <!--<li><a href="#"><i class="fa fa-circle-o"></i>Cargar Plan Cuentas</a></li>-->
                       </ul>
                     </li>
                   </ul>
                 </li>
-                <li><a href="#"><i class="fa fa-circle-o"></i>Respaldo</a></li>
+                <!--<li><a href="#"><i class="fa fa-circle-o"></i>Respaldo</a></li>-->
               </ul>
             </li>
 
@@ -143,7 +143,7 @@ print'
                   <a href=""><i class="fa fa-circle-o"></i>Cartera<i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
                     <li><a href="../cuentas_cobrar"><i class="fa fa-circle-o"></i>Cuentas por cobrar</a></li>
-                    <li><a href="../cuentas_pagar"><i class="fa fa-circle-o"></i>Cuentas por pagar</a></li>
+                    <!--<li><a href="../cuentas_pagar"><i class="fa fa-circle-o"></i>Cuentas por pagar</a></li>-->
                     <li>
                       <a href=""><i class="fa fa-circle-o"></i>Externas<i class="fa fa-angle-left pull-right"></i></a>
                       <ul class="treeview-menu">
@@ -154,13 +154,13 @@ print'
                   </ul>
                 </li>
 
-                <li>
+                <!--<li>
                   <a href=""><i class="fa fa-circle-o"></i>Transferencias<i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
                     <li><a href="../ingresos"><i class="fa fa-circle-o"></i>Ingresos</a></li>
                     <li><a href="../egresos"><i class="fa fa-circle-o"></i>Egresos</a></li>
                   </ul>
-                </li>
+                </li>-->
 
                 <li><a href="../registro_gastos"><i class="fa fa-circle-o"></i>Registro Gastos</a></li>
                 <li><a href="../gastos"><i class="fa fa-circle-o"></i>Gastos Internos</a></li>
