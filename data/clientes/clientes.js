@@ -18,7 +18,6 @@ function scrollToTop() {
     }, 'slow');
 }
 
-
 var dialogo =
 {
     autoOpen: false,

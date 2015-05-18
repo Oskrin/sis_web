@@ -7,13 +7,6 @@ function openPDF(){
 window.open('../../ayudas/ayuda.pdf');
 }
 
-$(function() {
-    $('#main-menu').smartmenus({
-        subMenusSubOffsetX: 1,
-        subMenusSubOffsetY: -8
-    });
-});
-
 var dialogos =
 {
     autoOpen: false,
@@ -30,7 +23,7 @@ var dialogo2 =
     width: 800,
     height: 350,
     modal: true,
-    position: "top",
+    // position: "top",
     show: "explode",
     hide: "blind"    
 }
@@ -288,6 +281,7 @@ return true;
 }
 
 function inicio() {
+    $("[data-mask]").inputmask();
     show();
     
     $("#btnGuardar").click(function(e) {
@@ -377,7 +371,7 @@ function inicio() {
 
     $('#fecha_actual').datepicker({
         dateFormat: 'yy-mm-dd'
-    });
+    }).datepicker('setDate', 'today');
 
     jQuery("#list2").jqGrid({
         url: 'xmlBuscarCuentasExternasCobrar.php',

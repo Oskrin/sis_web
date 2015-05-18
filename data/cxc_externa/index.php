@@ -1,10 +1,11 @@
 <?php
-    session_start();
-    include '../../menus/menu.php';
-    include '../../procesos/base.php';
-    conectarse();
-    error_reporting(0);
-    $cont1 = 0;
+session_start();
+include '../../procesos/base.php';
+include('../menu/app.php'); 
+conectarse();
+error_reporting(0);
+
+$cont1 = 0;
     $consulta = pg_query("select max(id_c_cobrarexternas) from c_cobrarexternas");
     while ($row = pg_fetch_row($consulta)) {
         $cont1 = $row[0];
@@ -12,214 +13,198 @@
     $cont1++;
 ?>
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>.:CXC EXTERNA:.</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <meta name="apple-mobile-web-app-capable" content="yes"> 
-        <link rel="stylesheet" type="text/css" href="../../css/buttons.css"/>
-        <link rel="stylesheet" type="text/css" href="../../css/jquery-ui-1.10.4.custom.css"/>    
-        <link rel="stylesheet" type="text/css" href="../../css/normalize.css"/>    
-        <link rel="stylesheet" type="text/css" href="../../css/ui.jqgrid.css"/> 
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/bootstrap-responsive.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome.css" rel="stylesheet">
-        <link href="../../css/style.css" rel="stylesheet">
-        <link rel="stylesheet" href="../../css/alertify.core.css" />
-        <link rel="stylesheet" href="../../css/alertify.default.css" id="toggleCSS" />
-        <link href="../../css/sm-core-css.css" rel="stylesheet" type="text/css" />
-        <link href="../../css/sm-blue/sm-blue.css" rel="stylesheet" type="text/css" />
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>CUENTAS COBRAR</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />    
+    <link href="../../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
+    <link href="../../plugins/morris/morris.css" rel="stylesheet" type="text/css" />
+    <link href="../../plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <link href="../../plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+    <link href="../../plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet"/>
+    <link href="../../plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+    <link href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../dist/css/alertify.core.css" rel="stylesheet" />
+    <link href="../../dist/css/alertify.default.css" id="toggleCSS" rel="stylesheet" />
+    <link href="../../dist/css/jquery-ui-1.10.4.custom.css" rel="stylesheet" type="text/css"/>            
+    <link href="../../dist/css/ui.jqgrid.css" rel="stylesheet" type="text/css"/> 
+    
+  </head>
+  <body class="skin-blue">
+    <div class="wrapper">
+      <?php banner_1(); ?>
+      <?php menu_lateral_1(); ?>
+      <div class="content-wrapper">
+        <section class="content-header">
+          <h1>
+            CUENTAS COBRAR
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Procesos</a></li>
+            <li class="active">Cuentas Cobrar Externas</li>
+          </ol>
+        </section>
 
-        <script type="text/javascript" src="../../js/bootstrap.js"></script>
-        <script type="text/javascript" src="../../js/jquery-loader.js"></script>
-        <script type="text/javascript" src="../../js/jquery-1.10.2.js"></script>
-        <script type="text/javascript" src="../../js/jquery-ui-1.10.4.custom.min.js"></script>
-        <script type="text/javascript" src="../../js/grid.locale-es.js"></script>
-        <script type="text/javascript" src="../../js/jquery.jqGrid.src.js"></script>
-        <script type="text/javascript" src="../../js/buttons.js" ></script>
-        <script type="text/javascript" src="../../js/validCampoFranz.js" ></script>
-        <script type="text/javascript" src="cxcexternas.js"></script>
-        <script type="text/javascript" src="../../js/datosUser.js"></script>
-        <script type="text/javascript" src="../../js/ventana_reporte.js"></script>
-        <script type="text/javascript" src="../../js/guidely/guidely.min.js"></script>
-        <script type="text/javascript" src="../../js/jquery.smartmenus.js"></script>
-        <script type="text/javascript" src="../../js/alertify.min.js"></script>
-        <link href="../../dist/css/style.css" rel="stylesheet" type="text/css"/>     
-        <script src="../../dist/js/ventana_reporte.js" type="text/javascript"></script>
-    </head>
-
-    <body>
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="brand" href="">
-                        <h1><?php echo $_SESSION['empresa']; ?></h1>				
-                    </a>
-                </div>
-            </div>
-        </div> 
-
-        <!-- /Inicio  Menu Principal -->
-        <div class="subnavbar">
-            <div class="subnavbar-inner">
-                <?Php
-                // Cabecera Menu 
-                if ($_SESSION['cargo'] == '1') {
-                    print menu_1();
-                }
-                if ($_SESSION['cargo'] == '2') {
-                    print menu_2();
-                }
-                if ($_SESSION['cargo'] == '3') {
-                    print menu_3();
-                }
-                ?> 
-            </div> 
-        </div> 
-        <!-- /Fin  Menu Principal -->
-
-        <div class="main">
-            <div class="main-inner">
-                <div class="container">
-                    <div class="row">
-                        <div class="span12">      		
-                            <div class="widget ">
-                                <div class="widget-header">
-                                    <i class="icon-money"></i>
-                                    <h3>FACTURAS VENTAS</h3>
-                                </div> <!-- /widget-header -->
-
-                                <div class="widget-content">
-                                    <div class="tabbable">
-                                        <div class="widget-content">
-                                            <div class="widget big-stats-container">
-                                                <form id="formularios_cxc" name="formularios_cxc" method="post" class="form-horizontal">
-                                                    <fieldset>
-                                                        <section class="columna_1">
-                                                            <div class="control-group">											
-                                                                <label class="control-label" for="nombres_cli">Comprobante:</label>
-                                                                <div class="controls">
-                                                                    <input type="text" name="comprobante" id="comprobante" readonly class="campo" value="<?php echo $cont1 ?>" style="width: 80px"/>
-                                                                </div>
-                                                            </div>
-                                                        </section>
-
-                                                        <section class="columna_2">
-                                                            <div class="control-group">											
-                                                                <label class="control-label" for="nombres_cli">Fecha Actual:</label>
-                                                                <div class="controls">
-                                                                    <input type="text" name="fecha_actual" id="fecha_actual" readonly value="<?php echo date("Y-m-d"); ?>" class="campo" style="width: 100px" />
-                                                                </div>
-                                                            </div>
-                                                        </section>
-
-                                                        <section class="columna_3">
-                                                            <div class="control-group">											
-                                                                <label class="control-label" for="nombres_cli">Hora Actual:</label>
-                                                                <div class="controls">
-                                                                    <input type="text" name="hora_actual" id="hora_actual" readonly class="campo" style="width: 100px"/>
-                                                                </div>
-                                                            </div>
-                                                        </section>
-
-                                                        <section class="columna_4">
-                                                            <div class="control-group">											
-                                                                <label class="control-label" for="nombres_cli"> Digitad@r:</label>
-                                                                <div class="controls">
-                                                                    <input type="text" name="digitador" id="digitador" value="<?php echo $_SESSION['nombres'] ?>" class="campo" style="width: 200px" readonly/>
-                                                                    <input type="hidden" name="comprobante2" id="comprobante2" class="campo" style="width: 100px" value="<?php echo $cont1 ?>" />
-                                                                </div>
-                                                            </div>
-                                                        </section>
-                                                    </fieldset>
-
-                                                    <fieldset>
-                                                        <legend></legend>
-                                                        <section class="columna1">
-                                                            <div class="control-group">											
-                                                                <label class="control-label" for="ruc_ci">CI de Identidad/RUC: <font color="red">*</font></label>
-                                                                <div class="controls">
-                                                                    <input type="text" name="ruc_ci"  id="ruc_ci" required placeholder="Buscar....." class="campo" />
-                                                                </div>
-                                                            </div>    
-
-                                                            <div class="control-group">											
-                                                                <label class="control-label" for="num_factura">Factura Preimpresa: <font color="red">*</font></label>
-                                                                <div class="controls">
-                                                                    <input type="text" name="num_factura"  id="num_factura" required class="campo" />
-                                                                </div>
-                                                            </div> 
-                                                            <div class="control-group">											
-                                                                <label class="control-label" for="num_factura">Total: <font color="red">*</font></label>
-                                                                <div class="controls">
-                                                                    <div class="input-prepend input-append">
-                                                                        <span class="add-on">$</span>
-                                                                        <input type="text" name="total" id="total" required maxlength="10" class="campo" style="width: 165px" />
-                                                                    </div>
-                                                                </div>
-                                                            </div> 
-                                                        </section>
-
-                                                        <section class="columna2">
-                                                            <div class="control-group">											
-                                                                <label class="control-label" for="ruc_ci">Nombres: <font color="red">*</font></label>
-                                                                <div class="controls">
-                                                                    <input type="text" name="nombres_completos" id="nombres_completos" class="campo" style="width: 280px" />
-                                                                    <input type="hidden" name="id_cliente" id="id_cliente" required readonly class="campo"/>
-                                                                </div>
-                                                            </div> 
-
-                                                            <div class="control-group">											
-                                                                <label class="control-label" for="ruc_ci">Documento: <font color="red">*</font></label>
-                                                                <div class="controls">
-                                                                    <select id="tipo_documento" name="tipo_documento" style="width: 210px">
-                                                                        <option value="">......Seleccione Documento......</option>  
-                                                                        <option value="Factura"> Factura</option>
-                                                                        <option value="Nota_venta">Nota o boleta de venta</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div> 
-                                                        </section>  
-                                                    </fieldset>
-                                                </form>
-
-                                                <div class="form-actions">
-                                                    <button class="btn btn-primary" id='btnGuardar'><i class="icon-save"></i> Guardar</button>
-                                                    <button class="btn btn-primary" id='btnModificar'><i class="icon-edit"></i> Modificar</button>
-                                                    <button class="btn btn-primary" id='btnBuscar'><i class="icon-search"></i> Buscar</button>
-                                                    <button class="btn btn-primary" id='btnNuevo'><i class="icon-pencil"></i> Nuevo</button>
-                                                    <button class="btn btn-primary" id='btnAtras'><i class="icon-step-backward"></i> Atras</button>
-                                                    <button class="btn btn-primary" id='btnAdelante'>Adelante <i class="icon-step-forward"></i></button>
-                                                </div>
-
-                                                <div id="buscar_cartera_cobrar" title="BUSCAR CARTERA POR COBRAR">
-                                                    <table id="list2"><tr><td></td></tr></table>
-                                                    <div id="pager2"></div>
-                                                </div> 
-                                            </div>
-                                        </div>
+        <!-- Main content -->
+        <section class="content">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="box box-primary">
+                <div class="box-body">
+                  <div class="rows">
+                    <div class="col-mx-12">
+                      <form id="clientes_form" name="clientes_form" method="post">
+                        <div class="row">
+                            <div class="col-mx-12">
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label>Fecha Actual:</label>
+                                  <div class="input-group">
+                                    <input type="text" name="fecha_actual"  id="fecha_actual" readonly class="form-control timepicker"/>
+                                    <input type="hidden" name="comprobante"  id="comprobante" readonly class="form-control" value="<?php echo $cont1 ?>"/>
+                                    <div class="input-group-addon">
+                                      <i class="fa fa-calendar"></i>
                                     </div>
-                                </div> 
-                            </div>
-                        </div> 
-                    </div> 
-                </div> 
-            </div> 
-        </div> 
-        <script type="text/javascript" src="../../js/base.js"></script>
-        <script type="text/javascript" src="../../js/jquery.ui.datepicker-es.js"></script>
+                                  </div><!-- /.input group -->
+                                </div><!-- /.form group -->
+                              </div>
 
-        <div class="footer">
-            <div class="footer-inner">
-                <div class="container">
-                    <div class="row">
-                        <div class="span12">
-                            &copy; 2014 <a href=""> <?php echo $_SESSION['empresa']; ?></a>.
+                              <div class="col-md-3">
+                                <div class="bootstrap-timepicker">
+                                    <div class="form-group">
+                                      <label>Hora Actual:</label>
+                                      <div class="input-group">
+                                        <input type="text" name="hora_actual"  id="hora_actual" readonly  class="form-control timepicker"/>
+                                        <div class="input-group-addon">
+                                          <i class="fa fa-clock-o"></i>
+                                        </div>
+                                      </div><!-- /.input group -->
+                                    </div><!-- /.form group -->
+                                  </div>  
+                              </div>
+
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Digitad@r:</label>
+                                  <input type="text" name="digitador"  id="digitador" readonly value="<?php echo $_SESSION['nombres'] ?>" class="form-control" />
+                                  <input type="hidden" name="comprobante2"  id="comprobante2" readonly class="form-control">
+                                </div>  
+                              </div>
+                            </div>
                         </div>
+                        <br />
+                        <div class="row">
+                          <div class="col-md-12">   
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="col-md-4 " >CI. Identidad/RUC: <font color="red">*</font></label>
+                                <div class="form-group col-md-8 no-padding">                                
+                                  <input type="text" name="ruc_ci"  id="ruc_ci" required placeholder="Buscar....." class="form-control" />
+                                  <input type="hidden" name="id_cliente"  id="id_cliente" class="form-control" />
+                                </div> 
+                              </div> 
+
+                              <div class="form-group">
+                                <label class="col-md-4" >Factura Preimpresa:<font color="red">*</font></label>
+                                <div class="form-group col-md-8 no-padding">
+                                  <input type="text" name="num_factura"  id="num_factura" required data-inputmask='"mask": "999-999-999999999"' data-mask class="form-control" />                               
+                                </div> 
+                              </div> 
+
+                              <div class="form-group">
+                                <label class="col-md-4" >Total:<font color="red">*</font></label>
+                                    <div class="form-group col-md-8 no-padding">
+                                      <div class="input-group">
+                                    <div class="input-group-addon">
+                                      <i class="fa fa-money"></i>
+                                    </div>
+                                    <input type="text" name="total" id="total" placeholder="0.00" class="form-control"/>
+                                  </div>
+                                </div> 
+                              </div>
+                            </div>
+
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="col-md-3" >Nombres:<font color="red">*</font></label>
+                                <div class="form-group col-md-9 no-padding">                                
+                                  <input type="text" name="nombres_completos"  id="nombres_completos" required placeholder="Buscar....." class="form-control" />
+                                </div> 
+                              </div> 
+
+                              <div class="form-group">
+                                <label class="col-md-4" >Tipo de comprobante:<font color="red">*</font></label>
+                                <div class="form-group col-md-8 no-padding">                                
+                                  <select class="form-control" name="tipo_documento" id="tipo_documento">
+                                    <option value="">........Seleccione........</option>
+                                    <?php
+                                    $consulta = pg_query("select * from tipo_comprobante ");
+                                    while ($row = pg_fetch_row($consulta)) {
+                                        echo "<option id=$row[0] value=$row[0]>$row[1] $row[2]</option>";
+                                    }
+                                    ?>
+                                  </select>
+                                </div> 
+                              </div> 
+                            </div>
+                          </div>  
+                        </div>
+                      </form>
                     </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <p>
+                        <button class="btn bg-olive margin" id='btnGuardar'><i class="fa fa-save"></i> Guardar</button>
+                        <button class="btn bg-olive margin" id='btnModificar'><i class="fa fa-edit"></i> Modificar</button>
+                        <button class="btn bg-olive margin" id='btnBuscar'><i class="fa fa-search"></i> Buscar</button>
+                        <button class="btn bg-olive margin" id='btnNuevo'><i class="fa fa-pencil"></i> Nuevo</button>
+                        <button class="btn bg-olive margin" id='btnImprimir'><i class="fa fa-print"></i> Imprimir</button>
+                        <button class="btn bg-olive margin" id='btnAtras'><i class="fa fa-backward"></i> Atras</button>
+                        <button class="btn bg-olive margin" id='btnAdelante'>Adelante <i class="fa fa-forward"></i></button>
+                      </p> 
+                    </div>
+                  </div>
+
+                  <div id="buscar_cartera_cobrar" title="BUSCAR CARTERA POR COBRAR">
+                    <table id="list2"><tr><td></td></tr></table>
+                    <div id="pager2"></div>
+                  </div>
                 </div>
-            </div> 
-        </div>
-    </body>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <?php footer(); ?>
+    </div>
+
+    <script src="../../plugins/jQuery/jQuery-2.1.3.min.js"></script>
+    <script src="../../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
+    <script src="../../plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
+    <script src="../../plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
+    <script src="../../plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+    <script src="../../plugins/colorpicker/bootstrap-colorpicker.min.js" type="text/javascript"></script>
+    <script src="../../plugins/timepicker/bootstrap-timepicker.min.js" type="text/javascript"></script>
+    <script src="../../plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="../../plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+    <script src='../../plugins/fastclick/fastclick.min.js'></script>
+    <script src="../../dist/js/app.min.js" type="text/javascript"></script>
+    <script src="../../dist/js/validCampoFranz.js" type="text/javascript" ></script>
+    <script src="../../dist/js/alertify.min.js" type="text/javascript"></script>
+    <script src="../../dist/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
+    <script src="../../dist/js/jquery.jqGrid.src.js" type="text/javascript"></script>
+    <script src="../../dist/js/grid.locale-es.js" type="text/javascript"></script>
+    <script src="cxcexternas.js" type="text/javascript"></script>
+    <link href="../../dist/css/style.css" rel="stylesheet" type="text/css"/>     
+    <script src="../../dist/js/ventana_reporte.js" type="text/javascript"></script>
+  </body>
 </html>

@@ -4,13 +4,13 @@ if (empty($_SESSION['id'])) {
     header('Location: ../');
 }
 // pie de pagina
-function footer(){
+function footer() {
 	print' <footer class="main-footer">
         <strong>Copyright &copy; 2015 <a href="">P&S System</a>.</strong> Todos los derechos reservados.
       </footer>';
 }
 // banner o cabecera
-function banner_1(){
+function banner_1() {
 	print'
 	<header class="main-header">
         <!-- Logo -->
@@ -56,7 +56,7 @@ function banner_1(){
 ';
 }
 // menu principal lateral
-function menu_lateral_1(){
+function menu_lateral_1() {
 print'
 <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
@@ -116,6 +116,7 @@ print'
                 <li><a href="../productos"><i class="fa fa-circle-o"></i> Productos</a></li>
               </ul>
             </li>
+
             <li class="treeview">
               <a href="">
                 <i class="fa fa-files-o"></i> <span>Procesos</span> <i class="fa fa-angle-left pull-right"></i>
@@ -177,6 +178,7 @@ print'
                     <li><a href="" id="producto_existencia_minima"><i class="fa fa-files-o"></i>Existencia mínima</a></li>
                   </ul>
                 </li>
+
                 <li>
                   <a href=""><i class="fa fa-circle-o"></i>Compras<i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
@@ -192,6 +194,7 @@ print'
                       </li>
                   </ul>
                 </li>
+
                 <li>
                   <a href=""><i class="fa fa-circle-o"></i>Ventas<i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
@@ -203,6 +206,7 @@ print'
                         <li><a href="" id="diario_caja"><i class="fa fa-files-o"></i>Diario de caja</a></li>                        
                       </ul>                    
                     </li>
+
                     <li>
                       <a href=""><i class="fa fa-circle-o"></i>Resumen de:<i class="fa fa-angle-left pull-right"></i></a>
                       <ul class="treeview-menu">
@@ -213,12 +217,14 @@ print'
                         
                       </ul>                    
                     </li>
+
                     <li><a href="" id="reporte_utilidad_producto"><i class="fa fa-circle-o"></i>Utilidad de producto</a></li>
                     <li><a href="" id="reporte_utilidad_factura"><i class="fa fa-circle-o"></i>Utilidad por factura</a></li>
                     <li><a href="" id="reporte_utilidad_factura_general"><i class="fa fa-circle-o"></i>utilidad General Facturas</a></li>
                     <li><a href="" id="buscar_serie"><i class="fa fa-circle-o"></i>Números de Serie</a></li>
                   </ul>
                 </li>
+
                 <li>
                   <a href=""><i class="fa fa-circle-o"></i>Cartera<i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
@@ -230,6 +236,7 @@ print'
                         <li><a href="" id="cobros_realizados"><i class="fa fa-files-o"></i>Cobros realizados</a></li>                        
                       </ul>     
                     </li>
+
                     <li>
                       <a href=""><i class="fa fa-circle-o"></i>Cuentas por pagar<i class="fa fa-angle-left pull-right"></i></a>
                       <ul class="treeview-menu">
@@ -240,6 +247,7 @@ print'
                     </li>
                   </ul>
                 </li>
+
                 <li>
                   <a href=""><i class="fa fa-circle-o"></i>Gastos<i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
@@ -251,10 +259,10 @@ print'
               </ul>
             </li>
 
-            <li class="header">LABELS</li>
+            <!--<li class="header">Otros.</li>
             <li><a href="#"><i class="fa fa-circle-o text-danger"></i> Important</a></li>
             <li><a href="#"><i class="fa fa-circle-o text-warning"></i> Warning</a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-info"></i> Information</a></li>
+            <li><a href="#"><i class="fa fa-circle-o text-info"></i> Information</a></li>-->
           </ul>
         </section>
         <!-- /.sidebar -->
