@@ -14,7 +14,7 @@ session_start();
     }
     </style> 
     <body>';    
-    include '../../procesos/base.php';
+    include '../procesos/base.php';
     conectarse();  
     $subtotal12=0;
     $subtotal0=0;
