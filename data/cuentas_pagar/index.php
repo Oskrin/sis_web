@@ -50,6 +50,8 @@ session_start();
         <script type="text/javascript" src="../../js/jquery.ui.totop.js" ></script>
         <script type="text/javascript" src="../../js/jquery.smartmenus.js"></script>
         <script type="text/javascript" src="../../js/alertify.min.js"></script>
+        <link href="../../dist/css/style.css" rel="stylesheet" type="text/css"/>     
+        <script src="../../dist/js/ventana_reporte.js" type="text/javascript"></script>
     </head>
 
     <body>

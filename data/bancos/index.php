@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include '../../menus/menu.php';
+    include '../menu/app.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,7 +19,7 @@
         <link href="../../css/style.css" rel="stylesheet">
         <link href="../../css/sm-core-css.css" rel="stylesheet" type="text/css" />
         <link href="../../css/sm-blue/sm-blue.css" rel="stylesheet" type="text/css" />
-
+        
         <script type="text/javascript" src="../../js/bootstrap.js"></script>
         <script type="text/javascript" src="../../js/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="../../js/jquery-ui-1.10.4.custom.min.js"></script>
@@ -31,7 +31,9 @@
         <script type="text/javascript" src="../../js/datosUser.js"></script>
         <script type="text/javascript" src="../../js/ventana_reporte.js"></script>
         <script type="text/javascript" src="../../js/guidely/guidely.min.js"></script>
-        <script type="text/javascript" src="../../js/jquery.smartmenus.js"></script>
+        <script type="text/javascript" src="../../js/jquery.smartmenus.js"></script>        
+        <link href="../../dist/css/style.css" rel="stylesheet" type="text/css"/>     
+        <script src="../../dist/js/ventana_reporte.js" type="text/javascript"></script>
     </head>
 
     <body>

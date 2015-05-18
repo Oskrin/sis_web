@@ -285,5 +285,7 @@ $cont1 = 0;
     <script src="../../dist/js/jquery.jqGrid.src.js" type="text/javascript"></script>
     <script src="../../dist/js/grid.locale-es.js" type="text/javascript"></script>
     <script src="cuentasxcobrar.js" type="text/javascript"></script>
+    <link href="../../dist/css/style.css" rel="stylesheet" type="text/css"/>     
+    <script src="../../dist/js/ventana_reporte.js" type="text/javascript"></script>
   </body>
 </html>

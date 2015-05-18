@@ -23,6 +23,7 @@ include('../menu/app.php');
     <link href="../../dist/css/alertify.default.css" id="toggleCSS" rel="stylesheet" />
     <link href="../../dist/css/jquery-ui-1.10.4.custom.css" rel="stylesheet" type="text/css"/>            
     <link href="../../dist/css/ui.jqgrid.css" rel="stylesheet" type="text/css"/> 
+
     
   </head>
   <body class="skin-blue">
@@ -188,5 +189,8 @@ include('../menu/app.php');
     <script src="../../dist/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
     <script src="../../dist/js/jquery.jqGrid.src.js" type="text/javascript"></script>
     <script src="../../dist/js/grid.locale-es.js" type="text/javascript"></script>
+    <link href="../../dist/css/style.css" rel="stylesheet" type="text/css"/>     
+    <script src="../../dist/js/ventana_reporte.js" type="text/javascript"></script>
+
   </body>
 </html>

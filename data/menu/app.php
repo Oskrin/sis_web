@@ -167,111 +167,90 @@ print'
               </ul>
             </li>
             <li>
-              <a href="pages/widgets.html">
-                <i class="fa fa-th"></i> <span>Widgets</span> <small class="label pull-right bg-green">Gastos Internos</small>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-pie-chart"></i>
-                <span>Charts</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-                <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-                <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-laptop"></i>
-                <span>UI Elements</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-                <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-                <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-                <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-                <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-                <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-edit"></i> <span>Forms</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-                <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-                <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-table"></i> <span>Tables</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-                <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="pages/calendar.html">
-                <i class="fa fa-calendar"></i> <span>Calendar</span>
-                <small class="label pull-right bg-red">3</small>
-              </a>
-            </li>
-            <li>
-              <a href="pages/mailbox/mailbox.html">
-                <i class="fa fa-envelope"></i> <span>Mailbox</span>
-                <small class="label pull-right bg-yellow">12</small>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-folder"></i> <span>Examples</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-                <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-                <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-                <li><a href="pages/examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-                <li><a href="pages/examples/404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
-                <li><a href="pages/examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
-                <li><a href="pages/examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
-              </ul>
-            </li>
-
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-share"></i> <span>Multilevel</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+              <a href=""><i class="fa fa-circle-o"></i>Reportes<i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">                
                 <li>
-                  <a href="#"><i class="fa fa-circle-o"></i> Level One <i class="fa fa-angle-left pull-right"></i></a>
+                  <a href=""><i class="fa fa-circle-o"></i>Productos<i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
+                    <li><a href="" id="producto_general"><i class="fa fa-files-o"></i>P. en General</a></li>
+                    <li><a href="" id="producto_marca_categoria"><i class="fa fa-files-o"></i>P. Categorías y Marcas</a></li>
+                    <li><a href="" id="producto_existencia_minima"><i class="fa fa-files-o"></i>Existencia mínima</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href=""><i class="fa fa-circle-o"></i>Compras<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
                     <li>
-                      <a href="#"><i class="fa fa-circle-o"></i> Level Two <i class="fa fa-angle-left pull-right"></i></a>
+                    <a href=""><i class="fa fa-circle-o"></i>Res. Compras Locales<i class="fa fa-angle-left pull-right"></i></a>
                       <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                      </ul>
+                        <li><a href="#" id="reporte_factura_compra"><i class="fa fa-files-o"></i>Facturas</a></li>
+                        <li><a href="#" id="agrupados_proveedor"><i class="fa fa-files-o"></i>Agrupados Proveedor</a></li>                        
+                        <li><a href="#" id="reporte_dev_compras"><i class="fa fa-files-o"></i>Devolución Compra</a></li>
+                        <li><a href="#" id="resumenFacturas"><i class="fa fa-files-o"></i>Facturas Proveedor</a></li>
+                        <li><a href="#" id="resumenFacturasCompras"><i class="fa fa-files-o"></i>Facturas Agrupadas</a></li>
+                      </ul>                    
+                      </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href=""><i class="fa fa-circle-o"></i>Ventas<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li>
+                      <a href=""><i class="fa fa-circle-o"></i>Flujo de Caja<i class="fa fa-angle-left pull-right"></i></a>                      
+                      <ul class="treeview-menu">
+                        <li><a href="" id="ventaGeneralClientes"><i class="fa fa-files-o"></i>Resumen de venta general clientes</a></li>
+                        <li><a href="" id="ventaGeneral"><i class="fa fa-files-o"></i>Resumen de venta general</a></li>                        
+                        <li><a href="" id="diario_caja"><i class="fa fa-files-o"></i>Diario de caja</a></li>                        
+                      </ul>                    
+                    </li>
+                    <li>
+                      <a href=""><i class="fa fa-circle-o"></i>Resumen de:<i class="fa fa-angle-left pull-right"></i></a>
+                      <ul class="treeview-menu">
+                        <li><a href="" id="reporte_factura_venta"><i class="fa fa-files-o"></i>Facturas y Notas</a></li>
+                        <li><a href="" id="reporte_facturas_notas_anuladas"><i class="fa fa-files-o"></i>Facturas y Notas Anuladas</a></li>                        
+                        <li><a href="" id="reporte_nota_credito"><i class="fa fa-files-o"></i>Notas de Crédito</a></li>
+                        <li><a href="" id="reporte_general"><i class="fa fa-files-o"></i>General Notas y Facturas</a></li>
+                        
+                      </ul>                    
+                    </li>
+                    <li><a href="" id="reporte_utilidad_producto"><i class="fa fa-circle-o"></i>Utilidad de producto</a></li>
+                    <li><a href="" id="reporte_utilidad_factura"><i class="fa fa-circle-o"></i>Utilidad por factura</a></li>
+                    <li><a href="" id="reporte_utilidad_factura_general"><i class="fa fa-circle-o"></i>utilidad General Facturas</a></li>
+                    <li><a href="" id="buscar_serie"><i class="fa fa-circle-o"></i>Números de Serie</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href=""><i class="fa fa-circle-o"></i>Cartera<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li>
+                      <a href=""><i class="fa fa-circle-o"></i>Cuentas por cobrar<i class="fa fa-angle-left pull-right"></i></a>
+                      <ul class="treeview-menu">
+                        <li><a href="" id="facturas_canceladas"><i class="fa fa-files-o"></i>Facturas Canceladas</a></li>
+                        <li><a href="" id="facturas_cobrar_clientes"><i class="fa fa-files-o"></i>Facturas por cobrar</a></li>                        
+                        <li><a href="" id="cobros_realizados"><i class="fa fa-files-o"></i>Cobros realizados</a></li>                        
+                      </ul>     
+                    </li>
+                    <li>
+                      <a href=""><i class="fa fa-circle-o"></i>Cuentas por pagar<i class="fa fa-angle-left pull-right"></i></a>
+                      <ul class="treeview-menu">
+                        <li><a href="" id="facturas_canceladas_proveedor"><i class="fa fa-files-o"></i>Facturas Canceladas</a></li>
+                        <li><a href="" id="facturas_pagar_proveedor"><i class="fa fa-files-o"></i>Facturas por pagar</a></li>                        
+                        <li><a href="" id="pagos_realizados"><i class="fa fa-files-o"></i>Pagos realizados</a></li>                                                
+                      </ul>     
                     </li>
                   </ul>
                 </li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+                <li>
+                  <a href=""><i class="fa fa-circle-o"></i>Gastos<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="" id="gastos"><i class="fa fa-circle-o"></i>Gastos por factura</a></li>
+                    <li><a href="" id="gastos_general"><i class="fa fa-circle-o"></i>Gastos Generales</a></li>
+                    <li><a href="" id="gastos_internos"><i class="fa fa-circle-o"></i>Gastos Internos Fechas</a></li>
+                  </ul>
+                </li>
               </ul>
             </li>
 
-            <li><a href="documentation/index.html"><i class="fa fa-book"></i> Documentation</a></li>
             <li class="header">LABELS</li>
             <li><a href="#"><i class="fa fa-circle-o text-danger"></i> Important</a></li>
             <li><a href="#"><i class="fa fa-circle-o text-warning"></i> Warning</a></li>
