@@ -146,11 +146,11 @@ include('../menu/app.php');
                   <div class="row">
                     <div class="col-mx-12">
                       <p>
-                        <button class="btn bg-olive margin" id='btnGuardar' data-widget="remove" data-toggle="tooltip" title="Guardar"><i class="fa fa-save"></i> Guardar</button>
-                        <button class="btn bg-olive margin" id='btnModificar' data-widget="remove" data-toggle="tooltip" title="Modificar"><i class="fa fa-edit"></i> Modificar</button>
-                        <button class="btn bg-olive margin" id='btnEliminar' data-widget="remove" data-toggle="tooltip" title="Eliminar"><i class="fa fa-remove"></i> Eliminar</button>
-                        <button class="btn bg-olive margin" id='btnBuscar' data-widget="remove" data-toggle="tooltip" title="Buscar"><i class="fa fa-search"></i> Buscar</button>
-                        <button class="btn bg-olive margin" id='btnNuevo' data-widget="remove" data-toggle="tooltip" title="Nuevo"><i class="fa fa-pencil"></i> Nuevo</button>
+                        <button class="btn bg-olive margin" id='btnGuardar'><i class="fa fa-save"></i> Guardar</button>
+                        <button class="btn bg-olive margin" id='btnModificar'><i class="fa fa-edit"></i> Modificar</button>
+                        <button class="btn bg-olive margin" id='btnEliminar'><i class="fa fa-remove"></i> Eliminar</button>
+                        <button class="btn bg-olive margin" id='btnBuscar'><i class="fa fa-search"></i> Buscar</button>
+                        <button class="btn bg-olive margin" id='btnNuevo'><i class="fa fa-pencil"></i> Nuevo</button>
                       </p> 
                     </div> 
 
@@ -189,5 +189,6 @@ include('../menu/app.php');
     <script src="../../dist/js/grid.locale-es.js" type="text/javascript"></script>
     <link href="../../dist/css/style.css" rel="stylesheet" type="text/css"/>     
     <script src="../../dist/js/ventana_reporte.js" type="text/javascript"></script>
+
   </body>
 </html>
