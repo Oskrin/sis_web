@@ -69,7 +69,7 @@ print'
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href=""><i class="fa fa-circle-o"></i>Empresa</a></li>
+                <li><a href="../empresa"><i class="fa fa-circle-o"></i>Empresa</a></li>
                 <!--<li><a href=""><i class="fa fa-circle-o"></i>Privilegios</a></li>-->
                   <li>
                   <a href=""><i class="fa fa-circle-o"></i>Tablas<i class="fa fa-angle-left pull-right"></i></a>
