@@ -1,298 +1,302 @@
 <?php
 session_start();
+include '../../procesos/base.php';
+include('../menu/app.php'); 
+conectarse();
+error_reporting(0);
 
-    include '../../menus/menu.php';
-    include '../../procesos/base.php';
-    conectarse();
-    error_reporting(0);
-
-    $cont1 = 0;
-    $consulta = pg_query("select max(id_cuentas_pagar) from pagos_pagar");
-    while ($row = pg_fetch_row($consulta)) {
-        $cont1 = $row[0];
-    }
-    $cont1++;
+$cont1 = 0;
+$consulta = pg_query("select max(id_cuentas_pagar) from pagos_pagar");
+while ($row = pg_fetch_row($consulta)) {
+    $cont1 = $row[0];
+}
+$cont1++;
 ?>
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>.:CUENTAS POR PAGAR:.</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <meta name="apple-mobile-web-app-capable" content="yes"> 
-        <link rel="stylesheet" type="text/css" href="../../css/buttons.css"/>
-        <link rel="stylesheet" type="text/css" href="../../css/jquery-ui-1.10.4.custom.css"/>    
-        <link rel="stylesheet" type="text/css" href="../../css/normalize.css"/>    
-        <link rel="stylesheet" type="text/css" href="../../css/ui.jqgrid.css"/> 
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/bootstrap-responsive.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome.css" rel="stylesheet">
-        <link href="../../css/style.css" rel="stylesheet">
-        <link href="../../css/link_top.css" rel="stylesheet" />
-        <link rel="stylesheet" href="../../css/alertify.core.css" />
-        <link rel="stylesheet" href="../../css/alertify.default.css" id="toggleCSS" />
-        <link href="../../css/sm-core-css.css" rel="stylesheet" type="text/css" />
-        <link href="../../css/sm-blue/sm-blue.css" rel="stylesheet" type="text/css" />
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>CUENTAS PAGAR</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
+    <link href="../../font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />        
+    <link href="../../plugins/icon/ionicons.min.css" rel="stylesheet" type="text/css" />    
+    <link href="../../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
+    <link href="../../plugins/morris/morris.css" rel="stylesheet" type="text/css" />
+    <link href="../../plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <link href="../../plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+    <link href="../../plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet"/>
+    <link href="../../plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+    <link href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../dist/css/alertify.core.css" rel="stylesheet" />
+    <link href="../../dist/css/alertify.default.css" id="toggleCSS" rel="stylesheet" />
+    <link href="../../dist/css/jquery-ui-1.10.4.custom.css" rel="stylesheet" type="text/css"/>            
+    <link href="../../dist/css/ui.jqgrid.css" rel="stylesheet" type="text/css"/> 
+    
+  </head>
+  <body class="skin-blue">
+    <div class="wrapper">
+      <?php banner_1(); ?>
+      <?php menu_lateral_1(); ?>
+      <div class="content-wrapper">
+        <section class="content-header">
+          <h1>
+            CUENTAS PAGAR
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Procesos</a></li>
+            <li class="active">Cuentas Pagar</li>
+          </ol>
+        </section>
 
-        <script type="text/javascript"src="../../js/jquery-1.7.2.min.js"></script>
-        <script type="text/javascript" src="../../js/bootstrap.js"></script>
-        <script type="text/javascript" src="../../js/jquery-loader.js"></script>
-        <script type="text/javascript" src="../../js/jquery-ui-1.10.4.custom.min.js"></script>
-        <script type="text/javascript" src="../../js/grid.locale-es.js"></script>
-        <script type="text/javascript" src="../../js/jquery.jqGrid.src.js"></script>
-        <script type="text/javascript" src="../../js/buttons.js" ></script>
-        <script type="text/javascript" src="../../js/validCampoFranz.js" ></script>
-        <script type="text/javascript" src="cuentasxpagar.js"></script>
-        <script type="text/javascript" src="../../js/datosUser.js"></script>
-        <script type="text/javascript" src="../../js/ventana_reporte.js"></script>
-        <script type="text/javascript" src="../../js/guidely/guidely.min.js"></script>
-        <script type="text/javascript" src="../../js/easing.js" ></script>
-        <script type="text/javascript" src="../../js/jquery.ui.totop.js" ></script>
-        <script type="text/javascript" src="../../js/jquery.smartmenus.js"></script>
-        <script type="text/javascript" src="../../js/alertify.min.js"></script>
-        <link href="../../dist/css/style.css" rel="stylesheet" type="text/css"/>     
-        <script src="../../dist/js/ventana_reporte.js" type="text/javascript"></script>
-    </head>
-
-    <body>
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="brand" href="">
-                        <h1><?php echo $_SESSION['empresa']; ?></h1>				
-                    </a>
-                </div>
-            </div>
-        </div> 
-
-        <!-- /Inicio  Menu Principal -->
-        <div class="subnavbar">
-            <div class="subnavbar-inner">
-                <?Php
-                // Cabecera Menu 
-                if ($_SESSION['cargo'] == '1') {
-                    print menu_1();
-                }
-                if ($_SESSION['cargo'] == '2') {
-                    print menu_2();
-                }
-                if ($_SESSION['cargo'] == '3') {
-                    print menu_3();
-                }
-                ?> 
-            </div> 
-        </div> 
-        <!-- /Fin  Menu Principal -->
-
-        <div class="main">
-            <div class="main-inner">
-                <div class="container">
-                    <div class="row">
-                        <div class="span12">      		
-                            <div class="widget ">
-                                <div class="widget-header">
-                                    <i class="icon-money"></i>
-                                    <h3>CUENTAS POR PAGAR</h3>
-                                </div> <!-- /widget-header -->
-
-                                <div class="widget-content">
-                                    <div class="tabbable">
-                                        <div class="widget-content">
-                                            <div class="widget big-stats-container">
-                                                <form id="formularios_pag" name="formularios_pag" method="post" class="form-horizontal">
-                                                    <fieldset>
-                                                        <section class="columna_1">
-                                                            <div class="control-group">											
-                                                                <label class="control-label" for="nombres_cli">Comprobante:</label>
-                                                                <div class="controls">
-                                                                    <input type="text" name="comprobante" id="comprobante" readonly class="campo" value="<?php echo $cont1 ?>" style="width: 80px"/>
-                                                                </div>
-                                                            </div>
-                                                        </section>
-
-                                                        <section class="columna_2">
-                                                            <div class="control-group">											
-                                                                <label class="control-label" for="nombres_cli">Fecha Actual:</label>
-                                                                <div class="controls">
-                                                                    <input type="text" name="fecha_actual" id="fecha_actual" readonly value="<?php echo date("Y-m-d"); ?>" class="campo" style="width: 100px" />
-                                                                </div>
-                                                            </div>
-                                                        </section>
-
-                                                        <section class="columna_3">
-                                                            <div class="control-group">											
-                                                                <label class="control-label" for="nombres_cli">Hora Actual:</label>
-                                                                <div class="controls">
-                                                                    <input type="text" name="hora_actual" id="hora_actual" readonly class="campo" style="width: 100px"/>
-                                                                </div>
-                                                            </div>
-                                                        </section>
-
-                                                        <section class="columna_4">
-                                                            <div class="control-group">											
-                                                                <label class="control-label" for="nombres_cli"> Digitad@r:</label>
-                                                                <div class="controls">
-                                                                    <input type="text" name="digitador" id="digitador" value="<?php echo $_SESSION['nombres'] ?>" class="campo" style="width: 200px" readonly/>
-                                                                    <input type="hidden" name="comprobante2" id="comprobante2" class="campo" style="width: 100px" value="<?php echo $cont1 ?>" />
-                                                                </div>
-                                                            </div>
-                                                        </section>
-                                                    </fieldset>
-                                                    <hr>
-
-                                                    <fieldset>
-                                                        <div class="row">
-                                                            <div class="span6">
-                                                              <div class="control-group">                                         
-                                                                <label class="control-label" for="tipo_docu">Proveedor: <font color="red">*</font></label>
-                                                                <div class="controls">
-                                                                    <select name="tipo_docu" id="tipo_docu" required class="span4">
-                                                                        <option value="">......Seleccione......</option>
-                                                                        <option value="Cedula">Cedula</option>
-                                                                        <option value="Ruc">Ruc</option>
-                                                                        <option value="Pasaporte">Pasaporte</option>  
-                                                                    </select>
-                                                                </div>
-                                                              </div>
-
-                                                              <div class="control-group">                                           
-                                                                <label class="control-label" for="tipo_docu">Empresa: <font color="red">*</font></label>
-                                                                <div class="controls">
-                                                                    <input type="text" name="empresa" id="empresa" placeholder="Empresa" class="span4"/>
-                                                                    <input type="hidden" name="id_proveedor" id="id_proveedor" class="campo" />
-                                                                </div>
-                                                             </div>
-
-                                                             <div class="control-group">                                            
-                                                                <label class="control-label" for="tipo_docu">Forma de pago: <font color="red">*</font></label>
-                                                                <div class="controls">
-                                                                    <select id="forma_pago" name="forma_pago" class="span4">
-                                                                        <option value="0">........SELECCIONE........</option>
-                                                                        <option value="EFECTIVO">EFECTIVO</option>
-                                                                        <option value="CHEQUE">CHEQUE</option>
-                                                                        <option value="TARGETA">TARGETA</option>
-                                                                    </select>
-                                                                </div>
-                                                             </div>
-                                                            </div>
-
-                                                            <div class="span6">
-                                                              <div class="control-group">                                         
-                                                                <label class="control-label" for="ruc_ci">Nro de Identificación: <font color="red">*</font></label>
-                                                                <div class="controls">
-                                                                    <input type="text" name="ruc_ci" id="ruc_ci" class="span4" placeholder="Buscar..."/>
-                                                                </div>
-                                                              </div>
-
-                                                              <div class="control-group">                                           
-                                                                <label class="control-label" for="tipo_pago">Pago: <font color="red">*</font></label>
-                                                                <div class="controls">
-                                                                    <select id="tipo_pago" name="tipo_pago" class="span4">
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                    </fieldset>
-                                                    <br />
-                                                    <fieldset>
-                                                        <legend>Facturas</legend>
-                                                        <table cellpadding="2" border="0" style="margin-left: 10px">
-                                                            <tr>
-                                                                <td><input type="button" class="btn btn-primary" id='btnfacturas' value="Buscar Facturas"/></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td><label>Nro de factura a pagar:</label></td>   
-                                                                <td><label>Tipo Factura:</label></td>   
-                                                                <td><label>Fecha de Factura:</label></td>   
-                                                                <td><label style="width: 100%">Total CxC</label></td>
-                                                                <td><label>Valor Pagado:</label></td>
-                                                                <td><label>Saldo:</label></td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <td><input type="text" name="num_factura" id="num_factura" class="campo" readonly style="width: 150px"  placeholder="Buscar..."/></td>
-                                                                <td><input type="text" name="tipo_factura" id="tipo_factura" class="campo" readonly style="width: 150px" /></td>
-                                                                <td><input type="text" name="fecha_factura" id="fecha_factura" class="campo" readonly style="width: 120px" maxlength="10"/></td>
-                                                                <td><input type="text" name="totalcxc" id="totalcxc" readonly style="width: 80px"  class="campo"/></td>
-                                                                <td><input type="text" name="valor_pagado" id="valor_pagado" class="campo" style="width: 80px" /></td>
-                                                                <td><input type="text" name="saldo2" id="saldo2" class="campo" style="width: 80px" readonly /></td>
-                                                                <td><input type="hidden" name="ids" id="ids" class="campo" style="width: 80px"/></td>
-                                                            </tr>
-                                                        </table>
-
-                                                        <div style="margin-left: 10px">
-                                                            <table id="list" ></table>
-                                                            <table id="tablaNuevo" style="display: none; vertical-align: top; width: 250px; margin-left: 20px;" class="table table-striped table-bordered"  >
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th style="width: 280px">Fecha Pagos</th>
-                                                                        <th style="width: 200px">Monto</th>
-                                                                        <th style="width: 200px">Saldo</th>
-                                                                    </tr>   
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr></tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-
-                                                        <div style="margin-left: 10px">
-                                                            <table border="0" cellpadding="2">
-                                                                <tr>
-                                                                    <td><label>Observaciones:</label></td>
-                                                                    <td><textarea name="observaciones" id="observaciones" class="campo" style="width: 300px; margin-top: 20px" ></textarea></td>
-                                                                </tr> 
-                                                            </table>
-                                                        </div>
-                                                    </fieldset>
-                                                </form>
-                                                <div id="buscar_facturas" title="BUSCAR FACTURAS">
-                                                    <fieldset>
-                                                        <table id="list2"><tr><td></td></tr></table>
-                                                        <div id="pager2"></div>
-                                                    </fieldset>
-                                                </div> 
-
-                                                <div id="buscar_cuentas_pagar" title="BUSCAR CUENTAS POR PAGAR">
-                                                    <fieldset>
-                                                        <table id="list3"><tr><td></td></tr></table>
-                                                        <div id="pager3"></div>
-                                                    </fieldset>
-                                                </div> 
-
-                                                <div class="form-actions">
-                                                    <button class="btn btn-primary" id='btnGuardar'><i class="icon-save"></i> Guardar</button>
-                                                    <button class="btn btn-primary" id='btnModificar'><i class="icon-edit"></i> Modificar</button>
-                                                    <button class="btn btn-primary" id='btnBuscar'><i class="icon-search"></i> Buscar</button>
-                                                    <button class="btn btn-primary" id='btnNuevo'><i class="icon-pencil"></i> Nuevo</button>
-                                                    <button class="btn btn-primary" id='btnImprimir'><i class="icon-print"></i> Imprimir</button>
-                                                    <button class="btn btn-primary" id='btnAtras'><i class="icon-step-backward"></i> Atras</button>
-                                                    <button class="btn btn-primary" id='btnAdelante'>Adelante <i class="icon-step-forward"></i></button>
-                                                </div>
-                                            </div>
-                                        </div>
+        <!-- Main content -->
+        <section class="content">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="box box-primary">
+                <div class="box-body">
+                  <div class="rows">
+                    <div class="col-mx-12">
+                      <form id="clientes_form" name="clientes_form" method="post">
+                        <div class="row">
+                            <div class="col-mx-12">
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label>Fecha Actual:</label>
+                                  <div class="input-group">
+                                    <input type="text" name="fecha_actual"  id="fecha_actual" readonly class="form-control timepicker"/>
+                                    <input type="hidden" name="comprobante"  id="comprobante" readonly class="form-control" value="<?php echo $cont1 ?>"/>
+                                    <div class="input-group-addon">
+                                      <i class="fa fa-calendar"></i>
                                     </div>
-                                </div> 
-                            </div>
-                        </div> 
-                    </div> 
-                </div> 
-            </div> 
-        </div> 
-        <script type="text/javascript" src="../../js/base.js"></script>
-        <script type="text/javascript" src="../../js/jquery.ui.datepicker-es.js"></script>
+                                  </div><!-- /.input group -->
+                                </div><!-- /.form group -->
+                              </div>
 
-        <div class="footer">
-            <div class="footer-inner">
-                <div class="container">
-                    <div class="row">
-                        <div class="span12">
-                            &copy; 2014 <a href=""> <?php echo $_SESSION['empresa']; ?></a>.
+                              <div class="col-md-3">
+                                <div class="bootstrap-timepicker">
+                                    <div class="form-group">
+                                      <label>Hora Actual:</label>
+                                      <div class="input-group">
+                                        <input type="text" name="hora_actual"  id="hora_actual" readonly  class="form-control timepicker"/>
+                                        <div class="input-group-addon">
+                                          <i class="fa fa-clock-o"></i>
+                                        </div>
+                                      </div><!-- /.input group -->
+                                    </div><!-- /.form group -->
+                                  </div>  
+                              </div>
+
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Digitad@r:</label>
+                                  <input type="text" name="digitador"  id="digitador" readonly value="<?php echo $_SESSION['nombres'] ?>" class="form-control" />
+                                  <input type="hidden" name="comprobante2"  id="comprobante2" readonly class="form-control">
+                                </div>  
+                              </div>
+                            </div>
                         </div>
+                        <br />
+
+                        <div class="row">
+                          <div class="col-md-12"> 
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="col-md-5" >Proveedor: <font color="red">*</font></label>
+                                <div class="form-group col-md-7 no-padding">                                
+                                  <select class="form-control" name="tipo_docu" id="tipo_docu">
+                                    <option value="">......Seleccione......</option>
+                                    <option value="Cedula">Cedula</option>
+                                    <option value="Ruc">Ruc</option>
+                                    <option value="Pasaporte">Pasaporte</option>
+                                  </select>
+                                  <input type="hidden" name="id_proveedor"  id="id_proveedor" required class="form-control" />
+                                </div> 
+                              </div>
+                            </div>
+
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="col-md-5" >Identificación: <font color="red">*</font></label>
+                                <div class="form-group col-md-7 no-padding">                                
+                                  <input type="text" name="ruc_ci"  id="ruc_ci" required placeholder="Buscar....." class="form-control" />
+                                </div> 
+                              </div>  
+                            </div>
+
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <div class="form-group ">                                
+                                  <input type="text" name="empresa"  id="empresa" required class="form-control" />
+                                </div>  
+                              </div>  
+                            </div>
+                           
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="col-md-5" >Forma de pago:<font color="red">*</font></label>
+                                <div class="form-group col-md-7 no-padding">
+                                  <select class="form-control" name="forma_pago" id="forma_pago">
+                                    <option value="0">........SELECCIONE........</option>
+                                      <option value="EFECTIVO">EFECTIVO</option>
+                                      <option value="CHEQUE">CHEQUE</option>
+                                      <option value="TARGETA">TARGETA</option>     
+                                  </select>                                
+                                </div> 
+                              </div> 
+                            </div>
+
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="col-md-3" >Pago:<font color="red">*</font></label>
+                                <div class="form-group col-md-9 no-padding">                                
+                                  <select class="form-control" name="tipo_pago" id="tipo_pago">
+                                  </select>
+                                </div> 
+                              </div> 
+                            </div>
+                          </div>  
+                        </div>
+                        <hr />
+                          <div class="row">
+                           <div class="col-mx-12">
+                              <div class="col-md-2">
+                                <div class="form-group">
+                                  <label>Nro de factura a pagar:</label>
+                                  <input type="text" name="num_factura"  id="num_factura" readonly class="form-control" />
+                                </div>  
+                              </div>
+
+                              <div class="col-md-2">
+                                <div class="form-group">
+                                  <label>Tipo Factura:</label>
+                                  <input type="text" name="tipo_factura"  id="tipo_factura" readonly class="form-control" />
+                                </div>  
+                              </div>
+
+                              <div class="col-md-2">
+                                <div class="form-group">
+                                  <label>Fecha de Factura:</label>
+                                  <input type="text" name="fecha_factura"  id="fecha_factura" readonly class="form-control" />
+                                </div>  
+                              </div>
+
+                              <div class="col-md-2">
+                                <div class="form-group">
+                                  <label>Total CxC:</label>
+                                  <input type="text" name="totalcxc"  id="totalcxc" readonly class="form-control" />
+                                </div>
+                              </div>
+
+                              <div class="col-md-2">
+                                <div class="form-group">
+                                  <label>Valor Pagado:</label>
+                                  <input type="text" name="valor_pagado"  id="valor_pagado" class="form-control" />
+                                </div> 
+                              </div>
+
+                              <div class="col-md-2">
+                                <div class="form-group">
+                                  <label>Saldo:</label>
+                                  <input type="text" name="saldo2"  id="saldo2" readonly class="form-control" />
+                                  <input type="hidden" name="ids"  id="ids" readonly class="form-control" />
+                                </div>  
+                              </div>
+                           </div>
+                          </div>
+
+                          <div class="col-mx-12">
+                            <div id="grid_container">
+                                <table id="list"></table>
+                                <!--<div id="pager"></div>-->   
+                            </div>
+                         </div>
+                         <hr />
+                         <div class="col-mx-12">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="col-md-4" >Observaciones:</label>
+                                <div class="form-group col-md-8 no-padding">                                
+                                  <textarea class="form-control" name="observaciones" id="observaciones" rows="3"></textarea>
+                                </div> 
+                              </div>  
+                            </div> 
+                         </div>
+
+                         <table id="tablaNuevo" style="display: none; vertical-align: top; width: 250px; margin-left: 20px;" class="table table-striped table-bordered"  >
+                            <thead>
+                                <tr>
+                                    <th style="width: 280px">Fecha Pagos</th>
+                                    <th style="width: 200px">Monto</th>
+                                    <th style="width: 200px">Saldo</th>
+                                </tr>   
+                            </thead>
+                            <tbody>
+                                <tr></tr>
+                            </tbody>
+                        </table>   
+                      </form>
                     </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <p>
+                        <button class="btn bg-olive margin" id='btnfacturas'><i class="fa fa-new"></i> Buscar Facturas</button>
+                        <button class="btn bg-olive margin" id='btnGuardar'><i class="fa fa-save"></i> Guardar</button>
+                        <button class="btn bg-olive margin" id='btnModificar'><i class="fa fa-edit"></i> Modificar</button>
+                        <button class="btn bg-olive margin" id='btnBuscar'><i class="fa fa-search"></i> Buscar</button>
+                        <button class="btn bg-olive margin" id='btnNuevo'><i class="fa fa-pencil"></i> Nuevo</button>
+                        <button class="btn bg-olive margin" id='btnImprimir'><i class="fa fa-print"></i> Imprimir</button>
+                        <button class="btn bg-olive margin" id='btnAtras'><i class="fa fa-backward"></i> Atras</button>
+                        <button class="btn bg-olive margin" id='btnAdelante'>Adelante <i class="fa fa-forward"></i></button>
+                      </p> 
+                    </div>
+                  </div>
+
+                  <div id="buscar_facturas" title="BUSCAR FACTURAS">
+                    <fieldset>
+                        <table id="list2"><tr><td></td></tr></table>
+                        <div id="pager2"></div>
+                    </fieldset>
+                </div> 
+
+                <div id="buscar_cuentas_pagar" title="BUSCAR CUENTAS POR PAGAR">
+                    <fieldset>
+                        <table id="list3"><tr><td></td></tr></table>
+                        <div id="pager3"></div>
+                    </fieldset>
+                </div> 
                 </div>
-            </div> 
-        </div>
-    </body>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <?php footer(); ?>
+    </div>
+
+    <script src="../../plugins/jQuery/jQuery-2.1.3.min.js"></script>
+    <script src="../../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
+    <script src="../../plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
+    <script src="../../plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
+    <script src="../../plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+    <script src="../../plugins/colorpicker/bootstrap-colorpicker.min.js" type="text/javascript"></script>
+    <script src="../../plugins/timepicker/bootstrap-timepicker.min.js" type="text/javascript"></script>
+    <script src="../../plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="../../plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+    <script src='../../plugins/fastclick/fastclick.min.js'></script>
+    <script src="../../dist/js/app.min.js" type="text/javascript"></script>
+    <script src="../../dist/js/validCampoFranz.js" type="text/javascript" ></script>
+    <script src="../../dist/js/alertify.min.js" type="text/javascript"></script>
+    <script src="../../dist/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
+    <script src="../../dist/js/jquery.jqGrid.src.js" type="text/javascript"></script>
+    <script src="../../dist/js/grid.locale-es.js" type="text/javascript"></script>
+    <script src="cuentasxpagar.js" type="text/javascript"></script>
+    <link href="../../dist/css/style.css" rel="stylesheet" type="text/css"/>     
+    <script src="../../dist/js/ventana_reporte.js" type="text/javascript"></script>
+  </body>
 </html>

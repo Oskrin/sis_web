@@ -21,6 +21,7 @@ if ($codigo_barras != "") {
             $arr_data[] = $row[0];
             $arr_data[] = $row[19];
             $arr_data[] = $row[21];
+            $arr_data[] = $row[26];
         } else {
             if ($precio == "MAYORISTA") {
                 $arr_data[] = $row[1];
@@ -32,6 +33,7 @@ if ($codigo_barras != "") {
                 $arr_data[] = $row[0];
                 $arr_data[] = $row[19];
                 $arr_data[] = $row[21];
+                $arr_data[] = $row[26];
             }
         }
     }

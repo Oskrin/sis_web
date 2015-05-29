@@ -7,13 +7,6 @@ function openPDF(){
 window.open('../../ayudas/ayuda.pdf');
 }
 
-$(function() {
-    $('#main-menu').smartmenus({
-        subMenusSubOffsetX: 1,
-        subMenusSubOffsetY: -8
-    });
-});
-
 var dialogo =
 {
     autoOpen: false,
@@ -94,15 +87,15 @@ function enter1(e) {
 function comprobar() {
     if ($("#id_proveedor").val() === "") {
         $("#ruc_ci").focus();
-        alertify.alert("Ingrese un Proveedor");
+        alertify.error("Ingrese un Proveedor");
     } else {
         if ($("#ruc_ci").val() === "") {
             $("#ruc_ci").focus();
-            alertify.alert("Identificación del Proveedor");
+            alertify.error("Identificación del Proveedor");
         }else{
             if ($("#forma_pago").val() === "") {
                 $("#forma_pago").focus();
-                alertify.alert("Error... Seleccione forma de pago");
+                alertify.error("Error... Seleccione forma de pago");
             }
         }
     }
@@ -110,11 +103,11 @@ function comprobar() {
 
 function entrar() {
     if ($("#num_factura").val() === "") {
-        alertify.alert("Error... Seleccione una factura");
+        alertify.error("Error... Seleccione una factura");
     } else {
         if ($("#valor_pagado").val() === "") {
             $("#valor_pagado").focus();
-            alertify.alert("Ingrese un valor");
+            alertify.error("Ingrese un valor");
         } else {
             if(parseFloat($("#valor_pagado").val()) <= parseFloat($("#saldo2").val())) {
             $("#list").jqGrid("clearGridData", true);
@@ -139,7 +132,7 @@ function entrar() {
             ///////////////////////////
             }
             } else{
-              alertify.alert("Error... Valor excedió al saldo");  
+              alertify.error("Error... Valor excedió al saldo");  
             }
         }
     }
@@ -150,7 +143,7 @@ function cargar_facturas(){
     if (id === "") {
         $("#num_factura").val("");
         $("#ruc_ci").focus();
-        alertify.alert("Error... Seleccione un proveedor");
+        alertify.error("Error... Seleccione un proveedor");
     } else {
         $("#list2").jqGrid('setGridParam', {
             url: 'xmlFacturas_compra.php?id_proveedor=' + id + '&tipo=' + $("#tipo_pago").val()   , 
@@ -165,22 +158,22 @@ function guardar_pagos(){
 
     if ($("#id_proveedor").val() === "") {
         $("#tipo_docu").focus();
-        alertify.alert("Ingrese un Proveedor");
+        alertify.error("Ingrese un Proveedor");
     } else {
         if ($("#ruc_ci").val() === "") {
             $("#ruc_ci").focus();
-            alertify.alert("Identificación del Proveedor");
+            alertify.error("Identificación del Proveedor");
         }else{
             if ($("#forma_pago").val() === "0") {
                 $("#forma_pago").focus();
-                alertify.alert("Error... Seleccione forma de pago");
+                alertify.error("Error... Seleccione forma de pago");
             }else{
                 if ($("#tipo_pago").val() === "") {
                     $("#tipo_pago").focus();
-                    alertify.alert("Error... Seleccione tipo de pago");
+                    alertify.error("Error... Seleccione tipo de pago");
                 }else{
                     if (tam.length === 0) {
-                        alertify.alert("Error... Ingrese un pago");
+                        alertify.error("Error... Ingrese un pago");
                     }else{
                         var v1 = new Array();
                         var v2 = new Array();
@@ -270,8 +263,7 @@ function flecha_atras(){
                 $.getJSON('retornar_pagos_compra.php?com=' + valor, function(data) {
                 var tama = data.length;
                 if (tama !== 0) {
-                for (var i = 0; i < tama; i = i + 10)
-                    {
+                for (var i = 0; i < tama; i = i + 10) {
                     $("#fecha_actual").val(data[i]);
                     $("#hora_actual").val(data[i + 1 ]);
                     $("#digitador").val(data[i + 2 ] + " " + data[i + 3 ] );
@@ -288,8 +280,7 @@ function flecha_atras(){
                 $.getJSON('retornar_pagos_compra2.php?com=' + valor, function(data) {
                 var tama = data.length;
                 if (tama !== 0) {
-                for (var i = 0; i < tama; i = i + 8)
-                {
+                for (var i = 0; i < tama; i = i + 8) {
                    var datarow = {ids_pagos: data[i], num_factura: data[i + 1], tipo_factura: data[i + 2], fecha_factura: data[i + 3], totalcxc: data[i + 4], valor_pagado: data[i + 5], saldo: data[i + 6]};
                    var su = jQuery("#list").jqGrid('addRowData', data[i], datarow);
                    $("#observaciones").val(data[i + 7]);
@@ -332,8 +323,7 @@ function flecha_siguiente(){
                 $.getJSON('retornar_pagos_compra.php?com=' + valor, function(data) {
                 var tama = data.length;
                 if (tama !== 0) {
-                for (var i = 0; i < tama; i = i + 10)
-                    {
+                for (var i = 0; i < tama; i = i + 10) {
                     $("#fecha_actual").val(data[i]);
                     $("#hora_actual").val(data[i + 1 ]);
                     $("#digitador").val(data[i + 2 ] + " " + data[i + 3 ] );
@@ -350,8 +340,7 @@ function flecha_siguiente(){
                 $.getJSON('retornar_pagos_compra2.php?com=' + valor, function(data) {
                 var tama = data.length;
                 if (tama !== 0) {
-                for (var i = 0; i < tama; i = i + 8)
-                {
+                for (var i = 0; i < tama; i = i + 8) {
                    var datarow = {ids_pagos: data[i], num_factura: data[i + 1], tipo_factura: data[i + 2], fecha_factura: data[i + 3], totalcxc: data[i + 4], valor_pagado: data[i + 5], saldo: data[i + 6]};
                    var su = jQuery("#list").jqGrid('addRowData', data[i], datarow);
                    $("#observaciones").val(data[i + 7]);
@@ -402,7 +391,7 @@ return true;
 }
 
 function inicio() {
-jQuery().UItoTop({ easingType: 'easeOutQuart' });
+    alertify.set({ delay: 1000 });
     //////////////para hora///////////
     show();
     ///////////////////
@@ -597,8 +586,7 @@ jQuery().UItoTop({ easingType: 'easeOutQuart' });
     
     $('#fecha_actual').datepicker({
         dateFormat: 'yy-mm-dd'
-    });
-
+    }).datepicker('setDate', 'today');
     
     var can;
     jQuery("#list").jqGrid({
@@ -768,8 +756,7 @@ jQuery("#list2").jqGrid('navButtonAdd', '#pager2', {caption: "Añadir",
          $.getJSON('retornar_pagos_compra.php?com=' + valor, function(data) {
          var tama = data.length;
          if (tama !== 0) {
-         for (var i = 0; i < tama; i = i + 10)
-             {
+         for (var i = 0; i < tama; i = i + 10) {
              $("#fecha_actual").val(data[i]);
              $("#hora_actual").val(data[i + 1 ]);
              $("#digitador").val(data[i + 2 ] + " " + data[i + 3 ] );
@@ -786,8 +773,7 @@ jQuery("#list2").jqGrid('navButtonAdd', '#pager2', {caption: "Añadir",
         $.getJSON('retornar_pagos_compra2.php?com=' + valor, function(data) {
          var tama = data.length;
          if (tama !== 0) {
-         for (var i = 0; i < tama; i = i + 8)
-         {
+         for (var i = 0; i < tama; i = i + 8) {
             var datarow = {ids_pagos: data[i], num_factura: data[i + 1], tipo_factura: data[i + 2], fecha_factura: data[i + 3], totalcxc: data[i + 4], valor_pagado: data[i + 5], saldo: data[i + 6]};
             var su = jQuery("#list").jqGrid('addRowData', data[i], datarow);
             $("#observaciones").val(data[i + 7]);
@@ -855,8 +841,7 @@ jQuery("#list2").jqGrid('navButtonAdd', '#pager2', {caption: "Añadir",
          $.getJSON('retornar_pagos_compra.php?com=' + valor, function(data) {
          var tama = data.length;
          if (tama !== 0) {
-         for (var i = 0; i < tama; i = i + 10)
-             {
+         for (var i = 0; i < tama; i = i + 10) {
              $("#fecha_actual").val(data[i]);
              $("#hora_actual").val(data[i + 1 ]);
              $("#digitador").val(data[i + 2 ] + " " + data[i + 3 ] );
@@ -873,8 +858,7 @@ jQuery("#list2").jqGrid('navButtonAdd', '#pager2', {caption: "Añadir",
          $.getJSON('retornar_pagos_compra2.php?com=' + valor, function(data) {
          var tama = data.length;
          if (tama !== 0) {
-         for (var i = 0; i < tama; i = i + 8)
-         {
+         for (var i = 0; i < tama; i = i + 8) {
             var datarow = {ids_pagos: data[i], num_factura: data[i + 1], tipo_factura: data[i + 2], fecha_factura: data[i + 3], totalcxc: data[i + 4], valor_pagado: data[i + 5], saldo: data[i + 6]};
             var su = jQuery("#list").jqGrid('addRowData', data[i], datarow);
             $("#observaciones").val(data[i + 7]);
@@ -888,6 +872,10 @@ jQuery("#list2").jqGrid('navButtonAdd', '#pager2', {caption: "Añadir",
         }
     }
 });
+
+jQuery(window).bind('resize', function () {
+    jQuery("#list").setGridWidth(jQuery('#grid_container').width(), true);
+}).trigger('resize');
 
 }
 

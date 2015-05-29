@@ -19,8 +19,8 @@ $cont1 = 0;
     <title>CUENTAS COBRAR</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />    
+    <link href="../../font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />        
+    <link href="../../plugins/icon/ionicons.min.css" rel="stylesheet" type="text/css" />    
     <link href="../../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <link href="../../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
     <link href="../../plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
@@ -205,6 +205,17 @@ $cont1 = 0;
                                     <!--<div id="pager"></div>-->   
                                 </div>
                              </div>
+                             <hr />
+                             <div class="col-mx-12">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="col-md-4" >Observaciones:</label>
+                                <div class="form-group col-md-8 no-padding">                                
+                                  <textarea class="form-control" name="observaciones" id="observaciones" rows="3"></textarea>
+                                </div> 
+                              </div>  
+                            </div> 
+                         </div>
                             </div> 
 
                             <div class="tab-pane" id="tab_2">

@@ -12,6 +12,7 @@ while ($row = pg_fetch_row($consulta)) {
 }
 $cont1++;
 ?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -19,8 +20,8 @@ $cont1++;
     <title>FACTURA COMPRA</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />    
+    <link href="../../font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />        
+    <link href="../../plugins/icon/ionicons.min.css" rel="stylesheet" type="text/css" />    
     <link href="../../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <link href="../../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
     <link href="../../plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
@@ -46,7 +47,7 @@ $cont1++;
             FACTURA COMPRA
           </h1>
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Procesos</a></li>
+            <li><a href=""><i class="fa fa-dashboard"></i> Procesos</a></li>
             <li class="active">Factura Compra</li>
           </ol>
         </section>
@@ -99,6 +100,37 @@ $cont1++;
                           </div>
                         </div>
                         <br />
+
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="col-md-5">
+                              <div class="form-group">
+                                <label class="col-md-4" >Nro. de serie: <font color="red">*</font></label>
+                                <div class="form-group col-md-8 no-padding">                                
+                                  <input type="text" name="serie"  id="serie" required class="form-control" data-inputmask='"mask": "999-999-999999999"' data-mask />
+                                </div> 
+                              </div>  
+                            </div>
+
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="col-md-5" >Tipo de comprobante: <font color="red">*</font></label>
+                                <div class="form-group col-md-7 no-padding">                                
+                                  <select class="form-control" name="tipo_comprobante" id="tipo_comprobante">
+                                    <option value="">........Seleccione........</option>
+                                    <?php
+                                    $consulta = pg_query("select * from tipo_comprobante ");
+                                    while ($row = pg_fetch_row($consulta)) {
+                                        echo "<option id=$row[0] value=$row[0]>$row[1] $row[2]</option>";
+                                    }
+                                    ?>
+                                  </select>
+                                </div> 
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
                         <div class="row">
                           <div class="col-md-12">
                             <div class="col-md-4">
@@ -135,8 +167,8 @@ $cont1++;
 
                             <div class="col-md-4">
                               <div class="form-group">
-                                <label class="col-md-4 " >Fecha registro:</label>
-                                <div class="form-group col-md-8 no-padding">                                
+                                <label class="col-md-5">Fecha registro:</label>
+                                <div class="form-group col-md-7 no-padding">                                
                                   <input type="text" name="fecha_registro"  id="fecha_registro" required readonly class="form-control" />
                                 </div> 
                               </div>
@@ -144,8 +176,8 @@ $cont1++;
 
                             <div class="col-md-4">
                               <div class="form-group">
-                                <label class="col-md-4" >Fecha emisón:</label>
-                                <div class="form-group col-md-8 no-padding">                                
+                                <label class="col-md-5" >Fecha emisón:</label>
+                                <div class="form-group col-md-7 no-padding">                                
                                   <input type="text" name="fecha_emision"  id="fecha_emision" required readonly class="form-control" />
                                 </div> 
                               </div>
@@ -153,38 +185,11 @@ $cont1++;
 
                             <div class="col-md-4">
                               <div class="form-group">
-                                <label class="col-md-4">Fecha caducidad:</label>
-                                <div class="form-group col-md-8 no-padding">                                
+                                <label class="col-md-5">Fecha caducidad:</label>
+                                <div class="form-group col-md-7 no-padding">                                
                                   <input type="text" name="fecha_caducidad"  id="fecha_caducidad" required readonly class="form-control" />
                                 </div> 
                               </div> 
-                            </div>
-
-                            <div class="col-md-4">
-                              <div class="form-group">
-                                <label class="col-md-6" >Nro. de serie: <font color="red">*</font></label>
-                                <div class="form-group col-md-6 no-padding">                                
-                                  <input type="text" name="serie1"  id="serie1" required class="form-control" />
-                                </div> 
-                              </div>  
-                            </div>
-
-                            <div class="col-md-3">
-                              <div class="form-group">
-                                <label class="col-md-3" ><font>-</font></label>
-                                <div class="form-group col-md-9 no-padding">                                
-                                  <input type="text" name="serie2"  id="serie2" required class="form-control" />
-                                </div> 
-                              </div>
-                            </div>
-
-                            <div class="col-md-3">
-                              <div class="form-group">
-                                <label class="col-md-3" >-<font></font></label>
-                                <div class="form-group col-md-9 no-padding">                                
-                                  <input type="text" name="serie3"  id="serie3" required class="form-control" />
-                                </div> 
-                              </div>
                             </div>
                           </div>  
                         </div>
@@ -202,8 +207,8 @@ $cont1++;
 
                             <div class="col-md-4">
                               <div class="form-group">
-                                <label class="col-md-4" >Fecha Cancelación:</label>
-                                <div class="form-group col-md-8 no-padding">                                
+                                <label class="col-md-5" >Fecha Cancelación:</label>
+                                <div class="form-group col-md-7 no-padding">                                
                                   <input type="text" name="cancelacion"  id="cancelacion" required readonly class="form-control" />
                                 </div> 
                               </div>
@@ -219,26 +224,10 @@ $cont1++;
                                   </select>
                                 </div> 
                               </div> 
-                            </div>  
-
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label class="col-md-5" >Tipo de comprobante: <font color="red">*</font></label>
-                                <div class="form-group col-md-7 no-padding">                                
-                                  <select class="form-control" name="tipo_comprobante" id="tipo_comprobante">
-                                    <option value="">........Seleccione........</option>
-                                    <?php
-                                    $consulta = pg_query("select * from tipo_comprobante ");
-                                    while ($row = pg_fetch_row($consulta)) {
-                                        echo "<option id=$row[0] value=$row[0]>$row[1] $row[2]</option>";
-                                    }
-                                    ?>
-                                  </select>
-                                </div> 
-                              </div>
-                            </div>
+                            </div> 
                           </div> 
                         </div>
+
                         <hr />
                         <h3 class="box-title">Detalle Factura</h3>
 
@@ -419,7 +408,7 @@ $cont1++;
           </div>
         </section>
       </div>
-      <?php footer(); ?>
+    <?php footer(); ?>
     </div>
 
     <script src="../../plugins/jQuery/jQuery-2.1.3.min.js"></script>

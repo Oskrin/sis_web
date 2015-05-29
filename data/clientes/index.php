@@ -6,11 +6,11 @@ include('../menu/app.php');
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>CLIENTES</title>
+    <title>CLIENTES..</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />    
+    <link href="../../font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />        
+    <link href="../../plugins/icon/ionicons.min.css" rel="stylesheet" type="text/css" />    
     <link href="../../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <link href="../../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
     <link href="../../plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
@@ -23,8 +23,6 @@ include('../menu/app.php');
     <link href="../../dist/css/alertify.default.css" id="toggleCSS" rel="stylesheet" />
     <link href="../../dist/css/jquery-ui-1.10.4.custom.css" rel="stylesheet" type="text/css"/>            
     <link href="../../dist/css/ui.jqgrid.css" rel="stylesheet" type="text/css"/> 
-
-    
   </head>
   <body class="skin-blue">
     <div class="wrapper">
@@ -36,7 +34,7 @@ include('../menu/app.php');
             Registro Clientes
           </h1>
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Ingresos</a></li>
+            <li><a href=""><i class="fa fa-dashboard"></i> Ingresos</a></li>
             <li class="active">Clientes</li>
           </ol>
         </section>
@@ -148,11 +146,11 @@ include('../menu/app.php');
                   <div class="row">
                     <div class="col-mx-12">
                       <p>
-                        <button class="btn bg-olive margin" id='btnGuardar'><i class="fa fa-save"></i> Guardar</button>
-                        <button class="btn bg-olive margin" id='btnModificar'><i class="fa fa-edit"></i> Modificar</button>
-                        <button class="btn bg-olive margin" id='btnEliminar'><i class="fa fa-remove"></i> Eliminar</button>
-                        <button class="btn bg-olive margin" id='btnBuscar'><i class="fa fa-search"></i> Buscar</button>
-                        <button class="btn bg-olive margin" id='btnNuevo'><i class="fa fa-pencil"></i> Nuevo</button>
+                        <button class="btn bg-olive margin" id='btnGuardar' data-widget="remove" data-toggle="tooltip" title="Guardar"><i class="fa fa-save"></i> Guardar</button>
+                        <button class="btn bg-olive margin" id='btnModificar' data-widget="remove" data-toggle="tooltip" title="Modificar"><i class="fa fa-edit"></i> Modificar</button>
+                        <button class="btn bg-olive margin" id='btnEliminar' data-widget="remove" data-toggle="tooltip" title="Eliminar"><i class="fa fa-remove"></i> Eliminar</button>
+                        <button class="btn bg-olive margin" id='btnBuscar' data-widget="remove" data-toggle="tooltip" title="Buscar"><i class="fa fa-search"></i> Buscar</button>
+                        <button class="btn bg-olive margin" id='btnNuevo' data-widget="remove" data-toggle="tooltip" title="Nuevo"><i class="fa fa-pencil"></i> Nuevo</button>
                       </p> 
                     </div> 
 
@@ -191,6 +189,5 @@ include('../menu/app.php');
     <script src="../../dist/js/grid.locale-es.js" type="text/javascript"></script>
     <link href="../../dist/css/style.css" rel="stylesheet" type="text/css"/>     
     <script src="../../dist/js/ventana_reporte.js" type="text/javascript"></script>
-
   </body>
 </html>

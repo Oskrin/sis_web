@@ -9,8 +9,8 @@ include('../menu/app.php');
     <title>PRINCIPAL</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />    
+    <link href="../../font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />        
+    <link href="../../plugins/icon/ionicons.min.css" rel="stylesheet" type="text/css" />    
     <link href="../../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <link href="../../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
     <link href="../../plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
@@ -49,7 +49,7 @@ include('../menu/app.php');
                   <div class="row">
                    <div class="col-mx-12">
                     <div align="center">
-                        <img src="../../images/logo_empresa.jpg" width="70%" /> 
+                        <img src="../../images/logo_empresa.png" width="70%" /> 
                     </div>
                    </div>
                   </div>

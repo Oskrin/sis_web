@@ -19,8 +19,8 @@ $cont1 = 0;
     <title>INVENTARIO</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />    
+    <link href="../../font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />        
+    <link href="../../plugins/icon/ionicons.min.css" rel="stylesheet" type="text/css" />    
     <link href="../../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <link href="../../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
     <link href="../../plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
@@ -102,21 +102,21 @@ $cont1 = 0;
 
                         <div class="row">
                          <div class="col-mx-12">
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                               <div class="form-group">
                                 <label>CÓDIGO BARRAS</label>
                                 <input type="text" name="codigo_barras"  id="codigo_barras" placeholder="Buscar..." class="form-control" />
                               </div>  
                             </div>
 
-                            <div class="col-md-3 no-padding">
+                            <div class="col-md-3">
                               <div class="form-group">
                                 <label>CÓDIGO</label>
                                 <input type="text" name="codigo"  id="codigo" placeholder="Buscar..." class="form-control" />
                               </div>  
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                               <div class="form-group">
                                 <label>PRODUCTO</label>
                                 <input type="text" name="producto"  id="producto" placeholder="Buscar..." class="form-control" />

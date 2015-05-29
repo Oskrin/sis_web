@@ -24,8 +24,8 @@ $cont1++;
     <title>FACTURA VENTA</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />    
+    <link href="../../font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />        
+    <link href="../../plugins/icon/ionicons.min.css" rel="stylesheet" type="text/css" />    
     <link href="../../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <link href="../../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
     
@@ -120,13 +120,23 @@ $cont1++;
                               </div>
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                               <div class="form-group">
-                                <div id="estado"><h3></h3></div>  
+                                <label class="col-md-5">Tipo de Venta:</label>
+                                <div class="form-group col-md-7 no-padding">                                
+                                  <select class="form-control" name="tipo_venta" id="tipo_venta">
+                                    <option value="FACTURA" selected>FACTURA</option>
+                                    <option value="NOTA">NOTA VENTA</option>
+                                  </select>
+                                </div>
                               </div>
                             </div>
 
-                            <div class="col-md-3"></div>
+                            <div class="col-md-2">
+                              <!-- <div class="form-group"> -->
+                                <div id="estado" style="margin-top: -10px"><h3></h3></div>  
+                              <!-- </div> -->
+                            </div>
                           </div>
                         </div>
 
@@ -175,6 +185,33 @@ $cont1++;
                                 <div class="form-group col-md-9 no-padding">                                
                                   <input type="text" name="correo"  id="correo" required class="form-control" />
                                 </div> 
+                              </div>
+                            </div>
+
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="col-md-5">Autorización:</label>
+                                <div class="form-group col-md-7 no-padding">                                
+                                  <input type="text" name="autorizacion"  id="autorizacion" required class="form-control" />
+                                </div> 
+                              </div>
+                            </div>
+
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="col-md-5">Fecha autorización:</label>
+                                <div class="form-group col-md-7 no-padding">                                
+                                  <input type="text" name="fecha_auto"  id="fecha_auto" readonly required class="form-control" />
+                                </div> 
+                              </div>
+                            </div>
+
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="col-md-5">Fecha caducidad:</label>
+                                <div class="form-group col-md-7 no-padding">                                
+                                  <input type="text" name="fecha_caducidad"  id="fecha_caducidad" readonly required class="form-control" />
+                                </div>
                               </div>
                             </div>
 
@@ -256,12 +293,13 @@ $cont1++;
                             <div class="col-md-1">
                               <div class="form-group">
                                 <label>DESC.</label>
-                                <input type="number" name="descuento"  id="descuento"  min="0" placeholder="%" class="form-control" />
+                                <input type="number" name="descuento" readonly id="descuento"  min="0" placeholder="%" class="form-control" />
                                 <input type="hidden" name="disponibles"  id="disponibles" readonly class="form-control" />
                                 <input type="hidden" name="iva_producto"  id="iva_producto" readonly class="form-control" />
                                 <input type="hidden" name="carga_series"  id="carga_series" readonly class="form-control" />
                                 <input type="hidden" name="cod_producto"  id="cod_producto" readonly class="form-control" />
                                 <input type="hidden" name="des"  id="des" readonly class="form-control" />
+                                <input type="hidden" name="incluye"  id="incluye" readonly class="form-control" />
                                 <input type="hidden" name="inventar"  id="inventar" readonly class="form-control" />
                               </div>  
                             </div> 

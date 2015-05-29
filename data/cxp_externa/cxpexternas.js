@@ -7,13 +7,6 @@ function openPDF(){
 window.open('../../ayudas/ayuda.pdf');
 }
 
-$(function() {
-    $('#main-menu').smartmenus({
-        subMenusSubOffsetX: 1,
-        subMenusSubOffsetY: -8
-    });
-});
-
 function scrollToBottom() {
     $('html, body').animate({
         scrollTop: $(document).height()
@@ -33,7 +26,7 @@ var dialogo2 =
     width: 800,
     height: 350,
     modal: true,
-    position: "top",
+    // position: "top",
     show: "explode",
     hide: "blind"    
 }
@@ -69,7 +62,7 @@ function enter(e) {
 
 function autocompletar() {
     var temp = "";
-    var serie = $("#serie3").val();
+    var serie = $("#num_factura").val();
     for (var i = serie.length; i < 9; i++) {
         temp = temp + "0";
     }
@@ -79,39 +72,58 @@ function autocompletar() {
 function comprobar() {
     if ($("#tipo_docu").val() === "") {
         $("#tipo_docu").focus();
-        alertify.alert("Seleccione tipo documento");
+        alertify.error("Seleccione tipo documento");
     } else {
         if ($("#empresa").val() === "") {
             $("#ruc_ci").focus();
-            alertify.alert("Indique una empresa");
+            alertify.error("Indique un Proveedor");
         } else {
-            if ($("#tipo_comprobante").val() === "") {
-                $("#tipo_comprobante").focus();
-                alertify.alert("Seleccione tipo comprobante");
-            } else {
-                if ($("#serie1").val() === "") {
-                    $("#serie1").focus();
+            // if ($("#tipo_comprobante").val() === "") {
+            //     $("#tipo_comprobante").focus();
+            //     alertify.error("Seleccione tipo comprobante");
+            // } else {
+                if ($("#num_factura").val() === "") {
+                    $("#num_factura").focus();
+                    alertify.error("Ingrese la Serie");
                 } else {
-                    if ($("#serie2").val() === "") {
-                        $("#serie2").focus();
-                    } else {
-                        if ($("#serie3").val() === "") {
-                            $("#serie3").focus();
-                        } else {
-                            if($("#serie1").val() != "" && $("#serie2").val() != "" && $("#serie3").val() != ""){
-                                var a = autocompletar($("#serie3").val());
-                                $("#serie3").val(a + "" + $("#serie3").val());
-                                $("#tipo_documento").focus();
-                            }else{
-                                if ($("#total").val() === "") {
-                                    $("#total").focus();
-                                    alertify.alert("Ingrese el total de la factura");
-                                }
-                            }
-                        }
+                    if($("#num_factura").val() != ""){
+                       // var a = autocompletar($("#num_factura").val());
+                       // alert(a);
+                       // $("#num_factura").val(a + "" + $("#num_factura").val()); 
+                       $("#tipo_documento").focus();
+                    }else{
+                        // if ($("#tipo_documento").val() === "") {
+                        //     $("#tipo_documento").focus();
+                        //     alertify.error("Seleccione un documento");
+                        // }else{
+                        //     if ($("#total").val() === "") {
+                        //     $("#total").focus();
+                        //     alertify.error("Ingrese el total de la factura");
+                        // }
+                        // }
                     }
-                }
-            }
+                    
+
+                    // if ($("#serie2").val() === "") {
+                    //     $("#serie2").focus();
+                    // } else {
+                    //     if ($("#serie3").val() === "") {
+                    //         $("#serie3").focus();
+                    //     } else {
+                        //     if($("#serie1").val() != "" && $("#serie2").val() != "" && $("#serie3").val() != ""){
+                        //         var a = autocompletar($("#serie3").val());
+                        //         $("#serie3").val(a + "" + $("#serie3").val());
+                        //         $("#tipo_documento").focus();
+                        //     }else{
+                        //         if ($("#total").val() === "") {
+                        //             $("#total").focus();
+                        //             alertify.error("Ingrese el total de la factura");
+                        //         }
+                        //     }
+                        // }
+                    }
+                // }
+            // }
         }
     }
 }
@@ -120,68 +132,51 @@ function comprobar() {
 function guardar_cxp() {
     if ($("#tipo_docu").val() === "") {
         $("#tipo_docu").focus();
-        alertify.alert("Seleccione tipo documento");
+        alertify.error("Seleccione tipo documento");
     } else {
         if ($("#empresa").val() === "") {
             $("#ruc_ci").focus();
-            alertify.alert("Indique una empresa");
+            alertify.error("Indique un Proveedor");
         } else {
-            if ($("#tipo_comprobante").val() === "") {
-                $("#tipo_comprobante").focus();
-                alertify.alert("Seleccione tipo comprobante");
+            if ($("#num_factura").val() === "") {
+                $("#num_factura").focus();
+                alertify.error("Ingrese la Serie");
             } else {
-                if ($("#serie1").val() === "") {
-                    alertify.alert("Ingrese la serie");
-                    $("#serie1").focus();
-                } else {
-                    if ($("#serie2").val() === "") {
-                        alertify.alert("Ingrese la serie");
-                        $("#serie2").focus();
-                    } else {
-                        if ($("#serie3").val() === "") {
-                            alertify.alert("Ingrese la serie");
-                            $("#serie3").focus();
-                        } else {
-                            var num_fac = $("#serie1").val() + "-" + $("#serie2").val() + "-" + $("#serie3").val();
-                            $.ajax({
-                                type: "POST",
-                                url: "comparar_num_compra.php",
-                                data: "num_fac=" + num_fac + "&id_proveedor=" + $("#id_proveedor").val(),
-                                success: function(data) {
-                                    var val = data;
-                                    if (val == 1) {
-                                        $("#serie3").val("");
-                                        $("#serie3").focus();
-                                        alertify.alert("Error... El número de factura ya existe");
-                                    }else{
-                                        if ($("#tipo_documento").val() === "") {
-                                            $("#tipo_documento").focus();
-                                            alertify.alert("Seleccione un documento");
-                                        }else{
-                                            if ($("#total").val() === "") {
-                                                $("#total").focus();
-                                                alertify.alert("Ingrese el total de la factura");
-                                            }else{
-                                                var num_factura = ($("#serie1").val() + "-" + $("#serie2").val() + "-" + $("#serie3").val()); 
-                                                $.ajax({
-                                                    type: "POST",
-                                                    url: "guardar_cxpexternas.php",
-                                                    data: "id_proveedor=" + $("#id_proveedor").val() + "&comprobante=" + $("#comprobante").val() + "&fecha_actual=" + $("#fecha_actual").val() + "&hora_actual=" + $("#hora_actual").val() + "&num_factura=" + num_factura + "&tipo_documento=" + $("#tipo_documento").val() + "&total=" + $("#total").val(),
-                                                    success: function(data) {
-                                                        val = data;
-                                                        if (val == 1) {
-                                                            alertify.alert("Registro Guardado correctamente", function(){location.reload();});
-                                                        }
-                                                    }
-                                                });
+                var num_fac = $("#num_factura").val();
+                $.ajax({
+                    type: "POST",
+                    url: "comparar_num_compra.php",
+                    data: "num_fac=" + num_fac + "&id_proveedor=" + $("#id_proveedor").val(),
+                    success: function(data) {
+                        var val = data;
+                        if (val == 1) {
+                            $("#num_factura").focus();
+                            alertify.error("Error... El número de factura ya existe");
+                        }else{
+                            if ($("#tipo_documento").val() === "") {
+                                $("#tipo_documento").focus();
+                                alertify.error("Seleccione un documento");
+                            }else{
+                                if ($("#total").val() === "") {
+                                    $("#total").focus();
+                                    alertify.error("Ingrese el total de la factura");
+                                }else{
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "guardar_cxpexternas.php",
+                                        data: "id_proveedor=" + $("#id_proveedor").val() + "&comprobante=" + $("#comprobante").val() + "&fecha_actual=" + $("#fecha_actual").val() + "&hora_actual=" + $("#hora_actual").val() + "&num_factura=" + num_fac + "&tipo_documento=" + $("#tipo_documento").val() + "&total=" + $("#total").val(),
+                                        success: function(data) {
+                                            val = data;
+                                            if (val == 1) {
+                                                alertify.alert("Registro Guardado correctamente", function(){location.reload();});
                                             }
                                         }
-                                    }
+                                    });
                                 }
-                            });
+                            }
                         }
                     }
-                }
+                });
             }
         }
     }
@@ -202,23 +197,18 @@ function flecha_atras(){
                 $("#btnModificar").attr("disabled", true);
                 $("#ruc_ci").attr("disabled", "disabled");
                 $("#nombres_completos").attr("disabled", "disabled");
-                $("#serie1").attr("disabled", "disabled");
-                $("#serie2").attr("disabled", "disabled");
-                $("#serie3").attr("disabled", "disabled");
+                $("#num_factura").attr("disabled", "disabled");
                 $("#total").attr("disabled", "disabled");
                 $("#id_proveedor").val("");
                 $("#ruc_ci").val("");
                 $("#empresa").val("");
-                $("#serie1").val("");
-                $("#serie2").val("");
-                $("#serie3").val("");
+                $("#num_factura").val("");
                 $("#total").val("");
                 
                 $.getJSON('retornar_cuentas_externas2.php?com=' + valor, function(data) {
                     var tama = data.length;
                     if (tama !== 0) {
-                        for (var i = 0; i < tama; i = i + 11)
-                        {
+                        for (var i = 0; i < tama; i = i + 11) {
                             $("#fecha_actual").val(data[i]);
                             $("#hora_actual").val(data[i + 1 ]);
                             $("#digitador").val(data[i + 2 ] + " " + data[i + 3 ] );
@@ -226,13 +216,7 @@ function flecha_atras(){
                             $("#id_proveedor").val(data[i + 5]);
                             $("#ruc_ci").val(data[i + 6]);
                             $("#empresa").val(data[i + 7]);
-                            var num_factura = data[i + 8];
-                            var ser1 = num_factura.substr(0, 3)
-                            var ser2 = num_factura.substr(4, 3)
-                            var ser3 = num_factura.substr(8, 20)
-                            $("#serie1").val(ser1);
-                            $("#serie2").val(ser2);
-                            $("#serie3").val(ser3);
+                            $("#num_factura").val(data[i + 8]);
                             $("#tipo_documento").val(data[i + 9]);
                             $("#total").val(data[i + 10]);
                         }
@@ -261,23 +245,18 @@ function flecha_siguiente(){
                 $("#btnModificar").attr("disabled", true);
                 $("#ruc_ci").attr("disabled", "disabled");
                 $("#nombres_completos").attr("disabled", "disabled");
-                $("#serie1").attr("disabled", "disabled");
-                $("#serie2").attr("disabled", "disabled");
-                $("#serie3").attr("disabled", "disabled");
+                $("#num_factura").attr("disabled", "disabled");
                 $("#total").attr("disabled", "disabled");
                 $("#id_proveedor").val("");
                 $("#ruc_ci").val("");
                 $("#empresa").val("");
-                $("#serie1").val("");
-                $("#serie2").val("");
-                $("#serie3").val("");
+                $("#num_factura").val("");
                 $("#total").val("");
-                
+
                 $.getJSON('retornar_cuentas_externas2.php?com=' + valor, function(data) {
                     var tama = data.length;
                     if (tama !== 0) {
-                        for (var i = 0; i < tama; i = i + 11)
-                        {
+                        for (var i = 0; i < tama; i = i + 11) {
                             $("#fecha_actual").val(data[i]);
                             $("#hora_actual").val(data[i + 1 ]);
                             $("#digitador").val(data[i + 2 ] + " " + data[i + 3 ] );
@@ -285,13 +264,7 @@ function flecha_siguiente(){
                             $("#id_proveedor").val(data[i + 5]);
                             $("#ruc_ci").val(data[i + 6]);
                             $("#empresa").val(data[i + 7]);
-                            var num_factura = data[i + 8];
-                            var ser1 = num_factura.substr(0, 3)
-                            var ser2 = num_factura.substr(4, 3)
-                            var ser3 = num_factura.substr(8, 20)
-                            $("#serie1").val(ser1);
-                            $("#serie2").val(ser2);
-                            $("#serie3").val(ser3);
+                            $("#num_factura").val(data[i + 8]);
                             $("#tipo_documento").val(data[i + 9]);
                             $("#total").val(data[i + 10]);
                         }
@@ -334,6 +307,8 @@ return true;
 }
 
 function inicio() {
+    alertify.set({ delay: 1000 });
+    $("[data-mask]").inputmask();
     //////////////para hora///////////
     show();
     ///////////////////
@@ -364,13 +339,6 @@ function inicio() {
 
     $("#ruc_ci").on("keyup", limpiar_campo);
     /////////////////////////////////
-    $("#serie1").validCampoFranz("0123456789");
-    $("#serie1").attr("maxlength", "3");
-    $("#serie2").validCampoFranz("0123456789");
-    $("#serie2").attr("maxlength", "3");
-    $("#serie3").validCampoFranz("0123456789");
-    $("#serie3").attr("maxlength", "9");
-    ///////////////////////////////////////////
 
     /////////////////////////// 
     $("#buscar_cartera_pagar").dialog(dialogo2);
@@ -383,9 +351,7 @@ function inicio() {
     ////////////////eventos////////////////////
     $("#ruc_ci").on("keypress", enter);
     $("#empresa").on("keypress", enter);
-    $("#serie1").on("keypress", enter);
-    $("#serie2").on("keypress", enter);
-    $("#serie3").on("keypress", enter);
+    $("#num_factura").on("keypress", enter);
     $("#total").on("keypress", enter);
     /////////////////////////////////////////
 
@@ -397,7 +363,7 @@ function inicio() {
     ///////////calendarios/////
     $('#fecha_actual').datepicker({
         dateFormat: 'yy-mm-dd'
-    });
+    }).datepicker('setDate', 'today');
     
     //////////////para total////////
     $("#total").on("keypress",punto);
@@ -536,27 +502,24 @@ function inicio() {
             var ret = jQuery("#list2").jqGrid('getRowData', id);
             var valor = ret.id_c_pagarexternas;
             /////////////agregregar datos factura////////
+
             $("#comprobante").val(valor);
             $("#btnGuardar").attr("disabled", true);
             $("#btnModificar").attr("disabled", true);
             $("#ruc_ci").attr("disabled", "disabled");
             $("#nombres_completos").attr("disabled", "disabled");
-            $("#serie1").attr("disabled", "disabled");
-            $("#serie2").attr("disabled", "disabled");
-            $("#serie3").attr("disabled", "disabled");
+            $("#num_factura").attr("disabled", "disabled");
             $("#total").attr("disabled", "disabled");
             $("#id_proveedor").val("");
             $("#ruc_ci").val("");
             $("#empresa").val("");
-            $("#serie1").val("");
-            $("#serie2").val("");
-            $("#serie3").val("");
+            $("#num_factura").val("");
             $("#total").val("");
-            $.getJSON('../procesos/retornar_cuentas_externas2.php?com=' + valor, function(data) {
+
+            $.getJSON('retornar_cuentas_externas2.php?com=' + valor, function(data) {
                 var tama = data.length;
                 if (tama !== 0) {
-                    for (var i = 0; i < tama; i = i + 11)
-                    {
+                    for (var i = 0; i < tama; i = i + 11) {
                         $("#fecha_actual").val(data[i]);
                         $("#hora_actual").val(data[i + 1 ]);
                         $("#digitador").val(data[i + 2 ] + " " + data[i + 3 ] );
@@ -564,13 +527,7 @@ function inicio() {
                         $("#id_proveedor").val(data[i + 5]);
                         $("#ruc_ci").val(data[i + 6]);
                         $("#empresa").val(data[i + 7]);
-                        var num_factura = data[i + 8];
-                        var ser1 = num_factura.substr(0, 3)
-                        var ser2 = num_factura.substr(4, 3)
-                        var ser3 = num_factura.substr(8, 20)
-                        $("#serie1").val(ser1);
-                        $("#serie2").val(ser2);
-                        $("#serie3").val(ser3);
+                        $("#num_factura").val(data[i + 8]);
                         $("#tipo_documento").val(data[i + 9]);
                         $("#total").val(data[i + 10]);
                     }
@@ -624,22 +581,18 @@ function inicio() {
             $("#btnModificar").attr("disabled", true);
             $("#ruc_ci").attr("disabled", "disabled");
             $("#nombres_completos").attr("disabled", "disabled");
-            $("#serie1").attr("disabled", "disabled");
-            $("#serie2").attr("disabled", "disabled");
-            $("#serie3").attr("disabled", "disabled");
+            $("#num_factura").attr("disabled", "disabled");
             $("#total").attr("disabled", "disabled");
             $("#id_proveedor").val("");
             $("#ruc_ci").val("");
             $("#empresa").val("");
-            $("#serie1").val("");
-            $("#serie2").val("");
-            $("#serie3").val("");
+            $("#num_factura").val("");
             $("#total").val("");
-            $.getJSON('../procesos/retornar_cuentas_externas2.php?com=' + valor, function(data) {
+
+            $.getJSON('retornar_cuentas_externas2.php?com=' + valor, function(data) {
                 var tama = data.length;
                 if (tama !== 0) {
-                    for (var i = 0; i < tama; i = i + 11)
-                    {
+                    for (var i = 0; i < tama; i = i + 11) {
                         $("#fecha_actual").val(data[i]);
                         $("#hora_actual").val(data[i + 1 ]);
                         $("#digitador").val(data[i + 2 ] + " " + data[i + 3 ] );
@@ -647,13 +600,7 @@ function inicio() {
                         $("#id_proveedor").val(data[i + 5]);
                         $("#ruc_ci").val(data[i + 6]);
                         $("#empresa").val(data[i + 7]);
-                        var num_factura = data[i + 8];
-                        var ser1 = num_factura.substr(0, 3)
-                        var ser2 = num_factura.substr(4, 3)
-                        var ser3 = num_factura.substr(8, 20)
-                        $("#serie1").val(ser1);
-                        $("#serie2").val(ser2);
-                        $("#serie3").val(ser3);
+                        $("#num_factura").val(data[i + 8]);
                         $("#tipo_documento").val(data[i + 9]);
                         $("#total").val(data[i + 10]);
                     }
