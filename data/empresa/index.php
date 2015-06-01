@@ -47,16 +47,17 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="box box-primary">
-                            <div class="box-body">
-                                <div class="rows">
-                                    <div class="col-mx-12">
-                                        <form id="clientes_form" name="clientes_form" method="post">
-                                            <div class="row">
+                            <div class="box-body">                                
+                                <div class="rows">                                    
+                                    <div class="col-mx-12">                                        
+                                        <div class="row">
+                                            <form role="form" id="empresa_form" class="" method="POST" action="">                                                
                                                 <div class="col-mx-12">                              
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>Nombre empresa:</label>
                                                             <input type="text" name="nombre_empresa"  id="nombre_empresa" class="form-control" placeholder="Empresa" required />                                  
+                                                            <input type="hidden" id="id_empresa" name="id_empresa" /> 
                                                         </div>  
                                                     </div>
                                                     <div class="col-md-4">
@@ -68,19 +69,19 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>Dirección:</label>
-                                                            <input type="text" name="direccion_empresa"  id="direccion_empresa" class="form-control" placeholder="Dirección" required />
+                                                            <input type="text" name="direccion_empresa"  id="direccion_empresa" class="form-control" placeholder="Dirección"  />
                                                         </div>  
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>Descripción:</label>
-                                                            <input type="text" name="descripcion_empresa"  id="descripcion_empresa" class="form-control" placeholder="Descripción" required />
+                                                            <input type="text" name="descripcion_empresa"  id="descripcion_empresa" class="form-control" placeholder="Descripción"  />
                                                         </div>  
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>Celular:</label>
-                                                            <input type="text" name="celular_empresa"  id="celular_empresa" class="form-control" placeholder="Celular" required />
+                                                            <input type="text" name="celular_empresa"  id="celular_empresa" class="form-control" placeholder="Celular"  />
                                                         </div>  
                                                     </div>
                                                     <div class="col-md-4">
@@ -98,7 +99,7 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>E-mail:</label>
-                                                            <input type="text" name="correo_empresa"  id="correo_empresa" class="form-control" placeholder="Correo Electrónico" required />
+                                                            <input type="text" name="correo_empresa"  id="correo_empresa" class="form-control" placeholder="Correo Electrónico"  />
                                                         </div>  
                                                     </div>
                                                     <div class="col-md-4">
@@ -116,49 +117,49 @@
                                                      <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>Contador:</label>
-                                                            <input type="text" name="contador_empresa"  id="contador_empresa" class="form-control" placeholder="Nombre Contador" required />
+                                                            <input type="text" name="contador_empresa"  id="contador_empresa" class="form-control" placeholder="Nombre Contador"  />
                                                         </div>  
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>RUC Contador:</label>
-                                                            <input type="text" name="cc_contador"  id="cc_contador" class="form-control" placeholder="RUC Contador" required />
+                                                            <input type="text" name="cc_contador"  id="cc_contador" class="form-control" placeholder="RUC Contador"  />
                                                         </div>  
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>Serie Factura:</label>
-                                                            <input type="number" name="serie_factura"  id="serie_factura" class="form-control" placeholder="Serie Factura" required />
+                                                            <input type="number" name="serie_factura"  id="serie_factura" class="form-control" placeholder="Serie Factura"  />
                                                         </div>  
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>Autorización Factura:</label>
-                                                            <input type="number" name="autorizacion_factura"  id="autorizacion_factura" class="form-control" placeholder="Autorización Factura" required />
+                                                            <input type="number" name="autorizacion_factura"  id="autorizacion_factura" class="form-control" placeholder="Autorización Factura"  />
                                                         </div>  
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>Serie Retención:</label>
-                                                            <input type="number" name="serie_retencion"  id="serie_retencion" class="form-control" placeholder="Serie Retención" required />
+                                                            <input type="number" name="serie_retencion"  id="serie_retencion" class="form-control" placeholder="Serie Retención"  />
                                                         </div>  
                                                     </div>                                                    
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>Autorización Retención:</label>
-                                                            <input type="number" name="autorizacion_retencion"  id="autorizacion_retencion" class="form-control" placeholder="Autorización Retención" required />
+                                                            <input type="number" name="autorizacion_retencion"  id="autorizacion_retencion" class="form-control" placeholder="Autorización Retención"  />
                                                         </div>  
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>Serie Nota de Crédito:</label>
-                                                            <input type="number" name="serie_nota_credito"  id="serie_nota_credito" class="form-control" placeholder="Serie nota de crédito" required />
+                                                            <input type="number" name="serie_nota_credito"  id="serie_nota_credito" class="form-control" placeholder="Serie nota de crédito"  />
                                                         </div>  
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>Autorización Nota de Crédito:</label>
-                                                            <input type="number" name="autorizacion_nota_credito"  id="autorizacion_nota_credito" class="form-control" placeholder="Autorización Nota de Crédito" required />
+                                                            <input type="number" name="autorizacion_nota_credito"  id="autorizacion_nota_credito" class="form-control" placeholder="Autorización Nota de Crédito"  />
                                                         </div>  
                                                     </div>
                                                     <div class="col-md-4">
@@ -174,27 +175,20 @@
                                                         </div>  
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </form>
+                                            </form>
+                                        </div>                                        
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <p>
-                                            <button class="btn bg-olive margin" id='btnGuardar'><i class="fa fa-save"></i> Guardar</button>
+                                            <!--<button class="btn bg-olive margin" id='btnGuardar'  disabled=""><i class="fa fa-save"></i> Guardar</button>-->
                                             <button class="btn bg-olive margin" id='btnModificar'><i class="fa fa-edit"></i> Modificar</button>
-                                            <button class="btn bg-olive margin" id='btnBuscar'><i class="fa fa-search"></i> Buscar</button>
-                                            <button class="btn bg-olive margin" id='btnNuevo'><i class="fa fa-pencil"></i> Nuevo</button>
-                                            <button class="btn bg-olive margin" id='btnImprimir'><i class="fa fa-print"></i> Imprimir</button>
-                                            <button class="btn bg-olive margin" id='btnAtras'><i class="fa fa-backward"></i> Atras</button>
-                                            <button class="btn bg-olive margin" id='btnAdelante'>Adelante <i class="fa fa-forward"></i></button>
+                                            
+                                            <!--<button class="btn bg-olive margin" id='btnNuevo'><i class="fa fa-pencil"></i> Nuevo</button>                                            -->
                                         </p> 
                                     </div>
-                                </div>
-                                <div id="buscar_cartera_pagar" title="BUSCAR CARTERA POR PAGAR">
-                                    <table id="list2"><tr><td></td></tr></table>
-                                    <div id="pager2"></div>
-                                </div>
+                                </div>                                                                
                             </div>
                         </div>
                     </div>
