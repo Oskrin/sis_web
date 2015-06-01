@@ -74,15 +74,16 @@ print'
                   <li>
                   <a href=""><i class="fa fa-circle-o"></i>Tablas<i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
-                    <!--<li>
+                    <li>
                       <a href=""><i class="fa fa-circle-o"></i>Facturación<i class="fa fa-angle-left pull-right"></i></a>
                       <ul class="treeview-menu">
-                        <li><a href=""><i class="fa fa-circle-o"></i>Impuestos Ventas/Compras</a></li>
-                        <li><a href=""><i class="fa fa-circle-o"></i>Retención en Impuesto</a></li>
+                        <li><a href=""><i class="fa fa-circle-o"></i>Plan Cuentas</a></li>
+                        <li><a href="../grupos"><i class="fa fa-circle-o"></i>Grupos</a></li>
                         <li><a href=""><i class="fa fa-circle-o"></i>Retención en Fuente</a></li>
                         <li><a href=""><i class="fa fa-circle-o"></i>Segundo Impuesto Ventas/Compras</a></li>
                       </ul>
-                    </li>-->
+                    </li>
+
                     <li>
                       <a href=""><i class="fa fa-circle-o"></i>Inventario<i class="fa fa-angle-left pull-right"></i></a>
                       <ul class="treeview-menu">
