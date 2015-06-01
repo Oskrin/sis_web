@@ -1,6 +1,8 @@
 <?php 
 session_start();
+include '../../procesos/base.php';
 include('../menu/app.php'); 
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -94,6 +96,24 @@ include('../menu/app.php');
                               <label>País: <font color="red">*</font></label>
                               <input type="text" name="pais_pro" id="pais_pro" placeholder="Ingrese un país" class="form-control" />
                             </div>
+
+                            <div class="form-group">
+                              <label>Grupo: <font color="red">*</font></label>
+                              <select class="form-control" name="grupo" id="grupo">
+                                <option value="">........Seleccione........</option>
+                                <?php
+                                $consulta = pg_query("select * from grupo");
+                                while ($row = pg_fetch_row($consulta)) {
+                                    echo "<option id=$row[0] value=$row[0]>$row[2]</option>";
+                                }
+                                ?>     
+                              </select>
+                            </div>
+
+                            <div class="form-group">
+                              <label>Comentarios:</label>
+                              <textarea class="form-control" name="observaciones_pro" id="observaciones_pro" rows="3"></textarea>
+                            </div>
                           </div>
 
                           <div class="col-md-4">
@@ -130,6 +150,11 @@ include('../menu/app.php');
                             <div class="form-group">
                               <label>Ciudad: <font color="red">*</font></label>
                               <input type="text" name="ciudad_pro" id="ciudad_pro" class="form-control"/>
+                            </div>
+
+                            <div class="form-group">
+                              <label>Serie Comprobante:</label>
+                              <input type="text" name="serie" id="serie" class="form-control" />
                             </div>
                           </div>
 
@@ -169,8 +194,34 @@ include('../menu/app.php');
                             </div>
 
                             <div class="form-group">
-                              <label>Comentarios:</label>
-                              <textarea class="form-control" name="observaciones_pro" id="observaciones_pro" rows="3"></textarea>
+                              <label>Sustento Tribuario: <font color="red">*</font></label>
+                              <select class="form-control" name="sustento" id="sustento">
+                                <option value="">........Seleccione........</option>
+                                <?php
+                                $consulta = pg_query("select * from sustento_tributario");
+                                while ($row = pg_fetch_row($consulta)) {
+                                    echo "<option id=$row[0] value=$row[0]>$row[1] $row[2]</option>";
+                                }
+                                ?>     
+                              </select>
+                            </div>
+
+                            <div class="form-group">
+                              <label>Tipo Comprobante: <font color="red">*</font></label>
+                              <select class="form-control" name="categoria" id="categoria">
+                                <option value="">........Seleccione........</option>
+                                <?php
+                                $consulta = pg_query("select * from tipo_comprobante ");
+                                while ($row = pg_fetch_row($consulta)) {
+                                    echo "<option id=$row[0] value=$row[0]>$row[1] $row[2]</option>";
+                                }
+                                ?>     
+                              </select>
+                            </div>
+
+                            <div class="form-group">
+                              <label>Autorización SRI:</label>
+                              <input type="text" name="autorizacion" id="autorizacion" class="form-control" />
                             </div>
                           </div>
                         </div>

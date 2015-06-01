@@ -5,8 +5,8 @@
     <title>LOGIN</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="../../font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />        
-    <link href="../../plugins/icon/ionicons.min.css" rel="stylesheet" type="text/css" />    
+    <link href="../font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />        
+    <link href="../plugins/icon/ionicons.min.css" rel="stylesheet" type="text/css" />    
     <link href="../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <link href="../dist/css/alertify.core.css" rel="stylesheet" />
     <link href="../dist/css/alertify.default.css" id="toggleCSS" rel="stylesheet" />

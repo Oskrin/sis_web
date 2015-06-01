@@ -1,5 +1,6 @@
 <?php 
 session_start();
+include '../../procesos/base.php';
 include('../menu/app.php'); 
 ?>
 <!DOCTYPE html>
@@ -82,6 +83,19 @@ include('../menu/app.php');
                             <div class="form-group">
                               <label>Dirección: <font color="red">*</font></label>
                               <input type="text" name="direccion_cli" id="direccion_cli" placeholder="Dirección cliente" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                              <label>Grupo: <font color="red">*</font></label>
+                              <select class="form-control" name="grupo" id="grupo">
+                                <option value="">........Seleccione........</option>
+                                <?php
+                                $consulta = pg_query("select * from grupo");
+                                while ($row = pg_fetch_row($consulta)) {
+                                    echo "<option id=$row[0] value=$row[0]>$row[2]</option>";
+                                }
+                                ?>     
+                              </select>
                             </div>
 
                             <div class="form-group">

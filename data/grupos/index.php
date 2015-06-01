@@ -47,7 +47,7 @@ include('../menu/app.php');
               <div class="box box-primary">
                 <div class="box-body">
                   <div class="row">
-                      <form id="clientes_form" name="clientes_form" method="post">
+                      <form id="clientes_form" name="grupo_form" method="post">
                         <div class="col-mx-12">                    
                           <div class="col-md-6">
                             <div class="form-group">
@@ -61,8 +61,8 @@ include('../menu/app.php');
                              </div>
 
                               <div class="col-xs-8">
-                                <input type="text" name="cuenta" id="cuenta" class="form-control col-md-3" />
-                                <input type="text" name="id_plan_cuentas"  id="id_plan_cuentas" class="form-control" />
+                                <input type="text" name="cuenta" id="cuenta" readonly class="form-control col-md-3" />
+                                <input type="hidden" name="id_plan_cuentas"  id="id_plan_cuentas" class="form-control" />
                               </div>
 
                               <div class="col-xs-4">
@@ -75,7 +75,7 @@ include('../menu/app.php');
                             <div class="form-group">
                               <label>Nombre Grupo<font color="red">*</font></label>
                               <input type="text" name="nombre_grupo"  id="nombre_grupo" class="form-control" />
-                              <input type="text" name="id_grupo"  id="id_grupo" class="form-control" />
+                              <input type="hidden" name="id_grupo"  id="id_grupo" class="form-control" />
                             </div>
                           </div>
                         </div>

@@ -8,6 +8,8 @@ function openPDF(){
 }
 function inicio(){
     carga_empresa();
+    $("[data-mask]").inputmask();
+    alertify.set({ delay: 1000 });
 	$("#btnModificar").on('click',guardar_empresa);
 
 }
@@ -15,35 +17,35 @@ function guardar_empresa(){
    var iden = $("#ruc_empresa").val();   
     if ($("#nombre_empresa").val() === "") {
         $("#nombre_empresa").focus();
-        alertify.alert("Ingrese nombre de la empresa");
+        alertify.error("Ingrese nombre de la empresa");
     } else {
         if ($("#ruc_empresa").val() === "") {
             $("#ruc_empresa").focus();
-            alertify.alert("Ingrese ruc de la empresa");
+            alertify.error("Ingrese ruc de la empresa");
         }else{
             if ( iden.length < 13) {
                 $("#ruc_ci").focus();
-                alertify.alert("Error.. Minimo 13 digitos ");
+                alertify.error("Error.. Minimo 13 digitos ");
             } else {
                 if ($("#descripcion_empresa").val() === "") {
                     $("#descripcion_empresa").focus();
-                    alertify.alert("Ingrese una descripción");
+                    alertify.error("Ingrese una descripción");
                 }else{
                     if ($("#propietario_empresa").val() === "") {
                         $("#propietario_empresa").focus();
-                        alertify.alert("Ingrese el propietario");
+                        alertify.error("Ingrese el propietario");
                     }else{
                         if ($("#direccion_empresa").val() === "") {
                             $("#direccion_empresa").focus();
-                            alertify.alert("Ingrese dirección de la empresa");
+                            alertify.error("Ingrese dirección de la empresa");
                         }else{                           
                             if ($("#pais_empresa").val() === "") {
                                 $("#pais_empresa").focus();
-                                alertify.alert("Ingrese el país");
+                                alertify.error("Ingrese el país");
                             }else{
                                 if ($("#ciudad_empresa").val() === "") {
                                     $("#ciudad_empresa").focus();
-                                    alertify.alert("Ingrese la ciudad");
+                                    alertify.error("Ingrese la ciudad");
                                 }else{
                                     $("#empresa_form").submit(function(e) {
                                         var formObj = $(this);
@@ -63,11 +65,11 @@ function guardar_empresa(){
                                                 success: function(data, textStatus, jqXHR) {
                                                     var res=data;
                                                     if(res == 1){
-                                                        alertify.alert("Datos Agredados Correctamente",function(){
+                                                        alertify.success("Datos Modificados Correctamente",function(){
                                                         location.reload();
                                                         });
                                                     } else{
-                                                        alertify.alert("Error..... Datos no Agregados");
+                                                        alertify.error("Error..... Datos no Agregados");
                                                         //location.reload();
                                                     }
                                                 },
