@@ -2,6 +2,7 @@ $(document).on("ready", inicio);
 function evento(e) {
     e.preventDefault();
 }
+
 function scrollToBottom() {
     $('html, body').animate({
         scrollTop: $(document).height()
@@ -66,10 +67,45 @@ function abrirDialogo() {
 }
 
 function abrirCuenta() {
-    $("#grupos").dialog("open");
+    $("#cuenta").dialog("open");
 }
 
-function guardar_cliente() {
+function guardar_grupo() {
+  if ($("#codigo_grupo").val() === "") {
+    $("#codigo_grupo").focus();
+    alertify.error("Ingrese un Código");
+    } else {
+      if ($("#nombre_grupo").val() === "") {
+         $("#nombre_grupo").focus();
+         alertify.error("Ingrese un Nombre");
+        }else{
+         if ($("#id_plan_cuentas").val() === "") {
+         alertify.error("Seleccione una Cuenta Contable");
+        }else{
+         $.ajax({
+            type: "POST",
+            url: "guardar_grupo.php",
+            data: "id_plan_cuentas=" + $("#id_plan_cuentas").val() + "&codigo_grupo=" + $("#codigo_grupo").val() +
+            "&nombre_grupo=" + $("#nombre_grupo").val(),
+            success: function(data) {
+                var val = data;
+                if (val == 1) {
+                    alertify.success('Datos Agregados Correctamente');                                   
+                    setTimeout(function() {
+                    location.reload();
+                    }, 1000);
+                }
+            }
+        });   
+        }
+      }
+   }
+}
+
+function modificar_grupo() {
+   if ($("#id_grupo").val() === "") {
+    alertify.error("Seleccione un grupo");
+    } else { 
         if ($("#codigo_grupo").val() === "") {
         $("#codigo_grupo").focus();
         alertify.error("Ingrese un Código");
@@ -99,136 +135,7 @@ function guardar_cliente() {
             }
           }
         }
-    
-    // if ($("#tipo_docu").val() === "") {
-    //     $("#tipo_docu").focus();
-    //     alertify.error("Seleccione un tipo de documento ");
-    // } else {
-    //     if ($("#tipo_docu").val() === "Cedula" && iden.length < 10) {
-    //         $("#ruc_ci").focus();
-    //         alertify.error("Error.. Minimo 10 digitos ");
-    //     } else {
-    //         if ($("#tipo_docu").val() === "Ruc" && iden.length < 13) {
-    //             $("#ruc_ci").focus();
-    //             alertify.error("Error.. Minimo 13 digitos ");
-    //         } else {
-    //             if ($("#nombres_cli").val() === "") {
-    //                 $("#nombres_cli").focus();
-    //                 alertify.error("Ingrese Nombres completos");
-    //             } else {
-    //                 if ($("#tipo_cli").val() === "") {
-    //                     $("#tipo_cli").focus();
-    //                     alertify.error("Seleccione Tipo cliente");
-    //                 } else {
-    //                     if ($("#direccion_cli").val() === "") {
-    //                         $("#direccion_cli").focus();
-    //                         alertify.error("Ingrese una dirección");
-    //                     } else {
-    //                         if ($("#pais_cli").val() === "") {
-    //                             $("#pais_cli").focus();
-    //                             alertify.error("Ingrese un pais");
-    //                         } else {
-    //                             if ($("#ciudad_cli").val() === "") {
-    //                                 $("#ciudad_cli").focus();
-    //                                 alertify.error("Ingrese una ciudad");
-    //                             } else {
-    //                                 // if ($("#cupo_credito").val() === "") {
-    //                                 //     $("#cupo_credito").focus();
-    //                                 //     alertify.error("Ingrese cantidad del crédito");
-    //                                 // }else{
-    //                                     $.ajax({
-    //                                         type: "POST",
-    //                                         url: "guardar_clientes.php",
-    //                                         data: "tipo_docu=" + $("#tipo_docu").val() + "&ruc_ci=" + $("#ruc_ci").val() +
-    //                                         "&nombres_cli=" + $("#nombres_cli").val() + "&tipo_cli=" + $("#tipo_cli").val() + "&direccion_cli=" + $("#direccion_cli").val() + "&nro_telefono=" + $("#nro_telefono").val() + "&nro_celular=" + $("#nro_celular").val() + "&pais_cli=" + $("#pais_cli").val() + "&ciudad_cli=" + $("#ciudad_cli").val() + "&email=" + $("#email").val() + "&cupo_credito=" + $("#cupo_credito").val() + "&notas_cli=" + $("#notas_cli").val()+ "&id_plan_cuentas=" + $("#id_plan_cuentas").val(),
-    //                                         success: function(data) {
-    //                                             var val = data;
-    //                                             if (val == 1) {
-    //                                                 alertify.success('Datos Agregados Correctamente');						    		
-    //                                                 setTimeout(function() {
-    //                                                 location.reload();
-    //                                                 }, 1000);
-    //                                             }
-    //                                         }
-    //                                     });
-    //                                 // }
-    //                             }
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
-}
-
-function modificar_cliente() {
-    var iden = $("#ruc_ci").val();
-    
-    if ($("#id_cliente").val() === "") {
-        alertify.error("Seleccione un cliente");
-    } else {
-        if ($("#tipo_docu").val() === "") {
-            $("#tipo_docu").focus();
-            alertify.error("Seleccione un tipo de documento ");
-        } else {
-            if ($("#tipo_docu").val() === "Cedula" && iden.length < 10) {
-                $("#ruc_ci").focus();
-                alertify.error("Error.. Minimo 10 digitos ");
-            } else {
-                if ($("#tipo_docu").val() === "Ruc" && iden.length < 13) {
-                    $("#ruc_ci").focus();
-                    alertify.error("Error.. Minimo 13 digitos ");
-                } else {
-                    if ($("#nombres_cli").val() === "") {
-                        $("#nombres_cli").focus();
-                        alertify.error("Ingrese Nombres completos");
-                    } else {
-                        if ($("#tipo_cli").val() === "") {
-                            $("#tipo_cli").focus();
-                            alertify.error("Seleccione Tipo cliente");
-                        } else {
-                            if ($("#direccion_cli").val() === "") {
-                                $("#direccion_cli").focus();
-                                alertify.error("Ingrese una dirección");
-                            } else {
-                                if ($("#pais_cli").val() === "") {
-                                    $("#pais_cli").focus();
-                                    alertify.error("Ingrese un pais");
-                                } else {
-                                    if ($("#ciudad_cli").val() === "") {
-                                        $("#ciudad_cli").focus();
-                                        alertify.error("Ingrese una ciudad");
-                                    } else {
-                                        // if ($("#cupo_credito").val() === "") {
-                                        //     $("#cupo_credito").focus();
-                                        //     alertify.error("Ingrese cantidad del crédito");
-                                        // }else{
-                                            $.ajax({
-                                                type: "POST",
-                                                url: "modificar_clientes.php",
-                                                data: "tipo_docu=" + $("#tipo_docu").val() + "&ruc_ci=" + $("#ruc_ci").val() + "&id_cliente=" + $("#id_cliente").val() +
-                                                "&nombres_cli=" + $("#nombres_cli").val() + "&tipo_cli=" + $("#tipo_cli").val() + "&direccion_cli=" + $("#direccion_cli").val() + "&nro_telefono=" + $("#nro_telefono").val() + "&nro_celular=" + $("#nro_celular").val() + "&pais_cli=" + $("#pais_cli").val() + "&ciudad_cli=" + $("#ciudad_cli").val() + "&email=" + $("#email").val() + "&cupo_credito=" + $("#cupo_credito").val() + "&notas_cli=" + $("#notas_cli").val(),
-                                                success: function(data) {
-                                                    var val = data;
-                                                    if (val == 1) {
-                                                        alertify.success('Datos Modificados Correctamente');						    		
-                                                        setTimeout(function() {
-                                                            location.reload();
-                                                        }, 1000);
-                                                    }
-                                                }
-                                            });  
-                                        // }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+    }   
 }
 function eliminar_cliente() {
     if ($("#id_cliente").val() === "") {
@@ -357,8 +264,8 @@ function inicio() {
         e.preventDefault();
     });
 
-    $("#btnGuardar").on("click", guardar_cliente);
-    $("#btnModificar").on("click", modificar_cliente);
+    $("#btnGuardar").on("click", guardar_grupo);
+    $("#btnModificar").on("click", modificar_grupo);
     // $("#btnBuscar").on("click", abrirDialogo);
     $("#btnEliminar").on("click", eliminar_cliente);
     $("#btnAceptar").on("click", aceptar);
@@ -369,7 +276,7 @@ function inicio() {
     $("#btnCuenta").on("click", abrirCuenta);
 
     // $("#clientes").dialog(dialogo);
-    $("#grupos").dialog(dialogo_cuenta);
+    $("#cuenta").dialog(dialogo_cuenta);
     // $("#clave_permiso").dialog(dialogo3);
     // $("#seguro").dialog(dialogo4);
 
@@ -403,7 +310,7 @@ function inicio() {
 
          //jQuery("#list").jqGrid('GridToForm', id, "#clientes_form");
          // $("#btnGuardar").attr("disabled", true);
-         $("#grupos").dialog("close");    
+         $("#cuenta").dialog("close");    
         }
     }).jqGrid('navGrid', '#pager',
             {
@@ -448,7 +355,7 @@ function inicio() {
 
                 // jQuery("#list").jqGrid('GridToForm', id, "#clientes_form");
                 // $("#btnGuardar").attr("disabled", true);
-                $("#grupos").dialog("close");
+                $("#cuenta").dialog("close");
             } else {
                 alertify.alert("Seleccione un fila");
             }

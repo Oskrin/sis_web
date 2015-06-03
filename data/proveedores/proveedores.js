@@ -121,17 +121,7 @@ function guardar_proveedor() {
                                                 $.ajax({
                                                     type: "POST",
                                                     url: "guardar_proveedores.php",
-                                                    data: "tipo_docu=" + $("#tipo_docu").val() + "&ruc_ci=" + $("#ruc_ci").val() +
-                                                    "&empresa_pro=" + $("#empresa_pro").val() + "&representante_legal=" + $("#representante_legal").val()
-                                                    + "&visitador=" + $("#visitador").val() + "&direccion_pro=" + $("#direccion_pro").val() + "&nro_telefono=" 
-                                                    + $("#nro_telefono").val() + "&nro_celular=" + $("#nro_celular").val() 
-                                                    + "&fax=" + $("#fax").val() + "&pais_pro=" + $("#pais_pro").val() 
-                                                    + "&ciudad_pro=" + $("#ciudad_pro").val() + "&forma_pago=" 
-                                                    + $("#forma_pago").val() + "&correo=" + $("#correo").val() 
-                                                    + "&principal_pro=" + $("#principal_pro").val() + "&observaciones_pro=" 
-                                                    + $("#observaciones_pro").val()+ "&id_plan_cuentas=" 
-                                                    + $("#id_plan_cuentas").val()+ "&cupo_credito=" 
-                                                    + $("#cupo_credito").val()+ "&tipo_pro=" + $("#tipo_pro").val(),
+                                                    data: $("#proveedores_form").serialize(),
                                                     success: function(data) {
                                                         var val = data;
                                                         if (val == 1) {
@@ -210,17 +200,7 @@ function modificar_proveedor() {
                                                     $.ajax({
                                                         type: "POST",
                                                         url: "modificar_proveedores.php",
-                                                        data: "tipo_docu=" + $("#tipo_docu").val() + "&ruc_ci=" + $("#ruc_ci").val() + "&id_proveedor=" + $("#id_proveedor").val() +
-                                                        "&empresa_pro=" + $("#empresa_pro").val() + "&representante_legal=" + $("#representante_legal").val()
-                                                        + "&visitador=" + $("#visitador").val() + "&direccion_pro=" + $("#direccion_pro").val() + "&nro_telefono=" + $("#nro_telefono").val() 
-                                                        + "&nro_celular=" + $("#nro_celular").val() + "&fax=" + $("#fax").val() 
-                                                        + "&pais_pro=" + $("#pais_pro").val() + "&ciudad_pro=" 
-                                                        + $("#ciudad_pro").val() + "&forma_pago=" + $("#forma_pago").val() 
-                                                        + "&correo=" + $("#correo").val() + "&principal_pro=" 
-                                                        + $("#principal_pro").val() + "&observaciones_pro=" 
-                                                        + $("#observaciones_pro").val()+ "&id_plan_cuentas=" 
-                                                        + $("#id_plan_cuentas").val()+ "&cupo_credito=" + $("#cupo_credito").val()
-                                                        + "&tipo_pro=" + $("#tipo_pro").val(),
+                                                        data: $("#proveedores_form").serialize(),
                                                         success: function(data) {
                                                             var val = data;
                                                             if (val == 1) {
@@ -590,7 +570,7 @@ function inicio() {
     jQuery("#list").jqGrid({
         url: 'datos_proveedores.php',
         datatype: 'xml',
-        colNames: ['Codigo', 'Tipo Documento', 'Identificación', 'Empresa', 'Representante', 'Visitador', 'Dirección', 'Teléfono', 'Movil', 'Correo', 'Fax', 'País', 'Ciudad', 'Forma Pago', 'Principal', 'Observacion','Cupo','Tipo Proveedor'],
+        colNames: ['Codigo', 'Tipo Documento', 'Identificación', 'Empresa', 'Representante', 'Visitador', 'Dirección', 'Teléfono', 'Movil', 'Correo', 'Fax', 'País', 'Ciudad', 'Forma Pago', 'Principal', 'Observacion','Cupo','Tipo Proveedor','Sustento Tributario','Tipo Comprobante','Grupo','Serie','Autorizacion'],
         colModel: [
             {name: 'id_proveedor', index: 'id_proveedor', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
             {name: 'tipo_docu', index: 'tipo_docu', editable: true, align: 'center', width: '120', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
@@ -608,8 +588,13 @@ function inicio() {
             {name: 'forma_pago', index: 'forma_pago', editable: true, align: 'center', width: '120', search: false, frozen: false, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
             {name: 'principal_pro', index: 'principal_pro', editable: true, align: 'center', width: '120', search: false, frozen: false, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
             {name: 'observaciones_pro', index: 'observaciones_pro', editable: true, align: 'center', width: '120', search: false, frozen: false, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
+            {name: 'tipo_pro', index: 'tipo_pro', editable: true, align: 'center', width: '120', search: false, frozen: false, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
             {name: 'cupo_credito', index: 'cupo_credito', editable: true, align: 'center', width: '120', search: false, frozen: false, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
-            {name: 'tipo_pro', index: 'tipo_pro', editable: true, align: 'center', width: '120', search: false, frozen: false, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}}
+            {name: 'sustento', index: 'sustento', editable: true, align: 'center', width: '120', search: false, frozen: false, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
+            {name: 'comprobante', index: 'comprobante', editable: true, align: 'center', width: '120', search: false, frozen: false, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
+            {name: 'grupo', index: 'grupo', editable: true, align: 'center', width: '120', search: false, frozen: false, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
+            {name: 'serie', index: 'serie', editable: true, align: 'center', width: '120', search: false, frozen: false, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
+            {name: 'autorizacion', index: 'autorizacion', editable: true, align: 'center', width: '120', search: false, frozen: false, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}}
         ],
         rowNum: 10,
         width: 830,

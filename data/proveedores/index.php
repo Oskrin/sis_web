@@ -208,7 +208,7 @@ include('../menu/app.php');
 
                             <div class="form-group">
                               <label>Tipo Comprobante: <font color="red">*</font></label>
-                              <select class="form-control" name="categoria" id="categoria">
+                              <select class="form-control" name="comprobante" id="comprobante">
                                 <option value="">........Seleccione........</option>
                                 <?php
                                 $consulta = pg_query("select * from tipo_comprobante ");

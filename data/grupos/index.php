@@ -92,6 +92,11 @@ include('../menu/app.php');
                       </p> 
                     </div> 
 
+                    <div id="cuenta" title="Búsqueda Cuentas Contables" class="">
+                      <table id="list"><tr><td></td></tr></table>
+                      <div id="pager"></div>
+                    </div>
+
                     <div id="grupos" title="Búsqueda Cuentas Contables" class="">
                       <table id="list"><tr><td></td></tr></table>
                       <div id="pager"></div>
