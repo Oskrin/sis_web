@@ -71,7 +71,7 @@ print'
               <ul class="treeview-menu">
                 <li><a href="../empresa"><i class="fa fa-circle-o"></i>Empresa</a></li>
                 <!--<li><a href=""><i class="fa fa-circle-o"></i>Privilegios</a></li>-->
-                  <li>
+                <li>
                   <a href=""><i class="fa fa-circle-o"></i>Tablas<i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
                     <li>
@@ -100,6 +100,16 @@ print'
                         <!--<li><a href="#"><i class="fa fa-circle-o"></i>Cargar Plan Cuentas</a></li>-->
                       </ul>
                     </li>
+                  </ul>
+                </li>
+                <li class="treeview">
+                  <a href="">
+                    <i class="fa fa-laptop"></i> <span>Contabilidad</span> <i class="fa fa-angle-left pull-right"></i>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="../tipo_comprobante"><i class="fa fa-circle-o"></i> Tipos Comprobantes</a></li>                    
+                    <li><a href="../sustento_tributario"><i class="fa fa-circle-o"></i> Sustentos Tributarios</a></li>
+                    <li><a href="../sustento_comprobante"><i class="fa fa-circle-o"></i> Enlazar</a></li>
                   </ul>
                 </li>
                 <!--<li><a href="#"><i class="fa fa-circle-o"></i>Respaldo</a></li>-->
