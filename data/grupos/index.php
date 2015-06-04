@@ -47,7 +47,7 @@ include('../menu/app.php');
               <div class="box box-primary">
                 <div class="box-body">
                   <div class="row">
-                      <form id="clientes_form" name="grupo_form" method="post">
+                      <form id="grupo_form" name="grupo_form" method="post">
                         <div class="col-mx-12">                    
                           <div class="col-md-6">
                             <div class="form-group">
@@ -97,10 +97,10 @@ include('../menu/app.php');
                       <div id="pager"></div>
                     </div>
 
-<!--                     <div id="grupos" title="Búsqueda Cuentas Contables" class="">
-                      <table id="list"><tr><td></td></tr></table>
-                      <div id="pager"></div>
-                    </div> -->
+                    <div id="grupos" title="Búsqueda Grupos" class="">
+                      <table id="list2"><tr><td></td></tr></table>
+                      <div id="pager2"></div>
+                    </div>
                   
                   </div>
                 </div>

@@ -113,6 +113,7 @@ include('../menu/app.php');
                             <div class="form-group">
                               <label>Código compras: <font color="red">*</font></label>
                               <input type="text" name="codigo_compras" id="codigo_compras" placeholder="Código" class="form-control" />
+                              <input type="hidden" name="id_retencion_fuente1" id="id_retencion_fuente1" placeholder="Código" class="form-control" />
                             </div>
 
                             <div class="form-group">

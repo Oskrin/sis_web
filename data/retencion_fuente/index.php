@@ -6,7 +6,7 @@ include('../menu/app.php');
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>GRUPOS..</title>
+    <title>RETENCIONES..</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
     <link href="../../font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />        
@@ -36,7 +36,7 @@ include('../menu/app.php');
           </h1>
           <ol class="breadcrumb">
             <li><a href=""><i class="fa fa-dashboard"></i> Ingresos</a></li>
-            <li class="active">Retenciones</li>
+            <li class="active">Retención Fuente</li>
           </ol>
         </section>
 
@@ -47,7 +47,7 @@ include('../menu/app.php');
               <div class="box box-primary">
                 <div class="box-body">
                   <div class="row">
-                      <form id="clientes_form" name="grupo_form" method="post">
+                      <form id="retencion_form" name="retencion_form" method="post" action="">
                         <div class="col-mx-12">                    
                           <div class="col-md-6">
                             <div class="form-group">
@@ -79,13 +79,13 @@ include('../menu/app.php');
                           <div class="col-md-6">
                             <div class="form-group">
                               <label>Formulario 103<font color="red">*</font></label>
-                              <input type="text" name="nombre_grupo"  id="nombre_grupo" class="form-control" />
-                              <input type="hidden" name="id_grupo"  id="id_grupo" class="form-control" />
+                              <input type="text" name="formulario"  id="formulario" class="form-control" />
+                              <input type="hidden" name="id_retencion_fuente"  id="id_retencion_fuente" class="form-control" />
                             </div>
 
                             <div class="form-group">
                               <label>Detalle Porcentajes:</label>
-                              <textarea class="form-control" name="notas_cli" id="notas_cli" rows="3"></textarea>
+                              <textarea class="form-control" name="detalle" id="detalle" rows="3"></textarea>
                             </div>
                           </div>
                         </div>
@@ -107,10 +107,10 @@ include('../menu/app.php');
                       <div id="pager"></div>
                     </div>
 
-<!--                     <div id="grupos" title="Búsqueda Cuentas Contables" class="">
-                      <table id="list"><tr><td></td></tr></table>
-                      <div id="pager"></div>
-                    </div> -->
+                    <div id="retenciones" title="Búsqueda Retenciones" class="">
+                      <table id="list2"><tr><td></td></tr></table>
+                      <div id="pager2"></div>
+                    </div>
                   
                   </div>
                 </div>

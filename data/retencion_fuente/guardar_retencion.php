@@ -7,14 +7,14 @@ error_reporting(0);
 
 ///////////////////contador clientes////////////////////////
 $cont = 0;
-$consulta = pg_query("select max(id_grupo) from grupo");
+$consulta = pg_query("select max(id_retencion_fuente) from retencion_fuentes");
 while ($row = pg_fetch_row($consulta)) {
     $cont = $row[0];
 }
 $cont++;
 /////////////////////////////////////////////////////////
 
-if (pg_query("insert into grupo values('$cont','$_POST[codigo_grupo]','$_POST[nombre_grupo]','$_POST[id_plan_cuentas]','Activo')")) {
+if (pg_query("insert into retencion_fuentes values('$cont','$_POST[codigo_anexo]','$_POST[formulario]','$_POST[porcentaje]','$_POST[detalle]','','','$_POST[id_plan_cuentas]','Activo')")) {
     $data = 1;
 }
 

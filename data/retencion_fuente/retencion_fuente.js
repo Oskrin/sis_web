@@ -23,41 +23,18 @@ var dialogo =
 {
     autoOpen: false,
     resizable: false,
-    width: 860,
+    width: 750,
     height: 350,
     modal: true
 };
 
-var dialogo3 =
-{
-    autoOpen: false,
-    resizable: false,
-    width: 400,
-    height: 210,
-    modal: true,
-    position: "top",
-    show: "explode",
-    hide: "blind"    
-}
-
-var dialogo4 = 
-{
-    autoOpen: false,
-    resizable: false,
-    width: 240,
-    height: 150,
-    modal: true,
-    position: "top",
-    show: "explode",
-    hide: "blind"
-}
 
 var dialogo_cuenta = 
 {
     autoOpen: false,
     resizable: false,
     width: 620,
-    height: 400,
+    height: 350,
     modal: true,
     // position: "top",
     show: "explode",
@@ -65,7 +42,7 @@ var dialogo_cuenta =
 }
 
 function abrirDialogo() {
-    $("#clientes").dialog("open");
+    $("#retenciones").dialog("open");
 }
 
 function abrirCuenta() {
@@ -77,30 +54,39 @@ function guardar_retencion() {
     $("#codigo_anexo").focus();
     alertify.error("Ingrese un Código");
     } else {
-      if ($("#nombre_grupo").val() === "") {
-         $("#nombre_grupo").focus();
-         alertify.error("Ingrese un Nombre");
+      if ($("#formulario").val() === "") {
+         $("#formulario").focus();
+         alertify.error("Ingrese Código fromulario");
         }else{
-         if ($("#id_plan_cuentas").val() === "") {
-         alertify.error("Seleccione una Cuenta Contable");
-        }else{
-         $.ajax({
-            type: "POST",
-            url: "guardar_retencio.php",
-            data: "id_plan_cuentas=" + $("#id_plan_cuentas").val() + "&codigo_grupo=" + $("#codigo_grupo").val() +
-            "&nombre_grupo=" + $("#nombre_grupo").val(),
-            success: function(data) {
-                var val = data;
-                if (val == 1) {
-                    alertify.success('Datos Agregados Correctamente');                                   
-                    setTimeout(function() {
-                    location.reload();
-                    }, 1000);
+           if ($("#porcentaje").val() === "") {
+             $("#porcentaje").focus();
+             alertify.error("Ingrese el porcentaje");
+            }else{ 
+                 if ($("#detalle").val() === "") {
+                 $("#detalle").focus();
+                 alertify.error("Ingrese detalle del porcentaje");
+                }else{
+                 if ($("#id_plan_cuentas").val() === "") {
+                 alertify.error("Seleccione una Cuenta Contable");
+                    }else{
+                     $.ajax({
+                        type: "POST",
+                        url: "guardar_retencion.php",
+                        data: $("#retencion_form").serialize(),
+                        success: function(data) {
+                            var val = data;
+                            if (val == 1) {
+                                alertify.success('Datos Agregados Correctamente');                                   
+                                setTimeout(function() {
+                                location.reload();
+                                }, 1000);
+                            }
+                        }
+                    });   
                 }
-            }
-        });   
+            }    
         }
-      }
+     }
    }
 }
 
@@ -146,6 +132,7 @@ function eliminar_cliente() {
         $("#clave_permiso").dialog("open");     
     }
 }
+
 function validar_acceso(){
     if($("#clave").val() == "") {
         $("#clave").focus();
@@ -267,8 +254,8 @@ function inicio() {
     });
 
     $("#btnGuardar").on("click", guardar_retencion);
-    $("#btnModificar").on("click", modificar_grupo);
-    // $("#btnBuscar").on("click", abrirDialogo);
+    // $("#btnModificar").on("click", modificar_grupo);
+    $("#btnBuscar").on("click", abrirDialogo);
     $("#btnEliminar").on("click", eliminar_cliente);
     $("#btnAceptar").on("click", aceptar);
     $("#btnSalir").on("click", cancelar);
@@ -277,11 +264,14 @@ function inicio() {
     $("#btnNuevo").on("click", nuevo_cliente);
     $("#btnCuenta").on("click", abrirCuenta);
 
-    // $("#clientes").dialog(dialogo);
+    $("#retenciones").dialog(dialogo);
     $("#cuentas").dialog(dialogo_cuenta);
     // $("#clave_permiso").dialog(dialogo3);
     // $("#seguro").dialog(dialogo4);
 
+
+
+    //////////////////tabla plan de cuentas///////////////////
     jQuery("#list").jqGrid({
         url: 'datos_plan.php',
         datatype: 'xml',
@@ -300,7 +290,7 @@ function inicio() {
         sortname: 'id_plan_cuentas',
         shrinkToFit: false,
         sortorder: 'asc',
-        caption: 'Lista de Clientes',        
+        // caption: 'Lista de Clientes',        
         viewrecords: true,
         ondblClickRow: function(){
          var id = jQuery("#list").jqGrid('getGridParam', 'selrow');
@@ -363,5 +353,92 @@ function inicio() {
             }
         }
     });
+    /////////////////////////////fin plan cuentas///////////////////////////////
+
+    //////////////////tabla retenciones fuente///////////////////
+    jQuery("#list2").jqGrid({
+        url: 'datos_retenciones.php',
+        datatype: 'xml',
+        colNames: ['Id', 'Codigo Anexo', 'Código Formulario','Porcentaje','Descripción','Ids', 'Cuenta'],
+        colModel: [
+            {name: 'id_retencion_fuente', index: 'id_retencion_fuente',hide: true, editable: true, align: 'center', width: '50', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
+            {name: 'codigo_anexo', index: 'codigo_anexo', editable: true, align: 'left', width: '100', search: false, frozen: true, formoptions: {elmsuffix: " (*)"}, editrules: {required: true}},
+            {name: 'formulario', index: 'formulario', editable: true, align: 'left', width: '100', search: true, frozen: true, formoptions: {elmsuffix: " (*)"}, editrules: {required: true}},
+            {name: 'porcentaje', index: 'porcentaje', editable: true, align: 'left', width: '50', search: true, frozen: true, formoptions: {elmsuffix: " (*)"}, editrules: {required: true}},
+            {name: 'detalle', index: 'detalle', editable: true, align: 'left', width: '350', search: true, frozen: true, formoptions: {elmsuffix: " (*)"}, editrules: {required: true}},
+            {name: 'id_plan_cuentas', index: 'id_plan_cuentas', editable: true,hidden: true, align: 'left', width: '200', search: true, frozen: true, formoptions: {elmsuffix: " (*)"}, editrules: {required: true}},
+            {name: 'cuenta', index: 'cuenta', editable: true, align: 'center', width: '150', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
+        ],
+        rowNum: 10,
+        width: 710,
+        height: 220,
+        rowList: [10, 20, 30],
+        pager: jQuery('#pager2'),
+        sortname: 'id_retencion_fuente',
+        shrinkToFit: false,
+        sortorder: 'asc',
+        // caption: 'Lista Retenciones Fuente',        
+        viewrecords: true,
+        ondblClickRow: function(){
+         var id = jQuery("#list2").jqGrid('getGridParam', 'selrow');
+         jQuery('#list2').jqGrid('restoreRow', id); 
+         var ret = jQuery("#list2").jqGrid('getRowData', id);
+
+         // $("#id_plan_cuentas").val(ret.id_plan_cuentas);
+         // $("#cuenta").val(ret.descripcion);
+
+         jQuery("#list2").jqGrid('GridToForm', id, "#retencion_form");
+         $("#btnGuardar").attr("disabled", true);
+         $("#retenciones").dialog("close");    
+        }
+    }).jqGrid('navGrid', '#pager2',
+            {
+                add: false,
+                edit: false,
+                del: false,
+                refresh: true,
+                search: true,
+                view: true
+            },
+    {
+        recreateForm: true, closeAfterEdit: true, checkOnUpdate: true, reloadAfterSubmit: true, closeOnEscape: true
+    },
+    {
+        reloadAfterSubmit: true, closeAfterAdd: true, checkOnUpdate: true, closeOnEscape: true,
+        bottominfo: "Todos los campos son obligatorios son obligatorios"
+    },
+    {
+        width: 300, closeOnEscape: true
+    },
+    {
+        closeOnEscape: true,        
+        multipleSearch: false, overlay: false
+
+    },
+    {
+    },
+        {
+            closeOnEscape: true
+        }
+    );
+    
+    jQuery("#list2").jqGrid('navButtonAdd', '#pager2', {caption: "Añadir",
+        onClickButton: function() {
+            var id = jQuery("#list2").jqGrid('getGridParam', 'selrow');
+            jQuery('#list2').jqGrid('restoreRow', id);
+            var ret = jQuery("#list2").jqGrid('getRowData', id);
+
+            if (id) {
+
+                jQuery("#list2").jqGrid('GridToForm', id, "#retencion_form");
+                $("#btnGuardar").attr("disabled", true);
+                $("#retenciones").dialog("close");
+            } else {
+                alertify.alert("Seleccione un fila");
+            }
+        }
+    });
+    /////////////////////////////fin retenciones fuente///////////////////////////////
+
 }
 

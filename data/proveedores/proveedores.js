@@ -397,7 +397,30 @@ function inicio() {
                 }
             }
         }
-    });    
+    });   
+
+
+    /////////////buscador retenciones///////////////
+    $("#codigo_compras").autocomplete({
+        source: "buscar_retenciones1.php",
+        minLength: 1,
+        focus: function(event, ui) {
+        $("#codigo_compras").val(ui.item.value);
+        $("#id_retencion_fuente1").val(ui.item.id_retencion_fuente1);
+        return false;
+        },
+        select: function(event, ui) {
+        $("#codigo_compras").val(ui.item.value);
+        $("#id_retencion_fuente1").val(ui.item.id_retencion_fuente1);
+        return false;
+        }
+        }).data("ui-autocomplete")._renderItem = function(ul, item) {
+        return $("<li>")
+        .append("<a>" + item.value + "</a>")
+        .appendTo(ul);
+    };
+    ///////////////////////////////////////////////
+
 
     $("#cupo_credito").on("keypress",punto);
     
