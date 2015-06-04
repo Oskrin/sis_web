@@ -206,13 +206,7 @@ include('../menu/app.php');
                             <div class="form-group">
                               <label>Sustento Tribuario: <font color="red">*</font></label>
                               <select class="form-control" name="sustento" id="sustento">
-                                <option value="">........Seleccione........</option>
-                                <?php
-                                $consulta = pg_query("select * from sustento_tributario");
-                                while ($row = pg_fetch_row($consulta)) {
-                                    echo "<option id=$row[0] value=$row[0]>$row[1] $row[2]</option>";
-                                }
-                                ?>     
+                                <option value="">........Seleccione........</option>                                
                               </select>
                             </div>
 
@@ -220,12 +214,7 @@ include('../menu/app.php');
                               <label>Tipo Comprobante: <font color="red">*</font></label>
                               <select class="form-control" name="comprobante" id="comprobante">
                                 <option value="">........Seleccione........</option>
-                                <?php
-                                $consulta = pg_query("select * from tipo_comprobante ");
-                                while ($row = pg_fetch_row($consulta)) {
-                                    echo "<option id=$row[0] value=$row[0]>$row[1] $row[2]</option>";
-                                }
-                                ?>     
+                                
                               </select>
                             </div>
 

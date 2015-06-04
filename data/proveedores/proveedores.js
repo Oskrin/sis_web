@@ -342,6 +342,31 @@ function punto(e){
 }
 
 function inicio() {
+    /*----------------*/
+    $.ajax({
+        type: "POST",
+        url: "../sustento_comprobante/cargar_sustento.php",        
+        dataType:'json',
+        success: function(data) {            
+            for (var i = 0; i < data.length; i=i+3) {
+                $("#sustento").append("<option id="+data[i]+" value="+data[i]+">"+data[i+1]+" - "+data[i+2]+"</option>");                
+            }
+        }
+    });
+    $("#sustento").on('change',function(){        
+        $("#comprobante").html('');
+        $.ajax({
+            type: "POST",
+            url: "cargar_comprobante.php?id_sustento="+$("#sustento").val(),        
+            dataType:'json',
+            success: function(data) {            
+                for (var i = 0; i < data.length; i=i+3) {
+                    $("#comprobante").append("<option id="+data[i]+" value="+data[i]+">"+data[i+1]+" - "+data[i+2]+"</option>");                
+                }
+            }
+        }); 
+    });
+    /*----------------*/
     $("[data-mask]").inputmask();
     alertify.set({ delay: 1000 });    
     $("#ruc_ci").focus();
