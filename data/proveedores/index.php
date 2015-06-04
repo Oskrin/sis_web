@@ -25,8 +25,8 @@ include('../menu/app.php');
     <link href="../../dist/css/alertify.default.css" id="toggleCSS" rel="stylesheet" />
     <link href="../../dist/css/jquery-ui-1.10.4.custom.css" rel="stylesheet" type="text/css"/>            
     <link href="../../dist/css/ui.jqgrid.css" rel="stylesheet" type="text/css"/> 
-    
   </head>
+
   <body class="skin-blue">
     <div class="wrapper">
       <?php banner_1(); ?>
@@ -111,6 +111,11 @@ include('../menu/app.php');
                             </div>
 
                             <div class="form-group">
+                              <label>Código compras: <font color="red">*</font></label>
+                              <input type="text" name="codigo_compras" id="codigo_compras" placeholder="Código" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
                               <label>Comentarios:</label>
                               <textarea class="form-control" name="observaciones_pro" id="observaciones_pro" rows="3"></textarea>
                             </div>
@@ -155,6 +160,11 @@ include('../menu/app.php');
                             <div class="form-group">
                               <label>Serie Comprobante:</label>
                               <input type="text" name="serie" id="serie" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                              <label>Código Retención Fuente : <font color="red">*</font></label>
+                              <input type="text" name="codigo_fuente" id="codigo_fuente" placeholder="Código" class="form-control" />
                             </div>
                           </div>
 
@@ -222,6 +232,11 @@ include('../menu/app.php');
                             <div class="form-group">
                               <label>Autorización SRI:</label>
                               <input type="text" name="autorizacion" id="autorizacion" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                              <label>Código Retención Iva : <font color="red">*</font></label>
+                              <input type="text" name="codigo_iva" id="codigo_iva" placeholder="Código" class="form-control" />
                             </div>
                           </div>
                         </div>

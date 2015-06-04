@@ -32,11 +32,11 @@ include('../menu/app.php');
       <div class="content-wrapper">
         <section class="content-header">
           <h1>
-            Registro Grupos
+            Registro Retenciones
           </h1>
           <ol class="breadcrumb">
             <li><a href=""><i class="fa fa-dashboard"></i> Ingresos</a></li>
-            <li class="active">Grupos</li>
+            <li class="active">Retenciones</li>
           </ol>
         </section>
 
@@ -51,8 +51,13 @@ include('../menu/app.php');
                         <div class="col-mx-12">                    
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label>Código Grupo: <font color="red">*</font></label>
-                              <input type="text" name="codigo_grupo"  id="codigo_grupo" class="form-control" />
+                              <label>Código Anexo: <font color="red">*</font></label>
+                              <input type="text" name="codigo_anexo"  id="codigo_anexo" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                              <label>Porcentaje: <font color="red">*</font></label>
+                              <input type="text" name="porcentaje"  id="porcentaje" class="form-control" />
                             </div>
 
                             <div class="form-group">
@@ -73,7 +78,7 @@ include('../menu/app.php');
 
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label>Nombre Grupo<font color="red">*</font></label>
+                              <label>Formulario 103<font color="red">*</font></label>
                               <input type="text" name="nombre_grupo"  id="nombre_grupo" class="form-control" />
                               <input type="hidden" name="id_grupo"  id="id_grupo" class="form-control" />
                             </div>
