@@ -54,11 +54,6 @@ include('../menu/app.php');
                               <label>Código Comprobante: <font color="red">*</font></label>
                               <input type="text" name="codigo_comprobante"  id="codigo_comprobante" class="form-control" />
                             </div>
-                            <div class="form-group">
-                             <div class="col-mx-12">
-                               <label>Cuenta Contable: <font color="red">*</font></label>
-                             </div>                              
-                            </div>
                           </div>
 
                           <div class="col-md-6">

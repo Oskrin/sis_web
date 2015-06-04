@@ -79,7 +79,7 @@ print'
                       <ul class="treeview-menu">
                         <li><a href=""><i class="fa fa-circle-o"></i>Plan Cuentas</a></li>
                         <li><a href="../grupos"><i class="fa fa-circle-o"></i>Grupos</a></li>
-                        <li><a href=""><i class="fa fa-circle-o"></i>Retención en Fuente</a></li>
+                        <li><a href="../retencion_fuente"><i class="fa fa-circle-o"></i>Retención en Fuente</a></li>
                         <li><a href=""><i class="fa fa-circle-o"></i>Segundo Impuesto Ventas/Compras</a></li>
                       </ul>
                     </li>

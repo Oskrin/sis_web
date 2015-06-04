@@ -72,9 +72,9 @@ function abrirCuenta() {
     $("#cuentas").dialog("open");
 }
 
-function guardar_grupo() {
-  if ($("#codigo_grupo").val() === "") {
-    $("#codigo_grupo").focus();
+function guardar_retencion() {
+  if ($("#codigo_anexo").val() === "") {
+    $("#codigo_anexo").focus();
     alertify.error("Ingrese un Código");
     } else {
       if ($("#nombre_grupo").val() === "") {
@@ -86,7 +86,7 @@ function guardar_grupo() {
         }else{
          $.ajax({
             type: "POST",
-            url: "guardar_grupo.php",
+            url: "guardar_retencio.php",
             data: "id_plan_cuentas=" + $("#id_plan_cuentas").val() + "&codigo_grupo=" + $("#codigo_grupo").val() +
             "&nombre_grupo=" + $("#nombre_grupo").val(),
             success: function(data) {
@@ -266,7 +266,7 @@ function inicio() {
         e.preventDefault();
     });
 
-    $("#btnGuardar").on("click", guardar_grupo);
+    $("#btnGuardar").on("click", guardar_retencion);
     $("#btnModificar").on("click", modificar_grupo);
     // $("#btnBuscar").on("click", abrirDialogo);
     $("#btnEliminar").on("click", eliminar_cliente);
