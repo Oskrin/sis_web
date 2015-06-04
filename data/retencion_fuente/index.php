@@ -32,7 +32,7 @@ include('../menu/app.php');
       <div class="content-wrapper">
         <section class="content-header">
           <h1>
-            Registro Retenciones
+            Retención en la Fuente de impuesto a la renta
           </h1>
           <ol class="breadcrumb">
             <li><a href=""><i class="fa fa-dashboard"></i> Ingresos</a></li>
@@ -82,6 +82,11 @@ include('../menu/app.php');
                               <input type="text" name="nombre_grupo"  id="nombre_grupo" class="form-control" />
                               <input type="hidden" name="id_grupo"  id="id_grupo" class="form-control" />
                             </div>
+
+                            <div class="form-group">
+                              <label>Detalle Porcentajes:</label>
+                              <textarea class="form-control" name="notas_cli" id="notas_cli" rows="3"></textarea>
+                            </div>
                           </div>
                         </div>
                       </form>
@@ -128,7 +133,7 @@ include('../menu/app.php');
     <script src="../../plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <script src="../../plugins/iCheck/icheck.min.js" type="text/javascript"></script>
     <script src='../../plugins/fastclick/fastclick.min.js'></script>
-    <script src="grupos.js" type="text/javascript"></script>
+    <script src="retencion_fuente.js" type="text/javascript"></script>
     <script src="../../dist/js/app.min.js" type="text/javascript"></script>
     <script src="../../dist/js/validCampoFranz.js" type="text/javascript" ></script>
     <script src="../../dist/js/alertify.min.js" type="text/javascript"></script>
