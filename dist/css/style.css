@@ -49,3 +49,9 @@
     top:-1px;
     right:-1px;
 }
+.ui-autocomplete {
+    z-index: 999999999999999999999;
+}
+.ui-datepicker-header {
+    color: #000;
+}
