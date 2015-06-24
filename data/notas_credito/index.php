@@ -35,8 +35,8 @@ $cont1++;
     <link href="../../dist/css/alertify.default.css" id="toggleCSS" rel="stylesheet" />
     <link href="../../dist/css/jquery-ui-1.10.4.custom.css" rel="stylesheet" type="text/css"/>            
     <link href="../../dist/css/ui.jqgrid.css" rel="stylesheet" type="text/css"/> 
-    
   </head>
+
   <body class="skin-blue">
     <div class="wrapper">
       <?php banner_1(); ?>
@@ -60,14 +60,14 @@ $cont1++;
                 <div class="box-body">
                   <div class="rows">
                     <div class="col-mx-12">
-                      <form id="clientes_form" name="clientes_form" method="post">
+                      <form id="notas_form" name="notas_form" method="post">
                         <div class="row">
                           <div class="col-mx-12">
                             <div class="col-md-3">
                               <div class="form-group">
                                 <label>Fecha Actual:</label>
                                 <div class="input-group">
-                                  <input type="text" name="fecha_actual"  id="fecha_actual" readonly class="form-control timepicker"/>
+                                  <input type="text" name="fecha_actual"  id="fecha_actual" readonly class="form-control"/>
                                   <input type="hidden" name="comprobante"  id="comprobante" readonly class="form-control" value="<?php echo $cont1 ?>"/>
                                   <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
@@ -173,7 +173,7 @@ $cont1++;
                               <div class="form-group">
                                 <label class="col-md-4" >Nro. de serie: <font color="red">*</font></label>
                                 <div class="form-group col-md-8 no-padding">                                
-                                  <input type="text" name="serie"  id="serie" required placeholder="Buscar..." class="form-control" />
+                                  <input type="text" name="serie"  id="serie" required placeholder="Buscar..." class="form-control" data-inputmask='"mask": "999-999-999999999"' data-mask />
                                   <input type="hidden" name="id_factura_venta"  id="id_factura_venta" required class="form-control" />
                                 </div> 
                               </div>  
@@ -182,7 +182,7 @@ $cont1++;
                         </div>
                         </div>
                         <hr />
-                        <h3 class="box-title">Detalle Factura</h3>
+                        <h3 class="box-title">Detalle Nota Crédito</h3>
 
                         <div class="row">
                          <div class="col-mx-12">
@@ -223,13 +223,14 @@ $cont1++;
 
                             <div class="col-md-1">
                               <div class="form-group">
-                                <label>CAN.</label>
-                                <input type="text" name="canti"  id="canti" readonly class="form-control" />
-                                <input type="hidden" name="descuento"  id="descuento"  min="0" placeholder="%" class="form-control" />
+                                <label>DESC</label>
+                                <input type="hidden" name="canti"  id="canti" readonly class="form-control" />
+                                <input type="text" name="descuento"  id="descuento"  min="0" placeholder="%" readonly class="form-control" />
                                 <input type="hidden" name="iva_producto"  id="iva_producto" readonly class="form-control" />
                                 <input type="hidden" name="carga_series"  id="carga_series" readonly class="form-control" />
                                 <input type="hidden" name="cod_producto"  id="cod_producto" readonly class="form-control" />
                                 <input type="hidden" name="estado"  id="estado" readonly class="form-control" />
+                                <input type="hidden" name="incluye"  id="incluye" readonly class="form-control" />
                               </div>  
                             </div> 
                          </div>
@@ -265,7 +266,7 @@ $cont1++;
                                     <div class="input-group-addon">
                                       <i class="glyphicon glyphicon-usd"></i>
                                     </div>
-                                    <input type="text" name="total_p" id="total_p" value="0.00" readonly class="form-control"/>
+                                    <input type="text" name="total_p" id="total_p" value="0.000" readonly class="form-control"/>
                                   </div>                                
                                 </div> 
                               </div>
@@ -277,7 +278,7 @@ $cont1++;
                                     <div class="input-group-addon">
                                       <i class="glyphicon glyphicon-usd"></i>
                                     </div>
-                                    <input type="text" name="total_p2" id="total_p2" value="0.00" readonly class="form-control"/>
+                                    <input type="text" name="total_p2" id="total_p2" value="0.000" readonly class="form-control"/>
                                   </div>                                
                                 </div> 
                               </div>
@@ -289,7 +290,7 @@ $cont1++;
                                     <div class="input-group-addon">
                                       <i class="glyphicon glyphicon-usd"></i>
                                     </div>
-                                    <input type="text" name="iva" id="iva" value="0.00" readonly class="form-control"/>
+                                    <input type="text" name="iva" id="iva" value="0.000" readonly class="form-control"/>
                                   </div>                                
                                 </div> 
                               </div>
@@ -301,7 +302,7 @@ $cont1++;
                                     <div class="input-group-addon">
                                       <i class="glyphicon glyphicon-usd"></i>
                                     </div>
-                                    <input type="text" name="desc" id="desc" value="0.00" readonly class="form-control"/>
+                                    <input type="text" name="desc" id="desc" value="0.000" readonly class="form-control"/>
                                   </div>                                
                                 </div> 
                               </div> 
@@ -313,7 +314,7 @@ $cont1++;
                                     <div class="input-group-addon">
                                       <i class="glyphicon glyphicon-usd"></i>
                                     </div>
-                                    <input type="text" name="tot" id="tot" value="0.00" readonly class="form-control"/>
+                                    <input type="text" name="tot" id="tot" value="0.000" readonly class="form-control"/>
                                   </div>                                
                                 </div> 
                               </div>

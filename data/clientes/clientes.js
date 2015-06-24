@@ -104,10 +104,10 @@ function guardar_cliente() {
                                     $("#ciudad_cli").focus();
                                     alertify.error("Ingrese una ciudad");
                                 } else {
-                                    // if ($("#cupo_credito").val() === "") {
-                                    //     $("#cupo_credito").focus();
-                                    //     alertify.error("Ingrese cantidad del crédito");
-                                    // }else{
+                                    if ($("#grupo").val() === "") {
+                                        $("#grupo").focus();
+                                        alertify.error("Seleccione un Grupo");
+                                    }else{
                                         $.ajax({
                                             type: "POST",
                                             url: "guardar_clientes.php",
@@ -122,7 +122,7 @@ function guardar_cliente() {
                                                 }
                                             }
                                         });
-                                    // }
+                                    }
                                 }
                             }
                         }

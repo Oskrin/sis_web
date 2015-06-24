@@ -20,7 +20,8 @@ while ($row = pg_fetch_row($consulta)) {
             'carga_series' => $row[5],
             'cod_producto' => $row[0],
             'des' => $row[19],
-            'inventar' => $row[21]
+            'inventar' => $row[21],
+            'incluye' => $row[26]
         );
     } else {
         if ($tipo == "MAYORISTA") {
@@ -35,7 +36,8 @@ while ($row = pg_fetch_row($consulta)) {
                 'carga_series' => $row[5],
                 'cod_producto' => $row[0],
                 'des' => $row[19],
-                'inventar' => $row[21]
+                'inventar' => $row[21],
+                'incluye' => $row[26]
             );
         }
     }

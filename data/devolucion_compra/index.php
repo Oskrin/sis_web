@@ -66,7 +66,7 @@ $cont1++;
                                     <div class="form-group">
                                       <label>Fecha Actual:</label>
                                       <div class="input-group">
-                                        <input type="text" name="fecha_actual"  id="fecha_actual" readonly class="form-control timepicker"/>
+                                        <input type="text" name="fecha_actual"  id="fecha_actual" readonly class="form-control"/>
                                         <input type="hidden" name="comprobante"  id="comprobante" readonly class="form-control" value="<?php echo $cont1 ?>"/>
                                         <div class="input-group-addon">
                                           <i class="fa fa-calendar"></i>
@@ -158,7 +158,7 @@ $cont1++;
                               <div class="form-group">
                                 <label class="col-md-5">Nro. de serie: <font color="red">*</font></label>
                                 <div class="form-group col-md-7 no-padding">                                
-                                  <input type="text" name="serie"  id="serie" placeholder="Buscar..." required class="form-control" />
+                                  <input type="text" name="serie"  id="serie" placeholder="Buscar..." required class="form-control" data-inputmask='"mask": "999-999-999999999"' data-mask />
                                 </div> 
                               </div>
                             </div>
@@ -216,12 +216,13 @@ $cont1++;
 
                             <div class="col-md-1">
                               <div class="form-group">
-                                <label>CAN.</label>
-                                <input type="text" name="canti"  id="canti" readonly min="0" class="form-control" />
-                                <input type="hidden" name="descuento"  id="descuento"  min="0" placeholder="%" class="form-control" />
+                                <label>DESC</label>
+                                <input type="hidden" name="canti"  id="canti" readonly min="0" class="form-control" />
+                                <input type="text" name="descuento"  id="descuento" readonly min="0" placeholder="%" class="form-control" />
                                 <input type="hidden" name="iva_producto"  id="iva_producto" readonly class="form-control" />
                                 <input type="hidden" name="carga_series"  id="carga_series" readonly class="form-control" />
                                 <input type="hidden" name="cod_producto"  id="cod_producto" readonly class="form-control" />
+                                <input type="hidden" name="incluye"  id="incluye" readonly class="form-control" />
                               </div>  
                             </div> 
                          </div>
@@ -269,7 +270,7 @@ $cont1++;
                                     <div class="input-group-addon">
                                       <i class="glyphicon glyphicon-usd"></i>
                                     </div>
-                                    <input type="text" name="total_p2" id="total_p2" value="0.00" readonly class="form-control"/>
+                                    <input type="text" name="total_p2" id="total_p2" value="0.000" readonly class="form-control"/>
                                   </div>                                
                                 </div> 
                               </div>
@@ -281,7 +282,7 @@ $cont1++;
                                     <div class="input-group-addon">
                                       <i class="glyphicon glyphicon-usd"></i>
                                     </div>
-                                    <input type="text" name="iva" id="iva" value="0.00" readonly class="form-control"/>
+                                    <input type="text" name="iva" id="iva" value="0.000" readonly class="form-control"/>
                                   </div>                                
                                 </div> 
                               </div>
@@ -293,7 +294,7 @@ $cont1++;
                                     <div class="input-group-addon">
                                       <i class="glyphicon glyphicon-usd"></i>
                                     </div>
-                                    <input type="text" name="desc" id="desc" value="0.00" readonly class="form-control"/>
+                                    <input type="text" name="desc" id="desc" value="0.000" readonly class="form-control"/>
                                   </div>                                
                                 </div> 
                               </div> 
@@ -305,7 +306,7 @@ $cont1++;
                                     <div class="input-group-addon">
                                       <i class="glyphicon glyphicon-usd"></i>
                                     </div>
-                                    <input type="text" name="tot" id="tot" value="0.00" readonly class="form-control"/>
+                                    <input type="text" name="tot" id="tot" value="0.000" readonly class="form-control"/>
                                   </div>                                
                                 </div> 
                               </div>

@@ -189,7 +189,7 @@ include('../menu/app.php');
                                 </div>
 
                                 <div class="form-group">
-                                  <label>Iva:</label>
+                                  <label> Contiene Iva:</label>
                                   <select class="form-control" name="iva" id="iva">
                                     <option value="Si" selected>Si</option> 
                                     <option value="No">No</option>     
@@ -207,16 +207,16 @@ include('../menu/app.php');
                                 <div class="form-group">
                                   <label>Incluye Iva:</label>
                                   <select class="form-control" name="incluye" id="incluye">
-                                    <option value="Si">Si</option> 
-                                    <option value="No" selected>No</option>     
+                                    <option value="Si" selected>Si</option> 
+                                    <option value="No">No</option>     
                                   </select>
                                 </div>
 
                                 <div class="form-group">
                                   <label>Inventariable:</label>
                                   <select class="form-control" name="inventario" id="inventario">
-                                    <option value="Si" selected>Si</option> 
-                                    <option value="No">No</option>     
+                                    <option value="Si">Si</option> 
+                                    <option value="No" selected>No</option>     
                                   </select>
                                 </div>
 

@@ -663,6 +663,20 @@ function inicio() {
     //     }
     // });
 
+    ////////////cambio evento/////////////
+    $("#iva").change(function() {
+       if($("#iva").val() == "Si"){
+          $("#incluye").val("Si");
+          $("#incluye").attr("readOnly", false);
+       }else{
+        if($("#iva").val() == "No"){
+              $("#incluye").val("No");
+              $("#incluye").attr("readOnly", true);
+        }
+       }
+    });
+    /////////////////////////////////////
+
     $("#precio_minorista").keyup(function() {
         if($("#precio_compra").val() === ""){
              $("#precio_minorista").val("");

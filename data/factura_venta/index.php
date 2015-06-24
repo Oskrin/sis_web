@@ -40,6 +40,7 @@ $cont1++;
     <link href="../../dist/css/ui.jqgrid.css" rel="stylesheet" type="text/css"/> 
     <link href="../../plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
   </head>
+  
   <body class="skin-blue">
     <div class="wrapper">
       <?php banner_1(); ?>
@@ -75,8 +76,9 @@ $cont1++;
                                 <div class="form-group">
                                   <label>Fecha Actual:</label>
                                   <div class="input-group">
-                                    <input type="text" name="fecha_actual"  id="fecha_actual" readonly class="form-control timepicker"/>
+                                    <input type="text" name="fecha_actual"  id="fecha_actual" readonly class="form-control"/>
                                     <input type="hidden" name="comprobante"  id="comprobante" readonly class="form-control" value="<?php echo $cont1 ?>"/>
+                                    <input type="hidden" name="proforma"  id="proforma" readonly class="form-control"/>
                                     <div class="input-group-addon">
                                       <i class="fa fa-calendar"></i>
                                     </div>
@@ -293,7 +295,7 @@ $cont1++;
                             <div class="col-md-1">
                               <div class="form-group">
                                 <label>DESC.</label>
-                                <input type="number" name="descuento" readonly id="descuento"  min="0" placeholder="%" class="form-control" />
+                                <input type="number" name="descuento" id="descuento"  min="0" placeholder="%" class="form-control" />
                                 <input type="hidden" name="disponibles"  id="disponibles" readonly class="form-control" />
                                 <input type="hidden" name="iva_producto"  id="iva_producto" readonly class="form-control" />
                                 <input type="hidden" name="carga_series"  id="carga_series" readonly class="form-control" />
@@ -329,7 +331,7 @@ $cont1++;
                                     <div class="input-group-addon">
                                       <i class="glyphicon glyphicon-usd"></i>
                                     </div>
-                                    <input type="text" name="total_p" id="total_p" value="0.00" readonly class="form-control"/>
+                                    <input type="text" name="total_p" id="total_p" value="0.000" readonly class="form-control"/>
                                   </div>                                
                                 </div> 
                               </div>
@@ -341,7 +343,7 @@ $cont1++;
                                     <div class="input-group-addon">
                                       <i class="glyphicon glyphicon-usd"></i>
                                     </div>
-                                    <input type="text" name="total_p2" id="total_p2" value="0.00" readonly class="form-control"/>
+                                    <input type="text" name="total_p2" id="total_p2" value="0.000" readonly class="form-control"/>
                                   </div>                                
                                 </div> 
                               </div>
@@ -353,7 +355,7 @@ $cont1++;
                                     <div class="input-group-addon">
                                       <i class="glyphicon glyphicon-usd"></i>
                                     </div>
-                                    <input type="text" name="iva" id="iva" value="0.00" readonly class="form-control"/>
+                                    <input type="text" name="iva" id="iva" value="0.000" readonly class="form-control"/>
                                   </div>                                
                                 </div> 
                               </div>
@@ -365,7 +367,7 @@ $cont1++;
                                     <div class="input-group-addon">
                                       <i class="glyphicon glyphicon-usd"></i>
                                     </div>
-                                    <input type="text" name="desc" id="desc" value="0.00" readonly class="form-control"/>
+                                    <input type="text" name="desc" id="desc" value="0.000" readonly class="form-control"/>
                                   </div>                                
                                 </div> 
                               </div> 
@@ -377,7 +379,7 @@ $cont1++;
                                     <div class="input-group-addon">
                                       <i class="glyphicon glyphicon-usd"></i>
                                     </div>
-                                    <input type="text" name="tot" id="tot" value="0.00" readonly class="form-control"/>
+                                    <input type="text" name="tot" id="tot" value="0.000" readonly class="form-control"/>
                                   </div>                                
                                 </div> 
                               </div>
@@ -446,6 +448,7 @@ $cont1++;
                       <button class="btn bg-olive margin" id='btnNuevo'><i class="fa fa-pencil"></i> Nuevo</button>
                       <button class="btn bg-olive margin" id='btnAnular'><i class="fa fa-remove"></i> Anular</button>
                       <button class="btn bg-olive margin" id='btnImprimir'><i class="fa fa-print"></i> Imprimir</button>
+                      <button class="btn bg-olive margin" id='btnProforma'>Proformas</button>
                       <button class="btn bg-olive margin" id='btnAtras'><i class="fa fa-backward"></i> Atras</button>
                       <button class="btn bg-olive margin" id='btnAdelante'>Adelante <i class="fa fa-forward"></i></button>
                     </p> 
@@ -501,6 +504,11 @@ $cont1++;
                     <button class="btn btn-primary" id='btnAceptar'><i class="icon-ok"></i> Aceptar</button>
                     <button class="btn btn-primary" id='btnSalir'><i class="icon-remove-sign"></i> Cancelar</button>
                  </div>
+                </div>
+
+                <div id="buscar_proformas" title="BUSCAR PROFORMAS">
+                    <table id="list4"><tr><td></td></tr></table>
+                    <div id="pager4"></div>
                 </div>
 
 

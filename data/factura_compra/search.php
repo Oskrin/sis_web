@@ -16,6 +16,7 @@ if ($codigo_barras != "") {
         $arr_data[] = $row[4];
         $arr_data[] = $row[5];
         $arr_data[] = $row[0];
+        $arr_data[] = $row[26];
     }
 }
 echo json_encode($arr_data);
