@@ -76,8 +76,7 @@ print'
                   <ul class="treeview-menu">
                     <li>
                       <a href=""><i class="fa fa-circle-o"></i>Facturación<i class="fa fa-angle-left pull-right"></i></a>
-                      <ul class="treeview-menu">
-                        <li><a href=""><i class="fa fa-circle-o"></i>Plan Cuentas</a></li>
+                      <ul class="treeview-menu">                        
                         <li><a href="../grupos"><i class="fa fa-circle-o"></i>Grupos</a></li>
                         <li><a href="../retencion_fuente"><i class="fa fa-circle-o"></i>Retención en Fuente</a></li>
                         <li><a href=""><i class="fa fa-circle-o"></i>Segundo Impuesto Ventas/Compras</a></li>
@@ -111,6 +110,7 @@ print'
                     <li><a href="../tipo_comprobante"><i class="fa fa-circle-o"></i> Tipos Comprobantes</a></li>                    
                     <li><a href="../sustento_tributario"><i class="fa fa-circle-o"></i> Sustentos Tributarios</a></li>
                     <li><a href="../sustento_comprobante"><i class="fa fa-circle-o"></i> Enlazar</a></li>
+                    <li><a href="../plan_cuentas"><i class="fa fa-circle-o"></i> Plan Cuentas</a></li>
                   </ul>
                 </li>
                 <!--<li><a href="#"><i class="fa fa-circle-o"></i>Respaldo</a></li>-->
@@ -125,7 +125,7 @@ print'
                 <li><a href="../usuarios"><i class="fa fa-circle-o"></i> Usuarios</a></li>
                 <li><a href="../proveedores"><i class="fa fa-circle-o"></i> Proveedores</a></li>
                 <li><a href="../clientes"><i class="fa fa-circle-o"></i> Clientes</a></li>
-                <li><a href="../productos"><i class="fa fa-circle-o"></i> Productos</a></li>
+                <li><a href="../productos"><i class="fa fa-circle-o"></i> Productos</a></li>                
               </ul>
             </li>
 

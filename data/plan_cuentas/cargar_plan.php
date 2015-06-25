@@ -6,7 +6,7 @@ include('../menu/app.php');
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>GRUPOS..</title>
+    <title>PLAN CUENTAS..</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
     <link href="../../font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />        
@@ -32,11 +32,11 @@ include('../menu/app.php');
       <div class="content-wrapper">
         <section class="content-header">
           <h1>
-            Registro Grupos
+            Plan de Cuentas
           </h1>
           <ol class="breadcrumb">
             <li><a href=""><i class="fa fa-dashboard"></i> Ingresos</a></li>
-            <li class="active">Grupos</li>
+            <li class="active">Plan Cuentas</li>
           </ol>
         </section>
 
@@ -47,63 +47,40 @@ include('../menu/app.php');
               <div class="box box-primary">
                 <div class="box-body">
                   <div class="row">
-                    <form id="grupo_form" name="grupo_form" method="post">
-                      <div class="col-mx-12">                    
-                        <div class="col-md-6">
+                    <form id="form_cargar_plan" name="form_cargar_plan" method="post">
+                      <div class="col-mx-12">                   
+                        
+                        <div class="col-md-12">
                           <div class="form-group">
-                            <label>Código Grupo: <font color="red">*</font></label>
-                            <input type="text" name="codigo_grupo"  id="codigo_grupo" class="form-control" />
+                            <label>Código Cuenta<font color="red">*</font></label>
+                            <input type="file" name="cargar_plan"  id="cargar_plan" class="form-control" />                            
                           </div>
+                        </div>                                                
+                       <div class="col-md-12" style="height:300px;border:solid 0px;border-color:rgb(204, 201, 201);overflow:scroll;">
+                            <table style="width:100%;" class="table table-bordered table-hover table-condensed" id="tabla_excel" >
+                                <thead>
+                                    <tr>
+                                        <th style="width:20%;">Codigo</th>
+                                        <th style="width:40%;">Descripción</th>
+                                        <th style="width:35%;">Estado</th>
+                                        <th style="width:5%;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
 
-                          <div class="form-group">
-                           <div class="col-mx-12">
-                             <label>Cuenta Contable: <font color="red">*</font></label>
-                           </div>
-
-                            <div class="col-xs-8">
-                              <input type="text" name="cuenta" id="cuenta" readonly class="form-control col-md-3" />
-                              <input type="hidden" name="id_plan_cuentas"  id="id_plan_cuentas" class="form-control" />
-                            </div>
-
-                            <div class="col-xs-4">
-                              <button class="btn bg-olive margin" id='btnCuenta'>...</button>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label>Nombre Grupo<font color="red">*</font></label>
-                            <input type="text" name="nombre_grupo"  id="nombre_grupo" class="form-control" />
-                            <input type="hidden" name="id_grupo"  id="id_grupo" class="form-control" />
-                          </div>
-                        </div>
-                      </div>
+                                    </tr>
+                            </table>
+                        </div>  
+                        <div class="col-mx-12">
+                          <p>
+                            <button class="btn bg-olive margin" id='btnGuardarCargar'><i class="fa fa-save"></i> Guardar Y Cargar</button>
+                            <button class="btn bg-olive margin" id='btnNuevo'><i class="fa fa-pencil"></i> Nuevo</button>                        
+                          </p> 
+                        </div>                                       
+                      </div>                                  
                     </form>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-mx-12">
-                      <p>
-                        <button class="btn bg-olive margin" id='btnGuardar'><i class="fa fa-save"></i> Guardar</button>
-                        <button class="btn bg-olive margin" id='btnModificar'><i class="fa fa-edit"></i> Modificar</button>
-                        <button class="btn bg-olive margin" id='btnBuscar'><i class="fa fa-search"></i> Buscar</button>
-                        <button class="btn bg-olive margin" id='btnNuevo'><i class="fa fa-pencil"></i> Nuevo</button>
-                      </p> 
-                    </div> 
-
-                    <div id="cuentas" title="Búsqueda Cuentas Contables" class="">
-                      <table id="list"><tr><td></td></tr></table>
-                      <div id="pager"></div>
-                    </div>
-
-                    <div id="grupos" title="Búsqueda Grupos" class="">
-                      <table id="list2"><tr><td></td></tr></table>
-                      <div id="pager2"></div>
-                    </div>
-                  
-                  </div>
-                </div>
+                  </div>                       
               </div>
             </div>
           </div>
@@ -123,7 +100,7 @@ include('../menu/app.php');
     <script src="../../plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <script src="../../plugins/iCheck/icheck.min.js" type="text/javascript"></script>
     <script src='../../plugins/fastclick/fastclick.min.js'></script>
-    <script src="grupos.js" type="text/javascript"></script>
+    <script src="cargar_plan.js" type="text/javascript"></script>
     <script src="../../dist/js/app.min.js" type="text/javascript"></script>
     <script src="../../dist/js/validCampoFranz.js" type="text/javascript" ></script>
     <script src="../../dist/js/alertify.min.js" type="text/javascript"></script>
