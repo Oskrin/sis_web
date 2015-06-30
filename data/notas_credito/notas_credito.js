@@ -55,7 +55,7 @@ var dialogo2 = {
     width: 800,
     height: 350,
     modal: true,
-    position: "top",
+    // position: "top",
     show: "explode",
     hide: "blind"    
 }
