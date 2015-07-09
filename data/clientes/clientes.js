@@ -594,7 +594,8 @@ function inicio() {
         {
             closeOnEscape: true
         }
-    );    
+    );   
+     
     jQuery("#list").jqGrid('navButtonAdd', '#pager', {caption: "Añadir",
         onClickButton: function() {
             var id = jQuery("#list").jqGrid('getGridParam', 'selrow');

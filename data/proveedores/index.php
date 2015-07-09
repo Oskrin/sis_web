@@ -2,7 +2,6 @@
 session_start();
 include '../../procesos/base.php';
 include('../menu/app.php'); 
-
 ?>
 
 <!DOCTYPE html>
@@ -113,8 +112,8 @@ include('../menu/app.php');
 
                             <div class="form-group">
                               <label>Código compras: <font color="red">*</font></label>
-                              <input type="text" name="codigo_compras" id="codigo_compras" placeholder="Código" class="form-control" />
-                              <input type="hidden" name="id_retencion_fuente1" id="id_retencion_fuente1" placeholder="Código" class="form-control" />
+                              <input type="text" name="codigo_compras" id="codigo_compras" placeholder="Buscador....." class="form-control" />
+                              <input type="text" name="id_codigo_compras" id="id_codigo_compras" readonly class="form-control" />
                             </div>
 
                             <div class="form-group">
@@ -166,7 +165,8 @@ include('../menu/app.php');
 
                             <div class="form-group">
                               <label>Código Retención Fuente : <font color="red">*</font></label>
-                              <input type="text" name="codigo_fuente" id="codigo_fuente" placeholder="Código" class="form-control" />
+                              <input type="text" name="codigo_fuente" id="codigo_fuente" placeholder="Buscar....." class="form-control" />
+                              <input type="text" name="id_codigo_fuente" id="id_codigo_fuente" readonly class="form-control" />
                             </div>
                           </div>
 
@@ -180,7 +180,7 @@ include('../menu/app.php');
                             </div>
 
                             <div class="form-group">
-                              <label>Proveedor Principal: <font color="red">*</font></label>
+                              <label>Proveedor Principal:</label>
                               <select class="form-control" name="principal_pro" id="principal_pro">
                                 <option value="Si" selected>Si</option>
                                 <option value="No">No</option>     
@@ -227,7 +227,8 @@ include('../menu/app.php');
 
                             <div class="form-group">
                               <label>Código Retención Iva : <font color="red">*</font></label>
-                              <input type="text" name="codigo_iva" id="codigo_iva" placeholder="Código" class="form-control" />
+                              <input type="text" name="codigo_iva" id="codigo_iva" placeholder="Buscar....." class="form-control" />
+                              <input type="text" name="id_codigo_iva" id="id_codigo_iva" readonly class="form-control" />
                             </div>
                           </div>
                         </div>
@@ -250,9 +251,19 @@ include('../menu/app.php');
                         <div id="pager"></div>
                     </div>
 
-                    <div id="cuentas" title="Búsqueda Plan de Cuentas" class="">
+                    <div id="buscar_plan" title="Búsqueda Plan de Cuentas" class="">
                         <table id="list2"><tr><td></td></tr></table>
                         <div id="pager2"></div>
+                    </div>
+
+                    <div id="buscar_retencion1" title="Búsqueda Retención Fuente" class="">
+                        <table id="list3"><tr><td></td></tr></table>
+                        <div id="pager3"></div>
+                    </div>
+
+                    <div id="buscar_retencion2" title="Búsqueda Retención Iva" class="">
+                        <table id="list4"><tr><td></td></tr></table>
+                        <div id="pager4"></div>
                     </div>
 
                     <div id="clave_permiso" title="PERMISOS">
@@ -269,7 +280,7 @@ include('../menu/app.php');
                     </div> 
 
                     <div id="seguro">
-                        <label>Esta seguro de eliminar al cliente</label>  
+                        <label>Esta seguro de eliminar al proveedor</label>  
                         <br />
                         <button class="btn btn-primary" id='btnAceptar'><i class="icon-ok"></i> Aceptar</button>
                         <button class="btn btn-primary" id='btnSalir'><i class="icon-remove-sign"></i> Cancelar</button>
