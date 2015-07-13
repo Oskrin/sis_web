@@ -937,6 +937,41 @@ return true;
 }
 
 function inicio() {
+     /*----------------*/
+    $.ajax({
+        type: "POST",
+        url: "../sustento_comprobante/cargar_sustento.php",        
+        dataType:'json',
+        success: function(data) {            
+            for (var i = 0; i < data.length; i=i+3) {
+                $("#sustento").append("<option id="+data[i]+" value="+data[i]+">"+data[i+1]+" - "+data[i+2]+"</option>");                
+            }
+        }
+    });
+
+    $("#sustento").on('change',function(){        
+        $("#comprobante_combo").html('<option value="">........Seleccione........</option>');
+        $.ajax({
+            type: "POST",
+            url: "cargar_comprobante.php?id_sustento="+$("#sustento").val(),        
+            dataType:'json',
+            success: function(data) {            
+                for (var i = 0; i < data.length; i=i+3) {
+                    $("#comprobante_combo").append("<option id="+data[i]+" value="+data[i]+">"+data[i+1]+" - "+data[i+2]+"</option>");                
+                }
+            }
+        }); 
+    });
+    /*----------------*/
+
+    $('.btnNext').click(function(){
+        $('.nav-tabs > .active').next('li').find('a').trigger('click');
+      });
+
+    $('.btnPrevious').click(function(){
+        $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+    });
+
     $("[data-mask]").inputmask();
     alertify.set({ delay: 1000 });
     // jQuery().UItoTop({ easingType: 'easeOutQuart' });    
@@ -982,6 +1017,18 @@ function inicio() {
             }   
         }
         });
+    });
+
+    $("#btn_3").click(function () {
+        /*cargar valores factura*/
+        var tarifa0 = $('#total_p').val();
+        var tarifa12 = $('#total_p2').val();
+        $("#base_iva0").val(tarifa0);
+        $("#base_iva12").val(tarifa12);
+        $('#myModal').modal();
+    //     $('#myModal').modal({
+    //     show: 'true'
+    // });
     });
 
     $("#btncargar").on("click", abrirDialogo);
@@ -1041,12 +1088,53 @@ function inicio() {
                 $("#ruc_ci").val(ui.item.value);
                 $("#empresa").val(ui.item.empresa);
                 $("#id_proveedor").val(ui.item.id_proveedor);
+                $("#id_sustento").val(ui.item.id_sustento);
+                $("#id_comprobante_combo").val(ui.item.id_comprobante_combo);
+                $("#autorizacion").val(ui.item.autorizacion);
                 return false;
                 },
                 select: function(event, ui) {
                 $("#ruc_ci").val(ui.item.value);
                 $("#empresa").val(ui.item.empresa);
                 $("#id_proveedor").val(ui.item.id_proveedor);
+                $("#id_sustento").val(ui.item.id_sustento);
+                $("#id_comprobante_combo").val(ui.item.id_comprobante_combo);
+                $("#autorizacion").val(ui.item.autorizacion);
+
+                 // cargar comprobante
+                 $.ajax({
+                    type: "POST",
+                    url: "../sustento_comprobante/cargar_sustento.php",        
+                    dataType:'json',
+                    success: function(data) {            
+                        for (var i = 0; i < data.length; i=i+3) {
+                            if(ui.item.id_sustento == data[i]){
+                            $("#sustento").append("<option id="+data[i]+" value="+data[i]+" selected>"+data[i+1]+" - "+data[i+2]+"</option>");                
+                        }else{
+                            $("#sustento").append("<option id="+data[i]+" value="+data[i]+">"+data[i+1]+" - "+data[i+2]+"</option>");                
+                        }
+                        }
+                    }
+                });
+                //
+
+                // cargar comprobante
+                $.ajax({
+                    type: "POST",
+                    url: "cargar_comprobante.php?id_sustento="+ui.item.id_sustento,        
+                    dataType:'json',
+                    success: function(data) {                            
+                        console.log(data)
+                        for (var i = 0; i < data.length; i = i + 3) {                                        
+                            if(ui.item.id_comprobante_combo == data[i]){
+                                $("#comprobante_combo").append("<option id="+data[i]+" value="+data[i]+" selected>"+data[i+1]+" - "+data[i+2]+"</option>");                     
+                            }else{
+                                $("#comprobante_combo").append("<option id="+data[i]+" value="+data[i]+">"+data[i+1]+" - "+data[i+2]+"</option>");                
+                            }
+                        }
+                    }
+                }); 
+                //fin carga
                 return false;
                 }
 

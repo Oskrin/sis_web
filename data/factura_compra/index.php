@@ -35,6 +35,21 @@ $cont1++;
     <link href="../../dist/css/alertify.default.css" id="toggleCSS" rel="stylesheet" />
     <link href="../../dist/css/jquery-ui-1.10.4.custom.css" rel="stylesheet" type="text/css"/>            
     <link href="../../dist/css/ui.jqgrid.css" rel="stylesheet" type="text/css"/> 
+
+    <style>
+      .example-modal .modal {
+        position: relative;
+        top: auto;
+        bottom: auto;
+        right: auto;
+        left: auto;
+        display: block;
+        z-index: 1;
+      }
+      .example-modal .modal {
+        background: transparent!important;
+      }
+    </style>
   </head>
 
   <body class="skin-blue">
@@ -60,7 +75,7 @@ $cont1++;
                 <div class="box-body">
                   <div class="rows">
                     <div class="col-mx-12">
-                      <form id="clientes_form" name="clientes_form" method="post">
+                      <form id="factura_compra_form" name="factura_compra_form" method="post">
                         <div class="row">
                           <div class="col-mx-12">
                             <div class="col-md-3">
@@ -110,23 +125,6 @@ $cont1++;
                                   <input type="text" name="serie"  id="serie" required class="form-control" data-inputmask='"mask": "999-999-999999999"' data-mask />
                                 </div> 
                               </div>  
-                            </div>
-
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label class="col-md-5" >Tipo de comprobante: <font color="red">*</font></label>
-                                <div class="form-group col-md-7 no-padding">                                
-                                  <select class="form-control" name="tipo_comprobante" id="tipo_comprobante">
-                                    <option value="">........Seleccione........</option>
-                                    <?php
-                                    $consulta = pg_query("select * from tipo_comprobante ");
-                                    while ($row = pg_fetch_row($consulta)) {
-                                        echo "<option id=$row[0] value=$row[0]>$row[1] $row[2]</option>";
-                                    }
-                                    ?>
-                                  </select>
-                                </div> 
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -196,15 +194,6 @@ $cont1++;
 
                         <div class="row">
                           <div class="col-md-12">
-                             <div class="col-md-4">
-                              <div class="form-group">
-                                <label class="col-md-5">Autorización: <font color="red">*</font></label>
-                                <div class="form-group col-md-7 no-padding">                                
-                                  <input type="text" name="autorizacion"  id="autorizacion" required class="form-control" />
-                                </div> 
-                              </div>
-                            </div>
-
                             <div class="col-md-4">
                               <div class="form-group">
                                 <label class="col-md-5" >Fecha Cancelación:</label>
@@ -364,6 +353,118 @@ $cont1++;
                             </div>
                          </div>   
                         </div>
+
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h3 class="modal-title">VALORES RETENCIÓN</h3>
+                              </div>
+                              <div class="modal-body">
+                                <div class="row">
+                                  <div class="col-mx-12">
+                                    <!-- <form id="retenciones_form" name="retenciones_form" method="post"> -->
+                                      <ul class="nav nav-tabs">
+                                          <li class="active"><a href="#tab1" data-toggle="tab">Comprobantes</a></li>
+                                          <li><a href="#tab2" data-toggle="tab">Valores</a></li>
+                                          <li><a href="#tab3" data-toggle="tab">Pago</a></li>
+                                          <li><a href="#tab4" data-toggle="tab">Formas de Pago</a></li>
+                                      </ul>
+
+                                      <div class="tab-content" style="height: 300px">
+                                        <div class="tab-pane active" id="tab1">
+                                          <br>
+                                          <div class="col-mx-12">
+                                            <div class="col-md-12">
+                                              <div class="form-group">
+                                                <label>Sustento Tribuario:</label>
+                                                <select class="form-control" name="sustento" id="sustento">
+                                                  <option value="">........Seleccione........</option>                                
+                                                </select>
+                                                <input type="hidden" name="id_sustento"  id="id_sustento" required class="form-control" />
+                                              </div>  
+                                            </div>
+
+                                            <div class="col-md-10">
+                                              <div class="form-group">
+                                                <label>Tipo Comprobante:</label>
+                                                <select class="form-control" name="comprobante_combo" id="comprobante_combo">
+                                                  <option value="">........Seleccione........</option>
+                                                </select>
+                                                <input type="hidden" name="id_comprobante_combo"  id="id_comprobante_combo" required class="form-control" />
+                                              </div>  
+                                            </div>  
+                                          </div>
+
+                                          <div class="col-mx-12">
+                                            <div class="col-md-4">
+                                              <div class="form-group">
+                                                <label>Autorización: <font color="red">*</font></label>
+                                                <div class="form-group">                                
+                                                  <input type="text" name="autorizacion"  id="autorizacion" required class="form-control" />
+                                                </div> 
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          <div class="col-md-12">
+                                            <p><a class="btn btn-primary btnNext" >Siguiente</a></p>
+                                          </div>
+                                        </div>
+
+                                        <div class="tab-pane" id="tab2" style="height: 300px">
+                                          <br>
+                                          <div class="col-mx-12">
+                                            <div class="col-md-8">
+                                              <div class="form-group">
+                                                <label class="col-md-6">Base Imponible IVA 0%:</label>
+                                                <div class="form-group col-md-6 no-padding">                                
+                                                  <input type="text" name="base_iva0"  id="base_iva0" required readonly placeholder="0.00" class="form-control" />
+                                                </div> 
+                                              </div> 
+                                            </div>
+
+                                            <div class="col-md-8">
+                                              <div class="form-group">
+                                                <label class="col-md-6">Base Imponible IVA 12%:</label>
+                                                <div class="form-group col-md-6 no-padding">                                
+                                                  <input type="text" name="base_iva12"  id="base_iva12" required readonly placeholder="0.00" class="form-control" />
+                                                </div> 
+                                              </div> 
+                                            </div>
+
+                                            <div class="col-md-8">
+                                              <div class="form-group">
+                                                <label class="col-md-6">Base Imponible no Objeto IVA:</label>
+                                                <div class="form-group col-md-6 no-padding">                                
+                                                  <input type="text" name="nobase_iva"  id="nobase_iva" required readonly placeholder="0.00" class="form-control" />
+                                                </div> 
+                                              </div> 
+                                            </div>
+                                          </div>
+
+                                          <div class="col-md-12">
+                                            <p>
+                                              <a class="btn btn-primary btnNext" >Siguiente</a>
+                                              <a class="btn btn-primary btnPrevious" >Atrás</a>
+                                            </p>
+                                          </div>
+                                        </div>
+                                        <div class="tab-pane" id="tab3">
+                                            <a class="btn btn-primary btnPrevious" >Atrás</a>
+                                        </div>
+                                      </div>
+                                    <!-- </form> -->
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn bg-olive margin" data-dismiss="modal">Cerrar</button>
+                              </div>
+                            </div><!-- /.modal-content -->
+                          </div><!-- /.modal-dialog -->
+                      </div>
                       </form>
                     </div>
                   </div>
@@ -378,8 +479,13 @@ $cont1++;
                         <button class="btn bg-olive margin" id='btnImprimir'><i class="fa fa-print"></i> Imprimir</button>
                         <button class="btn bg-olive margin" id='btnAtras'><i class="fa fa-backward"></i> Atras</button>
                         <button class="btn bg-olive margin" id='btnAdelante'>Adelante <i class="fa fa-forward"></i></button>
+                        <button data-toggle="modal" type="button" id="btn_3" class="btn bg-olive margin">
+                          <i class="ace-icon fa fa-search bigger-120 white"></i>
+                          Retención
+                        </button>
                       </p> 
                     </div>
+
                     <div id="buscar_facturas_compras" title="BUSCAR FACTURAS COMPRAS">
                         <table id="list3"><tr><td></td></tr></table>
                         <div id="pager3"></div>

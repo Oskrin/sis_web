@@ -10,7 +10,10 @@ while ($row = pg_fetch_row($consulta)) {
     $data[] = array(
         'value' => $row[2],
         'id_proveedor' => $row[0],
-        'empresa' => $row[3]
+        'empresa' => $row[3],
+        'id_sustento' => $row[18],
+        'id_comprobante_combo' => $row[19],
+        'autorizacion' => $row[22]
     );
 }
 echo $data = json_encode($data);

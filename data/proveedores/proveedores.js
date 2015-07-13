@@ -723,9 +723,15 @@ function inicio() {
             type: "POST",
             url: "cargar_comprobante.php?id_sustento="+ret.sustento,        
             dataType:'json',
-            success: function(data) {            
-                for (var i = 0; i < data.length; i = i + 3) {
-                    $("#comprobante").append("<option id="+data[i]+" value="+data[i]+" selected="+ret.comprobante+">"+data[i+1]+" - "+data[i+2]+"</option>");                
+            success: function(data) {                            
+                console.log(data)
+                for (var i = 0; i < data.length; i = i + 3) {                                        
+                    if(ret.comprobante == data[i]){
+                        $("#comprobante").append("<option id="+data[i]+" value="+data[i]+" selected>"+data[i+1]+" - "+data[i+2]+"</option>");                     
+                    }else{
+                        $("#comprobante").append("<option id="+data[i]+" value="+data[i]+">"+data[i+1]+" - "+data[i+2]+"</option>");                
+                    }
+                    
                 }
             }
         }); 

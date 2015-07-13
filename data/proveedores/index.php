@@ -113,7 +113,7 @@ include('../menu/app.php');
                             <div class="form-group">
                               <label>Código compras: <font color="red">*</font></label>
                               <input type="text" name="codigo_compras" id="codigo_compras" placeholder="Buscador....." class="form-control" />
-                              <input type="text" name="id_codigo_compras" id="id_codigo_compras" readonly class="form-control" />
+                              <input type="hidden" name="id_codigo_compras" id="id_codigo_compras" readonly class="form-control" />
                             </div>
 
                             <div class="form-group">
@@ -166,7 +166,7 @@ include('../menu/app.php');
                             <div class="form-group">
                               <label>Código Retención Fuente : <font color="red">*</font></label>
                               <input type="text" name="codigo_fuente" id="codigo_fuente" placeholder="Buscar....." class="form-control" />
-                              <input type="text" name="id_codigo_fuente" id="id_codigo_fuente" readonly class="form-control" />
+                              <input type="hidden" name="id_codigo_fuente" id="id_codigo_fuente" readonly class="form-control" />
                             </div>
                           </div>
 
@@ -216,7 +216,6 @@ include('../menu/app.php');
                               <label>Tipo Comprobante: <font color="red">*</font></label>
                               <select class="form-control" name="comprobante" id="comprobante">
                                 <option value="">........Seleccione........</option>
-                                
                               </select>
                             </div>
 
@@ -228,7 +227,7 @@ include('../menu/app.php');
                             <div class="form-group">
                               <label>Código Retención Iva : <font color="red">*</font></label>
                               <input type="text" name="codigo_iva" id="codigo_iva" placeholder="Buscar....." class="form-control" />
-                              <input type="text" name="id_codigo_iva" id="id_codigo_iva" readonly class="form-control" />
+                              <input type="hidden" name="id_codigo_iva" id="id_codigo_iva" readonly class="form-control" />
                             </div>
                           </div>
                         </div>
