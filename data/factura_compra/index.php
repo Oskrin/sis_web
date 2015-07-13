@@ -413,10 +413,13 @@ $cont1++;
                                           </div>
                                         </div>
 
-                                        <div class="tab-pane" id="tab2" style="height: 300px">
+                                        <div class="tab-pane" id="tab2">
                                           <br>
-                                          <div class="col-mx-12">
-                                            <div class="col-md-8">
+                                          <div class="col-md-12">
+                                          <p>Detalle Bases Imponibles, Retenciones del Impuesto al Valor Agregado </p>
+                                          </div>
+                                          <div class="col-md-12">
+                                            <div class="col-md-6">
                                               <div class="form-group">
                                                 <label class="col-md-6">Base Imponible IVA 0%:</label>
                                                 <div class="form-group col-md-6 no-padding">                                
@@ -425,7 +428,7 @@ $cont1++;
                                               </div> 
                                             </div>
 
-                                            <div class="col-md-8">
+                                            <div class="col-md-6">
                                               <div class="form-group">
                                                 <label class="col-md-6">Base Imponible IVA 12%:</label>
                                                 <div class="form-group col-md-6 no-padding">                                
@@ -434,11 +437,62 @@ $cont1++;
                                               </div> 
                                             </div>
 
-                                            <div class="col-md-8">
+                                            <div class="col-md-6">
                                               <div class="form-group">
                                                 <label class="col-md-6">Base Imponible no Objeto IVA:</label>
                                                 <div class="form-group col-md-6 no-padding">                                
                                                   <input type="text" name="nobase_iva"  id="nobase_iva" required readonly placeholder="0.00" class="form-control" />
+                                                </div> 
+                                              </div> 
+                                            </div>
+
+                                            <div class="col-md-6"></div>
+                                          </div>
+                                        
+                                          <div class="col-md-12">
+                                            <div class="col-md-6">
+                                              <div class="form-group">
+                                                <label class="col-md-6">Monto IVA:</label>
+                                                <div class="form-group col-md-6 no-padding">                                
+                                                  <input type="text" name="base_iva0"  id="base_iva0" required readonly placeholder="0.00" class="form-control" />
+                                                </div> 
+                                              </div> 
+                                            </div>
+
+                                            <div class="col-md-6">
+                                              <div class="form-group">
+                                                <label class="col-md-6">Monto ICE:</label>
+                                                <div class="form-group col-md-6 no-padding">                                
+                                                  <input type="text" name="base_iva0"  id="base_iva0" required readonly placeholder="0.00" class="form-control" />
+                                                </div> 
+                                              </div> 
+                                            </div>
+                                          </div>
+                                         
+                                          <div class="col-md-12">
+                                            <div class="col-md-6">
+                                              <div class="form-group">
+                                                <label class="col-md-6">Retención IVA Bienes:</label>
+                                                <div class="form-group col-md-6 no-padding">                                
+                                                  <input type="text" name="base_iva0"  id="base_iva0" required readonly placeholder="0.00" class="form-control" />
+                                                </div> 
+                                              </div> 
+                                            </div> 
+
+                                            <div class="col-md-6">
+                                              <div class="form-group">
+                                                <label class="col-md-6">Retención IVA Servicios:</label>
+                                                <div class="form-group col-md-6 no-padding">                                
+                                                  <input type="text" name="base_iva0"  id="base_iva0" required readonly placeholder="0.00" class="form-control" />
+                                                </div> 
+                                              </div> 
+                                            </div>
+
+                                            <div class="col-md-6">
+                                              <div class="form-group">
+                                                <label class="col-md-6">Retención IVA 100%:</label>
+                                                <div class="form-group col-md-6 no-padding">                                
+                                                  <input type="text" name="base_iva0"  id="base_iva0" required readonly placeholder="0.00" class="form-control" />
                                                 </div> 
                                               </div> 
                                             </div>
@@ -452,7 +506,61 @@ $cont1++;
                                           </div>
                                         </div>
                                         <div class="tab-pane" id="tab3">
+                                          <br>
+                                          <div class="col-md-12">
+                                          <p>Comprobante de retención</p>
+                                          </div>
+
+                                          <div class="col-md-12">
+                                            <div class="col-md-6">
+                                              <div class="form-group">
+                                                <label class="col-md-6">Establecimiento:</label>
+                                                <div class="form-group col-md-6 no-padding">                                
+                                                  <input type="text" name="base_iva0"  id="base_iva0" required placeholder="" class="form-control" />
+                                                </div> 
+                                              </div> 
+                                            </div>
+
+                                            <div class="col-md-6">
+                                              <div class="form-group">
+                                                <label class="col-md-6">Punto Emisión:</label>
+                                                <div class="form-group col-md-6 no-padding">                                
+                                                  <input type="text" name="base_iva12"  id="base_iva12" required placeholder="" class="form-control" />
+                                                </div> 
+                                              </div> 
+                                            </div>
+
+                                            <div class="col-md-6">
+                                              <div class="form-group">
+                                                <label class="col-md-6">N° Secuencial:</label>
+                                                <div class="form-group col-md-6 no-padding">                                
+                                                  <input type="text" name="nobase_iva"  id="nobase_iva" required placeholder="" class="form-control" />
+                                                </div> 
+                                              </div> 
+                                            </div>
+
+                                            <div class="col-md-6">
+                                              <div class="form-group">
+                                                <label class="col-md-6">N° Autorización Comprobante:</label>
+                                                <div class="form-group col-md-6 no-padding">                                
+                                                  <input type="text" name="nobase_iva"  id="nobase_iva" required placeholder="" class="form-control" />
+                                                </div> 
+                                              </div> 
+                                            </div>
+
+                                            <div class="col-md-6">
+                                              <div class="form-group">
+                                                <label class="col-md-6">Fecha Emisión Comprobante:</label>
+                                                <div class="form-group col-md-6 no-padding">                                
+                                                  <input type="text" name="nobase_iva"  id="nobase_iva" required placeholder="" class="form-control" />
+                                                </div> 
+                                              </div> 
+                                            </div>
+                                          </div>
+                                          <div class="col-md-12">
+                                            <a class="btn btn-primary btnNext" >Siguiente</a>
                                             <a class="btn btn-primary btnPrevious" >Atrás</a>
+                                          </div> 
                                         </div>
                                       </div>
                                     <!-- </form> -->

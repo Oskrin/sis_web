@@ -16,5 +16,6 @@ while ($row = pg_fetch_row($consulta)) {
         'autorizacion' => $row[22]
     );
 }
+
 echo $data = json_encode($data);
 ?>
