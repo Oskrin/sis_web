@@ -105,18 +105,22 @@ include('../menu/app.php');
                                 $consulta = pg_query("select * from grupo");
                                 while ($row = pg_fetch_row($consulta)) {
                                     echo "<option id=$row[0] value=$row[0]>$row[2]</option>";
-                                }
+                                  }
                                 ?>     
                               </select>
                             </div>
 
-                            <div class="form-group">
-                              <label>Código compras: <font color="red">*</font></label>
+                            <label>Código compras: <font color="red">*</font></label>
+                            <div class="input-group">
                               <input type="text" name="codigo_compras" id="codigo_compras" placeholder="Buscador....." class="form-control" />
                               <input type="hidden" name="id_codigo_compras" id="id_codigo_compras" readonly class="form-control" />
+                              <span class="input-group-btn">
+                                <button class="btn bg-olive" type="button" id="btnCuenta">Agregar</button>
+                              </span>
                             </div>
+                            <br>
 
-                            <div class="form-group">
+                            <div class="form-group" style="margin-top: -5px">
                               <label>Comentarios:</label>
                               <textarea class="form-control" name="observaciones_pro" id="observaciones_pro" rows="3"></textarea>
                             </div>
@@ -163,10 +167,13 @@ include('../menu/app.php');
                               <input type="text" name="serie" id="serie" class="form-control" />
                             </div>
 
-                            <div class="form-group">
-                              <label>Código Retención Fuente : <font color="red">*</font></label>
+                            <label>Código Retención Fuente : <font color="red">*</font></label>
+                            <div class="input-group">
                               <input type="text" name="codigo_fuente" id="codigo_fuente" placeholder="Buscar....." class="form-control" />
                               <input type="hidden" name="id_codigo_fuente" id="id_codigo_fuente" readonly class="form-control" />
+                              <span class="input-group-btn">
+                                <button class="btn bg-olive" type="button" id="btnFuente">Agregar</button>
+                              </span>
                             </div>
                           </div>
 
@@ -224,10 +231,13 @@ include('../menu/app.php');
                               <input type="text" name="autorizacion" id="autorizacion" class="form-control" />
                             </div>
 
-                            <div class="form-group">
-                              <label>Código Retención Iva : <font color="red">*</font></label>
+                            <label>Código Retención Iva:</label>
+                            <div class="input-group">
                               <input type="text" name="codigo_iva" id="codigo_iva" placeholder="Buscar....." class="form-control" />
                               <input type="hidden" name="id_codigo_iva" id="id_codigo_iva" readonly class="form-control" />
+                              <span class="input-group-btn">
+                                <button class="btn bg-olive" type="button" id="btnIva">Agregar</button>
+                              </span>
                             </div>
                           </div>
                         </div>

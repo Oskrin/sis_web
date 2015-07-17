@@ -180,10 +180,10 @@ function guardar_proveedor() {
                                                     $("#codigo_fuente").focus();
                                                     alertify.error("Llene todos los campos");
                                                     }else{
-                                                        if ($("#id_codigo_iva").val() === "") {
-                                                            $("#codigo_iva").focus();
-                                                            alertify.error("Llene todos los campos");
-                                                        }else{
+                                                        // if ($("#id_codigo_iva").val() === "") {
+                                                        //     $("#codigo_iva").focus();
+                                                        //     alertify.error("Llene todos los campos");
+                                                        // }else{
                                                             $.ajax({
                                                             type: "POST",
                                                             url: "guardar_proveedores.php",
@@ -198,7 +198,7 @@ function guardar_proveedor() {
                                                                }
                                                             }
                                                         });
-                                                    }
+                                                    // }
                                                 }         
                                             }
                                         }
@@ -241,10 +241,10 @@ function modificar_proveedor() {
                             $("#direccion_pro").focus();
                             alertify.error("Indique la dirección");
                         } else {
-                            // if ($("#nro_telefono").val() === "") {
-                            //     $("#nro_telefono").focus();
-                            //     alertify.error("Indique número telefónico");
-                            // } else {
+                            if ($("#sustento").val() === "") {
+                                $("#sustento").focus();
+                                alertify.error("Indique una opción");
+                            } else {
                                 // if (!expr.test(correo) || $("#correo").val() === "") {
                                 //     $("#correo").focus();
                                 //     alertify.error("Ingrese un correo");
@@ -257,32 +257,37 @@ function modificar_proveedor() {
                                             $("#ciudad_pro").focus();
                                             alertify.error("Ingrese la ciudad");
                                         } else {
-                                            if ($("#forma_pago").val() === "") {
-                                                $("#forma_pago").focus();
-                                                alertify.error("Seleccione forma de pago");
+                                            if ($("#grupo").val() === "") {
+                                                $("#grupo").focus();
+                                                alertify.error("Indique una opción");
                                             } else {
-                                                if ($("#principal_pro").val() === "") {
-                                                    $("#principal_pro").focus();
-                                                    alertify.error("Seleccione un tipo");
+                                                if ($("#id_codigo_compras").val() === "") {
+                                                    $("#codigo_compras").focus();
+                                                    alertify.error("Llene todos los campos");
                                                 }else{
-                                                    $.ajax({
-                                                        type: "POST",
-                                                        url: "modificar_proveedores.php",
-                                                        data: $("#proveedores_form").serialize(),
-                                                        success: function(data) {
-                                                            var val = data;
-                                                            if (val == 1) {
-                                                                alertify.success('Datos Modificados Correctamente');						    		
-                                                                setTimeout(function() {
-                                                                    location.reload();
-                                                                }, 1000);
+                                                    if ($("#id_codigo_fuente").val() === "") {
+                                                        $("#codigo_fuente").focus();
+                                                        alertify.error("Llene todos los campos");
+                                                        }else{
+                                                        $.ajax({
+                                                            type: "POST",
+                                                            url: "modificar_proveedores.php",
+                                                            data: $("#proveedores_form").serialize(),
+                                                            success: function(data) {
+                                                                var val = data;
+                                                                if (val == 1) {
+                                                                    alertify.success('Datos Modificados Correctamente');						    		
+                                                                    setTimeout(function() {
+                                                                        location.reload();
+                                                                    }, 1000);
+                                                                }
                                                             }
-                                                        }
-                                                    });
+                                                        });
+                                                    }
                                                 }
                                             }
                                         // }
-                                    // }
+                                    }
                                 }
                             }
                         }

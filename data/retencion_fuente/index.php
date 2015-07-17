@@ -60,19 +60,13 @@ include('../menu/app.php');
                               <input type="text" name="porcentaje"  id="porcentaje" class="form-control" />
                             </div>
 
-                            <div class="form-group">
-                             <div class="col-mx-12">
-                               <label>Cuenta Contable: <font color="red">*</font></label>
-                             </div>
-
-                              <div class="col-xs-8">
-                                <input type="text" name="cuenta" id="cuenta" readonly class="form-control col-md-3" />
-                                <input type="hidden" name="id_plan_cuentas"  id="id_plan_cuentas" class="form-control" />
-                              </div>
-
-                              <div class="col-xs-4">
-                                <button class="btn bg-olive margin" id='btnCuenta'>...</button>
-                              </div>
+                            <label>Cuenta Contable: <font color="red">*</font></label>
+                            <div class="input-group">
+                              <input type="text" name="cuenta"  id="cuenta" class="form-control" readonly />
+                              <input type="hidden" name="id_plan_cuentas"  id="id_plan_cuentas" class="form-control" />
+                              <span class="input-group-btn">
+                                <button class="btn bg-olive" type="button" id="btnCuenta">Agregar</button>
+                              </span>
                             </div>
                           </div>
 
@@ -91,6 +85,7 @@ include('../menu/app.php');
                         </div>
                       </form>
                   </div>
+                  <br>
 
                   <div class="row">
                     <div class="col-mx-12">
