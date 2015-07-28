@@ -998,6 +998,20 @@ function limpiar_proveedor() {
 }
 
 function inicio() {
+    // comprobar datos retencion
+    $.getJSON('datos_retencion.php', function(data) {
+        var tama = data.length;
+        if (tama !== 0) {
+            for (var i = 0; i < tama; i = i + 4) {
+                $("#establecimiento").val(data[i]);
+                $("#punto_emision").val(data[i + 1]);
+                $("#secuencial").val(data[i + 2]);
+                $("#auto_comprobante").val(data[i + 3]);
+            }
+        }
+    });
+    // fin datos
+
     /*----------------*/
     $.ajax({
         type: "POST",

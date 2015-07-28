@@ -11,8 +11,6 @@ while ($row = pg_fetch_row($consulta)) {
     $cont1 = $row[0];
 }
 $cont1++;
-
-
 ?>
 
 <!DOCTYPE html>
@@ -520,7 +518,7 @@ $cont1++;
                                               <div class="form-group">
                                                 <label class="col-md-6">Establecimiento:</label>
                                                 <div class="form-group col-md-6 no-padding">                                
-                                                  <input type="text" name="establecimiento"  id="establecimiento" required placeholder="" class="form-control" />
+                                                  <input type="text" name="establecimiento"  id="establecimiento" required readonly placeholder="" class="form-control" />
                                                 </div> 
                                               </div> 
                                             </div>
@@ -529,7 +527,7 @@ $cont1++;
                                               <div class="form-group">
                                                 <label class="col-md-6">Punto Emisión:</label>
                                                 <div class="form-group col-md-6 no-padding">                                
-                                                  <input type="text" name="punto_emision"  id="punto_emision" required placeholder="" class="form-control" />
+                                                  <input type="text" name="punto_emision"  id="punto_emision" required readonly placeholder="" class="form-control" />
                                                 </div> 
                                               </div> 
                                             </div>
@@ -547,7 +545,7 @@ $cont1++;
                                               <div class="form-group">
                                                 <label class="col-md-6">N° Autorización Comprobante:</label>
                                                 <div class="form-group col-md-6 no-padding">                                
-                                                  <input type="text" name="auto_comprobante"  id="auto_comprobante" required placeholder="" class="form-control" />
+                                                  <input type="text" name="auto_comprobante"  id="auto_comprobante" readonly required placeholder="" class="form-control" />
                                                 </div> 
                                               </div> 
                                             </div>
@@ -556,7 +554,7 @@ $cont1++;
                                               <div class="form-group">
                                                 <label class="col-md-6">Fecha Emisión Comprobante:</label>
                                                 <div class="form-group col-md-6 no-padding">                                
-                                                  <input type="text" name="fecha_emision"  id="fecha_emision" required placeholder="" class="form-control" />
+                                                  <input type="text" name="fecha_emision"  id="fecha_emision" required readonly placeholder="" class="form-control" />
                                                   <input type="text" name="retor_retencion_fuente"  id="retor_retencion_fuente" required readonly class="form-control" />
                                                 </div> 
                                               </div> 
