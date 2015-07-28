@@ -51,24 +51,24 @@ function abrirCuenta() {
 
 function guardar_retencion() {
   if ($("#codigo_anexo").val() === "") {
-    $("#codigo_anexo").focus();
-    alertify.error("Ingrese un Código");
+     $("#codigo_anexo").focus();
+     alertify.error("Ingrese un Código");
     } else {
       if ($("#formulario").val() === "") {
-         $("#formulario").focus();
-         alertify.error("Ingrese Código fromulario");
-        }else{
+          $("#formulario").focus();
+          alertify.error("Ingrese Código fromulario");
+        } else {
            if ($("#porcentaje").val() === "") {
-             $("#porcentaje").focus();
-             alertify.error("Ingrese el porcentaje");
-            }else{ 
+              $("#porcentaje").focus();
+              alertify.error("Ingrese el porcentaje");
+            } else { 
                  if ($("#detalle").val() === "") {
-                 $("#detalle").focus();
-                 alertify.error("Ingrese detalle del porcentaje");
-                }else{
+                    $("#detalle").focus();
+                    alertify.error("Ingrese detalle del porcentaje");
+                } else {
                  if ($("#id_plan_cuentas").val() === "") {
-                 alertify.error("Seleccione una Cuenta Contable");
-                    }else{
+                    alertify.error("Seleccione una Cuenta Contable");
+                    } else {
                      $.ajax({
                         type: "POST",
                         url: "guardar_retencion.php",
@@ -101,7 +101,7 @@ function modificar_grupo() {
           if ($("#nombre_grupo").val() === "") {
              $("#nombre_grupo").focus();
              alertify.error("Ingrese un Nombre");
-            }else{
+            } else {
              if ($("#id_plan_cuentas").val() === "") {
              alertify.error("Seleccione una Cuenta Contable");
             }else{
@@ -219,7 +219,7 @@ function punto(e){
     }
 
     if (key < 48 || key > 57) {
-        if (key === 46 || key === 8)     {
+        if (key === 46 || key === 8) {
             return true;
         } else {
             return false;
@@ -345,8 +345,6 @@ function inicio() {
                 $("#id_plan_cuentas").val(ret.id_plan_cuentas);
                 $("#cuenta").val(ret.descripcion);
 
-                // jQuery("#list").jqGrid('GridToForm', id, "#clientes_form");
-                // $("#btnGuardar").attr("disabled", true);
                 $("#cuentas").dialog("close");
             } else {
                 alertify.alert("Seleccione un fila");
@@ -383,9 +381,6 @@ function inicio() {
          var id = jQuery("#list2").jqGrid('getGridParam', 'selrow');
          jQuery('#list2').jqGrid('restoreRow', id); 
          var ret = jQuery("#list2").jqGrid('getRowData', id);
-
-         // $("#id_plan_cuentas").val(ret.id_plan_cuentas);
-         // $("#cuenta").val(ret.descripcion);
 
          jQuery("#list2").jqGrid('GridToForm', id, "#retencion_form");
          $("#btnGuardar").attr("disabled", true);

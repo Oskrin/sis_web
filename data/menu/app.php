@@ -107,6 +107,7 @@ print'
                     <i class="fa fa-laptop"></i> <span>Contabilidad</span> <i class="fa fa-angle-left pull-right"></i>
                   </a>
                   <ul class="treeview-menu">
+                    <li><a href="../comprobante_retencion"><i class="fa fa-circle-o"></i>Comprobante de Retención</a></li>
                     <li><a href="../tipo_comprobante"><i class="fa fa-circle-o"></i> Tipos Comprobantes</a></li>                    
                     <li><a href="../sustento_tributario"><i class="fa fa-circle-o"></i> Sustentos Tributarios</a></li>
                     <li><a href="../sustento_comprobante"><i class="fa fa-circle-o"></i> Enlazar</a></li>

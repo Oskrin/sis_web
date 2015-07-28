@@ -421,8 +421,17 @@ function inicio() {
     $("#buscar_retencion2").dialog(dialogo_retencion2);
 
     $("#codigo_compras").on("keypress", enter1);
+    $("#btnCuenta").click(function (){
+        $("#buscar_plan").dialog("open");   
+    });
     $("#codigo_fuente").on("keypress", enter2);
+    $("#btnFuente").click(function (){
+        $("#buscar_retencion1").dialog("open");   
+    });
     $("#codigo_iva").on("keypress", enter3);
+    $("#btnIva").click(function (){
+        $("#buscar_retencion2").dialog("open");   
+    });
     
     /*----------------*/
     $.ajax({
@@ -767,10 +776,6 @@ function inicio() {
             }
         });
         //fin carga
-
-
-
-
         $("#btnGuardar").attr("disabled", true);
         $("#proveedores").dialog("close");    
         }
@@ -1039,7 +1044,6 @@ function inicio() {
     {
         closeOnEscape: true,        
         multipleSearch: false, overlay: false
-
     },
     {
     },
