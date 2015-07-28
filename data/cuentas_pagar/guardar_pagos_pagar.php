@@ -25,6 +25,7 @@ $arreglo6 = explode('|', $campo6);
 $arreglo7 = explode('|', $campo7);
 $nelem = count($arreglo1);
 
+$data = 0;
 if ($_POST['tipo_pago'] == "EXTERNA") {
 ///////////////////////////////////////////
     for ($i = 1; $i < $nelem; $i++) {
@@ -36,7 +37,7 @@ if ($_POST['tipo_pago'] == "EXTERNA") {
         }
         $cont1++;
         ////////////guardar pagos////////
-        pg_query("insert into pagos_pagar values('$cont1','$_POST[id_proveedor]','$_SESSION[id]','$_POST[comprobante]','$_POST[fecha_actual]','$_POST[hora_actual]','$_POST[forma_pago]','$_POST[tipo_pago]','$arreglo2[$i]','$arreglo3[$i]','$arreglo4[$i]','$arreglo5[$i]','$arreglo6[$i]','$arreglo7[$i]','$_POST[observaciones]','Activo')");
+        pg_query("insert into pagos_pagar values('$cont1','$_POST[id_proveedor]','$_SESSION[id]','$cont1','$_POST[fecha_actual]','$_POST[hora_actual]','$_POST[forma_pago]','$_POST[tipo_pago]','$arreglo2[$i]','$arreglo3[$i]','$arreglo4[$i]','$arreglo5[$i]','$arreglo6[$i]','$arreglo7[$i]','$_POST[observaciones]','Activo')");
         ////////////////////////////////////////
         //
         ////////////modificar pagos////////
@@ -54,7 +55,7 @@ if ($_POST['tipo_pago'] == "EXTERNA") {
             //////////////////////////////
         }
     }
-    $data = 1;
+    $data = $cont1;
 } else {
     ///////////////////////////////////////////
     for ($i = 1; $i < $nelem; $i++) {
@@ -67,7 +68,7 @@ if ($_POST['tipo_pago'] == "EXTERNA") {
 
         $cont1++;
         ////////////guardar pagos////////
-        pg_query("insert into pagos_pagar values('$cont1','$_POST[id_proveedor]','$_SESSION[id]','$_POST[comprobante]','$_POST[fecha_actual]','$_POST[hora_actual]','$_POST[forma_pago]','$_POST[tipo_pago]','$arreglo2[$i]','$arreglo3[$i]','$arreglo4[$i]','$arreglo5[$i]','$arreglo6[$i]','$arreglo7[$i]','$_POST[observaciones]','Activo')");
+        pg_query("insert into pagos_pagar values('$cont1','$_POST[id_proveedor]','$_SESSION[id]','$cont1','$_POST[fecha_actual]','$_POST[hora_actual]','$_POST[forma_pago]','$_POST[tipo_pago]','$arreglo2[$i]','$arreglo3[$i]','$arreglo4[$i]','$arreglo5[$i]','$arreglo6[$i]','$arreglo7[$i]','$_POST[observaciones]','Activo')");
         ////////////////////////////////////////
         //
         ////////modificar los pagos///
@@ -85,7 +86,7 @@ if ($_POST['tipo_pago'] == "EXTERNA") {
             pg_query("Update pagos_compra Set saldo='" . $format_numero . "' where id_pagos_compra='" . $arreglo1[$i] . "'");
         }
     }
-    $data = 1;
+    $data = $cont1;
 }
 echo $data;
 ?>

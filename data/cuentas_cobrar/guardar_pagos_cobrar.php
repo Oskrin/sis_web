@@ -37,7 +37,7 @@ if ($_POST['tipo_pago'] == "EXTERNA") {
         $cont1++;
         ////////////////////////////////////////////
         ////////////guardar pagos////////
-        pg_query("insert into pagos_cobrar values('$cont1','$_POST[id_cliente]','$_SESSION[id]','$_POST[comprobante]','$_POST[fecha_actual]','$_POST[hora_actual]','$_POST[forma_pago]','$_POST[tipo_pago]','$arreglo2[$i]','$arreglo3[$i]','$arreglo4[$i]','$arreglo5[$i]','$arreglo6[$i]','$arreglo7[$i]','$_POST[observaciones]','Activo')");
+        pg_query("insert into pagos_cobrar values('$cont1','$_POST[id_cliente]','$_SESSION[id]','$cont1','$_POST[fecha_actual]','$_POST[hora_actual]','$_POST[forma_pago]','$_POST[tipo_pago]','$arreglo2[$i]','$arreglo3[$i]','$arreglo4[$i]','$arreglo5[$i]','$arreglo6[$i]','$arreglo7[$i]','$_POST[observaciones]','Activo')");
         ////////////////////////////////////////
         //
         ////////////modificar pagos////////
@@ -71,7 +71,7 @@ if ($_POST['tipo_pago'] == "EXTERNA") {
         }
         $cont1++;
         ////////////guardar pagos////////
-        pg_query("insert into pagos_cobrar values('$cont1','$_POST[id_cliente]','$_SESSION[id]','$_POST[comprobante]','$_POST[fecha_actual]','$_POST[hora_actual]','$_POST[forma_pago]','$_POST[tipo_pago]','$arreglo2[$i]','$arreglo3[$i]','$arreglo4[$i]','$arreglo5[$i]','$arreglo6[$i]','$arreglo7[$i]','$_POST[observaciones]','Activo')");
+        pg_query("insert into pagos_cobrar values('$cont1','$_POST[id_cliente]','$_SESSION[id]','$cont1','$_POST[fecha_actual]','$_POST[hora_actual]','$_POST[forma_pago]','$_POST[tipo_pago]','$arreglo2[$i]','$arreglo3[$i]','$arreglo4[$i]','$arreglo5[$i]','$arreglo6[$i]','$arreglo7[$i]','$_POST[observaciones]','Activo')");
         ////////////////////////////////////////
         //
         ////////modificar los pagos///

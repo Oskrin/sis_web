@@ -216,12 +216,12 @@ function guardar_pagos(){
                             data: "id_proveedor=" + $("#id_proveedor").val() + "&comprobante=" + $("#comprobante").val() + "&fecha_actual=" + $("#fecha_actual").val() + "&hora_actual=" + $("#hora_actual").val() + "&forma_pago=" + $("#forma_pago").val() + "&tipo_pago=" + $("#tipo_pago").val() + "&observaciones=" + $("#observaciones").val() + "&campo1=" + string_v1 + "&campo2=" + string_v2 + "&campo3=" + string_v3 + "&campo4=" + string_v4 + "&campo5=" + string_v5 + "&campo6=" + string_v6+ "&campo7=" + string_v7 ,
                             success: function(data) {
                                 var val = data;
-                                if (val == 1) {
+                                if (val > 0) {
                                      if($("#tipo_pago").val()=="EXTERNA")
                                     {
-                                        window.open("../../reportes/reporte_cxp.php?tipo_pago="+$("#tipo_pago").val()+"&id="+v2[0]+"&comprobante="+$("#comprobante").val()+"&proveedor="+$("#id_proveedor").val(),'_blank');
+                                        window.open("../../reportes/reporte_cxp.php?tipo_pago="+$("#tipo_pago").val()+"&id="+v2[0]+"&comprobante="+data+"&proveedor="+$("#id_proveedor").val(),'_blank');
                                     }else{
-                                        window.open("../../reportes/reporte_cxp.php?tipo_pago="+$("#tipo_pago").val()+"&id="+v2[0]+"&comprobante="+$("#comprobante").val()+"&temp2="+v6[0]+"&temp3="+v7[0]+"&proveedor="+$("#id_proveedor").val(),'_blank');
+                                        window.open("../../reportes/reporte_cxp.php?tipo_pago="+$("#tipo_pago").val()+"&id="+v2[0]+"&comprobante="+data+"&temp2="+v6[0]+"&temp3="+v7[0]+"&proveedor="+$("#id_proveedor").val(),'_blank');
                                     }  
                                     alertify.alert("Pago Guardado correctamente", function(){location.reload();});
                                 }

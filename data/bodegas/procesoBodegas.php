@@ -5,11 +5,13 @@ conectarse();
 $cont = 0;
 $repe = 0;
 
+
 //////////////////validar repetidos//////////////////
 $consulta = pg_query("select * from bodegas where nombre_bodega='" . strtoupper($_POST['nombre_bodega']) . "'");
 while ($row = pg_fetch_row($consulta)) {
    $repe++;
 }
+
 //////////////////////////////////////////////////    
 
 if ($_POST['oper'] == "add") {
@@ -28,4 +30,5 @@ if ($_POST['oper'] == "add") {
         
     }
 }
+;
 ?>
