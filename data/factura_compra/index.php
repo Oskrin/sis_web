@@ -454,7 +454,7 @@ $cont1++;
                                               <div class="form-group">
                                                 <label class="col-md-6">Monto IVA:</label>
                                                 <div class="form-group col-md-6 no-padding">                                
-                                                  <input type="text" name="monto_iva12"  id="monto_iva12" required placeholder="0.00" class="form-control" />
+                                                  <input type="text" name="monto_iva12"  id="monto_iva12" required  readonly placeholder="0.00" class="form-control" />
                                                 </div> 
                                               </div> 
                                             </div>
@@ -493,7 +493,23 @@ $cont1++;
                                                 <label class="col-md-6">Retención IVA 100%:</label>
                                                 <div class="form-group col-md-6 no-padding">                                
                                                   <input type="text" name="retencion_iva"  id="retencion_iva" required readonly placeholder="0.00" class="form-control" />
-                                                  <input type="text" name="retor_retencion_iva"  id="retor_retencion_iva" required readonly class="form-control" />
+                                                  <input type="hidden" name="id_retor_retencion_fuente"  id="id_retor_retencion_fuente" required readonly class="form-control" />
+                                                  <input type="hidden" name="retor_retencion_fuente"  id="retor_retencion_fuente" required readonly class="form-control" />
+                                                  <input type="hidden" name="id_retor_retencion_iva"  id="id_retor_retencion_iva" required readonly class="form-control" />
+                                                  <input type="hidden" name="cod_retor_retencion_iva"  id="cod_retor_retencion_iva" required readonly class="form-control" />
+                                                  <input type="hidden" name="retor_retencion_iva"  id="retor_retencion_iva" required readonly class="form-control" />
+                                                </div> 
+                                              </div> 
+                                            </div>
+                                            <div class="col-md-6"></div>
+                                          </div>
+
+                                          <div class="col-md-12">
+                                            <div class="col-md-6">
+                                              <div class="form-group">
+                                                <label class="col-md-6">Valor Retenido Fuente:</label>
+                                                <div class="form-group col-md-6 no-padding">                                
+                                                  <input type="text" name="valor_retenido"  id="valor_retenido" required readonly placeholder="0.00" class="form-control" />
                                                 </div> 
                                               </div> 
                                             </div>
@@ -555,7 +571,6 @@ $cont1++;
                                                 <label class="col-md-6">Fecha Emisión Comprobante:</label>
                                                 <div class="form-group col-md-6 no-padding">                                
                                                   <input type="text" name="fecha_emision"  id="fecha_emision" required readonly placeholder="" class="form-control" />
-                                                  <input type="text" name="retor_retencion_fuente"  id="retor_retencion_fuente" required readonly class="form-control" />
                                                 </div> 
                                               </div> 
                                             </div>
@@ -567,7 +582,7 @@ $cont1++;
                                           </div> 
                                         </div>
 
-                                        <div class="tab-pane " id="tab4" tabindex="-1" >
+                                        <div class="tab-pane " id="tab4" class="disabled">
                                           <br>
                                           <div class="col-md-12">
                                           <p>Formas de pagos Utilizadas</p>

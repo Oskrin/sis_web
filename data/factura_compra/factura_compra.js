@@ -993,8 +993,14 @@ function limpiar_proveedor() {
     });
     $("#comprobante_combo").html('<option value="">........Seleccione........</option>');
     $("#autorizacion").val("");
-    $("#retor_retencion_iva").val("");
+    $("#retencion_iva_bienes").val("");
+    $("#retencion_iva_servicios").val("");
+    $("#retencion_iva").val("");
+    $("#id_retor_retencion_fuente").val("");
     $("#retor_retencion_fuente").val("");
+    $("#id_retor_retencion_iva").val("");
+    $("#cod_retor_retencion_iva").val("");
+    $("#retor_retencion_iva").val("");
 }
 
 function inicio() {
@@ -1168,10 +1174,36 @@ function inicio() {
                     $("#codigo_barras").focus();
                     alertify.error("Error... Inrese productos a la factura");
                 } else {
+                var valor_retenido_iva = 0;
                 var tarifa0 = $('#total_p').val();
                 var tarifa12 = $('#total_p2').val();
+                var monto_iva = $('#iva').val();
+                var porcentaje_fuente = $('#retor_retencion_fuente').val();
+                var porcentaje_iva = $('#retor_retencion_iva').val();
+                var cod_porcentaje_iva = $('#cod_retor_retencion_iva').val();
                 $("#base_iva0").val(tarifa0);
                 $("#base_iva12").val(tarifa12);
+                $("#monto_iva12").val(monto_iva);
+
+                if(cod_porcentaje_iva == '725') {
+                    valor_retenido_iva = (parseFloat(monto_iva) * parseFloat(porcentaje_iva)/100)
+                    $("#retencion_iva_bienes").val(valor_retenido_iva);
+                } else {
+                    if(cod_porcentaje_iva == '727') {
+                        valor_retenido_iva = (parseFloat(monto_iva) * parseFloat(porcentaje_iva)/100)
+                        $("#retencion_iva_servicios").val(valor_retenido_iva);
+                    } else {
+                        if(cod_porcentaje_iva == '729') {
+                            valor_retenido_iva = (parseFloat(monto_iva) * parseFloat(porcentaje_iva)/100)
+                            $("#retencion_iva").val(valor_retenido_iva);
+                        } 
+
+                    }
+                }
+
+                var valor_retenido_fuente = 0;
+                valor_retenido_fuente = ((parseFloat(tarifa0) + parseFloat(tarifa12)) * parseFloat(porcentaje_fuente)/100)
+                $("#valor_retenido").val(valor_retenido_fuente);
                 $('#myModal').modal();
                 }
             }
@@ -1289,20 +1321,21 @@ function inicio() {
                 // fin carga
 
                 // cargas adicionales
-                $.getJSON('retornar_codigo_compras.php?com=' + ui.item.id_proveedor, function(data) {
-                    var tama = data.length;
-                    if (tama !== 0) {
-                        for (var i = 0; i < tama; i = i + 1) {
-                            $("#retor_codigo_compras").val(data[i]);
-                        }
-                    }
-                });
+                // $.getJSON('retornar_codigo_compras.php?com=' + ui.item.id_proveedor, function(data) {
+                //     var tama = data.length;
+                //     if (tama !== 0) {
+                //         for (var i = 0; i < tama; i = i + 1) {
+                //             $("#retor_codigo_compras").val(data[i]);
+                //         }
+                //     }
+                // });
 
                 $.getJSON('retornar_retencion_fuente.php?com=' + ui.item.id_proveedor, function(data) {
                     var tama = data.length;
                     if (tama !== 0) {
-                        for (var i = 0; i < tama; i = i + 1) {
-                            $("#retor_retencion_fuente").val(data[i]);
+                        for (var i = 0; i < tama; i = i + 2) {
+                            $("#id_retor_retencion_fuente").val(data[i]);
+                            $("#retor_retencion_fuente").val(data[i + 1]);
                         }
                     }
                 });
@@ -1310,8 +1343,10 @@ function inicio() {
                 $.getJSON('retornar_retencion_iva.php?com=' + ui.item.id_proveedor, function(data) {
                     var tama = data.length;
                     if (tama !== 0) {
-                        for (var i = 0; i < tama; i = i + 1) {
-                            $("#retor_retencion_iva").val(data[i]);
+                        for (var i = 0; i < tama; i = i + 3) {
+                            $("#id_retor_retencion_iva").val(data[i]);
+                            $("#cod_retor_retencion_iva").val(data[i + 1]);
+                            $("#retor_retencion_iva").val(data[i + 2]);
                         }
                     }
                 });
