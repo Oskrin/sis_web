@@ -21,9 +21,9 @@ while ($row = pg_fetch_row($consulta)) {
 }
 $cont1++;
 ////////////guardar factura compra////////
-pg_query("insert into factura_compra values('$cont1','1','$_POST[id_proveedor]','$_SESSION[id]','$_POST[comprobante]','$_POST[fecha_actual]','$_POST[hora_actual]','$_POST[fecha_registro]'
-    ,'$_POST[fecha_emision]','$_POST[fecha_caducidad]','$_POST[tipo_comprobante]','$_POST[serie]','$_POST[autorizacion]','$_POST[cancelacion]','$_POST[formas]'
-    ,'$_POST[tarifa0]','$_POST[tarifa12]','$_POST[iva]','$_POST[desc]','$_POST[tot]','Activo')");
+pg_query("insert into factura_compra values('$cont1','1','$_POST[id_proveedor]','$_SESSION[id]','$cont1','$_POST[fecha_actual]','$_POST[hora_actual]','$_POST[fecha_registro]'
+    ,'$_POST[fecha_emision]','$_POST[fecha_caducidad]','$_POST[id_comprobante_combo]','$_POST[serie]','$_POST[autorizacion]','$_POST[cancelacion]','$_POST[formas]'
+    ,'$_POST[total_p]','$_POST[total_p2]','$_POST[iva]','$_POST[desc]','$_POST[tot]','Activo')");
 
 ////////////////////////////////////////
 //
@@ -165,6 +165,10 @@ if ($forma === "Credito") {
     }
 }
 
-$data = 1;
-echo $data;
+
+// guardar retenciones
+
+// $data = 1;
+
+echo $cont1;
 ?>

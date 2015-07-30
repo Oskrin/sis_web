@@ -361,7 +361,7 @@ function inicio() {
         datatype: 'xml',
         colNames: ['Id', 'Codigo Anexo', 'Código Formulario','Porcentaje','Descripción','Ids', 'Cuenta'],
         colModel: [
-            {name: 'id_retencion_fuente', index: 'id_retencion_fuente',hide: true, editable: true, align: 'center', width: '50', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
+            {name: 'id_retencion', index: 'id_retencion',hide: true, editable: true, align: 'center', width: '50', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
             {name: 'codigo_anexo', index: 'codigo_anexo', editable: true, align: 'left', width: '100', search: false, frozen: true, formoptions: {elmsuffix: " (*)"}, editrules: {required: true}},
             {name: 'formulario', index: 'formulario', editable: true, align: 'left', width: '100', search: true, frozen: true, formoptions: {elmsuffix: " (*)"}, editrules: {required: true}},
             {name: 'porcentaje', index: 'porcentaje', editable: true, align: 'left', width: '50', search: true, frozen: true, formoptions: {elmsuffix: " (*)"}, editrules: {required: true}},
@@ -374,7 +374,7 @@ function inicio() {
         height: 220,
         rowList: [10, 20, 30],
         pager: jQuery('#pager2'),
-        sortname: 'id_retencion_fuente',
+        sortname: 'id_retencion',
         shrinkToFit: false,
         sortorder: 'asc',
         // caption: 'Lista Retenciones Fuente',        

@@ -742,7 +742,7 @@ function inicio() {
                 for (var i = 0; i < data.length; i = i + 3) {                                        
                     if(ret.comprobante == data[i]){
                         $("#comprobante").append("<option id="+data[i]+" value="+data[i]+" selected>"+data[i+1]+" - "+data[i+2]+"</option>");                     
-                    }else{
+                    } else {
                         $("#comprobante").append("<option id="+data[i]+" value="+data[i]+">"+data[i+1]+" - "+data[i+2]+"</option>");                
                     }
                     
@@ -911,7 +911,7 @@ function inicio() {
         datatype: 'xml',
         colNames: ['Id', 'Codigo Anexo', 'Código Formulario','Porcentaje','Descripción','Ids', 'Cuenta'],
         colModel: [
-            {name: 'id_retencion_fuente', index: 'id_retencion_fuente',hide: true, editable: true, align: 'center', width: '50', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
+            {name: 'id_retencion', index: 'id_retencion',hide: true, editable: true, align: 'center', width: '50', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
             {name: 'codigo_anexo', index: 'codigo_anexo', editable: true, align: 'left', width: '100', search: false, frozen: true, formoptions: {elmsuffix: " (*)"}, editrules: {required: true}},
             {name: 'formulario', index: 'formulario', editable: true, align: 'left', width: '100', search: true, frozen: true, formoptions: {elmsuffix: " (*)"}, editrules: {required: true}},
             {name: 'porcentaje', index: 'porcentaje', editable: true, align: 'left', width: '50', search: true, frozen: true, formoptions: {elmsuffix: " (*)"}, editrules: {required: true}},
@@ -924,7 +924,7 @@ function inicio() {
         height: 220,
         rowList: [10, 20, 30],
         pager: jQuery('#pager3'),
-        sortname: 'id_retencion_fuente',
+        sortname: 'id_retencion',
         shrinkToFit: false,
         sortorder: 'asc',
         // caption: 'Lista Retenciones Fuente',        
@@ -935,7 +935,7 @@ function inicio() {
          var ret = jQuery("#list3").jqGrid('getRowData', id);
 
          $("#codigo_fuente").val(ret.codigo_anexo);
-         $("#id_codigo_fuente").val(ret.id_retencion_fuente);
+         $("#id_codigo_fuente").val(ret.id_retencion);
 
          $("#buscar_retencion1").dialog("close");    
         }
@@ -978,7 +978,7 @@ function inicio() {
 
             if (id) {
                 $("#codigo_fuente").val(ret.codigo_anexo);
-                $("#id_codigo_fuente").val(ret.id_retencion_fuente);
+                $("#id_codigo_fuente").val(ret.id_retencion);
 
                 $("#buscar_retencion1").dialog("close");
             } else {
@@ -994,7 +994,7 @@ function inicio() {
         datatype: 'xml',
         colNames: ['Id', 'Codigo Anexo', 'Código Formulario','Porcentaje','Descripción','Ids', 'Cuenta'],
         colModel: [
-            {name: 'id_retencion_fuente', index: 'id_retencion_fuente',hide: true, editable: true, align: 'center', width: '50', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
+            {name: 'id_retencion', index: 'id_retencion',hide: true, editable: true, align: 'center', width: '50', search: false, frozen: true, editoptions: {readonly: 'readonly'}, formoptions: {elmprefix: ""}},
             {name: 'codigo_anexo', index: 'codigo_anexo', editable: true, align: 'left', width: '100', search: false, frozen: true, formoptions: {elmsuffix: " (*)"}, editrules: {required: true}},
             {name: 'formulario', index: 'formulario', editable: true, align: 'left', width: '100', search: true, frozen: true, formoptions: {elmsuffix: " (*)"}, editrules: {required: true}},
             {name: 'porcentaje', index: 'porcentaje', editable: true, align: 'left', width: '50', search: true, frozen: true, formoptions: {elmsuffix: " (*)"}, editrules: {required: true}},
@@ -1007,7 +1007,7 @@ function inicio() {
         height: 220,
         rowList: [10, 20, 30],
         pager: jQuery('#pager4'),
-        sortname: 'id_retencion_fuente',
+        sortname: 'id_retencion',
         shrinkToFit: false,
         sortorder: 'asc',
         // caption: 'Lista Retenciones Fuente',        
@@ -1018,7 +1018,7 @@ function inicio() {
          var ret = jQuery("#list4").jqGrid('getRowData', id);
 
          $("#codigo_iva").val(ret.codigo_anexo);
-         $("#id_codigo_iva").val(ret.id_retencion_fuente);
+         $("#id_codigo_iva").val(ret.id_retencion);
 
          $("#buscar_retencion2").dialog("close");    
         }
@@ -1060,7 +1060,7 @@ function inicio() {
 
             if (id) {
                 $("#codigo_iva").val(ret.codigo_anexo);
-                $("#id_codigo_iva").val(ret.id_retencion_fuente);
+                $("#id_codigo_iva").val(ret.id_retencion);
 
                 $("#buscar_retencion2").dialog("close");
             } else {

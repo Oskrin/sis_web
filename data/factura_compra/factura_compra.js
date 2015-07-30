@@ -635,6 +635,40 @@ function guardar_serie() {
     }
 }
 
+function cargar_form_retenciones() {
+    var valor_retenido_iva = 0;
+    var tarifa0 = $('#total_p').val();
+    var tarifa12 = $('#total_p2').val();
+    var monto_iva = $('#iva').val();
+    var porcentaje_fuente = $('#retor_retencion_fuente').val();
+    var porcentaje_iva = $('#retor_retencion_iva').val();
+    var cod_porcentaje_iva = $('#cod_retor_retencion_iva').val();
+    $("#base_iva0").val(tarifa0);
+    $("#base_iva12").val(tarifa12);
+    $("#monto_iva12").val(monto_iva);
+
+    if(cod_porcentaje_iva == '725') {
+        valor_retenido_iva = (parseFloat(monto_iva) * parseFloat(porcentaje_iva)/100)
+        $("#retencion_iva_bienes").val(valor_retenido_iva);
+    } else {
+        if(cod_porcentaje_iva == '727') {
+            valor_retenido_iva = (parseFloat(monto_iva) * parseFloat(porcentaje_iva)/100)
+            $("#retencion_iva_servicios").val(valor_retenido_iva);
+        } else {
+            if(cod_porcentaje_iva == '729') {
+                valor_retenido_iva = (parseFloat(monto_iva) * parseFloat(porcentaje_iva)/100)
+                $("#retencion_iva").val(valor_retenido_iva);
+            } 
+
+        }
+    }
+
+    var valor_retenido_fuente = 0;
+    valor_retenido_fuente = ((parseFloat(tarifa0) + parseFloat(tarifa12)) * parseFloat(porcentaje_fuente)/100)
+    $("#valor_retenido").val(valor_retenido_fuente);
+    $('#myModal').modal();   
+}
+
 function guardar_factura() {
     var tam = jQuery("#list").jqGrid("getRowData");
 
@@ -674,49 +708,52 @@ if ($("#serie").val() === "") {
                                         $("#codigo_barras").focus();
                                         alertify.error("Error... Inrese productos a la factura");
                                     } else {
-                                        var v1 = new Array();
-                                        var v2 = new Array();
-                                        var v3 = new Array();
-                                        var v4 = new Array();
-                                        var v5 = new Array();
-                                        var string_v1 = "";
-                                        var string_v2 = "";
-                                        var string_v3 = "";
-                                        var string_v4 = "";
-                                        var string_v5 = "";
-                                        var fil = jQuery("#list").jqGrid("getRowData");
+                                        cargar_form_retenciones();
+                                        
 
-                                        for (var i = 0; i < fil.length; i++) {
-                                            var datos = fil[i];
-                                            v1[i] = datos['cod_producto'];
-                                            v2[i] = datos['cantidad'];
-                                            v3[i] = datos['precio_u'];
-                                            v4[i] = datos['descuento'];
-                                            v5[i] = datos['total'];
-                                        }
-                                        for (i = 0; i < fil.length; i++) {
-                                            string_v1 = string_v1 + "|" + v1[i];
-                                            string_v2 = string_v2 + "|" + v2[i];
-                                            string_v3 = string_v3 + "|" + v3[i];
-                                            string_v4 = string_v4 + "|" + v4[i];
-                                            string_v5 = string_v5 + "|" + v5[i];
-                                        }
+                                        // var v1 = new Array();
+                                        // var v2 = new Array();
+                                        // var v3 = new Array();
+                                        // var v4 = new Array();
+                                        // var v5 = new Array();
+                                        // var string_v1 = "";
+                                        // var string_v2 = "";
+                                        // var string_v3 = "";
+                                        // var string_v4 = "";
+                                        // var string_v5 = "";
+                                        // var fil = jQuery("#list").jqGrid("getRowData");
 
-                                        var seriee = $("#serie").val();
-                                        $.ajax({
-                                            type: "POST",
-                                            url: "guardar_factura_compra.php",
-                                            data: "id_proveedor=" + $("#id_proveedor").val() + "&comprobante=" + $("#comprobante").val() + "&fecha_actual=" + $("#fecha_actual").val() + "&hora_actual=" + $("#hora_actual").val() + "&fecha_registro=" + $("#fecha_registro").val() + "&fecha_emision=" + $("#fecha_emision").val() + "&fecha_caducidad=" + $("#fecha_caducidad").val() + "&tipo_comprobante=" + $("#tipo_comprobante").val() + "&serie=" + seriee + "&autorizacion=" + $("#autorizacion").val() + "&cancelacion=" + $("#cancelacion").val() + "&formas=" + $("#formas").val() + "&tarifa0=" + $("#total_p").val() + "&tarifa12=" + $("#total_p2").val() + "&iva=" + $("#iva").val() + "&desc=" + $("#desc").val() + "&tot=" + $("#tot").val() + "&campo1=" + string_v1 + "&campo2=" + string_v2 + "&campo3=" + string_v3 + "&campo4=" + string_v4 + "&campo5=" + string_v5,
-                                            success: function(data) {
-                                               var  val = data;
-                                                if (val == 1) {
-                                                    alertify.alert("Factura Guardada correctamente", function(){
-                                                    window.open("../../reportes/factura_compra.php?hoja=A4&id="+$("#comprobante").val(),'_blank');    
-                                                    location.reload();
-                                                    });
-                                                }
-                                            }
-                                        });
+                                        // for (var i = 0; i < fil.length; i++) {
+                                        //     var datos = fil[i];
+                                        //     v1[i] = datos['cod_producto'];
+                                        //     v2[i] = datos['cantidad'];
+                                        //     v3[i] = datos['precio_u'];
+                                        //     v4[i] = datos['descuento'];
+                                        //     v5[i] = datos['total'];
+                                        // }
+                                        // for (i = 0; i < fil.length; i++) {
+                                        //     string_v1 = string_v1 + "|" + v1[i];
+                                        //     string_v2 = string_v2 + "|" + v2[i];
+                                        //     string_v3 = string_v3 + "|" + v3[i];
+                                        //     string_v4 = string_v4 + "|" + v4[i];
+                                        //     string_v5 = string_v5 + "|" + v5[i];
+                                        // }
+
+                                        // var seriee = $("#serie").val();
+                                        // $.ajax({
+                                        //     type: "POST",
+                                        //     url: "guardar_factura_compra.php",
+                                        //     data: $("#factura_compra_form").serialize() + "&campo1=" + string_v1 + "&campo2=" + string_v2 + "&campo3=" + string_v3 + "&campo4=" + string_v4 + "&campo5=" + string_v5,
+                                        //     success: function(data) {
+                                        //        var  val = data;
+                                        //         if (val != 0) {
+                                        //             alertify.alert("Factura Guardada correctamente", function(){
+                                        //             window.open("../../reportes/factura_compra.php?hoja=A4&id="+ val,'_blank');    
+                                        //             location.reload();
+                                        //             });
+                                        //         }
+                                        //     }
+                                        // });
                                     }
                                 }
                             }
@@ -1004,6 +1041,27 @@ function limpiar_proveedor() {
 }
 
 function inicio() {
+    /////////////cambiar idioma///////
+    $.datepicker.regional['es'] = {
+        closeText: 'Cerrar',
+        prevText: '<Ant',
+        nextText: 'Sig>',
+        currentText: 'Hoy',
+        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+        dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+        dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+        dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+        weekHeader: 'Sm',
+        dateFormat: 'dd/mm/yy',
+        firstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: ''
+    };
+    $.datepicker.setDefaults($.datepicker.regional['es']);
+    // fin cambio idioma
+
     // comprobar datos retencion
     $.getJSON('datos_retencion.php', function(data) {
         var tama = data.length;
@@ -1174,37 +1232,7 @@ function inicio() {
                     $("#codigo_barras").focus();
                     alertify.error("Error... Inrese productos a la factura");
                 } else {
-                var valor_retenido_iva = 0;
-                var tarifa0 = $('#total_p').val();
-                var tarifa12 = $('#total_p2').val();
-                var monto_iva = $('#iva').val();
-                var porcentaje_fuente = $('#retor_retencion_fuente').val();
-                var porcentaje_iva = $('#retor_retencion_iva').val();
-                var cod_porcentaje_iva = $('#cod_retor_retencion_iva').val();
-                $("#base_iva0").val(tarifa0);
-                $("#base_iva12").val(tarifa12);
-                $("#monto_iva12").val(monto_iva);
-
-                if(cod_porcentaje_iva == '725') {
-                    valor_retenido_iva = (parseFloat(monto_iva) * parseFloat(porcentaje_iva)/100)
-                    $("#retencion_iva_bienes").val(valor_retenido_iva);
-                } else {
-                    if(cod_porcentaje_iva == '727') {
-                        valor_retenido_iva = (parseFloat(monto_iva) * parseFloat(porcentaje_iva)/100)
-                        $("#retencion_iva_servicios").val(valor_retenido_iva);
-                    } else {
-                        if(cod_porcentaje_iva == '729') {
-                            valor_retenido_iva = (parseFloat(monto_iva) * parseFloat(porcentaje_iva)/100)
-                            $("#retencion_iva").val(valor_retenido_iva);
-                        } 
-
-                    }
-                }
-
-                var valor_retenido_fuente = 0;
-                valor_retenido_fuente = ((parseFloat(tarifa0) + parseFloat(tarifa12)) * parseFloat(porcentaje_fuente)/100)
-                $("#valor_retenido").val(valor_retenido_fuente);
-                $('#myModal').modal();
+                    cargar_form_retenciones();
                 }
             }
         }
@@ -1320,16 +1348,6 @@ function inicio() {
                 }); 
                 // fin carga
 
-                // cargas adicionales
-                // $.getJSON('retornar_codigo_compras.php?com=' + ui.item.id_proveedor, function(data) {
-                //     var tama = data.length;
-                //     if (tama !== 0) {
-                //         for (var i = 0; i < tama; i = i + 1) {
-                //             $("#retor_codigo_compras").val(data[i]);
-                //         }
-                //     }
-                // });
-
                 $.getJSON('retornar_retencion_fuente.php?com=' + ui.item.id_proveedor, function(data) {
                     var tama = data.length;
                     if (tama !== 0) {
@@ -1375,12 +1393,76 @@ function inicio() {
                     $("#ruc_ci").val(ui.item.value);
                     $("#empresa").val(ui.item.empresa);
                     $("#id_proveedor").val(ui.item.id_proveedor);
+                    $("#id_sustento").val(ui.item.id_sustento);
+                    $("#id_comprobante_combo").val(ui.item.id_comprobante_combo);
+                    $("#autorizacion").val(ui.item.autorizacion);
                     return false;
                     },
                     select: function(event, ui) {
                     $("#ruc_ci").val(ui.item.value);
                     $("#empresa").val(ui.item.empresa);
                     $("#id_proveedor").val(ui.item.id_proveedor);
+                    $("#id_sustento").val(ui.item.id_sustento);
+                    $("#id_comprobante_combo").val(ui.item.id_comprobante_combo);
+                    $("#autorizacion").val(ui.item.autorizacion);
+
+                    // cargar comprobante
+                    $("#sustento").html('<option value="">........Seleccione........</option>');
+                    $.ajax({
+                        type: "POST",
+                        url: "../sustento_comprobante/cargar_sustento.php",        
+                        dataType:'json',
+                        success: function(data) {            
+                            for (var i = 0; i < data.length; i=i+3) {
+                                if(ui.item.id_sustento == data[i]){
+                                    $("#sustento").append("<option id="+data[i]+" value="+data[i]+" selected>"+data[i+1]+" - "+data[i+2]+"</option>");                
+                                } else {
+                                    $("#sustento").append("<option id="+data[i]+" value="+data[i]+">"+data[i+1]+" - "+data[i+2]+"</option>");                
+                                }
+                            }
+                        }
+                    });
+                    // fin carga
+
+                    // cargar sustento
+                    $.ajax({
+                        type: "POST",
+                        url: "cargar_comprobante.php?id_sustento="+ui.item.id_sustento,        
+                        dataType:'json',
+                        success: function(data) {                            
+                            console.log(data)
+                            for (var i = 0; i < data.length; i = i + 3) {                                        
+                                if(ui.item.id_comprobante_combo == data[i]) {
+                                    $("#comprobante_combo").append("<option id="+data[i]+" value="+data[i]+" selected>"+data[i+1]+" - "+data[i+2]+"</option>");                     
+                                } else {
+                                    $("#comprobante_combo").append("<option id="+data[i]+" value="+data[i]+">"+data[i+1]+" - "+data[i+2]+"</option>");                
+                                }
+                            }
+                        }
+                    }); 
+                    // fin carga
+
+                    $.getJSON('retornar_retencion_fuente.php?com=' + ui.item.id_proveedor, function(data) {
+                        var tama = data.length;
+                        if (tama !== 0) {
+                            for (var i = 0; i < tama; i = i + 2) {
+                                $("#id_retor_retencion_fuente").val(data[i]);
+                                $("#retor_retencion_fuente").val(data[i + 1]);
+                            }
+                        }
+                    });
+
+                    $.getJSON('retornar_retencion_iva.php?com=' + ui.item.id_proveedor, function(data) {
+                        var tama = data.length;
+                        if (tama !== 0) {
+                            for (var i = 0; i < tama; i = i + 3) {
+                                $("#id_retor_retencion_iva").val(data[i]);
+                                $("#cod_retor_retencion_iva").val(data[i + 1]);
+                                $("#retor_retencion_iva").val(data[i + 2]);
+                            }
+                        }
+                    });
+                    // fin carga
                     return false;
                     }
 
@@ -1581,6 +1663,9 @@ function inicio() {
         dateFormat: 'yy-mm-dd'
     }).datepicker('setDate', 'today');
     $("#cancelacion").datepicker({
+        dateFormat: 'yy-mm-dd'
+    }).datepicker('setDate', 'today');
+    $("#fecha_emision_retencion").datepicker({
         dateFormat: 'yy-mm-dd'
     }).datepicker('setDate', 'today');
 

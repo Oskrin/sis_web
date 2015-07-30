@@ -10,7 +10,7 @@ $search = $_GET['_search'];
 
 if (!$sidx)
     $sidx = 1;
-$result = pg_query("SELECT COUNT(*) AS count FROM retencion_fuentes");
+$result = pg_query("SELECT COUNT(*) AS count FROM retenciones");
 $row = pg_fetch_row($result);
 $count = $row[0];
 if ($count > 0 && $limit > 0) {
@@ -24,41 +24,38 @@ $start = $limit * $page - $limit;
 if ($start < 0)
     $start = 0;
 if ($search == 'false') {
-    $SQL = "SELECT  * FROM retencion_fuentes  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' ORDER BY $sidx $sord offset $start limit $limit";
+    $SQL = "SELECT  * FROM retenciones  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' ORDER BY $sidx $sord offset $start limit $limit";
 } else {
-    $campo = $_GET['searchField'];
-    if ($campo == 'ruc_ci') {
-        $campo = 'identificacion';
-    }
     if ($_GET['searchOper'] == 'eq') {
-        $SQL = "SELECT  * FROM retencion_fuentes  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' and $campo = '$_GET[searchString]' ORDER BY $sidx $sord offset $start limit $limit";
+        $SQL = "SELECT  * FROM retenciones  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' and  $_GET[searchField] = '$_GET[searchString]' ORDER BY $sidx $sord offset $start limit $limit";
+        // $SQL = "SELECT  * FROM retenciones  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' and $_GET[searchField] = '$_GET[searchString]' ORDER BY $sidx $sord offset $start limit $limit";
     }
     if ($_GET['searchOper'] == 'ne') {
-        $SQL = "SELECT  * FROM retencion_fuentes  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' and $campo != '$_GET[searchString]' ORDER BY $sidx $sord offset $start limit $limit";
+        $SQL = "SELECT  * FROM retenciones  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' and $_GET[searchField] != '$_GET[searchString]' ORDER BY $sidx $sord offset $start limit $limit";
     }
     if ($_GET['searchOper'] == 'bw') {
-        $SQL = "SELECT  * FROM retencion_fuentes  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' and $campo like '$_GET[searchString]%' ORDER BY $sidx $sord offset $start limit $limit";
+        $SQL = "SELECT  * FROM retenciones  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' and $_GET[searchField] like '$_GET[searchString]%' ORDER BY $sidx $sord offset $start limit $limit";
     }
     if ($_GET['searchOper'] == 'bn') {
-        $SQL = "SELECT  * FROM retencion_fuentes  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' and $campo not like '$_GET[searchString]%' ORDER BY $sidx $sord offset $start limit $limit";
+        $SQL = "SELECT  * FROM retenciones  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' and $_GET[searchField] not like '$_GET[searchString]%' ORDER BY $sidx $sord offset $start limit $limit";
     }
     if ($_GET['searchOper'] == 'ew') {
-        $SQL = "SELECT  * FROM retencion_fuentes  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' and $campo like '%$_GET[searchString]' ORDER BY $sidx $sord offset $start limit $limit";
+        $SQL = "SELECT  * FROM retenciones  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' and $_GET[searchField] like '%$_GET[searchString]' ORDER BY $sidx $sord offset $start limit $limit";
     }
     if ($_GET['searchOper'] == 'en') {
-        $SQL = "SELECT  * FROM retencion_fuentes  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' and $campo not like '%$_GET[searchString]' ORDER BY $sidx $sord offset $start limit $limit";
+        $SQL = "SELECT  * FROM retenciones  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' and $_GET[searchField] not like '%$_GET[searchString]' ORDER BY $sidx $sord offset $start limit $limit";
     }
     if ($_GET['searchOper'] == 'cn') {
-        $SQL = "SELECT  * FROM retencion_fuentes  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' and $campo like '%$_GET[searchString]%' ORDER BY $sidx $sord offset $start limit $limit";
+        $SQL = "SELECT  * FROM retenciones  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' and $_GET[searchField] like '%$_GET[searchString]%' ORDER BY $sidx $sord offset $start limit $limit";
     }
     if ($_GET['searchOper'] == 'nc') {
-        $SQL = "SELECT  * FROM retencion_fuentes  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' and $campo not like '%$_GET[searchString]%' ORDER BY $sidx $sord offset $start limit $limit";
+        $SQL = "SELECT  * FROM retenciones  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' and $_GET[searchField] not like '%$_GET[searchString]%' ORDER BY $sidx $sord offset $start limit $limit";
     }
     if ($_GET['searchOper'] == 'in') {
-        $SQL = "SELECT  * FROM retencion_fuentes  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' and $campo like '%$_GET[searchString]%' ORDER BY $sidx $sord offset $start limit $limit";
+        $SQL = "SELECT  * FROM retenciones  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' and $_GET[searchField] like '%$_GET[searchString]%' ORDER BY $sidx $sord offset $start limit $limit";
     }
     if ($_GET['searchOper'] == 'ni') {
-        $SQL = "SELECT  * FROM retencion_fuentes  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' and $campo not like '%$_GET[searchString]%' ORDER BY $sidx $sord offset $start limit $limit";
+        $SQL = "SELECT  * FROM retenciones  R, plan_cuentas P where R.id_plan_cuentas = P.id_plan_cuentas and R.estado='Activo' and $_GET[searchField] not like '%$_GET[searchString]%' ORDER BY $sidx $sord offset $start limit $limit";
     }
 }
 

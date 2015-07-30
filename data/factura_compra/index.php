@@ -570,7 +570,7 @@ $cont1++;
                                               <div class="form-group">
                                                 <label class="col-md-6">Fecha Emisión Comprobante:</label>
                                                 <div class="form-group col-md-6 no-padding">                                
-                                                  <input type="text" name="fecha_emision"  id="fecha_emision" required readonly placeholder="" class="form-control" />
+                                                  <input type="text" name="fecha_emision_retencion"  id="fecha_emision_retencion" required readonly placeholder="" class="form-control" />
                                                 </div> 
                                               </div> 
                                             </div>

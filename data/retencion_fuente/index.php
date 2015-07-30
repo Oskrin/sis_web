@@ -74,7 +74,7 @@ include('../menu/app.php');
                             <div class="form-group">
                               <label>Formulario 103<font color="red">*</font></label>
                               <input type="text" name="formulario"  id="formulario" class="form-control" />
-                              <input type="hidden" name="id_retencion_fuente"  id="id_retencion_fuente" class="form-control" />
+                              <input type="hidden" name="id_retencion"  id="id_retencion" class="form-control" />
                             </div>
 
                             <div class="form-group">
