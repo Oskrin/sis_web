@@ -168,6 +168,20 @@ if ($forma === "Credito") {
 
 // guardar retenciones
 
+/////////////////contador libro diario/////////////
+$cont9 = 0;
+$consulta = pg_query("select  max(id_retencion_compra) from retencion_compra");
+while ($row = pg_fetch_row($consulta)) {
+    $cont9 = $row[0];
+}
+$cont9 ++;
+//////////////////////////
+//
+// guardar retenciones compra
+pg_query("insert into retencion_compra values('$cont9','1','$cont1','".$_POST['secuencial']."','".$_POST['base_iva0']."','".$_POST['base_iva12']."','".$_POST['nobase_iva']."','".$_POST['monto_iva12']."','".$_POST['monto_ice']."','Activo')");
+// echo "insert into retencion_compra values('$cont9','1','cont1','$_POST[secuencial]','$_POST[base_iva0]','$_POST[base_iva12]','$_POST[nobase_iva]','$_POST[monto_iva12]','$_POST[monto_ice]','Activo')";
+
+
 // $data = 1;
 
 echo $cont1;

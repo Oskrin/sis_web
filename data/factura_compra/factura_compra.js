@@ -1242,6 +1242,52 @@ function inicio() {
     // });
     });
 
+    $('.btnFin').click(function(){
+        var v1 = new Array();
+        var v2 = new Array();
+        var v3 = new Array();
+        var v4 = new Array();
+        var v5 = new Array();
+        var string_v1 = "";
+        var string_v2 = "";
+        var string_v3 = "";
+        var string_v4 = "";
+        var string_v5 = "";
+        var fil = jQuery("#list").jqGrid("getRowData");
+
+        for (var i = 0; i < fil.length; i++) {
+            var datos = fil[i];
+            v1[i] = datos['cod_producto'];
+            v2[i] = datos['cantidad'];
+            v3[i] = datos['precio_u'];
+            v4[i] = datos['descuento'];
+            v5[i] = datos['total'];
+        }
+        for (i = 0; i < fil.length; i++) {
+            string_v1 = string_v1 + "|" + v1[i];
+            string_v2 = string_v2 + "|" + v2[i];
+            string_v3 = string_v3 + "|" + v3[i];
+            string_v4 = string_v4 + "|" + v4[i];
+            string_v5 = string_v5 + "|" + v5[i];
+        }
+
+        var seriee = $("#serie").val();
+        $.ajax({
+            type: "POST",
+            url: "guardar_factura_compra.php",
+            data: $("#factura_compra_form").serialize() + "&campo1=" + string_v1 + "&campo2=" + string_v2 + "&campo3=" + string_v3 + "&campo4=" + string_v4 + "&campo5=" + string_v5,
+            success: function(data) {
+               var  val = data;
+                if (val != 0) {
+                    // alertify.alert("Factura Guardada correctamente", function(){
+                    // window.open("../../reportes/factura_compra.php?hoja=A4&id="+ val,'_blank');    
+                    // location.reload();
+                    // });
+                }
+            }
+        });
+    });    
+
     $("#btncargar").on("click", abrirDialogo);
     $("#btnAgregar").on("click", agregar);
     $("#btnGuardarSeries").on("click", guardar_serie);
