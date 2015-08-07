@@ -175,10 +175,19 @@ include('../menu/app.php');
                                 <button class="btn bg-olive" type="button" id="btnFuente">Agregar</button>
                               </span>
                             </div>
+
+                            <label style="margin-top: 15px">Código Retención Fuente : <font color="red">*</font></label>
+                            <div class="input-group" >
+                              <input type="text" name="codigo_fuente2" id="codigo_fuente2" placeholder="Buscar....." class="form-control" />
+                              <input type="hidden" name="id_codigo_fuente2" id="id_codigo_fuente2" readonly class="form-control" />
+                              <span class="input-group-btn">
+                                <button class="btn bg-olive" type="button" id="btnFuente">Agregar</button>
+                              </span>
+                            </div>
                           </div>
 
                           <div class="col-md-4">
-                            <div class="form-group">
+                            <div class="form-group" >
                               <label>Forma de Pago:</label>
                               <select class="form-control" name="forma_pago" id="forma_pago">
                                 <option value="Contado" selected>Contado</option>
@@ -235,6 +244,15 @@ include('../menu/app.php');
                             <div class="input-group">
                               <input type="text" name="codigo_iva" id="codigo_iva" placeholder="Buscar....." class="form-control" />
                               <input type="hidden" name="id_codigo_iva" id="id_codigo_iva" readonly class="form-control" />
+                              <span class="input-group-btn">
+                                <button class="btn bg-olive" type="button" id="btnIva">Agregar</button>
+                              </span>
+                            </div>
+
+                            <label style="margin-top: 15px">Código Retención Iva:</label>
+                            <div class="input-group">
+                              <input type="text" name="codigo_iva2" id="codigo_iva2" placeholder="Buscar....." class="form-control" />
+                              <input type="hidden" name="id_codigo_iva2" id="id_codigo_iva2" readonly class="form-control" />
                               <span class="input-group-btn">
                                 <button class="btn bg-olive" type="button" id="btnIva">Agregar</button>
                               </span>

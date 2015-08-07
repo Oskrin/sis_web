@@ -166,23 +166,38 @@ if ($forma === "Credito") {
 }
 
 
-// guardar retenciones
-
-/////////////////contador libro diario/////////////
+// guardar retenciones compra
 $cont9 = 0;
 $consulta = pg_query("select  max(id_retencion_compra) from retencion_compra");
 while ($row = pg_fetch_row($consulta)) {
     $cont9 = $row[0];
 }
 $cont9 ++;
-//////////////////////////
-//
-// guardar retenciones compra
+
 pg_query("insert into retencion_compra values('$cont9','1','$cont1','".$_POST['secuencial']."','".$_POST['base_iva0']."','".$_POST['base_iva12']."','".$_POST['nobase_iva']."','".$_POST['monto_iva12']."','".$_POST['monto_ice']."','Activo')");
-// echo "insert into retencion_compra values('$cont9','1','cont1','$_POST[secuencial]','$_POST[base_iva0]','$_POST[base_iva12]','$_POST[nobase_iva]','$_POST[monto_iva12]','$_POST[monto_ice]','Activo')";
+// fin 
 
+// guardar retencion_fuente
+$cont10 = 0;
+$consulta = pg_query("select  max(id_retencion_fuente) from retencion_fuente");
+while ($row = pg_fetch_row($consulta)) {
+    $cont10 = $row[0];
+}
+$cont10 ++;
 
-// $data = 1;
+pg_query("insert into retencion_fuente values('$cont10','$cont9','Renta','".$_POST['fecha_emision_retencion']."','".$_POST['valor_retenido']."','Activo')");
+// fin
+
+// guardar detalle retencion fuente
+$cont11 = 0;
+$consulta = pg_query("select  max(id_detalle_retencion_fuente) from detalle_retencion_fuente");
+while ($row = pg_fetch_row($consulta)) {
+    $cont11 = $row[0];
+}
+$cont11 ++;
+
+pg_query("insert into detalle_retencion_fuente values('$cont11','$cont10','".$_POST['fecha_emision_retencion']."','".$_POST['valor_retenido']."','Activo')");
+// fin
 
 echo $cont1;
 ?>

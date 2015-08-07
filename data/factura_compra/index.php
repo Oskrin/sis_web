@@ -552,7 +552,7 @@ $cont1++;
                                               <div class="form-group">
                                                 <label class="col-md-6">N° Secuencial:</label>
                                                 <div class="form-group col-md-6 no-padding">                                
-                                                  <input type="text" name="secuencial"  id="secuencial" required placeholder="" class="form-control" />
+                                                  <input type="text" name="secuencial"  id="secuencial" required class="form-control" />
                                                 </div> 
                                               </div> 
                                             </div>

@@ -1142,7 +1142,7 @@ function inicio() {
         }
     });
 
-    $('.btnNext3').click(function(){
+    $('.btnNext3').click(function() {
         if($("#establecimiento").val() == "")  {
            $("#establecimiento").focus();
             alertify.error("Error... Ingrese el establecimiento"); 

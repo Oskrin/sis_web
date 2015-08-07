@@ -414,6 +414,19 @@ function punto(e){
     return true;   
 }
 
+function limpiar_adicionales() {
+    $("#codigo_compras").val("");
+    $("#id_codigo_compras").val("");
+    $("#codigo_fuente").val("");
+    $("#id_codigo_fuente").val("");
+    $("#codigo_fuente2").val("");
+    $("#id_codigo_fuente2").val("");
+    $("#codigo_iva").val("");
+    $("#id_codigo_iva").val("");
+    $("#codigo_iva2").val("");
+    $("#id_codigo_iva2").val("");
+}
+
 function inicio() {
 
     $("#buscar_plan").dialog(dialogo_cuenta);
@@ -751,15 +764,25 @@ function inicio() {
         }); 
         //fin carga
 
-        // cargar codigo compras y codigo retencion fuente
+        // cargar codigo compras 
+        $.getJSON('retornar_codigo_compras.php?id=' + ret.id_proveedor, function(data) {
+        var tama = data.length;
+        if (tama !== 0) {
+            for (var i = 0; i < tama; i = i + 2) {
+                $("#id_codigo_compras").val(data[i]);
+                $("#codigo_compras").val(data[i + 1 ]);
+                }
+            }
+        });
+        //fin carga
+
+        // codigo retencion fuente
         $.getJSON('retornar_plan_fuente.php?id=' + ret.id_proveedor, function(data) {
         var tama = data.length;
         if (tama !== 0) {
-            for (var i = 0; i < tama; i = i + 4) {
-                $("#id_codigo_compras").val(data[i]);
-                $("#codigo_compras").val(data[i + 1 ]);
-                $("#id_codigo_fuente").val(data[i + 2]);
-                $("#codigo_fuente").val(data[i + 3]);
+            for (var i = 0; i < tama; i = i + 2) {
+                $("#id_codigo_fuente").val(data[i]);
+                $("#codigo_fuente").val(data[i + 1]);
                 }
             }
         });
@@ -777,7 +800,8 @@ function inicio() {
         });
         //fin carga
         $("#btnGuardar").attr("disabled", true);
-        $("#proveedores").dialog("close");    
+        $("#proveedores").dialog("close");
+        limpiar_adicionales();   
         }
     }).jqGrid('navGrid', '#pager',
             {
