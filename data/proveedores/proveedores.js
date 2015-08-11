@@ -306,7 +306,7 @@ function eliminar_proveedor() {
     }
 }
 
-function validar_acceso(){
+function validar_acceso() {
     if($("#clave").val() == ""){
         $("#clave").focus();
         alertify.error("Ingrese la clave");
@@ -331,7 +331,7 @@ function validar_acceso(){
     }   
 }
 
-function aceptar(){
+function aceptar() {
     $.ajax({
         type: "POST",
         url: "eliminar_proveedor.php",
@@ -353,13 +353,13 @@ function aceptar(){
     }); 
 }
 
-function cancelar(){
+function cancelar() {
     $("#seguro").dialog("close");   
     $("#clave_permiso").dialog("close");    
     $("#clave").val("");    
 }
 
-function cancelar_acceso(){
+function cancelar_acceso() {
     $("#clave_permiso").dialog("close");     
     $("#clave").val("");
 }
